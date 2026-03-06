@@ -1,0 +1,68 @@
+.game-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.game-screen__header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.game-screen__village {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.game-screen__weather {
+  font-size: 12px;
+  color: var(--color-text-dim);
+  font-style: italic;
+}
+
+.game-screen__turn {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--color-text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.game-screen__main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  overflow: hidden;
+  position: relative;
+}
+
+.game-screen__map {
+  border-right: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.game-screen__log {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-screen__log-header {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}

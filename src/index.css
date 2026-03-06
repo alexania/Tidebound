@@ -1,0 +1,73 @@
+:root {
+  --color-bg:        #0e0e12;
+  --color-surface:   #1a1a2e;
+  --color-surface2:  #22223a;
+  --color-border:    #4a3728;
+  --color-accent:    #c4a882;
+  --color-text:      #e8ddd0;
+  --color-text-dim:  #8b7355;
+  --color-confirmed: #5a8a5a;
+  --color-locked:    #3a3a4a;
+  --color-error:     #8a3a3a;
+  --font-body:       'Georgia', serif;
+  --font-mono:       'Courier New', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button {
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 6px 14px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+  font-size: 13px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 6px 10px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 1px solid var(--color-accent);
+  outline-offset: -1px;
+}
+
+select option {
+  background: var(--color-surface);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

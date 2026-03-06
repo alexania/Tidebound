@@ -1,0 +1,60 @@
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.action-bar__pips {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.action-bar__pip {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+}
+
+.action-bar__pip--full {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.action-bar__label {
+  font-size: 11px;
+  color: var(--color-text-dim);
+  letter-spacing: 1px;
+  margin-right: 8px;
+}
+
+.action-bar__spacer {
+  flex: 1;
+}
+
+.action-bar__phase {
+  font-size: 11px;
+  color: var(--color-text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.action-bar button {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.action-bar__primary {
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent) !important;
+}
+
+.action-bar__primary:hover:not(:disabled) {
+  background: rgba(196, 168, 130, 0.08) !important;
+}

@@ -1,0 +1,120 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 32px;
+}
+
+.menu__title {
+  font-size: 52px;
+  letter-spacing: 12px;
+  color: var(--color-accent);
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.menu__subtitle {
+  color: var(--color-text-dim);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.menu__difficulties {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.menu__difficulties button {
+  min-width: 120px;
+  padding: 10px 24px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.api-key-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.api-key-screen h2 {
+  font-size: 18px;
+  font-weight: normal;
+  color: var(--color-accent);
+  letter-spacing: 2px;
+}
+
+.api-key-screen p {
+  color: var(--color-text-dim);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.api-key-screen input {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.api-key-screen .error {
+  color: var(--color-error);
+  font-size: 12px;
+}
+
+.api-key-screen .btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.generating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 16px;
+  color: var(--color-text-dim);
+}
+
+.generating h2 {
+  color: var(--color-accent);
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+.solved-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 24px;
+  text-align: center;
+}
+
+.solved-screen h2 {
+  font-size: 28px;
+  font-weight: normal;
+  color: var(--color-accent);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.solved-screen .score {
+  font-size: 48px;
+  color: var(--color-confirmed);
+}
+
+.solved-screen p {
+  color: var(--color-text-dim);
+}

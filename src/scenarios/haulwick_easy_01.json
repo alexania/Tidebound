@@ -1,0 +1,654 @@
+{
+  "village": {
+    "name": "Haulwick",
+    "history": "Haulwick was settled before the parish records began, by families whose surnames still appear on every door and gravestone in the village. The founding families came — or returned — to this particular stretch of coast for reasons no living person will state plainly. The land curves here in a way that catches both the tide and something else, something the old ones called the Listening. The chapel was built over an older structure, and the older structure was built over something older still. Children are taught not to walk the cliff path after the autumn equinox. They are not told why. They do not ask.",
+    "season": "autumn",
+    "weather": "low fog that has not lifted in four days"
+  },
+  "crime": {
+    "cause_of_death": "drowning",
+    "murder_location": "cliffs",
+    "body_found_location": "harbour",
+    "body_was_moved": true,
+    "time_of_death": "between ten and midnight",
+    "perpetrator_ids": ["elowen_vane"],
+    "motive": "The victim had discovered that Elowen Vane had been falsifying the village tithe records for the old congregation for three years, siphoning funds meant for the founding rites. He intended to expose her before the autumn observance. She could not allow that.",
+    "hidden_truth": null
+  },
+  "characters": [
+    {
+      "id": "maren_coll",
+      "name": "Maren Coll",
+      "role": "victim",
+      "local": true,
+      "home_location": "cottage_row",
+      "description": "Maren Coll kept the village accounts and had done so for eleven years without complaint. He was a quiet man who walked the same route each evening — down to the harbour, back by the chapel — and neighbours say he had seemed troubled in the weeks before he died. His wife left Haulwick two winters ago and did not say where she was going."
+    },
+    {
+      "id": "elowen_vane",
+      "name": "Elowen Vane",
+      "role": "perpetrator",
+      "local": true,
+      "home_location": "manor",
+      "description": "Elowen Vane administers the manor's affairs and, by extension, much of the village's institutional memory. She is precise, unhurried, and has a way of asking questions that makes people feel they are the ones being examined. She was seen near the cliffs path on the night in question but has offered no account of why."
+    },
+    {
+      "id": "tomsin_roke",
+      "name": "Tomsin Roke",
+      "role": "suspect",
+      "local": true,
+      "home_location": "tavern",
+      "description": "Tomsin Roke keeps the tavern and drinks as much as he pours, which means he remembers evenings imperfectly and tells them imperfectly too. He and Maren Coll had argued loudly three nights before the death — something about a debt that was not a debt, a favour that had curdled. He has a bruise on his right hand he has not explained."
+    },
+    {
+      "id": "physician_aldric",
+      "name": "Aldric Fetch",
+      "role": "suspect",
+      "local": false,
+      "home_location": "doctors_house",
+      "description": "Aldric Fetch came to Haulwick eight years ago from somewhere inland and has never been fully trusted for it. He is thorough and cold in his professional manner, and some in the village believe he keeps records of things he should not. He was the one who confirmed the body was Maren Coll, and he did so without visible distress."
+    },
+    {
+      "id": "sister_orvyn",
+      "name": "Sister Orvyn",
+      "role": "suspect",
+      "local": true,
+      "home_location": "chapel",
+      "description": "Sister Orvyn tends the chapel and its older annexe, the one that does not appear on any official survey. She knew Maren Coll through the congregation and has said only that he came to her recently with a question she declined to answer. Her hands were wet when she was found at morning prayers, though it had not rained."
+    },
+    {
+      "id": "pell_darvish",
+      "name": "Pell Darvish",
+      "role": "noise",
+      "local": true,
+      "home_location": "harbour",
+      "description": "Pell Darvish mends nets at the harbour and watches everything with the incurious patience of someone who has seen a great deal and learned to store it quietly. He speaks rarely and in fragments. He was present the morning the body was found and has not left the harbour since."
+    },
+    {
+      "id": "wren_cass",
+      "name": "Wren Cass",
+      "role": "noise",
+      "local": false,
+      "home_location": "forest_edge",
+      "description": "Wren Cass appeared in Haulwick six weeks ago and has given no satisfactory reason for staying. She sleeps in the old shepherd's shelter at the forest edge and buys bread from the baker without meeting eyes. People have noticed her watching the lighthouse. She watched it the night Maren Coll died, she says, as if that is an answer."
+    }
+  ],
+  "items": [
+    {
+      "id": "ledger_book",
+      "name": "Parish Ledger",
+      "description": "A water-damaged accounting book whose most recent entries have been made in two different hands, the second correcting the first with small, careful alterations.",
+      "starting_location": "manor"
+    },
+    {
+      "id": "torn_shawl",
+      "name": "Torn Wool Shawl",
+      "description": "A length of dark wool caught on the cliff-path gorse, still damp, smelling of the sea and something faintly resinous.",
+      "starting_location": "cliffs"
+    },
+    {
+      "id": "ink_letter",
+      "name": "Unsent Letter",
+      "description": "A folded letter addressed to no one, in Maren Coll's handwriting, describing something he had found and intended to bring to the attention of the village assembly.",
+      "starting_location": "cottage_row"
+    },
+    {
+      "id": "tide_calendar",
+      "name": "Tide Calendar",
+      "description": "A printed sheet of tide times with a single evening circled in red ink, the circle made by a hand other than the printer's.",
+      "starting_location": "lighthouse"
+    },
+    {
+      "id": "brass_button",
+      "name": "Coat Button",
+      "description": "A brass button of the kind sewn onto the manor household's formal coats, found wedged in the cliff-path mud three feet from the drop.",
+      "starting_location": "cliffs"
+    },
+    {
+      "id": "physicians_notes",
+      "name": "Examination Notes",
+      "description": "Aldric Fetch's handwritten notes from his examination of the body, recording details he did not include in his public statement to the constable.",
+      "starting_location": "doctors_house"
+    }
+  ],
+  "locations": [
+    {
+      "id": "harbour",
+      "flavour": "The fog sits on the water like something that has decided to stay. The boats are tied and still, and the gulls are not calling."
+    },
+    {
+      "id": "tavern",
+      "flavour": "The fire is too large for the room and the smoke drifts the wrong direction. No one at the bar is looking at anyone else."
+    },
+    {
+      "id": "lighthouse",
+      "flavour": "The light turns without pause, as it always has, pointing at whatever it has always pointed at. The keeper does not come to the door easily."
+    },
+    {
+      "id": "chapel",
+      "flavour": "The pews face the altar and the altar faces a wall in which, if you look at the stonework long enough, you begin to see an older arrangement of symbols beneath the plaster."
+    },
+    {
+      "id": "doctors_house",
+      "flavour": "Every surface is clean and labelled and the smell of something chemical almost covers the smell of the sea. Almost."
+    },
+    {
+      "id": "manor",
+      "flavour": "The manor sits above the village with the patience of something that has outlasted many of the people inside it. The upper windows are dark."
+    },
+    {
+      "id": "cottage_row",
+      "flavour": "The cottages are close together and the walls are thin, and it is said — quietly — that neighbours here have always known more than they have ever admitted to."
+    },
+    {
+      "id": "cliffs",
+      "flavour": "The path runs along the headland and the drop is immediate and unguarded. Autumn has left the gorse dry. The wind comes in from the north and does not vary."
+    },
+    {
+      "id": "forest_edge",
+      "flavour": "The trees stop in a line that is too straight to be natural, and on the other side of that line the light is different and the birds do not follow."
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "How did Maren Coll die?",
+      "answer_options": [
+        "Drowning",
+        "A blow to the head",
+        "Poisoning",
+        "Exposure and cold",
+        "A fall from height"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where was Maren Coll actually killed?",
+      "answer_options": [
+        "At the cliffs",
+        "In the tavern cellar",
+        "At the forest edge",
+        "In the chapel annexe",
+        "At the harbour itself"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When did Maren Coll die?",
+      "answer_options": [
+        "Between ten and midnight",
+        "Before sunset, early evening",
+        "In the early hours before dawn",
+        "During the morning fog",
+        "Just after the tavern closed, around nine"
+      ]
+    },
+    {
+      "id": "last_seen",
+      "label": "Who was the last person to see Maren Coll alive?",
+      "answer_options": [
+        "Elowen Vane",
+        "Tomsin Roke",
+        "Aldric Fetch",
+        "Sister Orvyn",
+        "The lighthouse keeper"
+      ]
+    },
+    {
+      "id": "victim_state",
+      "label": "What had Maren Coll discovered before his death?",
+      "answer_options": [
+        "That the tithe records had been falsified",
+        "That a body had been buried under the chapel",
+        "That the lighthouse keeper had been signalling ships illegally",
+        "That Tomsin Roke was not who he claimed to be",
+        "That the founding documents had been altered"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Maren Coll?",
+      "answer_options": [
+        "Elowen Vane",
+        "Tomsin Roke",
+        "Aldric Fetch",
+        "Sister Orvyn",
+        "An unknown person from outside the village"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Maren Coll killed?",
+      "answer_options": [
+        "To prevent him from exposing financial fraud against the congregation",
+        "To silence him about the lighthouse keeper's activities",
+        "Because of a personal debt that could not be repaid",
+        "To protect the secret of the founding event",
+        "Out of jealousy over his wife's departure"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue_cod_hard",
+      "checkpoint": "cause_of_death",
+      "answer": "Drowning",
+      "weight": "hard",
+      "unlocked_by": null,
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["physician_aldric"],
+        "location": "doctors_house",
+        "item": "physicians_notes"
+      },
+      "text": "Aldric Fetch's notes record that the body showed no wounds consistent with impact, but that the lungs, when pressed, yielded water. He has written the word 'harbour' and crossed it out, replacing it with a question mark.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_cod_soft_1",
+      "checkpoint": "cause_of_death",
+      "answer": "Drowning",
+      "weight": "soft",
+      "unlocked_by": null,
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["tomsin_roke"],
+        "location": "tavern",
+        "item": null
+      },
+      "text": "Tomsin Roke said to the woman who cleans his bar that Maren looked, when they pulled him out, like a man who had swallowed the sea rather than fallen into it — a distinction he seemed to think mattered.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_cod_soft_2",
+      "checkpoint": "cause_of_death",
+      "answer": "Drowning",
+      "weight": "soft",
+      "unlocked_by": null,
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["sister_orvyn"],
+        "location": "chapel",
+        "item": null
+      },
+      "text": "Sister Orvyn reacted strangely when asked whether Maren had been given last rites — she said the rite for the drowned is different from the rite for the fallen, and that she had used the right one, and then she stopped speaking.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_cod_red",
+      "checkpoint": "cause_of_death",
+      "answer": "A blow to the head",
+      "weight": "red_herring",
+      "unlocked_by": null,
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["tomsin_roke"],
+        "location": "harbour",
+        "item": null
+      },
+      "text": "Tomsin Roke was heard saying, to no one in particular, that a man doesn't end up face-down in the harbour without something hitting him first, and that he'd seen the mark behind Maren's ear himself before the doctor covered him over.",
+      "red_herring_explanation": "Tomsin is deflecting suspicion from himself over their public argument; the mark he claims to have seen was post-mortem bruising from the body being moved across the cliff rocks, not a wound. He is misinterpreting what he saw, partly from guilt and partly from drink."
+    },
+    {
+      "id": "clue_loc_hard",
+      "checkpoint": "true_location",
+      "answer": "At the cliffs",
+      "weight": "hard",
+      "unlocked_by": "cause_of_death",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["elowen_vane"],
+        "location": "cliffs",
+        "item": "torn_shawl"
+      },
+      "text": "Elowen Vane found the torn wool shawl at the cliffs and stood holding it for a long moment before placing it in her coat pocket rather than leaving it where it lay. The shawl matches the description of one Maren Coll's neighbour says he wore in the evenings.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_loc_soft_1",
+      "checkpoint": "true_location",
+      "answer": "At the cliffs",
+      "weight": "soft",
+      "unlocked_by": "cause_of_death",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["physician_aldric"],
+        "location": "cliffs",
+        "item": "brass_button"
+      },
+      "text": "Aldric Fetch found the coat button at the cliffs showing a small smear of the same clay-grey mud that had been on Maren Coll's boots when the body was examined — not harbour silt, but cliff-path soil, which runs different.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_loc_soft_2",
+      "checkpoint": "true_location",
+      "answer": "At the cliffs",
+      "weight": "soft",
+      "unlocked_by": "cause_of_death",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["sister_orvyn"],
+        "location": "cliffs",
+        "item": null
+      },
+      "text": "Sister Orvyn noticed, walking the cliff path at dawn, that the gorse at the headland's edge was broken inward — pressed down from the path side rather than bent by wind — and that there were two sets of impressions in the mud, not one.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_loc_red",
+      "checkpoint": "true_location",
+      "answer": "In the chapel annexe",
+      "weight": "red_herring",
+      "unlocked_by": "cause_of_death",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["sister_orvyn"],
+        "location": "chapel",
+        "item": null
+      },
+      "text": "Sister Orvyn reacted strangely when the constable asked about the chapel annexe — she said the floor there had been wet when she arrived for morning prayers, and that she had mopped it herself before anyone came, which she offered without being asked.",
+      "red_herring_explanation": "The wet floor in the annexe was from a leak in the old foundation wall, a recurring problem Sister Orvyn is embarrassed about because she has not reported it to the manor for repair. Her evasiveness is about institutional pride and the annexe's unofficial status, not guilt. She volunteered the information because she feared silence would look worse."
+    },
+    {
+      "id": "clue_time_hard",
+      "checkpoint": "time_of_death",
+      "answer": "Between ten and midnight",
+      "weight": "hard",
+      "unlocked_by": null,
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": ["physician_aldric"],
+        "location": null,
+        "item": "tide_calendar"
+      },
+      "text": "Aldric Fetch found the tide calendar at the lighthouse showing a circle around the previous night, and noted in his examination that the water in the body's lungs was consistent with the high-tide turn, which the calendar confirmed occurred at half past ten.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_time_soft_1",
+      "checkpoint": "time_of_death",
+      "answer": "Between ten and midnight",
+      "weight": "soft",
+      "unlocked_by": null,
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["tomsin_roke"],
+        "location": "tavern",
+        "item": null
+      },
+      "text": "Tomsin Roke admitted to Aldric Fetch that Maren Coll had left the tavern just before ten, after sitting alone for an hour and drinking less than usual — and that he had watched him go because something in the way he stood bothered him.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_time_soft_2",
+      "checkpoint": "time_of_death",
+      "answer": "Between ten and midnight",
+      "weight": "soft",
+      "unlocked_by": null,
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["elowen_vane"],
+        "location": "manor",
+        "item": null
+      },
+      "text": "Elowen Vane was heard saying, to the manor's groundskeeper, that she had come in before the midnight bell and that the fog had been worst around eleven — and then she stopped, as though she had said more than she intended.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_time_red",
+      "checkpoint": "time_of_death",
+      "answer": "Just after the tavern closed, around nine",
+      "weight": "red_herring",
+      "unlocked_by": null,
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["tomsin_roke"],
+        "location": "tavern",
+        "item": null
+      },
+      "text": "Tomsin Roke was heard saying, to no one in particular, that he had closed early on account of the fog and that by nine the village was empty — and that whatever happened to Maren happened in that empty hour, he was certain of it.",
+      "red_herring_explanation": "Tomsin closed early and is using that fact to suggest a narrower window that would exclude himself from suspicion, having been behind the bar until nine. He genuinely believes his own timeline but is wrong about when Maren died because he did not know Maren returned to the tavern briefly after initially leaving."
+    },
+    {
+      "id": "clue_seen_hard",
+      "checkpoint": "last_seen",
+      "answer": "Elowen Vane",
+      "weight": "hard",
+      "unlocked_by": "true_location",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["elowen_vane"],
+        "location": "cliffs",
+        "item": "torn_shawl"
+      },
+      "text": "Elowen Vane found the torn wool shawl at the cliffs and, when pressed later, admitted to Aldric Fetch that she had seen Maren Coll walking the path ahead of her that night — that she had called to him, and that he had not turned around.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_seen_soft_1",
+      "checkpoint": "last_seen",
+      "answer": "Elowen Vane",
+      "weight": "soft",
+      "unlocked_by": "true_location",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["tomsin_roke"],
+        "location": "harbour",
+        "item": null
+      },
+      "text": "Tomsin Roke noticed that when he saw Elowen Vane the morning after, her good coat was missing a button — and that she had not looked at the harbour when she walked past it, which everyone else had done, which is what you do when there is a body.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_seen_soft_2",
+      "checkpoint": "last_seen",
+      "answer": "Elowen Vane",
+      "weight": "soft",
+      "unlocked_by": "true_location",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["sister_orvyn"],
+        "location": "chapel",
+        "item": null
+      },
+      "text": "Sister Orvyn reacted strangely when Elowen Vane offered to identify the body formally — she said that Elowen had no need to identify what she already knew, and when asked what she meant, Sister Orvyn said only that she meant it as a kindness.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_seen_red",
+      "checkpoint": "last_seen",
+      "answer": "Sister Orvyn",
+      "weight": "red_herring",
+      "unlocked_by": "true_location",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["sister_orvyn"],
+        "location": "chapel",
+        "item": null
+      },
+      "text": "Sister Orvyn admitted to Aldric Fetch that she had spoken with Maren Coll late in the evening, on the path between the chapel and the cottages, and that he had been agitated and said he was going to see someone who owed him an answer — and that she had watched him walk north, toward the headland.",
+      "red_herring_explanation": "Sister Orvyn did speak to Maren and this is true, but she is the second-to-last person to see him. She withheld this information initially because she feared the meeting would implicate her, since he had come to her with questions about the tithe records and she had declined to help him. Her guilt is spiritual and social, not criminal."
+    },
+    {
+      "id": "clue_vstate_hard",
+      "checkpoint": "victim_state",
+      "answer": "That the tithe records had been falsified",
+      "weight": "hard",
+      "unlocked_by": "last_seen",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["physician_aldric"],
+        "location": "cottage_row",
+        "item": "ink_letter"
+      },
+      "text": "Aldric Fetch found the unsent letter at Maren Coll's cottage showing careful, methodical handwriting: a description of discrepancies in the parish ledger, dated over three years, with the amounts listed and the name of the account they had been moved into — an account held by the manor.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_vstate_soft_1",
+      "checkpoint": "victim_state",
+      "answer": "That the tithe records had been falsified",
+      "weight": "soft",
+      "unlocked_by": "last_seen",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["elowen_vane"],
+        "location": "manor",
+        "item": "ledger_book"
+      },
+      "text": "Elowen Vane reacted strangely when the parish ledger was mentioned in her presence — she moved to stand between the visitor and the shelf where it was kept, and said that the accounts were in order, before anyone had suggested they were not.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_vstate_soft_2",
+      "checkpoint": "victim_state",
+      "answer": "That the tithe records had been falsified",
+      "weight": "soft",
+      "unlocked_by": "last_seen",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["sister_orvyn"],
+        "location": "chapel",
+        "item": null
+      },
+      "text": "Sister Orvyn said quietly, during evening prayers no one attended, that Maren had asked her whether a wrong done against the congregation could be undone by confession alone, or whether it required naming — and that she had told him it required naming, and that she wished now she had not.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_vstate_red",
+      "checkpoint": "victim_state",
+      "answer": "That the lighthouse keeper had been signalling ships illegally",
+      "weight": "red_herring",
+      "unlocked_by": "last_seen",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["tomsin_roke"],
+        "location": "lighthouse",
+        "item": null
+      },
+      "text": "Tomsin Roke was heard saying, to no one in particular, that Maren had been asking questions about the lighthouse pattern — whether the intervals were standard, whether anyone kept record of what it was pointing at on any given night — and that the keeper had not liked the questions.",
+      "red_herring_explanation": "Maren did ask about the lighthouse pattern, but as part of trying to understand the calendar he had seen, which he thought might be related to the congregation's finances. It was a dead end. Tomsin has inflated this fragment into a theory because it excuses him from thinking about the argument he had with Maren over money."
+    },
+    {
+      "id": "clue_perp_hard",
+      "checkpoint": "perpetrator",
+      "answer": "Elowen Vane",
+      "weight": "hard",
+      "unlocked_by": "victim_state",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": ["elowen_vane"],
+        "location": "manor",
+        "item": "ledger_book"
+      },
+      "text": "Elowen Vane found the parish ledger at the manor open to the pages Maren Coll had marked, and the marks had been erased — but the impression of his pencil remained in the paper, and the figures beneath the erasure matched the amounts in Maren's unsent letter exactly.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_perp_soft_1",
+      "checkpoint": "perpetrator",
+      "answer": "Elowen Vane",
+      "weight": "soft",
+      "unlocked_by": "victim_state",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["elowen_vane"],
+        "location": "cliffs",
+        "item": "brass_button"
+      },
+      "text": "Elowen Vane reacted strangely when the brass button was produced — she looked at her coat's remaining buttons before she looked at the button itself, and then she said it could have come from anyone's coat, and that the manor supplied that pattern to three households.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_perp_soft_2",
+      "checkpoint": "perpetrator",
+      "answer": "Elowen Vane",
+      "weight": "soft",
+      "unlocked_by": "victim_state",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["physician_aldric"],
+        "location": "doctors_house",
+        "item": null
+      },
+      "text": "Aldric Fetch admitted to Sister Orvyn that the body, when he examined it, had a faint bruising pattern on both wrists consistent with being held — not struck, but held — by hands smaller than Maren Coll's own, and that he had written this in his notes and then rewritten the line twice.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_perp_red",
+      "checkpoint": "perpetrator",
+      "answer": "Tomsin Roke",
+      "weight": "red_herring",
+      "unlocked_by": "victim_state",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["tomsin_roke"],
+        "location": "harbour",
+        "item": null
+      },
+      "text": "Tomsin Roke reacted strangely when someone mentioned the bruise on his right hand — he said he had caught it on the cellar door, which is what he always says, but this time he looked at the harbour water while he said it rather than at the person asking.",
+      "red_herring_explanation": "The bruise is from the cellar door, as Tomsin has said — it is an old and recurring injury from a door that does not hang properly. His avoidance of eye contact when speaking near the harbour is displacement guilt from the argument with Maren, not from violence. He is genuinely grieving and genuinely ashamed of the argument, but he did not kill him."
+    },
+    {
+      "id": "clue_motive_hard",
+      "checkpoint": "motive",
+      "answer": "To prevent him from exposing financial fraud against the congregation",
+      "weight": "hard",
+      "unlocked_by": "perpetrator",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["elowen_vane"],
+        "location": "manor",
+        "item": "ledger_book"
+      },
+      "text": "Elowen Vane found the parish ledger at the manor showing, beneath the erasures and in the impression of Maren Coll's pencil, a running total that reached a figure large enough to matter — and beside it, in Maren's hand, the words 'assembly, before the observance', with a date two days after his death.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_motive_soft_1",
+      "checkpoint": "motive",
+      "answer": "To prevent him from exposing financial fraud against the congregation",
+      "weight": "soft",
+      "unlocked_by": "perpetrator",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["sister_orvyn"],
+        "location": "chapel",
+        "item": null
+      },
+      "text": "Sister Orvyn noticed that the congregation's autumn observance fund was short in a way it had not been before, and that when she asked Elowen Vane about it three weeks prior, Elowen had said the shortfall was temporary and would not be temporary for long — which Sister Orvyn had taken as reassurance, and now took differently.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_motive_soft_2",
+      "checkpoint": "motive",
+      "answer": "To prevent him from exposing financial fraud against the congregation",
+      "weight": "soft",
+      "unlocked_by": "perpetrator",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": ["physician_aldric"],
+        "location": "cottage_row",
+        "item": "ink_letter"
+      },
+      "text": "Aldric Fetch found the unsent letter at Maren Coll's cottage and noted that the final line read: 'She will deny it, but the figure does not lie, and the congregation will know their own money.' The word 'She' was underlined once and written over once, as though Maren had considered not naming a gender at all.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_motive_red",
+      "checkpoint": "motive",
+      "answer": "To protect the secret of the founding event",
+      "weight": "red_herring",
+      "unlocked_by": "perpetrator",
+      "condition": {
+        "type": "character_in_location",
+        "characters": ["sister_orvyn"],
+        "location": "chapel",
+        "item": null
+      },
+      "text": "Sister Orvyn was heard saying, to no one in particular, that some things a man learns in this village he was not meant to learn, and that the founding families had always understood the cost of knowing — and that Maren Coll had always asked too many questions about things that were not accounts.",
+      "red_herring_explanation": "Sister Orvyn is speaking to the general spiritual logic of Haulwick, not to the specific cause of Maren's death. She believes he disturbed something he should not have, but she means this in a theological and communal sense. She does not know about the financial fraud and is attributing his death to a different kind of transgression entirely — one she considers equally real."
+    }
+  ],
+  "opening_narrative": "Maren Coll was found at first light by Pell Darvish, who comes to the harbour before anyone else and leaves after everyone has gone. The body was face-down at the waterline, caught against the mooring post of the second jetty, rocking with the tide in a way that suggested it had been there for some hours. Darvish did not move it. He stood at the edge of the dock until the fog thinned enough for him to be certain of what he was seeing, and then he went to the tavern and knocked until Tomsin Roke came down.\n\nThe fog had settled over Haulwick for four days without lifting, and it lay over the harbour now with the particular stillness that follows a night of no wind. The water was grey and flat. The boats had not gone out. By the time the constable arrived, a small cluster of villagers had gathered at the far end of the jetty, standing close together in the way people do when they want to look without appearing to look. Aldric Fetch pushed through them without ceremony and knelt at the body and did not speak for a long time.\n\nMaren Coll was forty-three years old. He had kept the village accounts for eleven years and before that had worked the boats with his father, who died in the water too, though differently. He had no enemies anyone would name. He had last been seen, by most accounts, leaving the tavern the previous evening, walking in the direction of the cottages. He did not reach them. The lighthouse was still turning when they carried him off the jetty, pointing, as it always does, at whatever it has always pointed at."
+}

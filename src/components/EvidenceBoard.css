@@ -1,0 +1,146 @@
+.evidence-board {
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  z-index: 30;
+}
+
+.evidence-board__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.evidence-board__title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-right: 8px;
+}
+
+.evidence-board__toolbar button {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.evidence-board__toolbar .btn--active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.evidence-board__spacer {
+  flex: 1;
+}
+
+.evidence-board__canvas {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+.evidence-board__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.evidence-board__svg line {
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+  pointer-events: stroke;
+  cursor: pointer;
+}
+
+.evidence-board__svg line:hover {
+  stroke: var(--color-accent);
+}
+
+.evidence-board__empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-dim);
+  font-style: italic;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.pinned-card {
+  position: absolute;
+  width: 220px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  cursor: grab;
+}
+
+.pinned-card:active {
+  cursor: grabbing;
+}
+
+.pinned-card--connect-mode {
+  cursor: crosshair;
+}
+
+.pinned-card--connect-from {
+  border-color: var(--color-accent);
+}
+
+.pinned-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface2);
+  pointer-events: none;
+}
+
+.pinned-card__turn {
+  font-size: 10px;
+  color: var(--color-text-dim);
+  letter-spacing: 1px;
+}
+
+.pinned-card__text {
+  padding: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text);
+  pointer-events: none;
+}
+
+.pinned-card__note {
+  width: 100%;
+  min-height: 40px;
+  resize: vertical;
+  font-size: 11px;
+  font-style: italic;
+  padding: 6px 8px;
+  background: rgba(0,0,0,0.2);
+  border: none;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  cursor: text;
+}
+
+.pinned-card__note:focus {
+  outline: none;
+  color: var(--color-text);
+}
