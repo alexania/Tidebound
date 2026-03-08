@@ -75,6 +75,13 @@
   cursor: default;
 }
 
+.map-token--investigator {
+  border-color: #7ab8c4;
+  color: #7ab8c4;
+  background: rgba(122, 184, 196, 0.08);
+  font-style: italic;
+}
+
 .map-location__flavour {
   display: none;
   position: absolute;

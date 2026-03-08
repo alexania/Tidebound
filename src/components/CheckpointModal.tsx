@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { CheckpointId } from '../types/scenario'
 import type { CheckpointState, PinnedCard } from '../types/gameState'
+import { parseTaggedText } from '../utils/parseTags'
 import './CheckpointModal.css'
 
 interface Props {
@@ -75,19 +76,19 @@ export function CheckpointModal({ checkpointState, label, answerOptions, pinnedC
                   <div className="modal__no-cards">No cards pinned to the evidence board yet.</div>
                 ) : (
                   <div className="modal__evidence">
-                    {pinnedCards.map(card => (
+                    {pinnedCards.filter(c => c.clueId !== null).map(card => (
                       <div
                         key={card.id}
-                        className={`modal__evidence-item ${citedIds.has(card.clueId) ? 'modal__evidence-item--selected' : ''}`}
-                        onClick={() => toggleCite(card.clueId)}
+                        className={`modal__evidence-item ${citedIds.has(card.clueId!) ? 'modal__evidence-item--selected' : ''}`}
+                        onClick={() => toggleCite(card.clueId!)}
                       >
                         <input
                           type="checkbox"
-                          checked={citedIds.has(card.clueId)}
-                          onChange={() => toggleCite(card.clueId)}
+                          checked={citedIds.has(card.clueId!)}
+                          onChange={() => toggleCite(card.clueId!)}
                           onClick={e => e.stopPropagation()}
                         />
-                        <span>{card.text}</span>
+                        <span>{parseTaggedText(card.text)}</span>
                       </div>
                     ))}
                   </div>

@@ -1,0 +1,727 @@
+{
+  "village": {
+    "name": "Carrow Mouth",
+    "history": "Carrow Mouth sits where the estuary narrows to a throat, and the founding families built their houses over ground that was already marked — hearthstones older than memory, arranged in patterns the settlers chose not to disturb. What they brought with them or found waiting has never been separated out; the distinction stopped mattering within a generation. The lighthouse on the headland was built last, as though the village had been reluctant, and its first keeper kept no log. Twice in living memory the chapel has been reconsecrated, and twice the old words have crept back into the service without anyone admitting to putting them there.",
+    "season": "autumn",
+    "weather": "still air, cold without wind, smelling of turned earth"
+  },
+  "crime": {
+    "cause_of_death": "poisoning — plant-based",
+    "murder_location": "cottage_row",
+    "body_found_location": "chapel",
+    "body_was_moved": true,
+    "time_of_death": "between eight and ten in the evening",
+    "perpetrator_ids": [
+      "elen_voss"
+    ],
+    "motive": "belief",
+    "hidden_truth": null
+  },
+  "characters": [
+    {
+      "id": "silda_carne",
+      "name": "Silda Carne",
+      "local": true,
+      "home_location": "cottage_row",
+      "starting_location": "chapel",
+      "description": "A midwife and herbalist in her late fifties who delivered half the village and knew the other half's secrets. She had been asking questions about the founding families that no one thought she had the right to ask. Her hands, even in death, smell of hedge-parsley and something else.",
+      "isVictim": true
+    },
+    {
+      "id": "elen_voss",
+      "name": "Elen Voss",
+      "local": true,
+      "home_location": "cottage_row",
+      "starting_location": "cottage_row",
+      "description": "A quiet woman who keeps the founding families' genealogy and acts as informal keeper of the old customs, though she would not use that word. She lives two doors from where Silda died and claims she heard nothing that evening. Her garden contains plants she does not name to visitors.",
+      "isVictim": false
+    },
+    {
+      "id": "pell_drach",
+      "name": "Pell Drach",
+      "local": true,
+      "home_location": "tavern",
+      "starting_location": "harbour",
+      "description": "The tavern-keeper's brother, who does not hold a steady occupation and is owed money by several people including the victim. He was seen on the road near the chapel the night before and has given three different accounts of where he was that evening.",
+      "isVictim": false
+    },
+    {
+      "id": "doctor_somer",
+      "name": "Audra Somer",
+      "local": false,
+      "home_location": "doctors_house",
+      "starting_location": "doctors_house",
+      "description": "The village doctor, an arrival from the mainland four years ago who has been cataloguing the local herb-lore in a notebook she does not share. She and Silda had a public argument about a patient three weeks before the death. Her surgery door has a new lock on it.",
+      "isVictim": false
+    },
+    {
+      "id": "coll_fen",
+      "name": "Coll Fen",
+      "local": true,
+      "home_location": "harbour",
+      "starting_location": "harbour",
+      "description": "An old fisherman who repairs nets by the harbour wall and talks too much about weather. He has lived in Carrow Mouth his entire life and considers himself an authority on its moods.",
+      "isVictim": false
+    },
+    {
+      "id": "maret_inch",
+      "name": "Maret Inch",
+      "local": true,
+      "home_location": "manor",
+      "starting_location": "manor",
+      "description": "The housekeeper at the manor, who has served the same family for thirty years and regards all outside inquiries as a form of trespass. She knows more than she says, which is true of everyone, but in her case it is probably about the silver.",
+      "isVictim": false
+    }
+  ],
+  "items": [
+    {
+      "id": "clay_cup",
+      "name": "Clay cup, unwashed",
+      "description": "A hand-thrown cup with a faint residue the colour of old mustard dried into its base, left on the table in [loc:cottage_row] as though the person who drank from it expected to return.",
+      "starting_location": "cottage_row",
+      "hidden": false,
+      "discovery_condition": null
+    },
+    {
+      "id": "pressed_flower",
+      "name": "Pressed cutting — hemlock water-dropwort",
+      "description": "A single pressed stem folded into a square of paper, the kind used for keeping samples, tucked inside the lining of a coat hung by the door of [loc:cottage_row].",
+      "starting_location": "cottage_row",
+      "hidden": true,
+      "discovery_condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cottage_row",
+        "item": "clay_cup"
+      }
+    },
+    {
+      "id": "chapel_candle",
+      "name": "Candle stub, freshly burned",
+      "description": "A thick tallow candle burned to a nub and set in a ring of wax on the chapel floor, not on any altar or holder — placed on the stone itself, in a position that means something to whoever placed it.",
+      "starting_location": "chapel",
+      "hidden": false,
+      "discovery_condition": null
+    },
+    {
+      "id": "voss_garden_shears",
+      "name": "Pruning shears with dried sap",
+      "description": "Heavy iron shears found under a cloth on [char:Elen Voss]'s garden bench, the blades stained with a dark residue that does not look like ordinary sap.",
+      "starting_location": "cottage_row",
+      "hidden": true,
+      "discovery_condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cottage_row"
+      }
+    },
+    {
+      "id": "sildas_notebook",
+      "name": "Notebook — Silda's research",
+      "description": "A small cloth-covered notebook filled with Silda's careful hand, recording names and dates of the founding families going back further than the parish register reaches, with marginal notes that grow more agitated toward the final pages.",
+      "starting_location": "doctors_house",
+      "hidden": true,
+      "discovery_condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator",
+          "doctor_somer"
+        ],
+        "location": "doctors_house",
+        "item": "clay_cup"
+      }
+    },
+    {
+      "id": "muddy_cloth",
+      "name": "Folded cloth, mud-stiffened",
+      "description": "A length of coarse linen, folded and stiff with dried mud along one edge, found tucked behind the font in [loc:chapel] — used to wrap something heavy that was carried some distance.",
+      "starting_location": "chapel",
+      "hidden": true,
+      "discovery_condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "chapel"
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "harbour",
+      "flavour": "The harbour at low tide exposes a line of stones that the oldest families call the teeth. Children are taught not to walk across them, though no one now says why. The boats are pulled up and the nets spread, and the stillness this morning has a quality of waiting."
+    },
+    {
+      "id": "tavern",
+      "flavour": "The tavern keeps hours no outsider has been able to predict. The fire is always lit. The conversation stops when the door opens, then resumes at a slightly different pitch. The same songs have been sung here for longer than the building has stood."
+    },
+    {
+      "id": "lighthouse",
+      "flavour": "The lighthouse stands on the headland and its beam turns whether or not there is shipping to warn. The keeper tends it without company and without explanation. The light-room glass is old enough that the beam through it bends at angles that should not be possible."
+    },
+    {
+      "id": "chapel",
+      "flavour": "The chapel is the newest building on old ground. The consecration marks above the door are worn past reading. Inside, the pews face something other than the altar if you follow the grain of the floorboards. The body was found here before the morning service, by the sexton who will not say more than that."
+    },
+    {
+      "id": "doctors_house",
+      "flavour": "The doctor's house sits at the margin between the old village and the road that leads away from it. Its windows face outward rather than in, which the locals note without comment. The surgery smells of carbolic and beneath that something older and green."
+    },
+    {
+      "id": "manor",
+      "flavour": "The manor is the oldest wooden building in Carrow Mouth and the family that built it has never left. They have thinned to a single branch now. The grounds are well-kept and the gates are closed in the evenings in a way that has nothing to do with security."
+    },
+    {
+      "id": "cottage_row",
+      "flavour": "The row of cottages runs back from the harbour along a lane that floods in high tides and dries salt-white. The houses share walls and the walls are thin. Neighbours here know more of each other's business than they acknowledge, and the knowing sits in the air like a held breath."
+    },
+    {
+      "id": "cliffs",
+      "flavour": "The cliffs at the north end of the headland are where the village sends its grief. There are no markers here but the paths are worn smooth. The drop is serious and the sea below it is cold. The wind today is absent, which makes the cliffs feel closer to everything."
+    },
+    {
+      "id": "forest_edge",
+      "flavour": "The trees begin where the fields stop and do not explain themselves. The wood is not large but people do not walk through it after dark, and the ones who have do not describe what they heard. The boundary between field and tree is marked in a way that looks accidental."
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "How did Silda Carne die?",
+      "answer_options": [
+        "poisoning — plant-based",
+        "strangulation",
+        "blunt trauma",
+        "drowning",
+        "exposure"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where was Silda Carne actually killed?",
+      "answer_options": [
+        "cottage_row",
+        "chapel",
+        "forest_edge",
+        "cliffs",
+        "harbour"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When did Silda Carne die?",
+      "answer_options": [
+        "between eight and ten in the evening",
+        "before dawn",
+        "around midday",
+        "after midnight",
+        "between six and eight in the evening"
+      ]
+    },
+    {
+      "id": "last_seen",
+      "label": "Who last saw Silda Carne alive?",
+      "answer_options": [
+        "Elen Voss",
+        "Pell Drach",
+        "Audra Somer",
+        "the lighthouse keeper",
+        "no one has come forward"
+      ]
+    },
+    {
+      "id": "victim_state",
+      "label": "What was Silda Carne investigating before her death?",
+      "answer_options": [
+        "the founding families' genealogy and the old rites",
+        "a land dispute at the manor",
+        "the doctor's medical records",
+        "debts owed to her by the tavern",
+        "the lighthouse keeper's behaviour"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Silda Carne?",
+      "answer_options": [
+        "Elen Voss",
+        "Pell Drach",
+        "Audra Somer",
+        "someone from outside the village",
+        "a member of the manor household"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Silda Carne killed?",
+      "answer_options": [
+        "belief",
+        "self-preservation",
+        "inheritance",
+        "debt",
+        "jealousy"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cod_hard_1",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cottage_row",
+        "item": "clay_cup"
+      },
+      "text": "The residue dried into the base of the cup at [loc:cottage_row] is hemlock water-dropwort — unmistakable to anyone who knows it, a root-extract that acts fast and leaves no mark on the skin. [char:Elen Voss] keeps the only cultivated patch of it in the village, behind her back wall.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_soft_1",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "chapel"
+      },
+      "text": "[char:Silda Carne]'s lips carry a faint blue tinge at their edges that has nothing to do with cold, and her expression is one of sudden surprise rather than struggle — the body tells a story without bruising or wound. The [loc:doctors_house] would have charts that name what causes this.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_soft_2",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "pressed_flower"
+      },
+      "text": "The pressed cutting is hemlock water-dropwort — the kind of sample someone carries for comparison, to be sure they are harvesting the right plant. It was folded with the care of someone who handles such things regularly. [char:Elen Voss]'s cottage is the next door along [loc:cottage_row].",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_rh_1",
+      "checkpoint": "cause_of_death",
+      "answer": "strangulation",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "pell_drach"
+        ],
+        "location": "harbour"
+      },
+      "text": "[char:Pell Drach] says he saw [char:Silda Carne] arguing with a man on the [loc:cliffs] path the evening before her death — and that the man had his hands at her collar, though at that distance he could not say more. He seems unsettled by his own account.",
+      "red_herring_explanation": "Pell Drach's account is fabricated to redirect suspicion; Silda was poisoned indoors. No strangulation marks were found on the body. Pell is attempting to implicate an unknown third party."
+    },
+    {
+      "id": "trueloc_hard_1",
+      "checkpoint": "true_location",
+      "answer": "cottage_row",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cottage_row",
+        "item": "clay_cup"
+      },
+      "text": "The cup, the chair pulled out at an angle, the cold ash in the grate — everything in [char:Silda Carne]'s room at [loc:cottage_row] reads as interrupted evening, not morning. She died here, in her own home, and someone carried her to [loc:chapel] afterward. The [loc:chapel] floor may show how.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "trueloc_soft_1",
+      "checkpoint": "true_location",
+      "answer": "cottage_row",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "muddy_cloth"
+      },
+      "text": "The mud dried into the linen matches the lane outside [loc:cottage_row] — pale, salt-crusted, with the particular clay-heaviness of the low ground there. Someone wrapped a body in this cloth and carried it some distance. The weight-marks in the fabric say it was done by one person, moving carefully.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "trueloc_soft_2",
+      "checkpoint": "true_location",
+      "answer": "cottage_row",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "chapel"
+      },
+      "text": "The stone floor of [loc:chapel] shows a drag-mark beneath the body's position, ending cleanly at the font — [char:Silda Carne] was placed here, not killed here. There are no signs of a struggle, no disturbance to the pews or altar cloth. Whoever brought her knew the layout well enough to come in from the side door.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "trueloc_rh_1",
+      "checkpoint": "true_location",
+      "answer": "forest_edge",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "forest_edge"
+      },
+      "text": "At the [loc:forest_edge], a length of ground is disturbed — leaves turned, a snapped branch at shoulder height — and there is a smell in the still air that sits wrong, green and sharp, the kind left by someone who pushed through in a hurry. Whether [char:Silda Carne] was here or someone else was, the forest keeps its answer.",
+      "red_herring_explanation": "The disturbance at the forest_edge was made by an animal; the smell the investigator detects is naturally occurring wild parsnip. Silda was killed in cottage_row and the forest was not part of her movements that evening."
+    },
+    {
+      "id": "tod_hard_1",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten in the evening",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator",
+          "doctor_somer"
+        ],
+        "location": "doctors_house",
+        "item": "clay_cup"
+      },
+      "text": "[char:Audra Somer] examines the body's condition against her notes and says the onset of this particular compound would be rapid — collapse within an hour of ingestion, death within two. The hearth-ash in [loc:cottage_row] was cold by morning, suggesting the fire was not tended after eight. She suggests visiting [loc:cottage_row] with this in mind.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_soft_1",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten in the evening",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "tavern"
+      },
+      "text": "The tavern-keeper says [char:Silda Carne] came in for a measure of spirit at half-past seven and was in good health and sharp temper. She left before eight, walking in the direction of [loc:cottage_row]. He did not see her again. He mentions this without being asked, which is notable.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_soft_2",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten in the evening",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "lighthouse"
+      },
+      "text": "The lighthouse keeper logs the coastline out of habit and last night was no exception. His entry for nine-fifteen notes a light in [loc:cottage_row] that was present at nine and gone at ten — a single window, extinguished without ceremony. He does not comment on this but has underlined it.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_rh_1",
+      "checkpoint": "time_of_death",
+      "answer": "after midnight",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "pell_drach"
+        ],
+        "location": "tavern"
+      },
+      "text": "[char:Pell Drach] claims he heard footsteps on the lane past the [loc:tavern] well after midnight — hurried, more than one person, going toward [loc:chapel]. He thinks it was two in the morning, maybe three. He is the only one who says so.",
+      "red_herring_explanation": "Pell Drach's account of post-midnight footsteps is a misdirection. He is attempting to shift the time of death to after the period in which he is unaccounted for. The body was moved in the late evening, not after midnight."
+    },
+    {
+      "id": "lastseen_hard_1",
+      "checkpoint": "last_seen",
+      "answer": "Elen Voss",
+      "weight": "hard",
+      "condition": {
+        "type": "n_characters_together_alone",
+        "characters": [
+          "investigator",
+          "elen_voss"
+        ],
+        "location": null
+      },
+      "text": "When pressed directly, [char:Elen Voss] admits that [char:Silda Carne] came to her door at around half-past seven. She says Silda was distressed and left quickly. She does not say what they spoke about, but her hands move toward the back of the house when she speaks, in the direction of her garden.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "lastseen_soft_1",
+      "checkpoint": "last_seen",
+      "answer": "Elen Voss",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cottage_row"
+      },
+      "text": "A neighbour in [loc:cottage_row] says she heard two women's voices through the wall on the evening in question — not arguing, but the kind of talking that has an edge to it, the kind where one person is asking for something the other will not give. She places this before dark.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "lastseen_soft_2",
+      "checkpoint": "last_seen",
+      "answer": "Elen Voss",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "sildas_notebook"
+      },
+      "text": "The final entry in [char:Silda Carne]'s notebook reads: 'EV knows what the first families did at the marking year. She will not say. I will go tonight.' The entry is dated the evening of her death. The notebook was not found at her home — it surfaced at [loc:doctors_house], where she may have left it for safekeeping.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "lastseen_rh_1",
+      "checkpoint": "last_seen",
+      "answer": "Audra Somer",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "doctors_house"
+      },
+      "text": "[char:Audra Somer] was seen at her surgery window late in the evening by a neighbour, and there was a second figure at the gate briefly — a woman, older, wrapped in a shawl. The neighbour thought it might have been [char:Silda Carne], though the light was poor. [char:Audra Somer] does not deny the visit but says Silda left well and unharmed.",
+      "red_herring_explanation": "The figure seen at the doctor's gate was a different older woman from the village. Somer is a genuine suspect for other reasons, but she was not the last to see Silda — Elen Voss was."
+    },
+    {
+      "id": "vicstate_hard_1",
+      "checkpoint": "victim_state",
+      "answer": "the founding families' genealogy and the old rites",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "sildas_notebook"
+      },
+      "text": "[char:Silda Carne]'s notebook traces the founding families of [loc:cottage_row] and the [loc:manor] through six generations, marking years of unusual infant death, strange illness, and what she calls 'the year of offering' at regular intervals. Her marginal notes name [char:Elen Voss] as the current keeper of the practice and suggest Silda believed she had found evidence of its continuation.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "vicstate_soft_1",
+      "checkpoint": "victim_state",
+      "answer": "the founding families' genealogy and the old rites",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "chapel"
+      },
+      "text": "The candle stub set on the [loc:chapel] floor is not placed randomly — it sits at an intersection of the original foundation marks, which are still faintly visible if you know to look. The position matches a diagram in the parish record that predates the current building. Someone placed [char:Silda Carne] here as a statement, not as concealment.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "vicstate_soft_2",
+      "checkpoint": "victim_state",
+      "answer": "the founding families' genealogy and the old rites",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "doctor_somer"
+        ],
+        "location": null
+      },
+      "text": "[char:Audra Somer] says that [char:Silda Carne] had asked her three weeks ago to identify a series of plant compounds used in what Silda called 'the old marking rites' — and that Silda was not afraid, but excited, as though she had found proof of something she had long suspected. Somer suggests the [loc:chapel] records may go further back than they appear to.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "vicstate_rh_1",
+      "checkpoint": "victim_state",
+      "answer": "a land dispute at the manor",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "manor"
+      },
+      "text": "The housekeeper [char:Maret Inch] mentions that [char:Silda Carne] had come to the [loc:manor] gate twice in the fortnight before her death, asking to see the deed records for the [loc:cottage_row] properties. The family declined both times. The implication hangs in the air: Silda was pursuing something to do with property, with who owned what ground.",
+      "red_herring_explanation": "Silda's visits to the manor were a side inquiry, not her primary investigation. She was cross-checking land records against the genealogical pattern she had found, not pursuing a land dispute in its own right. The manor is a false trail planted by Maret Inch, who is protective of her employers."
+    },
+    {
+      "id": "perp_hard_1",
+      "checkpoint": "perpetrator",
+      "answer": "Elen Voss",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "voss_garden_shears"
+      },
+      "text": "The dark residue on [char:Elen Voss]'s shears is hemlock water-dropwort sap — fresh enough to confirm recent harvesting. The root-extract used to poison [char:Silda Carne] requires preparation, not improvisation. [char:Elen Voss]'s garden is the only cultivated source in the village; the [loc:forest_edge] variety grows wild but the compound concentration is too low to kill quickly.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_soft_1",
+      "checkpoint": "perpetrator",
+      "answer": "Elen Voss",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cottage_row"
+      },
+      "text": "Two doors from [char:Silda Carne]'s cottage, [char:Elen Voss]'s garden wall is accessible from the lane without passing the front door. The gate latch has been recently oiled — no squeak, no sound. The path from her back gate to Silda's door can be walked in forty seconds, in darkness, without being seen from the road.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_soft_2",
+      "checkpoint": "perpetrator",
+      "answer": "Elen Voss",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_together_alone",
+        "characters": [
+          "investigator",
+          "elen_voss"
+        ],
+        "location": null
+      },
+      "text": "[char:Elen Voss] knows the [loc:chapel] layout in ways that do not fit casual attendance — she names the side door without being told there is one, and she describes the foundation marks without looking at them first. She has been inside recently, and not for the service. The candle placement was not random.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_rh_1",
+      "checkpoint": "perpetrator",
+      "answer": "Pell Drach",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "pell_drach"
+        ],
+        "location": "harbour"
+      },
+      "text": "[char:Pell Drach] owed [char:Silda Carne] a substantial debt — money she lent him when his business failed, money he has not repaid. He will not account clearly for where he was between eight and ten. His coat, when the investigator sees him at the [loc:harbour], carries a smell that might be the [loc:forest_edge] — green, damp, particular.",
+      "red_herring_explanation": "Pell Drach was in the forest_edge that evening, but for his own reasons unrelated to the murder. His debt to Silda gives him motive on paper, but he lacked access to the plant compound used and did not know Silda's movements that night."
+    },
+    {
+      "id": "motive_hard_1",
+      "checkpoint": "motive",
+      "answer": "belief",
+      "weight": "hard",
+      "condition": {
+        "type": "n_characters_together_alone",
+        "characters": [
+          "investigator",
+          "elen_voss"
+        ],
+        "location": null
+      },
+      "text": "When shown the notebook, [char:Elen Voss] does not deny its contents. She says only: 'She had no right to name it. Some things are not for writing down.' She does not express grief or guilt, only a settled certainty that she acted correctly. She asks whether the investigator has spoken to the [loc:lighthouse] keeper.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "motive_soft_1",
+      "checkpoint": "motive",
+      "answer": "belief",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "chapel"
+      },
+      "text": "The candle and its placement in [loc:chapel] are not a taunt or a warning — they are a ritual completion. [char:Silda Carne] was not simply killed; she was placed here as part of something that has a form, a logic, a rightness in the mind of whoever performed it. The [loc:cottage_row] kept a tradition; she threatened to make it visible.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "motive_soft_2",
+      "checkpoint": "motive",
+      "answer": "belief",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "sildas_notebook"
+      },
+      "text": "The notebook's final pages contain a list of names [char:Silda Carne] had planned to contact on the mainland — historians, a journalist, a records office. She was not keeping this privately. [char:Elen Voss] had reason to believe that what she protected would be made public, examined, ended. Some things, for some people, do not survive the light.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "motive_rh_1",
+      "checkpoint": "motive",
+      "answer": "self-preservation",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "doctors_house"
+      },
+      "text": "[char:Audra Somer] reveals that [char:Silda Carne] had recently confronted her about a patient who died under ambiguous circumstances three months ago — a death Silda believed was caused by a misidentified herb compound. If this were proven, Somer's position in the village would be untenable. She has a powerful reason to want Silda silenced.",
+      "red_herring_explanation": "Audra Somer's motive is real in the sense that she feared exposure, but she did not act on it. The motive that drove the actual killing was belief — the protection of a living practice, not a professional reputation. Somer's story is a genuine complication but not the answer."
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_cottage_row",
+      "text": "[char:Silda Carne]'s home in [loc:cottage_row] was left as she left it — the door unlocked, a cup on the table, the fire cold. Whatever happened the night before seems to have started there.",
+      "character_id": null,
+      "location_id": "cottage_row"
+    },
+    {
+      "id": "lead_chapel",
+      "text": "The sexton found [char:Silda Carne] laid out in [loc:chapel] before the morning service, positioned with a care that does not suggest accident. The floor may hold more than the body.",
+      "character_id": null,
+      "location_id": "chapel"
+    },
+    {
+      "id": "lead_elen_voss",
+      "text": "[char:Elen Voss] lives two doors from the dead woman and has not come forward, though she could not have missed the commotion in [loc:cottage_row] this morning.",
+      "character_id": "elen_voss",
+      "location_id": "cottage_row"
+    }
+  ],
+  "opening_narrative": "The sexton of [loc:chapel] was not supposed to be there before six. He had left his keys the night before and came back for them in the dark of early morning, his lantern making the only light on the lane. He found the side door already open and [char:Silda Carne] laid on the stone floor between the font and the first pew, her shawl folded under her head with a precision that had nothing accidental in it. He did not go to the tavern. He sat on the chapel steps until the sky lightened and then he went to the harbour to find the investigator.\n\nThe air in [loc:cottage_row] is still and cold, the kind of cold that comes in from the estuary and settles low. The lane outside [char:Silda Carne]'s cottage shows nothing in particular — the ground too hard for prints, the salt-pale mud undisturbed. Her door is on the latch. Inside, the table holds a cup and a chair sits at an angle as though pushed back in a hurry, and the hearth is nothing but cold ash.\n\nIn the village, the news moves the way news does here — without words where possible, through held glances and the particular stillness of people who are deciding how much to say. [char:Elen Voss] has not appeared at her door. At the [loc:lighthouse], the beam continues its rotation into a clear grey morning that offers no cover and no excuse, turning as it always turns, toward whatever it has always faced."
+}

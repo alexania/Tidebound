@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Scenario, LocationId } from '../types/scenario'
 import type { GameState } from '../types/gameState'
+import { INVESTIGATOR_ID } from '../engine/gameEngine'
 import './VillageMap.css'
 
 // Percentage-based positions within the map container
@@ -33,9 +34,10 @@ interface Props {
   gameState: GameState
   onMoveCharacter: (charId: string, location: LocationId) => void
   onMoveItem: (itemId: string, location: LocationId) => void
+  onSelect: (sel: string | null) => void
 }
 
-export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem }: Props) {
+export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, onSelect }: Props) {
   const [dragOver, setDragOver] = useState<LocationId | null>(null)
   const canAct = gameState.phase === 'setup' && gameState.actionsRemaining > 0
 
@@ -65,25 +67,23 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem }:
 
   const handleDragLeave = () => setDragOver(null)
 
-  // Build lookup: location -> characters there
+  // Build lookup: location -> found characters there
   const charsByLocation = new Map<LocationId, typeof scenario.characters>()
   for (const char of scenario.characters) {
+    if (!gameState.foundCharacterIds.includes(char.id)) continue
     const loc = gameState.board.characterLocations[char.id] as LocationId
     if (!charsByLocation.has(loc)) charsByLocation.set(loc, [])
     charsByLocation.get(loc)!.push(char)
   }
 
-  // Build lookup: location -> discovered items there
+  // Build lookup: location -> found items there
   const itemsByLocation = new Map<LocationId, typeof scenario.items>()
   for (const item of scenario.items) {
+    if (!gameState.foundItemIds.includes(item.id)) continue
     const loc = gameState.board.itemLocations[item.id] as LocationId
-    if (!loc) continue
-    if (!gameState.discoveredItemIds.includes(item.id)) continue
     if (!itemsByLocation.has(loc)) itemsByLocation.set(loc, [])
     itemsByLocation.get(loc)!.push(item)
   }
-
-  const locationFlavour = new Map(scenario.locations.map(l => [l.id, l.flavour]))
 
   return (
     <div className="village-map">
@@ -101,16 +101,27 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem }:
             onDragOver={e => handleDragOver(e, locId)}
             onDrop={e => handleDrop(e, locId)}
             onDragLeave={handleDragLeave}
+            onClick={() => onSelect(`loc:${locId}`)}
           >
             <div className="map-location__name">{LOCATION_LABELS[locId]}</div>
             <div className="map-location__tokens">
+              {gameState.board.characterLocations[INVESTIGATOR_ID] === locId && (
+                <div
+                  className="map-token map-token--investigator"
+                  draggable={canAct}
+                  onDragStart={e => handleDragStart(e, 'character', INVESTIGATOR_ID)}
+                  onClick={e => { e.stopPropagation(); onSelect(`char:${INVESTIGATOR_ID}`) }}
+                >
+                  Investigator
+                </div>
+              )}
               {chars.map(char => (
                 <div
                   key={char.id}
-                  className={`map-token ${char.role === 'victim' ? 'map-token--victim' : 'map-token--character'}`}
-                  draggable={char.role !== 'victim' && canAct}
-                  onDragStart={e => char.role !== 'victim' && handleDragStart(e, 'character', char.id)}
-                  title={`${char.name} — ${char.description}`}
+                  className={`map-token ${char.isVictim ? 'map-token--victim' : 'map-token--character'}`}
+                  draggable={!char.isVictim && canAct}
+                  onDragStart={e => !char.isVictim && handleDragStart(e, 'character', char.id)}
+                  onClick={e => { e.stopPropagation(); onSelect(`char:${char.id}`) }}
                 >
                   {char.name.split(' ')[0]}
                 </div>
@@ -121,13 +132,12 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem }:
                   className="map-token map-token--item"
                   draggable={canAct}
                   onDragStart={e => handleDragStart(e, 'item', item.id)}
-                  title={item.description}
+                  onClick={e => { e.stopPropagation(); onSelect(`item:${item.id}`) }}
                 >
                   {item.name}
                 </div>
               ))}
             </div>
-            <div className="map-location__flavour">{locationFlavour.get(locId)}</div>
           </div>
         )
       })}

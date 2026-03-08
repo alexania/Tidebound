@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import type { Scenario, Difficulty, CheckpointId, LocationId } from './types/scenario'
-import type { GameState, PinnedCard, BoardConnection } from './types/gameState'
+import type { GameState } from './types/gameState'
 import {
   initGameState, moveCharacter, moveItem,
-  resolveTurn, submitCheckpoint, endTurn,
+  resolveTurn, submitCheckpoint,
+  pinClue, updateCardNote, moveCard, addConnection, removeConnection, setSelected,
 } from './engine/gameEngine'
 import {
   generateScenario, saveScenario,
-  getUnplayedScenario, markPlayed,
+  getUnplayedScenario, markPlayed, getPlayedIds,
 } from './engine/generator'
 import { getBundledScenarios } from './scenarios/index'
-import { getPlayedIds } from './engine/generator'
 import { OpeningNarrative } from './components/OpeningNarrative'
 import { GameScreen } from './components/GameScreen'
 import './App.css'
@@ -89,7 +89,8 @@ export default function App() {
 
   const handleStartGame = () => {
     if (!activeScenario) return
-    setGameState(initGameState(activeScenario.scenario, difficulty))
+    const initial = initGameState(activeScenario.scenario, difficulty)
+    setGameState(resolveTurn(initial, activeScenario.scenario))
     setShowBoard(false)
     setShowCheckpoints(false)
     setScreen('game')
@@ -101,8 +102,8 @@ export default function App() {
   const sc = activeScenario?.scenario
 
   const handleMoveCharacter = (charId: string, location: LocationId) => {
-    if (!gs || !sc) return
-    setGameState(moveCharacter(gs, charId, location, sc))
+    if (!gs) return
+    setGameState(moveCharacter(gs, charId, location))
   }
 
   const handleMoveItem = (itemId: string, location: LocationId) => {
@@ -112,14 +113,7 @@ export default function App() {
 
   const handleEndTurn = () => {
     if (!gs || !sc) return
-    const next = resolveTurn(gs, sc)
-    setGameState(next)
-  }
-
-  const handleNextTurn = () => {
-    if (!gs) return
-    const next = endTurn(gs)
-    setGameState(next)
+    setGameState(resolveTurn(gs, sc))
   }
 
   const handleSubmitCheckpoint = (cpId: CheckpointId, answer: string, citedClueIds: string[]) => {
@@ -128,7 +122,6 @@ export default function App() {
     setGameState(next)
     if (next.solved && activeScenario) {
       markPlayed(activeScenario.id)
-      // Show solved screen after a beat
       setTimeout(() => setScreen('solved'), 800)
     }
   }
@@ -137,56 +130,34 @@ export default function App() {
 
   const handlePinCard = (clueId: string) => {
     if (!gs) return
-    if (gs.pinnedCards.some(c => c.clueId === clueId)) return
     const entry = gs.log.find(e => e.clueId === clueId)
     if (!entry) return
-    const card: PinnedCard = {
-      id: `card_${clueId}`,
-      clueId,
-      text: entry.text,
-      turn: entry.turn,
-      note: '',
-      x: 40 + Math.random() * 300,
-      y: 40 + Math.random() * 200,
-    }
-    setGameState(prev => prev ? { ...prev, pinnedCards: [...prev.pinnedCards, card] } : prev)
+    setGameState(pinClue(gs, clueId, entry.text))
   }
 
   const handleUpdateNote = (cardId: string, note: string) => {
-    setGameState(prev => prev ? {
-      ...prev,
-      pinnedCards: prev.pinnedCards.map(c => c.id === cardId ? { ...c, note } : c),
-    } : prev)
+    if (!gs) return
+    setGameState(updateCardNote(gs, cardId, note))
   }
 
   const handleMoveCard = (cardId: string, x: number, y: number) => {
-    setGameState(prev => prev ? {
-      ...prev,
-      pinnedCards: prev.pinnedCards.map(c => c.id === cardId ? { ...c, x, y } : c),
-    } : prev)
+    if (!gs) return
+    setGameState(moveCard(gs, cardId, x, y))
   }
 
-  const handleAddConnection = (fromClueId: string, toClueId: string) => {
+  const handleAddConnection = (fromCardId: string, toCardId: string) => {
     if (!gs) return
-    const exists = gs.connections.some(
-      c => (c.fromCardId === fromClueId && c.toCardId === toClueId) ||
-           (c.fromCardId === toClueId && c.toCardId === fromClueId)
-    )
-    if (exists) return
-    const conn: BoardConnection = {
-      id: `conn_${Date.now()}`,
-      fromCardId: fromClueId,
-      toCardId: toClueId,
-      label: '',
-    }
-    setGameState(prev => prev ? { ...prev, connections: [...prev.connections, conn] } : prev)
+    setGameState(addConnection(gs, fromCardId, toCardId))
   }
 
   const handleRemoveConnection = (connectionId: string) => {
-    setGameState(prev => prev ? {
-      ...prev,
-      connections: prev.connections.filter(c => c.id !== connectionId),
-    } : prev)
+    if (!gs) return
+    setGameState(removeConnection(gs, connectionId))
+  }
+
+  const handleSelect = (sel: string | null) => {
+    if (!gs) return
+    setGameState(setSelected(gs, sel))
   }
 
   // ── Render ────────────────────────────────────────────────────
@@ -253,13 +224,13 @@ export default function App() {
         onMoveCharacter={handleMoveCharacter}
         onMoveItem={handleMoveItem}
         onEndTurn={handleEndTurn}
-        onNextTurn={handleNextTurn}
         onSubmitCheckpoint={handleSubmitCheckpoint}
         onPinCard={handlePinCard}
         onUpdateNote={handleUpdateNote}
         onMoveCard={handleMoveCard}
         onAddConnection={handleAddConnection}
         onRemoveConnection={handleRemoveConnection}
+        onSelect={handleSelect}
         showBoard={showBoard}
         showCheckpoints={showCheckpoints}
         onToggleBoard={() => setShowBoard(b => !b)}

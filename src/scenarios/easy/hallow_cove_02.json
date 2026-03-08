@@ -1,0 +1,767 @@
+{
+  "village": {
+    "name": "Hallow Cove",
+    "history": "The founding families came to Hallow Cove in a season no calendar records, settling the harbour before the chapel, the chapel before the names. What they brought with them — or what received them — is not spoken of at table, though the old mark cut into the harbour wall predates every birth record in the village by at least two centuries. The lighthouse was built after the Sinking, as locals call a winter whose details shift each time the story is told, and its first keeper left no journal, only a single phrase scratched into the lantern room glass: not yet. The families that remain know what the tides ask of them. Most pay without being reminded.",
+    "season": "autumn",
+    "weather": "low fog, salt-thick, unmoving"
+  },
+  "crime": {
+    "cause_of_death": "poisoning — plant-based",
+    "murder_location": "manor",
+    "body_found_location": "harbour",
+    "body_was_moved": true,
+    "time_of_death": "between ten and midnight",
+    "perpetrator_ids": [
+      "edda_vane"
+    ],
+    "motive": "inheritance",
+    "hidden_truth": null
+  },
+  "characters": [
+    {
+      "id": "oskar_fell",
+      "name": "Oskar Fell",
+      "local": true,
+      "home_location": "manor",
+      "starting_location": "harbour",
+      "description": "Oskar Fell was the last of the manor Fells, a man who collected debts from the village with the quiet patience of someone who believed time was always on his side. He had no children and had recently revised his will, a fact he mentioned to at least three people. He is found at the harbour in the early grey of morning.",
+      "isVictim": true
+    },
+    {
+      "id": "edda_vane",
+      "name": "Edda Vane",
+      "local": true,
+      "home_location": "manor",
+      "starting_location": "manor",
+      "description": "Edda Vane has kept house at the manor for eleven years, long enough that some villagers forget she was not born to it. She is Oskar's cousin by his mother's side and the only living relative named in early drafts of his will. She speaks seldom and moves through the manor as though she owns it already, which, she had reason to believe, she soon would.",
+      "isVictim": false
+    },
+    {
+      "id": "pell_morrow",
+      "name": "Pell Morrow",
+      "local": true,
+      "home_location": "cottage_row",
+      "starting_location": "harbour",
+      "description": "Pell Morrow is a fisherman who owed Oskar Fell a sum he could not repay, the result of a bad season and a worse loan. He was seen arguing with Oskar at the tavern three nights before the body was found. His hands are perpetually scarred and he does not look people in the eye when he speaks of money.",
+      "isVictim": false
+    },
+    {
+      "id": "doctor_signe_roth",
+      "name": "Doctor Signe Roth",
+      "local": false,
+      "home_location": "doctors_house",
+      "starting_location": "doctors_house",
+      "description": "Doctor Roth arrived in Hallow Cove six years ago and has never fully been accepted, which she appears not to mind. She is methodical, keeps thorough notes, and has access to a range of botanical compounds that the village otherwise could not obtain. Oskar Fell had recently threatened to report her to the district board over a disputed treatment.",
+      "isVictim": false
+    },
+    {
+      "id": "hilde_cray",
+      "name": "Hilde Cray",
+      "local": true,
+      "home_location": "chapel",
+      "starting_location": "chapel",
+      "description": "Hilde Cray tends the chapel and speaks of the old ways in the way people speak of weather — as fact, not belief. She was seen near the cliffs the evening before the body was found, and she will not say why. Her involvement ends there, though she gives the impression of knowing more than she offers.",
+      "isVictim": false
+    },
+    {
+      "id": "tam_ossel",
+      "name": "Tam Ossel",
+      "local": true,
+      "home_location": "tavern",
+      "starting_location": "tavern",
+      "description": "Tam Ossel runs the tavern with the disposition of a man who has heard everything and remembers it all wrong. He serves quietly and watches the door. He was one of the last people to see Oskar Fell alive and has an inexplicable habit of wiping the same glass long after it is clean.",
+      "isVictim": false
+    },
+    {
+      "id": "brynn_fell",
+      "name": "Brynn Fell",
+      "local": true,
+      "home_location": "forest_edge",
+      "starting_location": "forest_edge",
+      "description": "Brynn Fell is Oskar's estranged younger brother, believed for years to have left the cove for good. He returned two weeks ago without explanation and has been staying at the forest edge, avoiding the village proper. He and Oskar had not spoken in over a decade, and the nature of their falling out has never been made public.",
+      "isVictim": false
+    }
+  ],
+  "items": [
+    {
+      "id": "revised_will",
+      "name": "Revised Will",
+      "description": "A folded document on heavy paper, recently signed and witnessed, bearing Oskar Fell's seal and a name near the bottom that has been partially obscured by a dark water stain.",
+      "starting_location": "manor",
+      "hidden": true,
+      "discovery_condition": {
+        "type": "character_in_location",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": null
+      }
+    },
+    {
+      "id": "foxglove_bundle",
+      "name": "Dried Foxglove Bundle",
+      "description": "A tight bundle of dried foxglove stems, tied with undyed thread, tucked behind a loose stone in the manor kitchen hearth.",
+      "starting_location": "manor",
+      "hidden": true,
+      "discovery_condition": {
+        "type": "character_in_location",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": null
+      }
+    },
+    {
+      "id": "debt_ledger",
+      "name": "Oskar's Debt Ledger",
+      "description": "A worn leather book filled with names, sums, and dates in Oskar's close handwriting, several entries underlined twice.",
+      "starting_location": "manor",
+      "hidden": false,
+      "discovery_condition": null
+    },
+    {
+      "id": "wine_glass",
+      "name": "Residue-Stained Wine Glass",
+      "description": "A crystal glass left on the manor study sideboard, its interior ringed with a dark dried residue that smells faintly of earth and something sweeter.",
+      "starting_location": "manor",
+      "hidden": false,
+      "discovery_condition": null
+    },
+    {
+      "id": "boat_rope",
+      "name": "Coiled Harbour Rope",
+      "description": "A length of rope coiled near the harbour's south mooring post, damp and carrying traces of fabric thread in a colour not common among the fishing families.",
+      "starting_location": "harbour",
+      "hidden": false,
+      "discovery_condition": null
+    },
+    {
+      "id": "torn_letter",
+      "name": "Torn Letter Fragment",
+      "description": "Half a letter found beneath a harbour plank, the handwriting angular and controlled, the salutation torn away, the remaining lines speaking of an arrangement that could no longer be honoured.",
+      "starting_location": "harbour",
+      "hidden": true,
+      "discovery_condition": {
+        "type": "character_in_location",
+        "characters": [
+          "pell_morrow"
+        ],
+        "location": "harbour",
+        "item": null
+      }
+    },
+    {
+      "id": "doctors_journal",
+      "name": "Doctor's Case Journal",
+      "description": "A professional record of patient visits, recent entries written in tighter script than earlier ones, as though the hand that made them was under some pressure.",
+      "starting_location": "doctors_house",
+      "hidden": false,
+      "discovery_condition": null
+    },
+    {
+      "id": "empty_vial",
+      "name": "Empty Glass Vial",
+      "description": "A small apothecary vial found in the manor study wastebin, unstoppered and rinsed but not quite clean, carrying the faint smell of a distillate.",
+      "starting_location": "manor",
+      "hidden": true,
+      "discovery_condition": {
+        "type": "character_in_location",
+        "characters": [
+          "doctor_signe_roth"
+        ],
+        "location": "manor",
+        "item": null
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "harbour",
+      "flavour": "The harbour wall bears a carved mark no mason has claimed — low enough that the tide covers it twice daily, as though whatever made it prefers intervals."
+    },
+    {
+      "id": "tavern",
+      "flavour": "The tavern fire burns even in mild weather; the village joke is that Tam has never let it go out, though no one can recall why the joke started."
+    },
+    {
+      "id": "lighthouse",
+      "flavour": "The lighthouse beam moves on its mechanism, reliable and indifferent, and the keeper does not come down to the village more than once a week, always before dark."
+    },
+    {
+      "id": "chapel",
+      "flavour": "The chapel's east window depicts no saint anyone has identified, only a figure standing at the edge of water with its back turned."
+    },
+    {
+      "id": "doctors_house",
+      "flavour": "The doctor's garden is more herb than flower, and the villagers who pass it note that several of the plants are not native to this coast."
+    },
+    {
+      "id": "manor",
+      "flavour": "The Fell manor sits above the village on the only flat ground before the hill rises, and its upper windows catch the lighthouse beam once a night, briefly, without fail."
+    },
+    {
+      "id": "cottage_row",
+      "flavour": "The cottages lean together like men sharing a secret, the gaps between them barely wide enough to pass through single-file."
+    },
+    {
+      "id": "cliffs",
+      "flavour": "The cliffs above the harbour are marked at intervals with scratches in the stone that the children are told are tide gauges, though the intervals are irregular."
+    },
+    {
+      "id": "forest_edge",
+      "flavour": "The forest edge is where things are left that the village does not want found quickly — not as a rule, simply as a habit that predates anyone who could explain it."
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "How did Oskar Fell die?",
+      "answer_options": [
+        "drowning",
+        "poisoning — plant-based",
+        "blunt trauma",
+        "strangulation",
+        "stabbing"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where was Oskar Fell actually killed?",
+      "answer_options": [
+        "the harbour",
+        "the tavern",
+        "the manor",
+        "the cliffs",
+        "the forest edge"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When did Oskar Fell die?",
+      "answer_options": [
+        "before sundown",
+        "between seven and nine in the evening",
+        "between ten and midnight",
+        "after midnight",
+        "in the early morning hours"
+      ]
+    },
+    {
+      "id": "last_seen",
+      "label": "Where was Oskar Fell last seen alive?",
+      "answer_options": [
+        "at the harbour",
+        "at the tavern",
+        "at the chapel",
+        "at the manor",
+        "on the cliffs road"
+      ]
+    },
+    {
+      "id": "victim_state",
+      "label": "What was Oskar Fell's condition in his final days?",
+      "answer_options": [
+        "fearful and preparing to flee the village",
+        "in a dispute with the fishing families over debts",
+        "planning to revise his will and had recently done so",
+        "suffering from an illness the doctor had been treating",
+        "in secret communication with his estranged brother"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Oskar Fell?",
+      "answer_options": [
+        "Pell Morrow",
+        "Doctor Signe Roth",
+        "Edda Vane",
+        "Brynn Fell",
+        "an unknown outsider"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Oskar Fell killed?",
+      "answer_options": [
+        "revenge for a long-standing wrong",
+        "to cancel an unpayable debt",
+        "to protect a medical secret",
+        "inheritance",
+        "belief in an obligation older than law"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue_cod_hard",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": "wine_glass"
+      },
+      "text": "The residue inside the [loc:manor] study glass is not wine. Doctor Roth, if asked, would recognise the smell — it is glycoside, the kind that comes from something grown, not compounded. The glass was left on the sideboard as though it had simply been forgotten, which is not how careful people leave evidence.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_cod_soft1",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": null
+      },
+      "text": "The [loc:manor] kitchen hearth has a loose stone that has been worked loose recently — the mortar dust is fresh. What was kept there is gone now, but the smell of dried vegetation lingers in the cavity, sweet and faintly medicinal. The harbour rope carries traces of the same.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_cod_soft2",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "doctor_signe_roth"
+        ],
+        "location": "doctors_house",
+        "item": null
+      },
+      "text": "The [loc:doctors_house] garden includes foxglove in two varieties, both well-tended, both recently harvested — the cut stems are clean and low. The doctor notes in her journal that she dispensed none this month, which is either careful record-keeping or the point of the record.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_cod_rh",
+      "checkpoint": "cause_of_death",
+      "answer": "drowning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "pell_morrow"
+        ],
+        "location": "harbour",
+        "item": null
+      },
+      "text": "Pell Morrow at the [loc:harbour] is asked whether a man could survive a fall from the mooring into the current. He is quiet for a long time before answering that he could not, and that the body would wash up near the south wall. Oskar was found near the south wall.",
+      "red_herring_explanation": "Pell's knowledge of tidal patterns and the body's position implies drowning, but the body was moved there after death. His comment reflects fisherman's knowledge of the harbour, not insider knowledge of the crime."
+    },
+    {
+      "id": "clue_loc_hard",
+      "checkpoint": "true_location",
+      "answer": "the manor",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": "foxglove_bundle"
+      },
+      "text": "Behind the hearth stone at the [loc:manor], the foxglove bundle is gone but the thread that bound it remains — the same undyed cord used on the [loc:harbour] mooring rope. A man was brought from here to there, not the other way. The study floor near the sideboard shows faint drag marks in the dust that the rug was moved to cover.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_loc_soft1",
+      "checkpoint": "true_location",
+      "answer": "the manor",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": "empty_vial"
+      },
+      "text": "The wastebin in the [loc:manor] study holds an emptied vial that still holds the shape of its contents — a distillate, not a raw plant. Something was prepared here with care. The vial is not from the village; the glass is finer than anything the [loc:doctors_house] keeps in stock.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_loc_soft2",
+      "checkpoint": "true_location",
+      "answer": "the manor",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": null,
+        "item": "boat_rope"
+      },
+      "text": "The rope at the [loc:harbour] mooring post is not a harbour rope — its weave is finer, more domestic, and threads of dark wool are caught in the fibres consistent with the heavy curtains in the [loc:manor] study. A body moved at night needs something to bind and something to carry.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_loc_rh",
+      "checkpoint": "true_location",
+      "answer": "the cliffs",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "brynn_fell"
+        ],
+        "location": "cliffs",
+        "item": null
+      },
+      "text": "Brynn Fell is found on the [loc:cliffs] road at first light, his boots still wet from the path that runs down to the water. He says he was walking. When asked where he had been the night before, he says at the [loc:forest_edge], but does not say until when.",
+      "red_herring_explanation": "Brynn's wet boots and evasiveness about his whereabouts suggest he may have been at the cliffs where a body could have been thrown to the harbour below, but his movements that night are accounted for by two other witnesses until well past midnight, and the body shows no injury consistent with a fall."
+    },
+    {
+      "id": "clue_tod_hard",
+      "checkpoint": "time_of_death",
+      "answer": "between ten and midnight",
+      "weight": "hard",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "doctor_signe_roth"
+        ],
+        "location": "doctors_house",
+        "item": null
+      },
+      "text": "Doctor Roth's assessment, given reluctantly at the [loc:doctors_house], places the time of death between ten and midnight based on the state of the body and the temperature of the night. She notes that the compound present acts within two to three hours of ingestion, which gives a window for when it was given.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_tod_soft1",
+      "checkpoint": "time_of_death",
+      "answer": "between ten and midnight",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "pell_morrow"
+        ],
+        "location": "tavern",
+        "item": null
+      },
+      "text": "Pell Morrow left the [loc:tavern] just before ten, he says, and saw the [loc:manor] upper windows still lit. He did not see Oskar, only the light. By the time the [loc:lighthouse] beam had turned twice more — half an hour, perhaps — the manor was dark.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_tod_soft2",
+      "checkpoint": "time_of_death",
+      "answer": "between ten and midnight",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": null,
+        "item": "debt_ledger"
+      },
+      "text": "The [loc:manor] debt ledger was last opened that evening — the oil lamp on the desk had burned down precisely to the mark Oskar used to indicate a working session. He kept the ledger only when conducting business. Someone met him there after dark, and the ledger was open when they did.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_tod_rh",
+      "checkpoint": "time_of_death",
+      "answer": "after midnight",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "brynn_fell"
+        ],
+        "location": "forest_edge",
+        "item": null
+      },
+      "text": "Brynn Fell at the [loc:forest_edge] says he heard someone moving on the road past the tree line well after midnight — heavy-footed, unhurried. He assumed it was a fisherman making for the early tide. The [loc:harbour] is a natural end point for that road.",
+      "red_herring_explanation": "Brynn's account of sounds after midnight suggests the killing or body movement occurred later than it did. What he heard was most likely Edda returning from moving the body, not the death itself, which had already occurred earlier in the evening."
+    },
+    {
+      "id": "clue_ls_hard",
+      "checkpoint": "last_seen",
+      "answer": "at the manor",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": "debt_ledger"
+      },
+      "text": "The debt ledger at the [loc:manor] is open to a page that marks three names — Pell Morrow's among them — but the final notation is in a different hand. Someone added a line after Oskar's last entry, a line that says only settled, in Edda's controlled angular script. He was in that room when he last drew breath.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_ls_soft1",
+      "checkpoint": "last_seen",
+      "answer": "at the manor",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "pell_morrow"
+        ],
+        "location": "tavern",
+        "item": null
+      },
+      "text": "Two men at the [loc:tavern] confirm that Oskar left there before nine — he was expected at the [loc:manor] for a meeting, he told them, and he was not a man who kept people waiting. He did not say who had summoned him, only that it was family business.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_ls_soft2",
+      "checkpoint": "last_seen",
+      "answer": "at the manor",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": null
+      },
+      "text": "Edda Vane says she retired early and did not see Oskar after supper, but the kitchen fire was stoked well past its usual hour — the ash depth shows three separate loadings, the last of which brought the fire back up to a working heat. Someone in the [loc:manor] was awake and occupied much later than claimed.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_ls_rh",
+      "checkpoint": "last_seen",
+      "answer": "at the tavern",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "pell_morrow"
+        ],
+        "location": "tavern",
+        "item": null
+      },
+      "text": "Pell Morrow says Oskar stayed at the [loc:tavern] after he left, drinking alone in the corner booth — that he watched him order a second cup and settle in. He seemed in no hurry. Pell is the only witness to this, and he is a man with reasons to muddy the timeline.",
+      "red_herring_explanation": "Pell's account places Oskar in the tavern later than other witnesses remember, extending the window before his death and shifting focus away from the manor. Pell has a clear motive to complicate the investigation, and no other witness corroborates him staying past nine."
+    },
+    {
+      "id": "clue_vs_hard",
+      "checkpoint": "victim_state",
+      "answer": "planning to revise his will and had recently done so",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": "revised_will"
+      },
+      "text": "The document in the [loc:manor] study is a revised will, witnessed ten days ago, and the stain obscuring the primary beneficiary is not accidental — it has been applied deliberately, but imperfectly. The original name is Brynn Fell. Edda Vane is listed only in an earlier draft found folded behind it. Someone recently learned they had been written out.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_vs_soft1",
+      "checkpoint": "victim_state",
+      "answer": "planning to revise his will and had recently done so",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "brynn_fell"
+        ],
+        "location": "forest_edge",
+        "item": null
+      },
+      "text": "Brynn Fell at the [loc:forest_edge] explains why he returned to Hallow Cove: his brother had written to him. The letter said it was time to settle old debts — not money, Brynn says, something older than that. He came because Oskar had finally done something right. He does not yet know that it got Oskar killed.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_vs_soft2",
+      "checkpoint": "victim_state",
+      "answer": "planning to revise his will and had recently done so",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": null,
+        "item": "revised_will"
+      },
+      "text": "The solicitor in the nearest town, if contacted, will confirm that Oskar Fell requested a revision two weeks ago and that his previous arrangement — leaving the [loc:manor] and its contents entirely to his cousin — was superseded. Edda Vane would have known this. She witnessed the original will herself.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_vs_rh",
+      "checkpoint": "victim_state",
+      "answer": "in a dispute with the fishing families over debts",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "pell_morrow"
+        ],
+        "location": null,
+        "item": "torn_letter"
+      },
+      "text": "The torn letter beneath the [loc:harbour] plank speaks of an arrangement that could not be honoured — the handwriting is close and pressured, the kind a man writes when afraid. The signature is gone, but the phrasing is the phrasing of a debtor asking for more time, and Pell Morrow's jacket cuff matches the fabric threads caught in the paper's fold.",
+      "red_herring_explanation": "The letter and fabric trace suggest Pell had urgent, secret dealings with the victim at the harbour, pointing toward a financial motive for murder. In fact, Pell had arranged to meet Oskar there to discuss a debt extension — he tore and hid the letter when the body was found, afraid the meeting would make him the obvious suspect."
+    },
+    {
+      "id": "clue_perp_hard",
+      "checkpoint": "perpetrator",
+      "answer": "Edda Vane",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": "empty_vial"
+      },
+      "text": "The empty vial in the [loc:manor] study bin carries Edda Vane's fingermarks — not on the outside, where anyone might handle it, but pressed into the residue on the inside lip, the mark of a thumb that held it steady while it was emptied. She did not find this. She left it.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_perp_soft1",
+      "checkpoint": "perpetrator",
+      "answer": "Edda Vane",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": null
+      },
+      "text": "Edda Vane at the [loc:manor] answers questions about the previous evening without being asked what time she rose or retired — she offers these details as though she had prepared them. The details are consistent. Prepared consistency is not the same as truth, and the [loc:harbour] rope did not coil itself.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_perp_soft2",
+      "checkpoint": "perpetrator",
+      "answer": "Edda Vane",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": null,
+        "item": "foxglove_bundle"
+      },
+      "text": "The foxglove bundle was hidden in the [loc:manor] kitchen, not in the doctor's stores at [loc:doctors_house] and not among the folk remedies at [loc:chapel]. Edda Vane grows a kitchen garden that she maintains herself and permits no one else to tend. Foxglove is in it. It has been recently cut.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_perp_rh",
+      "checkpoint": "perpetrator",
+      "answer": "Doctor Signe Roth",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "doctor_signe_roth"
+        ],
+        "location": null,
+        "item": "doctors_journal"
+      },
+      "text": "The [loc:doctors_house] journal records a visit from Oskar Fell six days ago, but the entry is sparse — only the date and the words no further treatment. Later pages show a notation in the margin: threat received, documented. The doctor had reason to fear what Oskar might report, and knowledge enough to act on that fear.",
+      "red_herring_explanation": "The journal entry and margin note suggest the doctor had both motive and means, and her knowledge of plant-based compounds makes her a natural suspect. However, her documented threat was received and logged precisely because she feared Oskar, not because she planned to act — her careful record-keeping was self-protective, not incriminating."
+    },
+    {
+      "id": "clue_mot_hard",
+      "checkpoint": "motive",
+      "answer": "inheritance",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": "revised_will"
+      },
+      "text": "The revised will at the [loc:manor] is clear: Edda Vane was removed as beneficiary ten days before Oskar died, replaced entirely by his brother Brynn. Edda had lived in this house for eleven years under the assumption she would inherit it. She knew the will had changed — Oskar told her, in his way, which was without tact or caution. That conversation was the last private one they had.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_mot_soft1",
+      "checkpoint": "motive",
+      "answer": "inheritance",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "edda_vane"
+        ],
+        "location": "manor",
+        "item": null
+      },
+      "text": "Edda Vane does not speak of the future when she speaks of the [loc:manor]. She speaks of it in the present tense only — my kitchen, my garden, the fires I keep. There is no acknowledgment that Oskar's death changes her tenure here, which suggests she had already decided it would not.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_mot_soft2",
+      "checkpoint": "motive",
+      "answer": "inheritance",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "brynn_fell"
+        ],
+        "location": "forest_edge",
+        "item": null
+      },
+      "text": "Brynn Fell at the [loc:forest_edge] was not told the specifics of his brother's will — only that he had been remembered. He did not know the [loc:manor] was to pass to him until told. He is quiet for a long time after learning it, then says that Edda would have known before he did, and that Oskar would have told her himself.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "clue_mot_rh",
+      "checkpoint": "motive",
+      "answer": "to cancel an unpayable debt",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "pell_morrow"
+        ],
+        "location": null,
+        "item": "debt_ledger"
+      },
+      "text": "The [loc:manor] debt ledger shows Pell Morrow's sum underlined three times — a notation, other entries suggest, that Oskar used to mark accounts he intended to pursue. The amount is not ruinous for a prosperous man, but Pell is not prosperous. A man that cornered might calculate his options.",
+      "red_herring_explanation": "The debt ledger makes Pell's motive look financial and urgent, suggesting he killed to erase what he owed. In fact, Oskar had indicated in a separate letter to Pell — never found in full — that he was willing to restructure the debt. Pell's desperation was real, but his threat was not."
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_manor_study",
+      "text": "The [loc:manor] study was the last room Oskar Fell used — the desk lamp is burned to its mark and the chair is not pushed in. Whatever happened that evening began here.",
+      "character_id": "edda_vane",
+      "location_id": "manor"
+    },
+    {
+      "id": "lead_pell_harbour",
+      "text": "[char:Pell Morrow] was at the [loc:harbour] when the body was found and has not moved far from it since, which could be habit or could be something else.",
+      "character_id": "pell_morrow",
+      "location_id": "harbour"
+    },
+    {
+      "id": "lead_doctors_garden",
+      "text": "The [loc:doctors_house] garden has recently been harvested, and the cut stems nearest the path are foxglove — a plant with uses the doctor would understand better than most.",
+      "character_id": "doctor_signe_roth",
+      "location_id": "doctors_house"
+    }
+  ],
+  "opening_narrative": "The fog came in before dawn and stayed. It was [char:Hilde Cray] who found him, coming down to the [loc:harbour] for the early observance she keeps — not church, not quite — and she did not scream. She stood for a long moment at the top of the harbour steps, then walked to the tavern and knocked until [char:Tam Ossel] opened the door. By the time the village had gathered, the tide had come up to [char:Oskar Fell]'s boots and receded again, as though it had inspected him and found him acceptable.\n\n[char:Oskar Fell] lay at the [loc:harbour] with the stillness of a man who had been still for some hours. He was dressed as he dressed for business — the good coat, the heavy ring he wore on significant occasions — and there was nothing immediately disturbed about him. No wound visible. No struggle written in his posture. He looked, several people said later, like a man who had simply stopped. They said it as though this explained something, which in Hallow Cove, it perhaps did.\n\nHe was the last of the manor Fells, and he had enemies the way useful men do — accumulated, impersonal, mostly financial. But he had one family member returned to the village after a decade's absence, and one household dependent who had managed his affairs so thoroughly that the manor and the man had become difficult to separate. The [loc:lighthouse] beam had swept the water all night, indifferent, regular, and whatever it had seen at the [loc:harbour] before the fog closed in, the keeper had not come down to say."
+}

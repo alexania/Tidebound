@@ -1,0 +1,701 @@
+{
+  "village": {
+    "name": "Crale's Mouth",
+    "history": "The village was built by three families — the Crales, the Dorchs, and the Penns — who came not from inland but from the water, arriving on a night the old records describe only as 'the agreed night.' They built first around the headland, not the harbour, and the chapel came last, as an afterthought. What they observed in the decades before the chapel's consecration is not spoken of, though the founding families' descendants still leave certain things outside their doors at the turn of each season. The lighthouse was raised by a man named in no registry, and the families paid for it in a currency no one has since named. When the fish stopped coming for seven years running, it was not prayer that brought them back.",
+    "season": "autumn",
+    "weather": "still and copper-hued, the air holding smoke from somewhere inland"
+  },
+  "crime": {
+    "cause_of_death": "poisoning — plant-based",
+    "murder_location": "manor",
+    "body_found_location": "chapel",
+    "body_was_moved": true,
+    "time_of_death": "between eight and ten in the evening",
+    "perpetrator_ids": [
+      "aldous_penn"
+    ],
+    "motive": "inheritance",
+    "hidden_truth": null
+  },
+  "characters": [
+    {
+      "id": "oswin_crale",
+      "name": "Oswin Crale",
+      "isVictim": true,
+      "local": true,
+      "home_location": "manor",
+      "starting_location": "chapel",
+      "description": "The last of the Crale line, a man in his late sixties who had the manner of someone who had been waiting for something to arrive. He kept the manor's accounts in a cipher no one else could read and had recently begun attending the chapel again after a twenty-year absence."
+    },
+    {
+      "id": "aldous_penn",
+      "name": "Aldous Penn",
+      "isVictim": false,
+      "local": true,
+      "home_location": "cottage_row",
+      "starting_location": "cottage_row",
+      "description": "A soft-spoken man in his forties, distantly related to the Crales through his mother's line and employed as the manor's groundskeeper. He has the habit of identifying plants by their old names rather than their common ones, and no one finds this unusual."
+    },
+    {
+      "id": "betta_dorch",
+      "name": "Betta Dorch",
+      "isVictim": false,
+      "local": true,
+      "home_location": "tavern",
+      "starting_location": "tavern",
+      "description": "The tavern keeper, a broad and watchful woman who is the informal memory of the village — she knows what happened before and what is likely to happen next. She pours generously and speaks in carefully measured sentences."
+    },
+    {
+      "id": "pell_drach",
+      "name": "Pell Drach",
+      "isVictim": false,
+      "local": false,
+      "home_location": "doctors_house",
+      "starting_location": "doctors_house",
+      "description": "The village doctor, arrived six years ago from a city whose name he mentions less and less. He keeps thorough records and has a private understanding with Betta Dorch about what is and is not written down. He is visibly unsettled by the discovery at the chapel."
+    },
+    {
+      "id": "maren_voss",
+      "name": "Maren Voss",
+      "isVictim": false,
+      "local": true,
+      "home_location": "cottage_row",
+      "starting_location": "cliffs",
+      "description": "A woman in her thirties who collects and dries herbs along the cliff paths, selling bundles to households and occasionally to Dr. Drach. She and Oswin Crale shared some old unresolved matter; the village knows the shape of it without knowing its name."
+    },
+    {
+      "id": "sem_orr",
+      "name": "Sem Orr",
+      "isVictim": false,
+      "local": true,
+      "home_location": "harbour",
+      "starting_location": "harbour",
+      "description": "The harbour master, a lean and rope-handed man who was born in Crale's Mouth and fully intends to die here. He found the body and fetched the investigator without comment, as though it were a thing he had long expected would fall to him."
+    }
+  ],
+  "items": [
+    {
+      "id": "leather_ledger",
+      "name": "Crale's Estate Ledger",
+      "description": "A heavy leather-bound ledger, its margins annotated in two different hands — the second appearing in the last three months.",
+      "starting_location": "manor"
+    },
+    {
+      "id": "dried_herb_bundle",
+      "name": "Dried Herb Bundle",
+      "description": "A bundle of dried stems tied with brown twine, the leaves a dark and brittle grey-green that does not match any common kitchen herb.",
+      "starting_location": "chapel"
+    },
+    {
+      "id": "glass_vial",
+      "name": "Small Glass Vial",
+      "description": "An empty vial of the kind a chemist or a careful gardener might use, smelling faintly of something resinous and sweet.",
+      "starting_location": "manor"
+    },
+    {
+      "id": "signed_document",
+      "name": "Witnessed Inheritance Document",
+      "description": "A folded document bearing two signatures and a seal, the wax still clean — as though it had been stored carefully and recently removed.",
+      "starting_location": "doctors_house"
+    },
+    {
+      "id": "tallow_candle",
+      "name": "Spent Tallow Candle",
+      "description": "A thick, rough candle of the kind no one in the village sells, burned entirely down in a ring of wax on the chapel floor.",
+      "starting_location": "chapel"
+    }
+  ],
+  "locations": [
+    {
+      "id": "harbour",
+      "flavour": "The harbour smells of salt and old rope. The boats sit heavy and patient. Sem Orr's office window faces inland — never out to sea."
+    },
+    {
+      "id": "tavern",
+      "flavour": "The tavern fire is always lit, even in summer. Betta Dorch's shelves hold bottles that aren't for sale and books that aren't for reading."
+    },
+    {
+      "id": "lighthouse",
+      "flavour": "The lighthouse stands at the furthest point of the headland, its light running on a schedule that does not match the tide tables."
+    },
+    {
+      "id": "chapel",
+      "flavour": "The chapel is the newest building in Crale's Mouth, which means it is two hundred years old. Its dedication stone names no saint."
+    },
+    {
+      "id": "doctors_house",
+      "flavour": "Dr. Drach's house is orderly and impersonal, as though assembled by someone who had read a description of a home but never lived in one."
+    },
+    {
+      "id": "manor",
+      "flavour": "The Crale manor sits at the village's inland edge. Its garden is cultivated with a precision that looks less like care and more like argument."
+    },
+    {
+      "id": "cottage_row",
+      "flavour": "The cottages lean toward one another slightly, built by people who understood that winters here required proximity."
+    },
+    {
+      "id": "cliffs",
+      "flavour": "The cliffs are the oldest part of the landscape, cut with paths that lead to ledges no one needs to reach for any obvious reason."
+    },
+    {
+      "id": "forest_edge",
+      "flavour": "The forest begins where the village instinctively stops. The trees at the margin are all the same age, as though they arrived together."
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "How did Oswin Crale die?",
+      "answer_options": [
+        "drowning",
+        "poisoning — plant-based",
+        "blunt trauma",
+        "exposure",
+        "ritual act"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where was Oswin Crale actually killed?",
+      "answer_options": [
+        "chapel",
+        "tavern",
+        "manor",
+        "cliffs",
+        "forest_edge"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When did Oswin Crale die?",
+      "answer_options": [
+        "between six and eight in the evening",
+        "between eight and ten in the evening",
+        "between ten and midnight",
+        "in the early hours of the morning",
+        "during the afternoon"
+      ]
+    },
+    {
+      "id": "last_seen",
+      "label": "Who last saw Oswin Crale alive?",
+      "answer_options": [
+        "Betta Dorch",
+        "Maren Voss",
+        "Aldous Penn",
+        "Pell Drach",
+        "Sem Orr"
+      ]
+    },
+    {
+      "id": "victim_state",
+      "label": "What was Oswin Crale's situation in the days before his death?",
+      "answer_options": [
+        "He was planning to leave the village permanently",
+        "He was about to change his will",
+        "He had recently accused someone of theft",
+        "He was being treated for a serious illness",
+        "He had received threats from outside the village"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Oswin Crale?",
+      "answer_options": [
+        "Betta Dorch",
+        "Maren Voss",
+        "Aldous Penn",
+        "Pell Drach",
+        "Sem Orr"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Oswin Crale killed?",
+      "answer_options": [
+        "inheritance",
+        "jealousy",
+        "self-preservation",
+        "revenge",
+        "belief"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cod_hard_01",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "pell_drach"
+        ],
+        "location": "doctors_house",
+        "item": "signed_document"
+      },
+      "text": "[char:Pell Drach] sets down the document and speaks without being asked: 'The lividity, the jaw — no water in the lungs, no bruising consistent with a blow. Whatever he took, or was given, it worked slowly and without violence.' He glances toward his dispensary cabinet, then away. The [loc:manor] garden might reward a careful look.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_soft_01",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "chapel",
+        "item": "dried_herb_bundle"
+      },
+      "text": "The bundle is tied with brown twine in a knot the investigator does not recognise. The leaves are dry and friable, releasing a faint sweetish smell when disturbed — the kind of smell that lingers in the back of the throat. Whoever left it knew what these plants were called and what they did.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_soft_02",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "maren_voss"
+        ],
+        "location": "cliffs"
+      },
+      "text": "[char:Maren Voss] turns one of the dried stems over in her fingers when the investigator shows her. 'Widow's finger,' she says, using the old name. 'I don't sell it. I don't harvest it either.' She says it once, clearly, and does not repeat herself. The [loc:chapel] bundle came from somewhere, and someone cut it recently.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_rh_01",
+      "checkpoint": "cause_of_death",
+      "answer": "ritual act",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "chapel",
+        "item": "tallow_candle"
+      },
+      "text": "The candle is placed at the centre of the wax ring with a precision that suggests intention. The pattern of the drips is not random. The chapel's caretaker, whoever that now is, would know whether this was here before [char:Oswin Crale] was found.",
+      "red_herring_explanation": "The candle arrangement is an old observance, placed by Sem Orr when he found the body — a reflex from childhood, not evidence of cause. The death was poisoning, not ritual."
+    },
+    {
+      "id": "tl_hard_01",
+      "checkpoint": "true_location",
+      "answer": "manor",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "manor",
+        "item": "glass_vial"
+      },
+      "text": "The vial is on the floor behind the study's reading chair, not quite hidden — as though it rolled there. The smell inside matches the dried bundle from the [loc:chapel]. The chair's cushion is disturbed in a way consistent with a man sitting and then ceasing to sit. This room is where it happened.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tl_soft_01",
+      "checkpoint": "true_location",
+      "answer": "manor",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "aldous_penn"
+        ],
+        "location": "manor"
+      },
+      "text": "[char:Aldous Penn] is reluctant in the study doorway. Asked what he last did here, he says he banked the fire before supper. Asked whether he returned after supper, he is quiet for a moment too long before saying no. The [loc:doctors_house] may hold a record of who came and went yesterday evening.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tl_soft_02",
+      "checkpoint": "true_location",
+      "answer": "manor",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "betta_dorch",
+          "sem_orr"
+        ],
+        "location": null
+      },
+      "text": "Word reached the investigator that [char:Betta Dorch] had been heard telling [char:Sem Orr] that [char:Oswin Crale] never walked to the chapel after dark — not in twenty years of knowing him. Whatever brought him there, she said, he did not go under his own purpose. Someone brought him after.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tl_rh_01",
+      "checkpoint": "true_location",
+      "answer": "cliffs",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cliffs"
+      },
+      "text": "There is a place on the cliff path where the grass is pressed flat in a rough oval, and a single boot print in the coastal mud. The size is consistent with an older man. Someone stood here recently and looked out at something, or waited.",
+      "red_herring_explanation": "Oswin Crale did walk the cliff path earlier that afternoon, before his death — this impression is from that earlier visit and is unrelated to the murder location, which was the manor."
+    },
+    {
+      "id": "tod_hard_01",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten in the evening",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator",
+          "pell_drach"
+        ],
+        "location": "doctors_house",
+        "item": "signed_document"
+      },
+      "text": "[char:Pell Drach] does not look at the document when the investigator places it on the table. 'I can tell you that the cooling and the onset of rigor place him between eight and ten last night,' he says. 'I can also tell you that I was here, alone, and that I have no means of proving it.' He pauses. 'The [loc:tavern] was open until eleven. Someone will have seen something.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_soft_01",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten in the evening",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "betta_dorch"
+        ],
+        "location": "tavern"
+      },
+      "text": "[char:Betta Dorch] says [char:Oswin Crale] came in just after seven, drank one measure of the house cordial, and left before the half-hour. 'He looked well enough,' she says. 'He left toward the [loc:manor], not the [loc:chapel].' She sets a clean glass on the counter. 'He was alive at half-seven. That much I'll say.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_soft_02",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten in the evening",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "harbour"
+      },
+      "text": "[char:Sem Orr]'s log at the harbour records the lights going dark at the [loc:manor] at quarter past nine — he notes the windows each evening as a matter of course, an old habit whose origin he does not explain. The manor was dark by nine-fifteen. The [loc:chapel] is closer to the [loc:manor] than to the [loc:harbour]; someone could have moved a body there unseen in that window.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_rh_01",
+      "checkpoint": "time_of_death",
+      "answer": "between ten and midnight",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "maren_voss"
+        ],
+        "location": null
+      },
+      "text": "[char:Maren Voss] tells the investigator she heard the [loc:chapel] door — she can hear it from the cliff path, it has a particular sound — sometime after ten. 'A slow sound,' she says. 'Not hurried.' She is certain of the time because the lighthouse beam had just completed its long rotation.",
+      "red_herring_explanation": "Maren Voss did hear the chapel door, but it was the perpetrator leaving after moving the body — not the time of death, which was earlier. Her testimony confuses the transport with the killing."
+    },
+    {
+      "id": "ls_hard_01",
+      "checkpoint": "last_seen",
+      "answer": "Aldous Penn",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "aldous_penn"
+        ],
+        "location": "manor",
+        "item": "leather_ledger"
+      },
+      "text": "When the investigator opens the ledger to the last entry, [char:Aldous Penn]'s composure shifts — small but visible. The final notation, in [char:Oswin Crale]'s hand, reads: 'Supper with A.P., eight o'clock, manor study.' [char:Aldous Penn] says quietly, 'He invited me. We ate. I left him alive.' He does not say what time he left.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "ls_soft_01",
+      "checkpoint": "last_seen",
+      "answer": "Aldous Penn",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "betta_dorch"
+        ],
+        "location": "tavern"
+      },
+      "text": "[char:Betta Dorch] mentions, without being asked about it, that [char:Aldous Penn] came in sometime after nine last night — 'later than usual, quieter than usual' — drank two measures, and said nothing about his evening. She has known him long enough to find the silence notable. The [loc:manor] ledger might say more than he does.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "ls_soft_02",
+      "checkpoint": "last_seen",
+      "answer": "Aldous Penn",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator",
+          "sem_orr"
+        ],
+        "location": null,
+        "item": "leather_ledger"
+      },
+      "text": "[char:Sem Orr] looks at the ledger entry and nods slowly. 'Penn had supper at the manor most Thursdays this past month,' he says. 'Crale was teaching him the accounts, some said. Others said it was the other way around.' He hands back the ledger. 'I saw Penn's lamp lit in [loc:cottage_row] before midnight. He was home.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "ls_rh_01",
+      "checkpoint": "last_seen",
+      "answer": "Maren Voss",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "sem_orr"
+        ],
+        "location": null
+      },
+      "text": "[char:Sem Orr] tells the investigator that [char:Oswin Crale] and [char:Maren Voss] were seen on the [loc:cliffs] together that afternoon — the same cliff path she works. He doesn't say what they were doing. 'Old business between them,' he offers. 'Not my place.'",
+      "red_herring_explanation": "Maren Voss and Oswin Crale did meet on the cliffs that afternoon, but this was hours before the death. The meeting was about a personal matter unrelated to the killing; she was not the last to see him alive."
+    },
+    {
+      "id": "vs_hard_01",
+      "checkpoint": "victim_state",
+      "answer": "He was about to change his will",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator",
+          "pell_drach"
+        ],
+        "location": "doctors_house",
+        "item": "signed_document"
+      },
+      "text": "[char:Pell Drach] admits that the document is a witnessed codicil — or was intended to be. [char:Oswin Crale] had come to him two days ago asking him to witness a revision to the estate's disposition. 'He was reconsidering a bequest,' Drach says carefully. 'He did not say to whom. The revision was never completed.' He slides the document across the table. 'Someone knew he was close.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "vs_soft_01",
+      "checkpoint": "victim_state",
+      "answer": "He was about to change his will",
+      "weight": "soft",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "manor",
+        "item": "leather_ledger"
+      },
+      "text": "The ledger's recent entries show [char:Oswin Crale] reviewing the estate's assets with unusual care — annotations marking which properties are entailed and which are discretionary. The phrase 'to be reconsidered before season's end' appears three times in the last week, underlined once. The [loc:doctors_house] may hold the formal record of what he intended.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "vs_soft_02",
+      "checkpoint": "victim_state",
+      "answer": "He was about to change his will",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "betta_dorch"
+        ],
+        "location": "tavern"
+      },
+      "text": "[char:Betta Dorch] refills the investigator's cup without being asked. 'He said something odd last week,' she offers. 'Said that what a man leaves behind matters less than who he leaves it to, and that he'd been careless with that distinction.' She pauses. 'He sounded like a man who had made a decision. Or was about to.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "vs_rh_01",
+      "checkpoint": "victim_state",
+      "answer": "He was being treated for a serious illness",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together_alone",
+        "characters": [
+          "investigator",
+          "maren_voss"
+        ],
+        "location": null
+      },
+      "text": "[char:Maren Voss] tells the investigator, when they are briefly alone, that [char:Oswin Crale] had asked her in recent weeks for preparations she associated with 'the slow complaints' — digestive weakness, fatigue. 'He looked older than he had,' she says. 'I thought it was age. Now I wonder.'",
+      "red_herring_explanation": "Crale's physical decline was real but minor — a seasonal ailment, not a serious illness. Maren Voss's preparations were mild and incidental; the symptom she noticed was a consequence of small doses being administered to build tolerance or test effect, not evidence of pre-existing disease."
+    },
+    {
+      "id": "perp_hard_01",
+      "checkpoint": "perpetrator",
+      "answer": "Aldous Penn",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator",
+          "aldous_penn"
+        ],
+        "location": "manor",
+        "item": "glass_vial"
+      },
+      "text": "When the investigator produces the vial, [char:Aldous Penn] does not pretend not to know it. He is quiet for a long moment, looking out the manor window toward the [loc:forest_edge]. 'I know what that is,' he finally says. 'I know where it comes from. I know what it does.' He stops. He does not say how he knows.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_soft_01",
+      "checkpoint": "perpetrator",
+      "answer": "Aldous Penn",
+      "weight": "soft",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "forest_edge"
+      },
+      "text": "At the [loc:forest_edge], where the cultivated ground of the [loc:manor] ends, there are fresh cuttings among the roots — stems removed cleanly with a blade, the sort of harvesting that requires knowing exactly what you are looking for. The plant matches the dried bundle at the [loc:chapel]. [char:Aldous Penn] tends this boundary as part of his work.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_soft_02",
+      "checkpoint": "perpetrator",
+      "answer": "Aldous Penn",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "sem_orr"
+        ],
+        "location": "harbour"
+      },
+      "text": "[char:Sem Orr] speaks carefully: 'Penn's mother was a Penn by birth, but her grandmother was a Crale. He knew that. Oswin Crale knew it too.' He watches a boat. 'The estate's main property, the one that can't be entailed away — that was always meant to stay in the blood.' He does not say what follows from this. He does not have to.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_rh_01",
+      "checkpoint": "perpetrator",
+      "answer": "Maren Voss",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator",
+          "betta_dorch"
+        ],
+        "location": null,
+        "item": "dried_herb_bundle"
+      },
+      "text": "[char:Betta Dorch] examines the dried bundle when the investigator shows her and says flatly: 'That's [char:Maren Voss]'s work. The knot, the way it's bundled — she ties them that way.' She sets it down. 'I'm not saying she put it there. I'm saying she tied it.'",
+      "red_herring_explanation": "Aldous Penn gathered the plant himself and used one of Maren Voss's bundles as a container — he had a supply of her bundles from purchases he had made for the manor household. The tying style is hers but the contents are his doing."
+    },
+    {
+      "id": "mot_hard_01",
+      "checkpoint": "motive",
+      "answer": "inheritance",
+      "weight": "hard",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "pell_drach"
+        ],
+        "location": "doctors_house",
+        "item": "leather_ledger"
+      },
+      "text": "[char:Pell Drach] reads the ledger carefully before speaking. 'Under the existing will, [char:Aldous Penn] inherits the discretionary lands — the cliff grounds, the forest boundary, the grazing. Under the revision Crale was drafting, that bequest was to be dissolved.' He closes the ledger. 'Penn would have known. He was reading these accounts himself for the past month.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_soft_01",
+      "checkpoint": "motive",
+      "answer": "inheritance",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "aldous_penn"
+        ],
+        "location": "cottage_row"
+      },
+      "text": "[char:Aldous Penn]'s cottage has one room that is better furnished than the rest — a reading chair, good shelves, a lamp of the kind used for close work. On the shelf: surveying books, land title references, and one older volume whose spine reads only 'Succession.' Asked about it, he says he has always had an interest in such matters. The [loc:manor] ledger would show how close that interest had become.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_soft_02",
+      "checkpoint": "motive",
+      "answer": "inheritance",
+      "weight": "soft",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "betta_dorch",
+          "maren_voss"
+        ],
+        "location": null
+      },
+      "text": "Word reached the investigator that [char:Betta Dorch] had been heard telling [char:Maren Voss] that [char:Aldous Penn] had been to see a solicitor in the next town three weeks back — she knew because the solicitor's clerk was her cousin's husband. 'He came back looking settled,' Betta said. 'Like a man who had been told the answer he needed.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_rh_01",
+      "checkpoint": "motive",
+      "answer": "revenge",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together_alone",
+        "characters": [
+          "investigator",
+          "sem_orr"
+        ],
+        "location": null
+      },
+      "text": "[char:Sem Orr], when they are alone, tells the investigator that [char:Oswin Crale] had done something — years back, before the doctor arrived — that people in [loc:cottage_row] had not forgotten. 'He took something,' Sem says, and will not say more. 'Not property. Something else.' He walks back toward the [loc:harbour] and does not turn around.",
+      "red_herring_explanation": "Sem Orr is alluding to an old grievance involving Crale and the Penn family — a broken promise about land made a generation ago. It is real history, but it is not what drove Aldous Penn to act now. The immediate cause was the revised will, not old revenge."
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_01",
+      "text": "[char:Sem Orr] at the [loc:harbour] seems to know more about last night's movements than he volunteered when he fetched the investigator — a harbour master's habit of watching lights and windows has made him an accidental witness.",
+      "character_id": "sem_orr",
+      "location_id": "harbour"
+    },
+    {
+      "id": "lead_02",
+      "text": "The [loc:manor] study is where [char:Oswin Crale] kept his accounts and spent his evenings — if the last hours of his life have a physical record, it will be there among his papers and effects.",
+      "character_id": null,
+      "location_id": "manor"
+    },
+    {
+      "id": "lead_03",
+      "text": "[char:Pell Drach] at the [loc:doctors_house] has already examined the body and will have formed a view; he is not a man who shares readily, but he is a man who responds to direct questions.",
+      "character_id": "pell_drach",
+      "location_id": "doctors_house"
+    }
+  ],
+  "opening_narrative": "The morning came in slowly over [loc:crale's mouth] — copper light through sea haze, the kind of stillness that feels held rather than natural. [char:Sem Orr] had gone to open the [loc:chapel] for the seasonal airing, a task that fell to him now that the village had no formal keeper. What he found inside, he did not describe to anyone except the investigator, and then only in the plainest possible terms.\n\nHe came to the [loc:harbour] office, wrote a short message in his log — three words, the same three he apparently used every year for unscheduled events that required outside attention — and sent his boy up the coast road with it before the rest of the village was awake. He did not lock the chapel. He went back and sat outside it in the cold and waited.\n\nThe investigator arrived by the mid-morning ferry. [char:Sem Orr] was still outside the [loc:chapel] when the ferry came in, and he walked down to meet the investigator at the [loc:harbour] without being summoned — as though he had known which passenger to expect. He said only: 'It's [char:Oswin Crale]. He's in the chapel. He shouldn't be.' Then he stood aside and let the investigation begin."
+}

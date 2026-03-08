@@ -1,7 +1,5 @@
 // ─────────────────────────────────────────────
 // TIDEBOUND — Core Types
-// These mirror the JSON schema the LLM generates.
-// The engine only reads tags; text is presentation.
 // ─────────────────────────────────────────────
 
 export type LocationId =
@@ -25,7 +23,6 @@ export type CheckpointId =
   | 'motive'
   | 'hidden_truth'
 
-export type CharacterRole = 'perpetrator' | 'suspect' | 'victim' | 'noise'
 export type ClueWeight = 'hard' | 'soft' | 'red_herring' | 'contradiction'
 export type Difficulty = 'easy' | 'medium' | 'hard'
 
@@ -38,10 +35,6 @@ export type ConditionType =
   | 'characters_alone_in_location_with_item'
   | 'characters_anywhere_with_item'
   | 'characters_anywhere_with_item_alone'
-
-// ─────────────────────────────────────────────
-// Schema objects — direct mirrors of JSON
-// ─────────────────────────────────────────────
 
 export interface Village {
   name: string
@@ -64,9 +57,12 @@ export interface Crime {
 export interface Character {
   id: string
   name: string
-  role: CharacterRole
+  isVictim: boolean
   local: boolean
+  // Where this character lives — shown in info panel
   home_location: LocationId
+  // Where this character is when the game starts — may differ from home_location
+  starting_location: LocationId
   description: string
 }
 
@@ -100,10 +96,18 @@ export interface Clue {
   checkpoint: CheckpointId
   answer: string
   weight: ClueWeight
-  unlocked_by: CheckpointId | null
+  // All clues are available from turn 1 — no unlocked_by gating.
   condition: ClueCondition
   text: string
   red_herring_explanation: string | null
+}
+
+// 2-3 starting leads shown to the player on turn 1 before any clues have fired.
+export interface Lead {
+  id: string
+  text: string
+  character_id: string | null
+  location_id: LocationId | null
 }
 
 export interface Scenario {
@@ -114,5 +118,6 @@ export interface Scenario {
   locations: Location[]
   checkpoints: Checkpoint[]
   clues: Clue[]
+  leads: Lead[]
   opening_narrative: string
 }

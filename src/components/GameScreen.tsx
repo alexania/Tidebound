@@ -3,6 +3,7 @@ import type { GameState } from '../types/gameState'
 import { VillageMap } from './VillageMap'
 import { ActionLog } from './ActionLog'
 import { ActionBar } from './ActionBar'
+import { InfoPanel } from './InfoPanel'
 import { CheckpointPanel } from './CheckpointPanel'
 import { EvidenceBoard } from './EvidenceBoard'
 import './GameScreen.css'
@@ -13,13 +14,13 @@ interface Props {
   onMoveCharacter: (charId: string, location: LocationId) => void
   onMoveItem: (itemId: string, location: LocationId) => void
   onEndTurn: () => void
-  onNextTurn: () => void
   onSubmitCheckpoint: (cpId: CheckpointId, answer: string, citedClueIds: string[]) => void
   onPinCard: (clueId: string) => void
   onUpdateNote: (cardId: string, note: string) => void
   onMoveCard: (cardId: string, x: number, y: number) => void
-  onAddConnection: (fromClueId: string, toClueId: string) => void
+  onAddConnection: (fromCardId: string, toCardId: string) => void
   onRemoveConnection: (connectionId: string) => void
+  onSelect: (sel: string | null) => void
   showBoard: boolean
   showCheckpoints: boolean
   onToggleBoard: () => void
@@ -29,9 +30,10 @@ interface Props {
 export function GameScreen({
   scenario, gameState,
   onMoveCharacter, onMoveItem,
-  onEndTurn, onNextTurn,
+  onEndTurn,
   onSubmitCheckpoint,
   onPinCard, onUpdateNote, onMoveCard, onAddConnection, onRemoveConnection,
+  onSelect,
   showBoard, showCheckpoints, onToggleBoard, onToggleCheckpoints,
 }: Props) {
   return (
@@ -49,10 +51,10 @@ export function GameScreen({
             gameState={gameState}
             onMoveCharacter={onMoveCharacter}
             onMoveItem={onMoveItem}
+            onSelect={onSelect}
           />
         </div>
         <div className="game-screen__log">
-          <div className="game-screen__log-header">Action Log</div>
           <ActionLog
             log={gameState.log}
             pinnedCards={gameState.pinnedCards}
@@ -81,10 +83,15 @@ export function GameScreen({
         )}
       </div>
 
+      <InfoPanel
+        scenario={scenario}
+        gameState={gameState}
+        onSelect={onSelect}
+      />
+
       <ActionBar
         gameState={gameState}
         onEndTurn={onEndTurn}
-        onNextTurn={onNextTurn}
         onToggleBoard={onToggleBoard}
         onToggleCheckpoints={onToggleCheckpoints}
         showBoard={showBoard}

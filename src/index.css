@@ -71,3 +71,8 @@ select option {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Tag styles used by parseTaggedText — must be global */
+.tag-char { color: #d4a96a; font-style: italic; }
+.tag-loc  { color: #7ab8c4; text-decoration: underline dotted; text-underline-offset: 2px; }
+.tag-item { color: #b8c47a; font-style: italic; }

@@ -44,8 +44,8 @@ export function CheckpointPanel({ scenario, gameState, onSubmit, onClose }: Prop
                 <button
                   className="checkpoint-item__submit"
                   onClick={() => setActiveModal(cpState.id)}
-                  disabled={gameState.phase !== 'review'}
-                  title={gameState.phase !== 'review' ? 'End the turn first' : undefined}
+                  disabled={false}
+                  title={undefined}
                 >
                   Submit Answer
                 </button>

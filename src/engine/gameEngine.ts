@@ -1,39 +1,70 @@
 // ─────────────────────────────────────────────
 // TIDEBOUND — Game Engine
-// All game state mutations go through here.
-// Pure functions — no side effects, no React.
 // ─────────────────────────────────────────────
 
-import type { Scenario, CheckpointId, LocationId, Difficulty } from '../types/scenario'
-import type { GameState, BoardState, LogEntry, CollectedClue, CheckpointSubmission } from '../types/gameState'
+import type { Scenario, CheckpointId, LocationId, Difficulty, Clue } from '../types/scenario'
+import type { GameState, BoardState, LogEntry } from '../types/gameState'
 import { evaluateCondition } from './conditions'
 import { initCheckpointStates, recomputeCheckpointStatuses, REQUIRED_CHECKPOINTS } from './checkpoints'
 
 // ─────────────────────────────────────────────
-// Initialisation
+// Investigator — reserved id, always present
+// ─────────────────────────────────────────────
+
+export const INVESTIGATOR_ID = 'investigator'
+
+// ─────────────────────────────────────────────
+// Init
 // ─────────────────────────────────────────────
 
 export function initGameState(scenario: Scenario, difficulty: Difficulty): GameState {
-  // Place all characters at their home locations
   const characterLocations: Record<string, LocationId> = {}
   for (const char of scenario.characters) {
-    characterLocations[char.id] = char.home_location
+    characterLocations[char.id] = char.starting_location
   }
+  // Investigator always starts at the harbour
+  characterLocations[INVESTIGATOR_ID] = 'harbour'
 
-  // Items always have a physical location; discovery tracks player knowledge
-  const itemLocations: Record<string, LocationId | null> = {}
+  const itemLocations: Record<string, LocationId> = {}
   for (const item of scenario.items) {
     itemLocations[item.id] = item.starting_location
   }
 
-  // Discover items that share a starting location with any character's home
-  const homeLocations = new Set(scenario.characters.map(c => c.home_location))
-  const discoveredItemIds = scenario.items
-    .filter(item => homeLocations.has(item.starting_location))
-    .map(item => item.id)
-
   const board: BoardState = { characterLocations, itemLocations }
   const checkpoints = initCheckpointStates(difficulty)
+
+  const victim = scenario.characters.find(c => c.isVictim)
+
+  const leadEntries: LogEntry[] = scenario.leads.map((lead, i) => ({
+    id: `log_0_lead_${i}`,
+    turn: 0,
+    locationId: lead.location_id ?? 'harbour',
+    text: lead.text,
+    clueId: null,
+    isNew: false,
+    isLead: true,
+  }))
+
+  const seedEntry: LogEntry = {
+    id: 'log_1_arrival',
+    turn: 1,
+    locationId: 'harbour',
+    text: `Word has reached the investigator at [loc:harbour]${victim ? ` — [char:${victim.name}] has been found at [loc:${scenario.crime.body_found_location}]` : ''}. The investigation begins.`,
+    clueId: null,
+    isNew: false,
+  }
+
+  // Auto-pin opening narrative to the evidence board
+  const openingCard = {
+    id: 'card_opening',
+    type: 'opening' as const,
+    clueId: null,
+    text: scenario.opening_narrative,
+    turn: null,
+    note: '',
+    x: 40,
+    y: 40,
+  }
 
   return {
     scenarioId: scenario.village.name,
@@ -42,11 +73,13 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
     phase: 'setup',
     actionsRemaining: 3,
     board,
+    foundCharacterIds: [],
+    foundItemIds: [],
     collectedClueIds: [],
-    discoveredItemIds,
-    log: [],
-    pinnedCards: [],
+    log: [...leadEntries, seedEntry],
+    pinnedCards: [openingCard],
     connections: [],
+    selected: null,
     checkpoints,
     solved: false,
     finalScore: null,
@@ -54,31 +87,20 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
 }
 
 // ─────────────────────────────────────────────
-// Setup phase actions
+// Setup phase actions (each costs 1 action)
 // ─────────────────────────────────────────────
 
-// Move a character to a location. Costs 1 action.
-// Automatically discovers items at the destination.
 export function moveCharacter(
   state: GameState,
   characterId: string,
-  targetLocation: LocationId,
-  scenario: Scenario
+  targetLocation: LocationId
 ): GameState {
   if (state.phase !== 'setup' || state.actionsRemaining <= 0) return state
-
-  // Discover any items at the destination that aren't yet known
-  const itemsAtDest = scenario.items
-    .filter(item => item.starting_location === targetLocation || state.board.itemLocations[item.id] === targetLocation)
-    .map(item => item.id)
-  const newlyDiscovered = itemsAtDest.filter(id => !state.discoveredItemIds.includes(id))
+  if (characterId !== INVESTIGATOR_ID && !state.foundCharacterIds.includes(characterId)) return state
 
   return {
     ...state,
     actionsRemaining: state.actionsRemaining - 1,
-    discoveredItemIds: newlyDiscovered.length > 0
-      ? [...state.discoveredItemIds, ...newlyDiscovered]
-      : state.discoveredItemIds,
     board: {
       ...state.board,
       characterLocations: {
@@ -89,15 +111,13 @@ export function moveCharacter(
   }
 }
 
-// Move a discovered item to a location. Costs 1 action.
-// Only possible if item has been discovered.
 export function moveItem(
   state: GameState,
   itemId: string,
   targetLocation: LocationId
 ): GameState {
   if (state.phase !== 'setup' || state.actionsRemaining <= 0) return state
-  if (!state.discoveredItemIds.includes(itemId)) return state // not discovered
+  if (!state.foundItemIds.includes(itemId)) return state
 
   return {
     ...state,
@@ -112,105 +132,134 @@ export function moveItem(
   }
 }
 
+export function setSelected(state: GameState, selected: string | null): GameState {
+  return { ...state, selected }
+}
+
 // ─────────────────────────────────────────────
 // Resolve phase
 // ─────────────────────────────────────────────
 
-// Priority order for clue weights — higher fires first per location
-const WEIGHT_PRIORITY: Record<string, number> = {
-  hard: 4,
-  soft: 3,
-  contradiction: 2,
-  red_herring: 1,
-}
-
 export function resolveTurn(state: GameState, scenario: Scenario): GameState {
   if (state.phase !== 'setup') return state
 
-  const allCharacterIds = scenario.characters
-    .filter(c => c.role !== 'victim') // victim doesn't move
-    .map(c => c.id)
+  const allCharacterIds = [
+    INVESTIGATOR_ID,
+    ...scenario.characters.filter(c => !c.isVictim).map(c => c.id),
+  ]
 
   const ctx = { board: state.board, allCharacterIds }
 
-  // Determine which clues are currently face-up (unlocked by confirmed checkpoints)
-  const confirmedCheckpoints = new Set(
-    Object.values(state.checkpoints)
-      .filter(cp => cp.status === 'confirmed')
-      .map(cp => cp.id)
+  // ── Clue evaluation ─────────────────────────
+  const availableClues = scenario.clues.filter(
+    clue => !state.collectedClueIds.includes(clue.id)
   )
 
-  const availableClues = scenario.clues.filter(clue => {
-    // Already collected — skip
-    if (state.collectedClueIds.includes(clue.id)) return false
-    // Locked behind a checkpoint not yet confirmed
-    if (clue.unlocked_by && !confirmedCheckpoints.has(clue.unlocked_by)) return false
-    return true
-  })
-
-  // From turn 9, all uncollected available clues auto-fire (conditions bypassed)
+  // From turn 9, all uncollected clues auto-fire
   const guaranteed = state.turn >= 9
 
-  // Evaluate all conditions, group by location
-  const firedByLocation: Record<string, typeof availableClues> = {}
+  // ── Character and item discovery ─────────────
+  const investigatorLoc = state.board.characterLocations[INVESTIGATOR_ID]
+
+  const newlyFoundCharacterIds = scenario.characters
+    .filter(char =>
+      !state.foundCharacterIds.includes(char.id) &&
+      state.board.characterLocations[char.id] === investigatorLoc
+    )
+    .map(char => char.id)
+
+  const newlyFoundItemIds = scenario.items
+    .filter(item =>
+      !state.foundItemIds.includes(item.id) &&
+      state.board.itemLocations[item.id] === investigatorLoc
+    )
+    .map(item => item.id)
+
+  const newClueIds: string[] = []
+  const newLogEntries: LogEntry[] = []
+
+  for (const charId of newlyFoundCharacterIds) {
+    const char = scenario.characters.find(c => c.id === charId)!
+    const text = char.isVictim
+      ? `The investigator examines the body of [char:${char.name}]. ${char.description}`
+      : `The investigator encounters [char:${char.name}] at [loc:${investigatorLoc}]. ${char.description}`
+    newLogEntries.push({
+      id: `log_${state.turn}_met_${charId}`,
+      turn: state.turn,
+      locationId: investigatorLoc as LocationId,
+      text,
+      clueId: null,
+      isNew: true,
+    })
+  }
+
+  for (const itemId of newlyFoundItemIds) {
+    const item = scenario.items.find(i => i.id === itemId)!
+    newLogEntries.push({
+      id: `log_${state.turn}_found_${itemId}`,
+      turn: state.turn,
+      locationId: investigatorLoc as LocationId,
+      text: `The investigator finds [item:${item.name}]. ${item.description}`,
+      clueId: null,
+      isNew: true,
+    })
+  }
 
   for (const clue of availableClues) {
     if (!guaranteed && !evaluateCondition(clue.condition, ctx)) continue
 
-    // Determine the location this clue fires in (for log grouping)
-    const loc = clue.condition.location
-      ?? getClueLocation(clue, state.board, scenario)
-      ?? 'harbour' // fallback
-
-    if (!firedByLocation[loc]) firedByLocation[loc] = []
-    firedByLocation[loc].push(clue)
-  }
-
-  // Per location: pick only the highest-priority clue
-  const newClueIds: string[] = []
-  const newLogEntries: LogEntry[] = []
-  const newlyDiscoveredItems: string[] = []
-
-  for (const [loc, clues] of Object.entries(firedByLocation)) {
-    const winner = clues.reduce((best, clue) =>
-      (WEIGHT_PRIORITY[clue.weight] ?? 0) > (WEIGHT_PRIORITY[best.weight] ?? 0) ? clue : best
-    )
-    newClueIds.push(winner.id)
+    const loc = resolveClueLocation(clue, state.board)
+    newClueIds.push(clue.id)
     newLogEntries.push({
-      id: `log_${state.turn}_${winner.id}`,
+      id: `log_${state.turn}_${clue.id}`,
       turn: state.turn,
       locationId: loc as LocationId,
-      text: winner.text,
-      clueId: winner.id,
+      text: clue.text,
+      clueId: clue.id,
       isNew: true,
+      weight: clue.weight,
     })
-    // Discover items referenced by fired clues
-    if (winner.condition.item && !state.discoveredItemIds.includes(winner.condition.item)) {
-      newlyDiscoveredItems.push(winner.condition.item)
-    }
   }
 
-  // Mark previous log entries as no longer new
+  // Auto-pin hard clues
+  const existingPinnedClueIds = new Set(state.pinnedCards.map(c => c.clueId))
+  const autoPinnedCards = newLogEntries
+    .filter(e => e.weight === 'hard' && e.clueId && !existingPinnedClueIds.has(e.clueId))
+    .map((e, i) => ({
+      id: `card_${e.clueId}`,
+      type: 'clue' as const,
+      clueId: e.clueId!,
+      text: e.text,
+      turn: state.turn,
+      note: '',
+      x: 60 + (state.pinnedCards.length + i) * 20,
+      y: 60 + (state.pinnedCards.length + i) * 20,
+    }))
+
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
 
   return {
     ...state,
-    phase: 'review',
+    phase: 'setup',
+    turn: state.turn + 1,
+    actionsRemaining: 3,
+    foundCharacterIds: [...state.foundCharacterIds, ...newlyFoundCharacterIds],
+    foundItemIds: [...state.foundItemIds, ...newlyFoundItemIds],
     collectedClueIds: [...state.collectedClueIds, ...newClueIds],
-    discoveredItemIds: newlyDiscoveredItems.length > 0
-      ? [...state.discoveredItemIds, ...newlyDiscoveredItems]
-      : state.discoveredItemIds,
+    pinnedCards: [...state.pinnedCards, ...autoPinnedCards],
     log: [...updatedLog, ...newLogEntries],
   }
 }
 
-// Helper: find what location a clue fired in when condition has no explicit location
-function getClueLocation(clue: { condition: { characters?: string[] } }, board: BoardState, _scenario: Scenario): LocationId | null {
+function resolveClueLocation(clue: Clue, board: BoardState): LocationId {
+  if (clue.condition.location) return clue.condition.location
+
   const chars = clue.condition.characters
   if (chars && chars.length > 0) {
-    return board.characterLocations[chars[0]] ?? null
+    return board.characterLocations[chars[0]] ?? 'harbour'
   }
-  return null
+
+  return 'harbour'
 }
 
 // ─────────────────────────────────────────────
@@ -224,28 +273,26 @@ export function submitCheckpoint(
   answer: string,
   citedClueIds: string[]
 ): GameState {
-  if (state.phase !== 'review') return state
-
   const checkpoint = state.checkpoints[checkpointId]
   if (!checkpoint || checkpoint.status !== 'available') return state
 
-  // Derive correct answer from the crime object
   const correctAnswer = getCorrectAnswer(checkpointId, scenario)
   const isCorrect = answer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()
-
-  const submission: CheckpointSubmission = {
-    checkpointId,
-    submittedAnswer: answer,
-    result: isCorrect ? 'correct' : 'incorrect',
-    turn: state.turn,
-    citedClueIds,
-  }
 
   const updatedCheckpoint = {
     ...checkpoint,
     status: isCorrect ? ('confirmed' as const) : checkpoint.status,
     confirmedAnswer: isCorrect ? answer : checkpoint.confirmedAnswer,
-    submissions: [...checkpoint.submissions, submission],
+    submissions: [
+      ...checkpoint.submissions,
+      {
+        checkpointId,
+        submittedAnswer: answer,
+        result: isCorrect ? 'correct' as const : 'incorrect' as const,
+        turn: state.turn,
+        citedClueIds,
+      },
+    ],
   }
 
   const updatedCheckpoints = recomputeCheckpointStatuses(
@@ -260,7 +307,9 @@ export function submitCheckpoint(
     ...state,
     checkpoints: updatedCheckpoints,
     solved,
-    finalScore: solved && !state.solved ? calculateScore(state.turn, state.difficulty) : state.finalScore,
+    finalScore: solved && !state.solved
+      ? calculateScore(state.turn, state.difficulty)
+      : state.finalScore,
   }
 }
 
@@ -270,19 +319,15 @@ function getCorrectAnswer(checkpointId: CheckpointId, scenario: Scenario): strin
     case 'cause_of_death': return crime.cause_of_death
     case 'true_location':  return crime.murder_location
     case 'time_of_death':  return crime.time_of_death
-    case 'perpetrator':    return crime.perpetrator_ids[0] // single perp for now
+    case 'perpetrator':    return crime.perpetrator_ids[0]
     case 'motive':         return crime.motive
     case 'hidden_truth':   return crime.hidden_truth ?? ''
-    // last_seen and victim_state answers live in the checkpoint answer_options
-    // The correct answer is the one that matches what the scenario says —
-    // we derive it from the clue set: the hard/soft clue answers for that checkpoint
     case 'last_seen':
     case 'victim_state': {
-      // The correct answer is whichever answer_option the hard or soft clues point at
-      const cp = scenario.checkpoints.find(c => c.id === checkpointId)
       const correctClue = scenario.clues.find(
         c => c.checkpoint === checkpointId && (c.weight === 'hard' || c.weight === 'soft')
       )
+      const cp = scenario.checkpoints.find(c => c.id === checkpointId)
       return correctClue?.answer ?? cp?.answer_options[0] ?? ''
     }
     default: return ''
@@ -291,20 +336,65 @@ function getCorrectAnswer(checkpointId: CheckpointId, scenario: Scenario): strin
 
 function calculateScore(turns: number, difficulty: Difficulty): number {
   const base = { easy: 1000, medium: 2000, hard: 3000 }[difficulty]
-  const penalty = turns * 50
-  return Math.max(base - penalty, 100)
+  return Math.max(base - turns * 50, 100)
 }
 
 // ─────────────────────────────────────────────
-// End turn — move from review back to setup
+// Evidence board actions
 // ─────────────────────────────────────────────
 
-export function endTurn(state: GameState): GameState {
-  if (state.phase !== 'review') return state
+export function pinClue(state: GameState, clueId: string, text: string): GameState {
+  if (state.pinnedCards.some(c => c.clueId === clueId)) return state
+
+  const offset = state.pinnedCards.length * 20
+  const newCard = {
+    id: `card_${clueId}`,
+    type: 'clue' as const,
+    clueId,
+    text,
+    turn: state.turn,
+    note: '',
+    x: 60 + offset,
+    y: 60 + offset,
+  }
+
+  return { ...state, pinnedCards: [...state.pinnedCards, newCard] }
+}
+
+export function updateCardNote(state: GameState, cardId: string, note: string): GameState {
   return {
     ...state,
-    phase: 'setup',
-    turn: state.turn + 1,
-    actionsRemaining: 3,
+    pinnedCards: state.pinnedCards.map(c => c.id === cardId ? { ...c, note } : c),
   }
 }
+
+export function moveCard(state: GameState, cardId: string, x: number, y: number): GameState {
+  return {
+    ...state,
+    pinnedCards: state.pinnedCards.map(c => c.id === cardId ? { ...c, x, y } : c),
+  }
+}
+
+export function addConnection(
+  state: GameState,
+  fromCardId: string,
+  toCardId: string,
+  label = ''
+): GameState {
+  const id = `conn_${fromCardId}_${toCardId}`
+  // Also block reverse duplicate
+  const reverseId = `conn_${toCardId}_${fromCardId}`
+  if (state.connections.some(c => c.id === id || c.id === reverseId)) return state
+  return {
+    ...state,
+    connections: [...state.connections, { id, fromCardId, toCardId, label }],
+  }
+}
+
+export function removeConnection(state: GameState, connectionId: string): GameState {
+  return {
+    ...state,
+    connections: state.connections.filter(c => c.id !== connectionId),
+  }
+}
+

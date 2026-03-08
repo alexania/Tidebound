@@ -1,11 +1,13 @@
-// ─────────────────────────────────────────────
-// TIDEBOUND — Scenario Generator
-// ─────────────────────────────────────────────
+# Tidebound — Manual Scenario Generation Prompt
 
-import type { Scenario, Difficulty } from '../types/scenario'
-import { validateScenario } from './validator'
+Paste the SYSTEM PROMPT block into Claude's system prompt field (if using the API console),
+or paste both blocks together into the chat if using Claude.ai directly.
 
-const SYSTEM_PROMPT = `You are generating a complete murder mystery scenario for a single-player deduction game set in a remote coastal village with folk horror undertones. The game world has three permanent background elements that should flavour all generated content:
+---
+
+## SYSTEM PROMPT
+
+You are generating a complete murder mystery scenario for a single-player deduction game set in a remote coastal village with folk horror undertones. The game world has three permanent background elements that should flavour all generated content:
 
 1. An old religion — pre-Christian, pre-memory. The founding families either brought it with them or found it waiting. It is not discussed openly but it shapes behaviour.
 2. A founding event — something happened here long ago that the village was built on top of. It is not forgotten. It surfaces in how people speak and what they avoid.
@@ -19,13 +21,7 @@ THE INVESTIGATOR:
 Every scenario includes a special character with id "investigator" who is an official investigator brought in from outside — his presence is why people are talking at all. He is not named and not described in the scenario JSON; the engine adds him automatically. He always starts at the harbour. You may and should use "investigator" as a character id in clue conditions. Roughly half of all clue conditions should involve the investigator — these represent him actively examining evidence, inspecting items, or being present when someone reveals something. The other half involve specific village characters, for clues that surface through relationships, confessions, or behaviour the investigator merely observes. Do not include the investigator in the characters array.
 
 AVOIDING DEFAULTS — READ CAREFULLY:
-Before generating anything, identify what the most predictable version of this scenario would look like — the obvious discovery location, the obvious weather, the obvious person who finds the body, the obvious opening image. Then do something else. Specifically:
-- The body should not always be found at the harbour. It can be found indoors, on a road, in a building, on the cliffs, anywhere.
-- The person who finds the body should not always be going about early morning work. Consider: someone who wasn't supposed to be there, someone looking for something else, someone who was followed.
-- The weather should not default to fog. Fog is permitted but must be earned. Consider sharp cold, unseasonable warmth, recent rain, still air, a clear night.
-- The opening of the narrative should not begin at dawn.
-- The victim should not always be a man of property or status.
-- The discovery of the body should not always result in someone going to the tavern.
+Before generating anything, identify what the most predictable version of this scenario would look like — the obvious discovery location, the obvious weather, the obvious person who finds the body, the obvious opening image. Then do something else.
 
 HARD RULES:
 - No clue text may directly name the perpetrator or directly state the cause of death. Clues imply, witness, contradict, and suggest.
@@ -44,15 +40,24 @@ HARD RULES:
 - No two clues may share identical condition fields. Every clue must fire in a genuinely distinct situation.
 - If a clue involves a character saying, telling, reporting, or being overheard, the condition must include at least 2 characters — either the investigator plus an NPC (direct conversation or testimony), or two NPCs (rumour mill: one overheard by or reported to the other).
 - If the investigator is not in the condition, the clue text must make clear how this information reached the investigation: "Word reached the investigator that...", "[char:X] was heard telling [char:Y]...", or similar — not floating omniscient narration.
-- When a clue condition includes another character alongside the investigator, the clue text must read as direct witness: "[char:Pell Drach] tells the investigator...", "Asked directly, [char:Elen Voss] admits...", "Overhearing [char:X]..." — not omniscient narration.`
+- When a clue condition includes another character alongside the investigator, the clue text must read as direct witness: "[char:Pell Drach] tells the investigator...", "Asked directly, [char:Elen Voss] admits...", "Overhearing [char:X]..." — not omniscient narration.
 
-const CLUE_COUNTS: Record<Difficulty, string> = {
-  easy:   '1 hard clue + 2 soft clues + 1 red herring per checkpoint',
-  medium: '2 soft clues + 2 red herrings per checkpoint (no hard clues)',
-  hard:   '3 soft clues + 1 contradiction + 2 red herrings per checkpoint',
-}
+---
 
-const SCHEMA = `{
+## USER MESSAGE
+
+Scenario seed: bitter-lantern-tide-347
+Use this seed as a creative starting point — let it influence the atmosphere, setting details, and narrative texture of what you generate.
+
+Generate a complete Tidebound murder mystery scenario.
+Difficulty: EASY
+
+Clue counts per checkpoint (strictly enforced):
+1 hard clue + 2 soft clues + 1 red herring per checkpoint
+
+Return a JSON object matching this schema exactly:
+
+{
   "village": {
     "name": string,
     "history": string (one paragraph — weaves in old religion, founding event, lighthouse without explaining them),
@@ -68,7 +73,7 @@ const SCHEMA = `{
     "time_of_death": string (human-readable window, e.g. "between ten and midnight"),
     "perpetrator_ids": [char_id],
     "motive": string (one of: "inheritance", "jealousy", "self-preservation", "revenge", "protection", "belief", "debt", "obsession"),
-    "hidden_truth": string | null (null unless difficulty is hard)
+    "hidden_truth": null
   },
 
   "characters": [
@@ -81,6 +86,8 @@ const SCHEMA = `{
       "starting_location": location_id (where this character IS when the body is discovered),
       "description": string (2-3 sentences; for the victim, lead with a brief character description — who this person was — then add the investigator's first inspection of the body: surface observations only, position, visible injuries, clothing, immediate surroundings, no cause of death stated; for all other characters, a brief character description only)
     }
+    // DO NOT include an "investigator" entry — the engine adds this automatically.
+    // Exactly 1 character must have isVictim: true. Do NOT include an "investigator" entry — the engine adds this automatically.
   ],
 
   "items": [
@@ -94,7 +101,7 @@ const SCHEMA = `{
 
   "locations": [
     { "id": location_id, "flavour": string }
-    // All nine ids must be present
+    // All nine ids must be present: harbour, tavern, lighthouse, chapel, doctors_house, manor, cottage_row, cliffs, forest_edge
   ],
 
   "checkpoints": [
@@ -103,7 +110,7 @@ const SCHEMA = `{
       "label": string,
       "answer_options": [string] (4-6 options, correct one included but not marked)
     }
-    // Include all 7. Add "hidden_truth" checkpoint only if difficulty is hard.
+    // Include all 7. Do NOT include "hidden_truth" for easy difficulty.
   ],
 
   "clues": [
@@ -113,7 +120,7 @@ const SCHEMA = `{
       "answer": string (must exactly match an entry in that checkpoint's answer_options),
       "weight": "hard" | "soft" | "red_herring" | "contradiction",
       "condition": {
-        "type": one of the 8 condition types,
+        "type": one of the 8 condition types below,
         "characters": [char_id] (use "investigator" for ~50% of clue conditions — these fire when the investigator is present),
         "location": location_id | null,
         "item": item_id | null
@@ -122,6 +129,7 @@ const SCHEMA = `{
       "red_herring_explanation": string | null
     }
     // DO NOT include an "unlocked_by" field. All clues available from turn 1.
+    // Per checkpoint: 1 hard + 2 soft + 1 red_herring
   ],
 
   "leads": [
@@ -151,139 +159,17 @@ CONDITION OBJECT — use exactly these type strings:
 
 CHECKPOINT STRUCTURE:
   The five investigative checkpoints (cause_of_death, true_location, time_of_death, last_seen, victim_state)
-  are ALL available from turn 1. The accusation checkpoints (perpetrator, motive, hidden_truth) are locked
-  until all five investigative checkpoints are confirmed. DO NOT include unlocked_by on clues.`
+  are ALL available from turn 1. The accusation checkpoints (perpetrator, motive) are locked
+  until all five investigative checkpoints are confirmed. DO NOT include unlocked_by on clues.
 
-function generateSeed(): string {
-  const nouns = [
-    'tide', 'kelp', 'rope', 'lantern', 'gull', 'chalk', 'slate', 'crab',
-    'anchor', 'marrow', 'peat', 'candle', 'flint', 'salt', 'wren', 'tern',
-    'brine', 'mast', 'dusk', 'frost', 'spire', 'vault', 'thorn', 'ash',
-  ]
-  const adjectives = [
-    'hollow', 'bitter', 'pale', 'narrow', 'crooked', 'quiet', 'sodden',
-    'sunken', 'grey', 'cold', 'salted', 'worn', 'bleak', 'steep', 'still',
-  ]
-  const n1 = nouns[Math.floor(Math.random() * nouns.length)]
-  const n2 = nouns[Math.floor(Math.random() * nouns.length)]
-  const adj = adjectives[Math.floor(Math.random() * adjectives.length)]
-  const num = Math.floor(Math.random() * 900) + 100
-  return `${adj}-${n1}-${n2}-${num}`
-}
+---
 
-export interface GeneratorOptions {
-  difficulty: Difficulty
-  apiKey: string
-  maxRetries?: number
-}
+## What to check in the output
 
-export async function generateScenario(options: GeneratorOptions): Promise<Scenario> {
-  const { difficulty, apiKey, maxRetries = 3 } = options
+Before loading this into the game, scan the generated JSON for these:
 
-  const seed = generateSeed()
-
-  const userMessage = `Scenario seed: ${seed}
-Use this seed as a creative starting point — let it influence the atmosphere, setting details, and narrative texture of what you generate.
-
-Generate a complete Tidebound murder mystery scenario.
-Difficulty: ${difficulty.toUpperCase()}
-
-Clue counts per checkpoint (strictly enforced):
-${CLUE_COUNTS[difficulty]}
-
-Return a JSON object matching this schema exactly:
-
-${SCHEMA}`
-
-  for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    console.log(`Generation attempt ${attempt}/${maxRetries} (seed: ${seed})...`)
-
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true',
-      },
-      body: JSON.stringify({
-        model: 'claude-opus-4-6',
-        max_tokens: 8000,
-        temperature: 1.0,
-        system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: userMessage }],
-      }),
-    })
-
-    if (!response.ok) {
-      throw new Error(`API error ${response.status}: ${await response.text()}`)
-    }
-
-    const data = await response.json()
-    const rawText = data.content
-      .filter((b: { type: string }) => b.type === 'text')
-      .map((b: { text: string }) => b.text)
-      .join('')
-
-    let parsed: Scenario
-    try {
-      parsed = JSON.parse(rawText)
-    } catch {
-      console.warn(`Attempt ${attempt}: JSON parse failed. Retrying...`)
-      continue
-    }
-
-    const errors = validateScenario(parsed)
-    if (errors.length === 0) {
-      console.log(`✓ Scenario generated and validated on attempt ${attempt}`)
-      return parsed
-    }
-
-    console.warn(`Attempt ${attempt}: ${errors.length} validation error(s):`)
-    errors.forEach(e => console.warn(`  [${e.rule}] ${e.message}`))
-
-    if (attempt === maxRetries) {
-      throw new Error(`Generation failed after ${maxRetries} attempts.\n${errors.map(e => e.message).join('\n')}`)
-    }
-  }
-
-  throw new Error('Generation failed')
-}
-
-// ─────────────────────────────────────────────
-// Scenario storage (localStorage)
-// ─────────────────────────────────────────────
-
-const STORAGE_KEY_PREFIX = 'tidebound_scenarios_'
-const PLAYED_KEY = 'tidebound_played'
-
-export function saveScenario(scenario: Scenario, difficulty: Difficulty): string {
-  const key = `${STORAGE_KEY_PREFIX}${difficulty}`
-  const existing = loadScenarios(difficulty)
-  const id = `${scenario.village.name.toLowerCase().replace(/\s+/g, '_')}_${Date.now()}`
-  existing.push({ id, scenario })
-  localStorage.setItem(key, JSON.stringify(existing))
-  return id
-}
-
-export function loadScenarios(difficulty: Difficulty): Array<{ id: string; scenario: Scenario }> {
-  try { return JSON.parse(localStorage.getItem(`${STORAGE_KEY_PREFIX}${difficulty}`) ?? '[]') }
-  catch { return [] }
-}
-
-export function getPlayedIds(): string[] {
-  try { return JSON.parse(localStorage.getItem(PLAYED_KEY) ?? '[]') }
-  catch { return [] }
-}
-
-export function markPlayed(id: string): void {
-  const played = getPlayedIds()
-  if (!played.includes(id)) {
-    localStorage.setItem(PLAYED_KEY, JSON.stringify([...played, id]))
-  }
-}
-
-export function getUnplayedScenario(difficulty: Difficulty): { id: string; scenario: Scenario } | null {
-  const played = new Set(getPlayedIds())
-  return loadScenarios(difficulty).find(s => !played.has(s.id)) ?? null
-}
+1. **Investigator in conditions** — roughly half of all `"condition"` objects should have `"investigator"` in the `characters` array. If it's fewer than a third, the mechanic won't have enough pull.
+2. **Leads match real conditions** — each lead should correspond to a clue condition that can actually fire in the first few turns. If a lead points at a location but no clue has a condition for the investigator at that location, the lead is misleading.
+3. **No auto-fire on turn 1** — check if any clue conditions are satisfied by the opening board state (characters at their starting_locations, investigator at harbour). These would fire without the player doing anything. A few is fine; many is a problem.
+4. **Clue counts** — each of the 7 checkpoints should have exactly 4 clues (1 hard + 2 soft + 1 red_herring).
+5. **Answer cross-check** — pick one checkpoint and verify the `answer` on each clue matches a string in that checkpoint's `answer_options`.
