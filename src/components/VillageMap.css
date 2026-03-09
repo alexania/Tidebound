@@ -32,6 +32,16 @@
   pointer-events: none;
 }
 
+.map-location__annotation {
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-error);
+  opacity: 0.7;
+  margin-bottom: 5px;
+  pointer-events: none;
+}
+
 .map-location__tokens {
   display: flex;
   flex-wrap: wrap;
@@ -104,5 +114,12 @@
 }
 
 .map-location--disabled {
+  opacity: 0.5;
+}
+
+.village-map__adj-line {
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
   opacity: 0.5;
 }

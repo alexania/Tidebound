@@ -31,104 +31,212 @@
   text-transform: uppercase;
 }
 
-.evidence-board__toolbar .btn--active {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
 .evidence-board__spacer {
   flex: 1;
 }
 
-.evidence-board__canvas {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  cursor: default;
-}
-
-.evidence-board__svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.evidence-board__svg line {
-  stroke: var(--color-border);
-  stroke-width: 1.5;
-  pointer-events: stroke;
-  cursor: pointer;
-}
-
-.evidence-board__svg line:hover {
-  stroke: var(--color-accent);
-}
-
-.evidence-board__empty {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-dim);
+.evidence-board__narrative {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
   font-style: italic;
   font-size: 13px;
-  pointer-events: none;
+  line-height: 1.7;
+  color: var(--color-text-dim);
+  flex-shrink: 0;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
-.pinned-card {
-  position: absolute;
+.evidence-board__narrative p + p {
+  margin-top: 0.8em;
+}
+
+/* Swim lanes */
+
+.evidence-board__lanes {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 12px;
+  gap: 10px;
+}
+
+.eb-lane {
+  flex-shrink: 0;
   width: 220px;
+  display: flex;
+  flex-direction: column;
   background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  min-height: 100%;
+  transition: border-color 0.15s;
+}
+
+.eb-lane--confirmed {
+  border-color: var(--color-confirmed);
+}
+
+.eb-lane--locked {
+  opacity: 0.45;
+}
+
+.eb-lane--drag-over {
+  border-color: var(--color-accent);
+  background: rgba(196, 168, 130, 0.05);
+}
+
+.eb-lane__header {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface2);
+  flex-shrink: 0;
+}
+
+.eb-lane--confirmed .eb-lane__header {
+  border-bottom-color: var(--color-confirmed);
+}
+
+.eb-lane__label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--color-text);
+}
+
+.eb-lane__answer {
+  display: block;
+  font-size: 12px;
+  color: var(--color-confirmed);
+  margin-top: 3px;
+}
+
+.eb-lane__submit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(0,0,0,0.15);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.eb-lane__select {
+  flex: 1;
+  min-width: 0;
+  font-size: 11px;
+  padding: 4px 6px;
+}
+
+.eb-lane__submit-btn {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  flex-shrink: 0;
+}
+
+.eb-lane__insufficient {
+  width: 100%;
+  font-size: 10px;
+  color: #e07070;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.eb-lane__cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  overflow-y: auto;
+}
+
+.eb-lane__empty {
+  font-size: 11px;
+  color: var(--color-text-dim);
+  font-style: italic;
+  text-align: center;
+  padding: 16px 8px;
+  opacity: 0.6;
+}
+
+/* Cards */
+
+.pinned-card {
+  background: var(--color-surface2);
   border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  z-index: 2;
   cursor: grab;
+  flex-shrink: 0;
 }
 
 .pinned-card:active {
   cursor: grabbing;
 }
 
-.pinned-card--connect-mode {
-  cursor: crosshair;
-}
-
-.pinned-card--connect-from {
-  border-color: var(--color-accent);
-}
-
-.pinned-card--opening {
-  width: 320px;
-  border-color: var(--color-text-dim);
-  opacity: 0.85;
-}
-
-.pinned-card--opening .pinned-card__header {
-  background: transparent;
-}
-
-.pinned-card--opening .pinned-card__text {
-  max-height: 360px;
-  overflow-y: auto;
-}
-
-.pinned-card--opening .pinned-card__text p + p {
-  margin-top: 0.8em;
+.pinned-card--collapsed .pinned-card__header {
+  border-bottom: none;
 }
 
 .pinned-card__header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  padding: 4px 8px;
+  padding: 4px 6px;
   border-bottom: 1px solid var(--color-border);
-  background: var(--color-surface2);
-  pointer-events: none;
+  background: var(--color-surface);
+  cursor: pointer;
+  user-select: none;
+  gap: 6px;
+}
+
+.pinned-card__header-left {
+  flex: 1;
+}
+
+.pinned-card__preview {
+  padding: 6px 8px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--color-text);
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.pinned-card__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.pinned-card__collapse {
+  font-size: 8px;
+  color: var(--color-text-dim);
+  opacity: 0.6;
+}
+
+.pinned-card__checkpoint-tag {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-accent, #8a9);
+  opacity: 0.7;
+  background: color-mix(in srgb, var(--color-accent, #8a9) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent, #8a9) 30%, transparent);
+  border-radius: 2px;
+  padding: 1px 4px;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-bottom: 3px;
 }
 
 .pinned-card__turn {
@@ -137,29 +245,43 @@
   letter-spacing: 1px;
 }
 
+.pinned-card__unpin {
+  font-size: 13px;
+  line-height: 1;
+  padding: 0 4px;
+  border: none;
+  color: var(--color-text-dim);
+  background: none;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.pinned-card__unpin:hover {
+  opacity: 1;
+  color: var(--color-text);
+  border-color: transparent;
+}
+
 .pinned-card__text {
   padding: 8px;
   font-size: 12px;
   line-height: 1.5;
   color: var(--color-text);
-  pointer-events: none;
 }
 
-.pinned-card__note {
+.pinned-card__implied {
   width: 100%;
-  min-height: 40px;
-  resize: vertical;
   font-size: 11px;
   font-style: italic;
-  padding: 6px 8px;
+  padding: 4px 6px;
   background: rgba(0,0,0,0.2);
   border: none;
   border-top: 1px solid var(--color-border);
   color: var(--color-text-dim);
-  cursor: text;
+  cursor: pointer;
 }
 
-.pinned-card__note:focus {
+.pinned-card__implied:focus {
   outline: none;
   color: var(--color-text);
 }

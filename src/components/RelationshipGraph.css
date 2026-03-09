@@ -1,0 +1,39 @@
+.relationship-graph {
+  width: 100%;
+  height: 100%;
+  padding: 4px 8px;
+  box-sizing: border-box;
+}
+
+.relationship-graph__svg {
+  width: 100%;
+  height: 100%;
+}
+
+.rg-edge {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.rg-edge__label {
+  font-size: 9px;
+  fill: var(--color-text-dim);
+  letter-spacing: 0.5px;
+}
+
+.rg-node {
+  fill: var(--color-surface2);
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.rg-node--victim {
+  stroke: var(--color-error);
+}
+
+.rg-node__name {
+  font-size: 10px;
+  fill: var(--color-text-dim);
+  letter-spacing: 0.5px;
+}

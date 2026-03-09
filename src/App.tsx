@@ -2,9 +2,10 @@ import { useState } from 'react'
 import type { Scenario, Difficulty, CheckpointId, LocationId } from './types/scenario'
 import type { GameState } from './types/gameState'
 import {
-  initGameState, moveCharacter, moveItem,
+  initGameState, filterCluesToDifficulty,
+  moveCharacter, moveItem,
   resolveTurn, submitCheckpoint,
-  pinClue, updateCardNote, moveCard, addConnection, removeConnection, setSelected,
+  pinClue, updateCardImplied, assignCardToLane, unpinCard, setSelected,
 } from './engine/gameEngine'
 import {
   generateScenario, saveScenario,
@@ -40,7 +41,16 @@ export default function App() {
   const [activeScenario, setActiveScenario] = useState<ActiveScenario | null>(null)
   const [gameState, setGameState] = useState<GameState | null>(null)
   const [showBoard, setShowBoard] = useState(false)
-  const [showCheckpoints, setShowCheckpoints] = useState(false)
+  const [collapsedCards, setCollapsedCards] = useState<Set<string>>(new Set())
+  const [activeFilteredScenario, setActiveFilteredScenario] = useState<Scenario | null>(null)
+
+  const handleToggleCardCollapsed = (cardId: string) => {
+    setCollapsedCards(prev => {
+      const next = new Set(prev)
+      next.has(cardId) ? next.delete(cardId) : next.add(cardId)
+      return next
+    })
+  }
   const [apiKey, setApiKey] = useState('')
   const [genError, setGenError] = useState('')
 
@@ -51,8 +61,7 @@ export default function App() {
     const played = new Set(getPlayedIds())
 
     // 1. Bundled
-    const bundled = getBundledScenarios(diff)
-    const unplayedBundled = bundled.find(s => !played.has(s.id))
+    const unplayedBundled = getBundledScenarios().find(s => !played.has(s.id))
     if (unplayedBundled) {
       setActiveScenario(unplayedBundled)
       setScreen('narrative')
@@ -89,17 +98,18 @@ export default function App() {
 
   const handleStartGame = () => {
     if (!activeScenario) return
-    const initial = initGameState(activeScenario.scenario, difficulty)
-    setGameState(resolveTurn(initial, activeScenario.scenario))
+    const scenario = filterCluesToDifficulty(activeScenario.scenario, difficulty)
+    setActiveFilteredScenario(scenario)
+    const initial = initGameState(scenario, difficulty)
+    setGameState(resolveTurn(initial, scenario))
     setShowBoard(false)
-    setShowCheckpoints(false)
     setScreen('game')
   }
 
   // ── Game actions ──────────────────────────────────────────────
 
   const gs = gameState
-  const sc = activeScenario?.scenario
+  const sc = activeFilteredScenario
 
   const handleMoveCharacter = (charId: string, location: LocationId) => {
     if (!gs) return
@@ -135,24 +145,19 @@ export default function App() {
     setGameState(pinClue(gs, clueId, entry.text))
   }
 
-  const handleUpdateNote = (cardId: string, note: string) => {
+  const handleUpdateImplied = (cardId: string, impliedAnswer: string) => {
     if (!gs) return
-    setGameState(updateCardNote(gs, cardId, note))
+    setGameState(updateCardImplied(gs, cardId, impliedAnswer))
   }
 
-  const handleMoveCard = (cardId: string, x: number, y: number) => {
+  const handleAssignLane = (cardId: string, checkpointId: CheckpointId | null) => {
     if (!gs) return
-    setGameState(moveCard(gs, cardId, x, y))
+    setGameState(assignCardToLane(gs, cardId, checkpointId))
   }
 
-  const handleAddConnection = (fromCardId: string, toCardId: string) => {
+  const handleUnpinCard = (cardId: string) => {
     if (!gs) return
-    setGameState(addConnection(gs, fromCardId, toCardId))
-  }
-
-  const handleRemoveConnection = (connectionId: string) => {
-    if (!gs) return
-    setGameState(removeConnection(gs, connectionId))
+    setGameState(unpinCard(gs, cardId))
   }
 
   const handleSelect = (sel: string | null) => {
@@ -226,15 +231,14 @@ export default function App() {
         onEndTurn={handleEndTurn}
         onSubmitCheckpoint={handleSubmitCheckpoint}
         onPinCard={handlePinCard}
-        onUpdateNote={handleUpdateNote}
-        onMoveCard={handleMoveCard}
-        onAddConnection={handleAddConnection}
-        onRemoveConnection={handleRemoveConnection}
+        onUpdateImplied={handleUpdateImplied}
+        onAssignLane={handleAssignLane}
+        onUnpinCard={handleUnpinCard}
         onSelect={handleSelect}
         showBoard={showBoard}
-        showCheckpoints={showCheckpoints}
         onToggleBoard={() => setShowBoard(b => !b)}
-        onToggleCheckpoints={() => setShowCheckpoints(c => !c)}
+        collapsedCards={collapsedCards}
+        onToggleCardCollapsed={handleToggleCardCollapsed}
       />
     )
   }

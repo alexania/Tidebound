@@ -1,10 +1,10 @@
 import type { Scenario, CheckpointId, LocationId } from '../types/scenario'
 import type { GameState } from '../types/gameState'
 import { VillageMap } from './VillageMap'
+import { RelationshipGraph } from './RelationshipGraph'
 import { ActionLog } from './ActionLog'
 import { ActionBar } from './ActionBar'
 import { InfoPanel } from './InfoPanel'
-import { CheckpointPanel } from './CheckpointPanel'
 import { EvidenceBoard } from './EvidenceBoard'
 import './GameScreen.css'
 
@@ -16,15 +16,14 @@ interface Props {
   onEndTurn: () => void
   onSubmitCheckpoint: (cpId: CheckpointId, answer: string, citedClueIds: string[]) => void
   onPinCard: (clueId: string) => void
-  onUpdateNote: (cardId: string, note: string) => void
-  onMoveCard: (cardId: string, x: number, y: number) => void
-  onAddConnection: (fromCardId: string, toCardId: string) => void
-  onRemoveConnection: (connectionId: string) => void
+  onUpdateImplied: (cardId: string, answer: string) => void
+  onAssignLane: (cardId: string, checkpointId: CheckpointId | null) => void
+  onUnpinCard: (cardId: string) => void
   onSelect: (sel: string | null) => void
   showBoard: boolean
-  showCheckpoints: boolean
   onToggleBoard: () => void
-  onToggleCheckpoints: () => void
+  collapsedCards: Set<string>
+  onToggleCardCollapsed: (cardId: string) => void
 }
 
 export function GameScreen({
@@ -32,9 +31,10 @@ export function GameScreen({
   onMoveCharacter, onMoveItem,
   onEndTurn,
   onSubmitCheckpoint,
-  onPinCard, onUpdateNote, onMoveCard, onAddConnection, onRemoveConnection,
+  onPinCard, onUpdateImplied, onAssignLane, onUnpinCard,
   onSelect,
-  showBoard, showCheckpoints, onToggleBoard, onToggleCheckpoints,
+  showBoard, onToggleBoard,
+  collapsedCards, onToggleCardCollapsed,
 }: Props) {
   return (
     <div className="game-screen">
@@ -45,14 +45,19 @@ export function GameScreen({
       </div>
 
       <div className="game-screen__main">
-        <div className="game-screen__map">
-          <VillageMap
-            scenario={scenario}
-            gameState={gameState}
-            onMoveCharacter={onMoveCharacter}
-            onMoveItem={onMoveItem}
-            onSelect={onSelect}
-          />
+        <div className="game-screen__left">
+          <div className="game-screen__map">
+            <VillageMap
+              scenario={scenario}
+              gameState={gameState}
+              onMoveCharacter={onMoveCharacter}
+              onMoveItem={onMoveItem}
+              onSelect={onSelect}
+            />
+          </div>
+          <div className="game-screen__relations">
+            <RelationshipGraph scenario={scenario} gameState={gameState} />
+          </div>
         </div>
         <div className="game-screen__log">
           <ActionLog
@@ -62,23 +67,17 @@ export function GameScreen({
           />
         </div>
 
-        {showCheckpoints && (
-          <CheckpointPanel
-            scenario={scenario}
-            gameState={gameState}
-            onSubmit={onSubmitCheckpoint}
-            onClose={onToggleCheckpoints}
-          />
-        )}
-
         {showBoard && (
           <EvidenceBoard
+            scenario={scenario}
             gameState={gameState}
-            onUpdateNote={onUpdateNote}
-            onMoveCard={onMoveCard}
-            onAddConnection={onAddConnection}
-            onRemoveConnection={onRemoveConnection}
+            onUpdateImplied={onUpdateImplied}
+            onAssignLane={onAssignLane}
+            onUnpinCard={onUnpinCard}
+            onSubmitCheckpoint={onSubmitCheckpoint}
             onClose={onToggleBoard}
+            collapsedCards={collapsedCards}
+            onToggleCardCollapsed={onToggleCardCollapsed}
           />
         )}
       </div>
@@ -91,11 +90,10 @@ export function GameScreen({
 
       <ActionBar
         gameState={gameState}
+        scenario={scenario}
         onEndTurn={onEndTurn}
         onToggleBoard={onToggleBoard}
-        onToggleCheckpoints={onToggleCheckpoints}
         showBoard={showBoard}
-        showCheckpoints={showCheckpoints}
       />
     </div>
   )

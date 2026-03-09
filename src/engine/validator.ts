@@ -2,12 +2,7 @@
 // TIDEBOUND — Scenario Validator
 // ─────────────────────────────────────────────
 
-import type { Scenario, LocationId } from '../types/scenario'
-
-const REQUIRED_LOCATIONS: LocationId[] = [
-  'harbour', 'tavern', 'lighthouse', 'chapel',
-  'doctors_house', 'manor', 'cottage_row', 'cliffs', 'forest_edge'
-]
+import type { Scenario } from '../types/scenario'
 
 export interface ValidationError {
   rule: string
@@ -23,10 +18,44 @@ export function validateScenario(s: Scenario): ValidationError[] {
   const checkpointIds = new Set(s.checkpoints.map(c => c.id))
 
   // ── Locations ──────────────────────────────
-  for (const loc of REQUIRED_LOCATIONS) {
-    if (!locationIds.has(loc)) {
-      errors.push({ rule: 'required_location', message: `Missing required location: ${loc}` })
+  if (s.locations.length < 1 || s.locations.length > 9) {
+    errors.push({ rule: 'location_count', message: `Expected 1–9 locations, found ${s.locations.length}` })
+  }
+
+  const occupiedCells = new Set<string>()
+  for (const loc of s.locations) {
+    if (loc.col !== undefined) {
+      if (loc.col < 0 || loc.col > 2) {
+        errors.push({ rule: 'location_col', message: `Location ${loc.id} has invalid col: ${loc.col} (must be 0–2)` })
+      }
     }
+    if (loc.row !== undefined) {
+      if (loc.row < 0 || loc.row > 2) {
+        errors.push({ rule: 'location_row', message: `Location ${loc.id} has invalid row: ${loc.row} (must be 0–2)` })
+      }
+    }
+    if (loc.col !== undefined && loc.row !== undefined) {
+      const cell = `${loc.col},${loc.row}`
+      if (occupiedCells.has(cell)) {
+        errors.push({ rule: 'location_cell_conflict', message: `Multiple locations share grid cell (${loc.col}, ${loc.row})` })
+      }
+      occupiedCells.add(cell)
+    }
+  }
+
+  for (const adj of (s.location_adjacencies ?? [])) {
+    if (!locationIds.has(adj.from)) {
+      errors.push({ rule: 'adjacency_location', message: `location_adjacencies references unknown location: ${adj.from}` })
+    }
+    if (!locationIds.has(adj.to)) {
+      errors.push({ rule: 'adjacency_location', message: `location_adjacencies references unknown location: ${adj.to}` })
+    }
+  }
+
+  if (!s.village.arrival_location) {
+    errors.push({ rule: 'arrival_location', message: 'village.arrival_location is missing' })
+  } else if (!locationIds.has(s.village.arrival_location)) {
+    errors.push({ rule: 'arrival_location', message: `village.arrival_location "${s.village.arrival_location}" is not a valid location id` })
   }
 
   // ── Characters ─────────────────────────────
@@ -65,6 +94,24 @@ export function validateScenario(s: Scenario): ValidationError[] {
   }
 
   // ── Clues ──────────────────────────────────
+
+  // Per checkpoint: check red herrings don't share the same answer
+  const cluesByCheckpoint = new Map<string, typeof s.clues>()
+  for (const clue of s.clues) {
+    const group = cluesByCheckpoint.get(clue.checkpoint) ?? []
+    group.push(clue)
+    cluesByCheckpoint.set(clue.checkpoint, group)
+  }
+  for (const [cpId, clues] of cluesByCheckpoint) {
+    const redHerringAnswers = clues
+      .filter(c => c.weight === 'red_herring')
+      .map(c => c.answer)
+    const unique = new Set(redHerringAnswers)
+    if (unique.size < redHerringAnswers.length) {
+      errors.push({ rule: 'red_herring_distinct', message: `Checkpoint ${cpId} has red herrings pointing at the same answer` })
+    }
+  }
+
   for (const clue of s.clues) {
     if (!checkpointIds.has(clue.checkpoint)) {
       errors.push({ rule: 'clue_checkpoint', message: `Clue ${clue.id} references unknown checkpoint: ${clue.checkpoint}` })
@@ -75,8 +122,8 @@ export function validateScenario(s: Scenario): ValidationError[] {
       errors.push({ rule: 'clue_answer', message: `Clue ${clue.id} answer "${clue.answer}" not in checkpoint answer_options` })
     }
 
-    if ((clue.weight === 'red_herring' || clue.weight === 'contradiction') && !clue.red_herring_explanation) {
-      errors.push({ rule: 'red_herring_explanation', message: `Clue ${clue.id} is ${clue.weight} but has no red_herring_explanation` })
+    if (clue.weight === 'red_herring' && !clue.red_herring_explanation) {
+      errors.push({ rule: 'red_herring_explanation', message: `Clue ${clue.id} is red_herring but has no red_herring_explanation` })
     }
 
     for (const cid of (clue.condition.characters ?? [])) {
@@ -92,6 +139,16 @@ export function validateScenario(s: Scenario): ValidationError[] {
 
     if (clue.condition.location && !locationIds.has(clue.condition.location)) {
       errors.push({ rule: 'unknown_location', message: `Clue ${clue.id} condition references unknown location: ${clue.condition.location}` })
+    }
+  }
+
+  // ── Relations ──────────────────────────────
+  for (const rel of (s.relations ?? [])) {
+    if (!characterIds.has(rel.from)) {
+      errors.push({ rule: 'relation_char', message: `Relation references unknown character: ${rel.from}` })
+    }
+    if (!characterIds.has(rel.to)) {
+      errors.push({ rule: 'relation_char', message: `Relation references unknown character: ${rel.to}` })
     }
   }
 

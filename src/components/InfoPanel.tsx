@@ -1,6 +1,6 @@
 import type { Scenario } from '../types/scenario'
 import type { GameState } from '../types/gameState'
-import { parseTaggedText } from '../utils/parseTags'
+import { parseTaggedText, buildLocationNames } from '../utils/parseTags'
 import { INVESTIGATOR_ID } from '../engine/gameEngine'
 import './InfoPanel.css'
 
@@ -12,6 +12,7 @@ interface Props {
 
 export function InfoPanel({ scenario, gameState, onSelect }: Props) {
   const { selected } = gameState
+  const locationNames = buildLocationNames(scenario.locations)
 
   if (!selected) {
     return (
@@ -31,7 +32,7 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
       <div className="info-panel" onClick={() => onSelect(null)} style={{ cursor: 'pointer' }}>
         <div className="info-panel__col">
           <div className="info-panel__name">Investigator</div>
-          <div className="info-panel__meta">you · at {loc?.replace(/_/g, ' ')}</div>
+          <div className="info-panel__meta">you · at {loc ? (locationNames[loc] ?? loc) : ''}</div>
           <div className="info-panel__desc">Move to locations to surface clues. Your presence satisfies conditions just as any other character's would.</div>
         </div>
       </div>
@@ -47,13 +48,13 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
         <div className="info-panel__col">
           <div className="info-panel__name">{char.name}</div>
           <div className="info-panel__meta">
-            {char.isVictim ? 'victim · ' : ''}{char.local ? 'local' : 'outsider'} · at {loc?.replace(/_/g, ' ')}
+            {char.isVictim ? 'victim · ' : ''}{char.local ? 'local' : 'outsider'} · at {loc ? (locationNames[loc] ?? loc) : ''}
           </div>
-          <div className="info-panel__desc">{parseTaggedText(char.description)}</div>
+          <div className="info-panel__desc">{parseTaggedText(char.description, locationNames)}</div>
         </div>
         <div className="info-panel__col">
           <div className="info-panel__meta">home</div>
-          <div className="info-panel__desc">{char.home_location.replace(/_/g, ' ')}</div>
+          <div className="info-panel__desc">{locationNames[char.home_location] ?? char.home_location}</div>
         </div>
       </div>
     )
@@ -69,9 +70,9 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
         <div className="info-panel__col">
           <div className="info-panel__name">{item.name}</div>
           <div className="info-panel__meta">
-            {found ? `at ${loc.replace(/_/g, ' ')}` : 'not yet found'}
+            {found ? `at ${locationNames[loc] ?? loc}` : 'not yet found'}
           </div>
-          <div className="info-panel__desc">{parseTaggedText(item.description)}</div>
+          <div className="info-panel__desc">{parseTaggedText(item.description, locationNames)}</div>
         </div>
       </div>
     )
@@ -93,11 +94,11 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
     return (
       <div className="info-panel" onClick={() => onSelect(null)} style={{ cursor: 'pointer' }}>
         <div className="info-panel__col">
-          <div className="info-panel__name">{id.replace(/_/g, ' ')}</div>
+          <div className="info-panel__name">{locationNames[id] ?? id}</div>
           <div className="info-panel__meta">
             {occupants.length ? occupants.join(' · ') : 'empty'}
           </div>
-          <div className="info-panel__desc">{parseTaggedText(loc.flavour)}</div>
+          <div className="info-panel__desc">{parseTaggedText(loc.flavour, locationNames)}</div>
         </div>
       </div>
     )

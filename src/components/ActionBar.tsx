@@ -3,21 +3,13 @@ import './ActionBar.css'
 
 interface Props {
   gameState: GameState
+  scenario: unknown
   onEndTurn: () => void
   onToggleBoard: () => void
-  onToggleCheckpoints: () => void
   showBoard: boolean
-  showCheckpoints: boolean
 }
 
-export function ActionBar({
-  gameState,
-  onEndTurn,
-  onToggleBoard,
-  onToggleCheckpoints,
-  showBoard,
-  showCheckpoints,
-}: Props) {
+export function ActionBar({ gameState, scenario, onEndTurn, onToggleBoard, showBoard }: Props) {
   const { actionsRemaining } = gameState
 
   return (
@@ -34,9 +26,13 @@ export function ActionBar({
 
       <div className="action-bar__spacer" />
 
-      <button onClick={onToggleCheckpoints} style={{ borderColor: showCheckpoints ? 'var(--color-accent)' : undefined }}>
-        Checkpoints
+      <button
+        title="Copy debug state to clipboard"
+        onClick={() => navigator.clipboard.writeText(JSON.stringify({ gameState, scenario }, null, 2))}
+      >
+        Debug
       </button>
+
       <button onClick={onToggleBoard} style={{ borderColor: showBoard ? 'var(--color-accent)' : undefined }}>
         Evidence Board
       </button>

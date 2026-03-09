@@ -45,16 +45,34 @@
   position: relative;
 }
 
-.game-screen__map {
+.game-screen__left {
   border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.game-screen__map {
+  flex: 1;
   overflow: hidden;
   position: relative;
+}
+
+.game-screen__relations {
+  flex: 0 0 150px;
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
 }
 
 .game-screen__log {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.game-screen__log-pane {
+  flex: 1;
+  overflow: hidden;
 }
 
 .game-screen__log-header {

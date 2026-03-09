@@ -17,21 +17,12 @@ export interface CollectedClue {
 
 export interface PinnedCard {
   id: string
-  // 'opening' is the special auto-pinned opening narrative card
-  type: 'clue' | 'opening'
   clueId: string | null
   text: string
   turn: number | null
-  note: string
-  x: number
-  y: number
-}
-
-export interface BoardConnection {
-  id: string
-  fromCardId: string
-  toCardId: string
-  label: string
+  impliedAnswer: string
+  locationId: LocationId | null
+  checkpointId: CheckpointId | null
 }
 
 export type SubmissionResult = 'correct' | 'incorrect'
@@ -75,6 +66,9 @@ export interface GameState {
 
   board: BoardState
 
+  // Characters the player explicitly moved this turn — used to determine who resets to home
+  movedCharacterIds: string[]
+
   // Characters and items found by the investigator visiting their location
   foundCharacterIds: string[]
   foundItemIds: string[]
@@ -84,7 +78,6 @@ export interface GameState {
 
   // Evidence board
   pinnedCards: PinnedCard[]
-  connections: BoardConnection[]
 
   // Currently selected entity in the info panel
   // Format: "char:id" | "item:id" | "loc:id" | null

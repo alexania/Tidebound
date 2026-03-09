@@ -5,7 +5,34 @@
 import type { Scenario, CheckpointId, LocationId, Difficulty, Clue } from '../types/scenario'
 import type { GameState, BoardState, LogEntry } from '../types/gameState'
 import { evaluateCondition } from './conditions'
-import { initCheckpointStates, recomputeCheckpointStatuses, REQUIRED_CHECKPOINTS } from './checkpoints'
+import { initCheckpointStates, recomputeCheckpointStatuses } from './checkpoints'
+
+// ─────────────────────────────────────────────
+// Difficulty filtering
+// ─────────────────────────────────────────────
+
+const RED_HERRINGS_PER_DIFFICULTY: Record<Difficulty, number> = {
+  easy:   1,
+  medium: 2,
+  hard:   3,
+}
+
+// Scenarios are always generated at "hard" (2 correct + 3 red herrings per checkpoint).
+// This trims red herrings down to the count appropriate for the chosen difficulty,
+// keeping the first N red herrings per checkpoint by array order.
+export function filterCluesToDifficulty(scenario: Scenario, difficulty: Difficulty): Scenario {
+  const keep = RED_HERRINGS_PER_DIFFICULTY[difficulty]
+  const redHerringCount: Record<string, number> = {}
+
+  const filtered = scenario.clues.filter(clue => {
+    if (clue.weight !== 'red_herring') return true
+    const cp = clue.checkpoint
+    redHerringCount[cp] = (redHerringCount[cp] ?? 0) + 1
+    return redHerringCount[cp] <= keep
+  })
+
+  return { ...scenario, clues: filtered }
+}
 
 // ─────────────────────────────────────────────
 // Investigator — reserved id, always present
@@ -22,8 +49,7 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
   for (const char of scenario.characters) {
     characterLocations[char.id] = char.starting_location
   }
-  // Investigator always starts at the harbour
-  characterLocations[INVESTIGATOR_ID] = 'harbour'
+  characterLocations[INVESTIGATOR_ID] = scenario.village.arrival_location
 
   const itemLocations: Record<string, LocationId> = {}
   for (const item of scenario.items) {
@@ -31,14 +57,16 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
   }
 
   const board: BoardState = { characterLocations, itemLocations }
-  const checkpoints = initCheckpointStates(difficulty)
+  const checkpoints = initCheckpointStates(scenario.checkpoints.map(cp => cp.id))
 
   const victim = scenario.characters.find(c => c.isVictim)
+
+  const arrival = scenario.village.arrival_location
 
   const leadEntries: LogEntry[] = scenario.leads.map((lead, i) => ({
     id: `log_0_lead_${i}`,
     turn: 0,
-    locationId: lead.location_id ?? 'harbour',
+    locationId: lead.location_id ?? arrival,
     text: lead.text,
     clueId: null,
     isNew: false,
@@ -48,22 +76,10 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
   const seedEntry: LogEntry = {
     id: 'log_1_arrival',
     turn: 1,
-    locationId: 'harbour',
-    text: `Word has reached the investigator at [loc:harbour]${victim ? ` — [char:${victim.name}] has been found at [loc:${scenario.crime.body_found_location}]` : ''}. The investigation begins.`,
+    locationId: arrival,
+    text: `Word has reached the investigator at [loc:${arrival}]${victim ? ` — [char:${victim.name}] has been found at [loc:${scenario.crime.body_found_location}]` : ''}. The investigation begins.`,
     clueId: null,
     isNew: false,
-  }
-
-  // Auto-pin opening narrative to the evidence board
-  const openingCard = {
-    id: 'card_opening',
-    type: 'opening' as const,
-    clueId: null,
-    text: scenario.opening_narrative,
-    turn: null,
-    note: '',
-    x: 40,
-    y: 40,
   }
 
   return {
@@ -73,12 +89,12 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
     phase: 'setup',
     actionsRemaining: 3,
     board,
+    movedCharacterIds: [],
     foundCharacterIds: [],
     foundItemIds: [],
     collectedClueIds: [],
     log: [...leadEntries, seedEntry],
-    pinnedCards: [openingCard],
-    connections: [],
+    pinnedCards: [],
     selected: null,
     checkpoints,
     solved: false,
@@ -101,6 +117,9 @@ export function moveCharacter(
   return {
     ...state,
     actionsRemaining: state.actionsRemaining - 1,
+    movedCharacterIds: state.movedCharacterIds.includes(characterId)
+      ? state.movedCharacterIds
+      : [...state.movedCharacterIds, characterId],
     board: {
       ...state.board,
       characterLocations: {
@@ -155,9 +174,6 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
     clue => !state.collectedClueIds.includes(clue.id)
   )
 
-  // From turn 9, all uncollected clues auto-fire
-  const guaranteed = state.turn >= 9
-
   // ── Character and item discovery ─────────────
   const investigatorLoc = state.board.characterLocations[INVESTIGATOR_ID]
 
@@ -206,9 +222,9 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
   }
 
   for (const clue of availableClues) {
-    if (!guaranteed && !evaluateCondition(clue.condition, ctx)) continue
+    if (!evaluateCondition(clue.condition, ctx)) continue
 
-    const loc = resolveClueLocation(clue, state.board)
+    const loc = resolveClueLocation(clue, state.board, scenario.village.arrival_location)
     newClueIds.push(clue.id)
     newLogEntries.push({
       id: `log_${state.turn}_${clue.id}`,
@@ -221,28 +237,44 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
     })
   }
 
-  // Auto-pin hard clues
   const existingPinnedClueIds = new Set(state.pinnedCards.map(c => c.clueId))
   const autoPinnedCards = newLogEntries
-    .filter(e => e.weight === 'hard' && e.clueId && !existingPinnedClueIds.has(e.clueId))
-    .map((e, i) => ({
+    .filter(e => e.clueId && !existingPinnedClueIds.has(e.clueId))
+    .map(e => ({
       id: `card_${e.clueId}`,
-      type: 'clue' as const,
       clueId: e.clueId!,
       text: e.text,
       turn: state.turn,
-      note: '',
-      x: 60 + (state.pinnedCards.length + i) * 20,
-      y: 60 + (state.pinnedCards.length + i) * 20,
+      impliedAnswer: '',
+      locationId: e.locationId,
+      checkpointId: null,
     }))
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
+
+  // Characters not moved this turn return to their home location for next turn.
+  // The investigator never resets.
+  const movedSet = new Set(state.movedCharacterIds)
+  const resetLocations: Record<string, LocationId> = {}
+  for (const char of scenario.characters) {
+    if (!char.isVictim && !movedSet.has(char.id)) {
+      resetLocations[char.id] = char.home_location
+    }
+  }
 
   return {
     ...state,
     phase: 'setup',
     turn: state.turn + 1,
     actionsRemaining: 3,
+    movedCharacterIds: [],
+    board: {
+      ...state.board,
+      characterLocations: {
+        ...state.board.characterLocations,
+        ...resetLocations,
+      },
+    },
     foundCharacterIds: [...state.foundCharacterIds, ...newlyFoundCharacterIds],
     foundItemIds: [...state.foundItemIds, ...newlyFoundItemIds],
     collectedClueIds: [...state.collectedClueIds, ...newClueIds],
@@ -251,15 +283,15 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
   }
 }
 
-function resolveClueLocation(clue: Clue, board: BoardState): LocationId {
+function resolveClueLocation(clue: Clue, board: BoardState, arrivalLocation: string): LocationId {
   if (clue.condition.location) return clue.condition.location
 
   const chars = clue.condition.characters
   if (chars && chars.length > 0) {
-    return board.characterLocations[chars[0]] ?? 'harbour'
+    return board.characterLocations[chars[0]] ?? arrivalLocation
   }
 
-  return 'harbour'
+  return arrivalLocation
 }
 
 // ─────────────────────────────────────────────
@@ -296,12 +328,10 @@ export function submitCheckpoint(
   }
 
   const updatedCheckpoints = recomputeCheckpointStatuses(
-    { ...state.checkpoints, [checkpointId]: updatedCheckpoint },
-    state.difficulty
+    { ...state.checkpoints, [checkpointId]: updatedCheckpoint }
   )
 
-  const required = REQUIRED_CHECKPOINTS[state.difficulty]
-  const solved = required.every(id => updatedCheckpoints[id]?.status === 'confirmed')
+  const solved = Object.values(updatedCheckpoints).every(cp => cp.status === 'confirmed')
 
   return {
     ...state,
@@ -314,22 +344,23 @@ export function submitCheckpoint(
 }
 
 function getCorrectAnswer(checkpointId: CheckpointId, scenario: Scenario): string {
+  // clue.answer is validated to exactly match an answer_option, so it's the most
+  // reliable source — avoids name/id mismatches in LLM-generated scenarios.
+  const correctClue = scenario.clues.find(c => c.checkpoint === checkpointId && c.weight === 'correct')
+  if (correctClue) return correctClue.answer
+
+  // Fallback for bundled scenarios without correct clues
   const crime = scenario.crime
   switch (checkpointId) {
     case 'cause_of_death': return crime.cause_of_death
     case 'true_location':  return crime.murder_location
     case 'time_of_death':  return crime.time_of_death
-    case 'perpetrator':    return crime.perpetrator_ids[0]
-    case 'motive':         return crime.motive
-    case 'hidden_truth':   return crime.hidden_truth ?? ''
-    case 'last_seen':
-    case 'victim_state': {
-      const correctClue = scenario.clues.find(
-        c => c.checkpoint === checkpointId && (c.weight === 'hard' || c.weight === 'soft')
-      )
-      const cp = scenario.checkpoints.find(c => c.id === checkpointId)
-      return correctClue?.answer ?? cp?.answer_options[0] ?? ''
+    case 'perpetrator': {
+      const perpId = crime.perpetrator_ids[0]
+      return scenario.characters.find(c => c.id === perpId)?.name ?? perpId
     }
+    case 'motive':       return crime.motive
+    case 'hidden_truth': return crime.hidden_truth ?? ''
     default: return ''
   }
 }
@@ -346,55 +377,43 @@ function calculateScore(turns: number, difficulty: Difficulty): number {
 export function pinClue(state: GameState, clueId: string, text: string): GameState {
   if (state.pinnedCards.some(c => c.clueId === clueId)) return state
 
-  const offset = state.pinnedCards.length * 20
+  const locationId = state.log.find(e => e.clueId === clueId)?.locationId ?? null
+
   const newCard = {
     id: `card_${clueId}`,
-    type: 'clue' as const,
     clueId,
     text,
     turn: state.turn,
-    note: '',
-    x: 60 + offset,
-    y: 60 + offset,
+    impliedAnswer: '',
+    locationId,
+    checkpointId: null,
   }
 
   return { ...state, pinnedCards: [...state.pinnedCards, newCard] }
 }
 
-export function updateCardNote(state: GameState, cardId: string, note: string): GameState {
+export function updateCardImplied(state: GameState, cardId: string, impliedAnswer: string): GameState {
   return {
     ...state,
-    pinnedCards: state.pinnedCards.map(c => c.id === cardId ? { ...c, note } : c),
+    pinnedCards: state.pinnedCards.map(c => c.id === cardId ? { ...c, impliedAnswer } : c),
   }
 }
 
-export function moveCard(state: GameState, cardId: string, x: number, y: number): GameState {
-  return {
-    ...state,
-    pinnedCards: state.pinnedCards.map(c => c.id === cardId ? { ...c, x, y } : c),
-  }
-}
-
-export function addConnection(
+export function assignCardToLane(
   state: GameState,
-  fromCardId: string,
-  toCardId: string,
-  label = ''
+  cardId: string,
+  checkpointId: import('../types/scenario').CheckpointId | null
 ): GameState {
-  const id = `conn_${fromCardId}_${toCardId}`
-  // Also block reverse duplicate
-  const reverseId = `conn_${toCardId}_${fromCardId}`
-  if (state.connections.some(c => c.id === id || c.id === reverseId)) return state
   return {
     ...state,
-    connections: [...state.connections, { id, fromCardId, toCardId, label }],
+    pinnedCards: state.pinnedCards.map(c => c.id === cardId ? { ...c, checkpointId } : c),
   }
 }
 
-export function removeConnection(state: GameState, connectionId: string): GameState {
+export function unpinCard(state: GameState, cardId: string): GameState {
   return {
     ...state,
-    connections: state.connections.filter(c => c.id !== connectionId),
+    pinnedCards: state.pinnedCards.filter(c => c.id !== cardId),
   }
 }
 

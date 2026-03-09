@@ -1,16 +1,13 @@
-import type { Scenario, Difficulty } from '../types/scenario'
-import easy01 from './easy/easy04.json'
+import type { Scenario } from '../types/scenario'
+import scenario01 from './scenario_04.json'
 
 type BundledScenario = { id: string; scenario: Scenario }
 
 // Add new bundled scenarios by importing the JSON and adding an entry here.
-// Files live in src/scenarios/<difficulty>/ — drop the JSON in and add an import + entry.
-const BUNDLED: Record<Difficulty, BundledScenario[]> = {
-  easy: [{ id: 'easy01', scenario: easy01 as unknown as Scenario }],
-  medium: [],
-  hard:   [],
-}
+const BUNDLED: BundledScenario[] = [
+  { id: 'scenario_04', scenario: scenario01 as unknown as Scenario }
+]
 
-export function getBundledScenarios(difficulty: Difficulty): BundledScenario[] {
-  return BUNDLED[difficulty]
+export function getBundledScenarios(): BundledScenario[] {
+  return BUNDLED
 }

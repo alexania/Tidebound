@@ -2,28 +2,17 @@
 // TIDEBOUND — Core Types
 // ─────────────────────────────────────────────
 
-export type LocationId =
-  | 'harbour'
-  | 'tavern'
-  | 'lighthouse'
-  | 'chapel'
-  | 'doctors_house'
-  | 'manor'
-  | 'cottage_row'
-  | 'cliffs'
-  | 'forest_edge'
+export type LocationId = string
 
 export type CheckpointId =
   | 'cause_of_death'
   | 'true_location'
   | 'time_of_death'
-  | 'last_seen'
-  | 'victim_state'
+  | 'hidden_truth'
   | 'perpetrator'
   | 'motive'
-  | 'hidden_truth'
 
-export type ClueWeight = 'hard' | 'soft' | 'red_herring' | 'contradiction'
+export type ClueWeight = 'correct' | 'red_herring'
 export type Difficulty = 'easy' | 'medium' | 'hard'
 
 export type ConditionType =
@@ -41,6 +30,7 @@ export interface Village {
   history: string
   season: 'spring' | 'summer' | 'autumn' | 'winter'
   weather: string
+  arrival_location: string
 }
 
 export interface Crime {
@@ -75,7 +65,15 @@ export interface Item {
 
 export interface Location {
   id: LocationId
+  name?: string  // display name; falls back to formatted id if absent (old scenarios)
   flavour: string
+  col?: number   // 0–2, grid column; falls back to index % 3 for old scenarios
+  row?: number   // 0–2, grid row; falls back to Math.floor(index / 3) for old scenarios
+}
+
+export interface LocationAdjacency {
+  from: LocationId
+  to: LocationId
 }
 
 export interface Checkpoint {
@@ -110,6 +108,12 @@ export interface Lead {
   location_id: LocationId | null
 }
 
+export interface Relation {
+  from: string   // char_id
+  to: string     // char_id
+  label: string  // short, directional: "employs", "sister of", "in love with"
+}
+
 export interface Scenario {
   village: Village
   crime: Crime
@@ -119,5 +123,7 @@ export interface Scenario {
   checkpoints: Checkpoint[]
   clues: Clue[]
   leads: Lead[]
+  relations: Relation[]
+  location_adjacencies?: LocationAdjacency[]
   opening_narrative: string
 }

@@ -5,41 +5,29 @@
 // Accusation checkpoints lock until all 5 investigative confirmed.
 // ─────────────────────────────────────────────
 
-import type { CheckpointId, Difficulty } from '../types/scenario'
+import type { CheckpointId } from '../types/scenario'
 import type { CheckpointState } from '../types/gameState'
 
-const INVESTIGATIVE_CHECKPOINTS: CheckpointId[] = [
-  'cause_of_death',
-  'true_location',
-  'time_of_death',
-  'last_seen',
-  'victim_state',
-]
+const ACCUSATION_CHECKPOINTS = new Set<string>(['perpetrator', 'motive'])
 
-export const REQUIRED_CHECKPOINTS: Record<Difficulty, CheckpointId[]> = {
-  easy:   [...INVESTIGATIVE_CHECKPOINTS, 'perpetrator'],
-  medium: [...INVESTIGATIVE_CHECKPOINTS, 'perpetrator', 'motive'],
-  hard:   [...INVESTIGATIVE_CHECKPOINTS, 'perpetrator', 'motive', 'hidden_truth'],
-}
-
-function allInvestigativeConfirmed(states: Record<CheckpointId, CheckpointState>): boolean {
-  return INVESTIGATIVE_CHECKPOINTS.every(id => states[id]?.status === 'confirmed')
+function allInvestigativeConfirmed(states: Record<string, CheckpointState>): boolean {
+  return Object.entries(states)
+    .filter(([id]) => !ACCUSATION_CHECKPOINTS.has(id))
+    .every(([, state]) => state.status === 'confirmed')
 }
 
 export function recomputeCheckpointStatuses(
-  states: Record<CheckpointId, CheckpointState>,
-  difficulty: Difficulty
+  states: Record<CheckpointId, CheckpointState>
 ): Record<CheckpointId, CheckpointState> {
-  const required = REQUIRED_CHECKPOINTS[difficulty]
   const updated = { ...states }
   const investigativeDone = allInvestigativeConfirmed(updated)
 
-  for (const id of required) {
+  for (const id of Object.keys(updated) as CheckpointId[]) {
     if (updated[id].status === 'confirmed') continue
 
     let status: 'available' | 'locked'
 
-    if (INVESTIGATIVE_CHECKPOINTS.includes(id)) {
+    if (!ACCUSATION_CHECKPOINTS.has(id)) {
       status = 'available'
     } else if (id === 'perpetrator') {
       status = investigativeDone ? 'available' : 'locked'
@@ -58,15 +46,14 @@ export function recomputeCheckpointStatuses(
 }
 
 export function initCheckpointStates(
-  difficulty: Difficulty
+  checkpointIds: CheckpointId[]
 ): Record<CheckpointId, CheckpointState> {
-  const required = REQUIRED_CHECKPOINTS[difficulty]
   const states = {} as Record<CheckpointId, CheckpointState>
 
-  for (const id of required) {
+  for (const id of checkpointIds) {
     states[id] = {
       id,
-      status: INVESTIGATIVE_CHECKPOINTS.includes(id) ? 'available' : 'locked',
+      status: ACCUSATION_CHECKPOINTS.has(id) ? 'locked' : 'available',
       confirmedAnswer: null,
       submissions: [],
     }

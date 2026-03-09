@@ -1,5 +1,5 @@
 import type { Scenario } from '../types/scenario'
-import { parseTaggedText } from '../utils/parseTags'
+import { parseTaggedText, buildLocationNames } from '../utils/parseTags'
 import './OpeningNarrative.css'
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
 }
 
 export function OpeningNarrative({ scenario, onContinue }: Props) {
+  const locationNames = buildLocationNames(scenario.locations)
   return (
     <div className="opening">
       <div className="opening__inner">
@@ -15,7 +16,7 @@ export function OpeningNarrative({ scenario, onContinue }: Props) {
         <div className="opening__weather">{scenario.village.weather}</div>
         <div className="opening__text">
           {scenario.opening_narrative.split('\n\n').map((para, i) => (
-            <p key={i}>{parseTaggedText(para)}</p>
+            <p key={i}>{parseTaggedText(para, locationNames)}</p>
           ))}
         </div>
         <button className="opening__continue" onClick={onContinue}>

@@ -1,0 +1,726 @@
+{
+  "village": {
+    "name": "Culebra Chica",
+    "history": "Culebra Chica grew up around a single pier where Basque whalers once sheltered before the long Atlantic crossing, and the town never quite forgot that it was built on departure. By 1923 the whaling was gone but the cannery stayed, and the smell of salt-packed sardines soaked into the whitewashed walls of every building along the waterfront. Loyalties here run along family lines that go back three generations, and an outsider — even an official one — is watched the way gulls watch a fishing boat: patiently, and with appetite.",
+    "season": "summer",
+    "weather": "salt haze, still air, the kind of heat that makes distances shimmer",
+    "arrival_location": "cannery_pier"
+  },
+  "crime": {
+    "cause_of_death": "drowning",
+    "murder_location": "tidal_caves",
+    "body_found_location": "cannery_pier",
+    "body_was_moved": true,
+    "time_of_death": "between ten o'clock and midnight",
+    "victim_state": "fully clothed, boots still laced",
+    "perpetrator_ids": [
+      "bixente_arrizabalaga"
+    ],
+    "motive": "self-preservation",
+    "hidden_truth": null
+  },
+  "characters": [
+    {
+      "id": "ines_goikoetxea",
+      "name": "Inés Goikoetxea",
+      "isVictim": true,
+      "local": true,
+      "home_location": "goikoetxea_house",
+      "starting_location": "cannery_pier",
+      "description": "Inés was the cannery's head accountant — thirty-four years old, unmarried, known for keeping two sets of ledgers that she claimed were for 'clarity.' She was found face-down at the edge of [loc:cannery_pier] in the early morning, fully clothed with her boots still laced, one arm extended toward the water as though reaching. Her hair was sodden, her lips blue, and a faint bruise marked the back of her neck just below the hairline."
+    },
+    {
+      "id": "bixente_arrizabalaga",
+      "name": "Bixente Arrizabalaga",
+      "isVictim": false,
+      "local": true,
+      "home_location": "arrizabalaga_warehouse",
+      "starting_location": "cannery_pier",
+      "description": "Bixente owns the cannery and half the boats in the harbour — a broad, soft-spoken man of fifty who inherited the business from his father and expanded it by methods he prefers not to discuss. He had been skimming revenue through a false supplier account for two years; Inés had found it, and had told him so the week before her death."
+    },
+    {
+      "id": "maider_txurruka",
+      "name": "Maider Txurruka",
+      "isVictim": false,
+      "local": true,
+      "home_location": "txurruka_cottage",
+      "starting_location": "cannery_floor",
+      "description": "Maider runs the cannery floor, organising the women who pack the tins and setting the daily quotas. She is forty, fierce, and was in love with Inés for years — a fact Inés never acknowledged. She had recently learned that Inés was planning to leave Culebra Chica entirely, and the thought of it had been eating her alive."
+    },
+    {
+      "id": "gorka_mendizabal",
+      "name": "Gorka Mendizabal",
+      "isVictim": false,
+      "local": true,
+      "home_location": "fishermen_quarter",
+      "starting_location": "harbour_market",
+      "description": "Gorka is a boat captain who owes Bixente a debt large enough to own him — he runs errands, looks the other way, and occasionally disposes of things. He was seen near the tidal caves the night Inés died, and everyone in town knows he does what Bixente asks."
+    },
+    {
+      "id": "soledad_iturriaga",
+      "name": "Soledad Iturriaga",
+      "isVictim": false,
+      "local": false,
+      "home_location": "hostal_portua",
+      "starting_location": "hostal_portua",
+      "description": "Soledad arrived three weeks ago from Bilbao, presenting herself as a buyer for a canning goods importer. She met with Inés twice — officially to discuss supply contracts, unofficially because Inés had written to her employer requesting an outside audit. She looks guilty of something, because she is: she was feeding information back to a rival cannery owner and had offered Inés money to copy the ledgers."
+    },
+    {
+      "id": "patxi_urresti",
+      "name": "Patxi Urresti",
+      "isVictim": false,
+      "local": true,
+      "home_location": "fishermen_quarter",
+      "starting_location": "tidal_caves",
+      "description": "Patxi is a retired fisherman of seventy who lives near the tidal caves and insists on sleeping with the door open to hear the sea. He drinks too much and talks too much and saw more than he realises. He had a quarrel with Inés's family over a land boundary decades ago — a grudge he nurtures with the dedication of a gardener."
+    }
+  ],
+  "items": [
+    {
+      "id": "account_ledger",
+      "name": "Leather-bound ledger",
+      "description": "A water-damaged ledger with marbled endpapers, the ink on the last three pages badly smeared; a false supplier entry — 'Distribuciones Iraola' — appears six times in the final column, each initialled in a hand that is not the accountant's.",
+      "starting_location": "goikoetxea_house"
+    },
+    {
+      "id": "wet_rope_coil",
+      "name": "Coil of tarred rope",
+      "description": "A short coil of tarred fishing rope, still wet, with a knot at one end tied in the style fishermen use to secure a tow — not a mooring knot — and a few dark hairs caught in the fibres.",
+      "starting_location": "tidal_caves"
+    },
+    {
+      "id": "tortoiseshell_comb",
+      "name": "Tortoiseshell hair comb",
+      "description": "A woman's hair comb in amber-coloured tortoiseshell, one tine snapped clean off; engraved on the spine in small letters: 'I.G. 1911.'",
+      "starting_location": "cannery_pier"
+    },
+    {
+      "id": "bilbao_letter",
+      "name": "Folded letter",
+      "description": "A letter written on Bilbao business stationery, addressed to Inés Goikoetxea, confirming that an auditor would arrive within the month and asking her to 'preserve the relevant documentation.'",
+      "starting_location": "goikoetxea_house"
+    },
+    {
+      "id": "bixentes_coat",
+      "name": "Dark wool overcoat",
+      "description": "A man's heavy wool coat, size large, with a monogrammed lining — 'B.A.' in red thread — found bundled under the dock planking, damp and smelling of the caves.",
+      "starting_location": "cannery_pier"
+    }
+  ],
+  "locations": [
+    {
+      "id": "cannery_pier",
+      "name": "Cannery Pier",
+      "flavour": "The pier's boards are stained rust-orange from decades of fish blood and brine, and the morning light catches the oil slick on the water below in colours that have no business being beautiful."
+    },
+    {
+      "id": "arrizabalaga_warehouse",
+      "name": "Arrizabalaga Warehouse",
+      "flavour": "Stacked tin crates reach the ceiling beams and the air is thick with machine oil and salt; a private office at the rear has its curtain perpetually drawn."
+    },
+    {
+      "id": "cannery_floor",
+      "name": "Cannery Floor",
+      "flavour": "Twenty women work shoulder to shoulder at long zinc tables, the rhythm of their knives as steady as a tide, their conversation dropping to nothing when anyone unfamiliar walks in."
+    },
+    {
+      "id": "goikoetxea_house",
+      "name": "Goikoetxea House",
+      "flavour": "A narrow whitewashed house two streets back from the water, its shutters closed even in summer, the front step worn smooth by years of the same boots."
+    },
+    {
+      "id": "tidal_caves",
+      "name": "Tidal Caves",
+      "flavour": "At low tide, the cliff face opens into a series of chambers where smugglers once cached barrels; the walls are always wet and the sound of the sea never fully leaves."
+    },
+    {
+      "id": "hostal_portua",
+      "name": "Hostal Portua",
+      "flavour": "The only place in Culebra Chica that takes guests, its dining room doubling as the room where serious conversations happen when the bar is too public."
+    },
+    {
+      "id": "harbour_market",
+      "name": "Harbour Market",
+      "flavour": "By eight in the morning the stalls are already half-packed, the serious business of the day done before the heat sets in and the flies grow ambitious."
+    },
+    {
+      "id": "txurruka_cottage",
+      "name": "Txurruka Cottage",
+      "flavour": "Maider's cottage sits at the edge of the cannery district with a direct view of the pier — a detail she has never mentioned to anyone."
+    },
+    {
+      "id": "fishermen_quarter",
+      "name": "Fishermen's Quarter",
+      "flavour": "A tangle of low streets where the houses share walls and the nets are mended on the doorsteps; nothing happens here that isn't known by morning."
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "How did Inés die?",
+      "answer_options": [
+        "drowning",
+        "strangulation",
+        "blunt trauma",
+        "poisoning — compound"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where was Inés actually killed?",
+      "answer_options": [
+        "tidal_caves",
+        "cannery_pier",
+        "arrizabalaga_warehouse",
+        "goikoetxea_house"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When did Inés die?",
+      "answer_options": [
+        "between ten o'clock and midnight",
+        "between midnight and two in the morning",
+        "before nine in the evening",
+        "at dawn"
+      ]
+    },
+    {
+      "id": "victim_state",
+      "label": "What was notable about Inés's condition when found?",
+      "answer_options": [
+        "fully clothed, boots still laced",
+        "barefoot, coat missing",
+        "dressed for travel, bag nearby",
+        "nightclothes, no shoes"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Inés Goikoetxea?",
+      "answer_options": [
+        "bixente_arrizabalaga",
+        "maider_txurruka",
+        "gorka_mendizabal",
+        "soledad_iturriaga"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Inés killed?",
+      "answer_options": [
+        "self-preservation",
+        "jealousy",
+        "debt",
+        "obsession"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cod_01",
+      "checkpoint": "cause_of_death",
+      "answer": "drowning",
+      "weight": "correct",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cannery_pier"
+      },
+      "text": "Examining the body at [loc:cannery_pier], the investigator notes the lungs are clearly waterlogged — there is foam at the lips and the classic pink tinge in the nostrils consistent with water in the airways. The sea is immediately below; the question is whether she entered it here or elsewhere.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_02",
+      "checkpoint": "cause_of_death",
+      "answer": "drowning",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "tidal_caves",
+        "item": "wet_rope_coil"
+      },
+      "text": "Inside [loc:tidal_caves], the investigator finds the rope coil and, crucially, a pool of still water in a low chamber that shows signs of recent disturbance — scrape marks on the rock lip and a smear of the same hair oil Inés wore, confirming she was held under in this chamber.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_03",
+      "checkpoint": "cause_of_death",
+      "answer": "strangulation",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "maider_txurruka"
+        ],
+        "location": "cannery_floor"
+      },
+      "text": "[char:Maider Txurruka] tells the investigator, voice flat, that she saw the bruise on Inés's neck and has seen marks like that before — her words trail off into silence and she turns back to the zinc table.",
+      "red_herring_explanation": "Maider is describing the bruise from the rope used to hold Inés down, not a strangulation mark. She is also deflecting suspicion from the drowning method because she suspects Bixente and fears him."
+    },
+    {
+      "id": "cod_04",
+      "checkpoint": "cause_of_death",
+      "answer": "blunt trauma",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "patxi_urresti"
+        ],
+        "location": "tidal_caves",
+        "item": "wet_rope_coil"
+      },
+      "text": "[char:Patxi Urresti] points at the cave wall with a bony finger: 'Hit her head there, I'd reckon. That's what a man would do in the dark.' He seems proud of this theory; there is no blood on the wall.",
+      "red_herring_explanation": "Patxi is speculating without evidence — there is no blood on the cave wall. He didn't witness anything directly and is constructing a dramatic story."
+    },
+    {
+      "id": "cod_05",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — compound",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "soledad_iturriaga"
+        ],
+        "location": "hostal_portua"
+      },
+      "text": "[char:Soledad Iturriaga] mentions, almost casually, that she had dinner with Inés two nights before and that Inés complained of nausea afterward — 'I assumed the fish,' she says, but her eyes don't settle.",
+      "red_herring_explanation": "Soledad is nervous and inadvertently casting suspicion through her own anxiety. The nausea was real but unrelated — Inés was under severe stress about the ledgers."
+    },
+    {
+      "id": "tl_01",
+      "checkpoint": "true_location",
+      "answer": "tidal_caves",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "item": "wet_rope_coil"
+      },
+      "text": "The rope coil is tarred in the style used only by the deep-water boats moored at the base of [loc:tidal_caves], and the dark hairs caught in the fibres match Inés's in colour and length — the caves are where she died, not the pier.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tl_02",
+      "checkpoint": "true_location",
+      "answer": "tidal_caves",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "patxi_urresti"
+        ],
+        "location": "tidal_caves"
+      },
+      "text": "[char:Patxi Urresti] admits, when pressed in the caves themselves, that he heard splashing and a single short cry from the inner chamber [time:between ten o'clock and midnight] — he thought it was boys messing about and turned over.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tl_03",
+      "checkpoint": "true_location",
+      "answer": "cannery_pier",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cannery_pier",
+        "item": "tortoiseshell_comb"
+      },
+      "text": "The comb with Inés's initials lies at the edge of [loc:cannery_pier], one tine broken off — it looks like a struggle happened right here, within reach of the black water below.",
+      "red_herring_explanation": "The comb was in Inés's coat pocket and fell out when Bixente and Gorka dragged her body onto the pier to stage the scene. It was not lost in a struggle here."
+    },
+    {
+      "id": "tl_04",
+      "checkpoint": "true_location",
+      "answer": "arrizabalaga_warehouse",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "bixente_arrizabalaga"
+        ],
+        "location": "arrizabalaga_warehouse"
+      },
+      "text": "[char:Bixente Arrizabalaga] tells the investigator he spoke with Inés in [loc:arrizabalaga_warehouse] at half past nine — 'a short conversation, nothing unusual' — but he is sweating despite the shade and does not meet the investigator's eyes.",
+      "red_herring_explanation": "Bixente is lying about the content of the meeting to establish a benign last contact. The meeting was where he confronted her about the audit letter, then followed her to the caves afterward."
+    },
+    {
+      "id": "tl_05",
+      "checkpoint": "true_location",
+      "answer": "goikoetxea_house",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "goikoetxea_house",
+        "item": "bilbao_letter"
+      },
+      "text": "The Bilbao letter in Inés's desk is addressed to her home at [loc:goikoetxea_house], and the desk chair is pulled back as if she left in a hurry — the investigator notes a faint muddy footprint on the threshold that is too large for Inés.",
+      "red_herring_explanation": "The footprint belongs to Gorka, who searched the house after the murder on Bixente's instructions to retrieve the letter. He did not find it in time."
+    },
+    {
+      "id": "tod_01",
+      "checkpoint": "time_of_death",
+      "answer": "between ten o'clock and midnight",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "patxi_urresti"
+        ],
+        "location": "fishermen_quarter"
+      },
+      "text": "[char:Patxi Urresti] tells the investigator that the church clock had just struck ten when he heard the sound from the caves — 'I was counting the chimes because I owed my wife an apology for being late.' The timing is precise and unsolicited.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_02",
+      "checkpoint": "time_of_death",
+      "answer": "between ten o'clock and midnight",
+      "weight": "correct",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "tidal_caves"
+      },
+      "text": "At [loc:tidal_caves], the investigator can see the tide line on the cave walls: the inner chamber floods completely at high tide, which tables show occurred [time:at half past midnight] — the body must have been moved before then, placing the death before midnight.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_03",
+      "checkpoint": "time_of_death",
+      "answer": "before nine in the evening",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "maider_txurruka"
+        ],
+        "location": "txurruka_cottage"
+      },
+      "text": "[char:Maider Txurruka] says she saw Inés walking toward the water at what she believed was around eight or half-eight — 'the sun was still up, I remember' — and her voice is firm, her gaze steady.",
+      "red_herring_explanation": "Maider is confusing this evening with the previous one; Inés had walked the same route the night before. Maider's grief is distorting her memory."
+    },
+    {
+      "id": "tod_04",
+      "checkpoint": "time_of_death",
+      "answer": "between midnight and two in the morning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "gorka_mendizabal"
+        ],
+        "location": "harbour_market"
+      },
+      "text": "[char:Gorka Mendizabal] tells the investigator he was on the water until well past midnight and saw nothing unusual at the pier before one in the morning — the implication being that whatever happened, happened after he was gone.",
+      "red_herring_explanation": "Gorka is lying to create a timeline that places the death after his involvement ended. He helped move the body shortly after midnight but wants to appear as a non-witness."
+    },
+    {
+      "id": "tod_05",
+      "checkpoint": "time_of_death",
+      "answer": "at dawn",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "soledad_iturriaga"
+        ],
+        "location": null
+      },
+      "text": "Word reached the investigator that [char:Soledad Iturriaga] had told the hostal owner she heard screaming near the water 'just as the light came,' suggesting to several locals that the death must have occurred at first light.",
+      "red_herring_explanation": "Soledad heard a gull — a common sound at dawn near the pier — and convinced herself it was a scream after learning of the death. She is not lying deliberately, but her account is wrong."
+    },
+    {
+      "id": "vs_01",
+      "checkpoint": "victim_state",
+      "answer": "fully clothed, boots still laced",
+      "weight": "correct",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cannery_pier"
+      },
+      "text": "Looking at the body at [loc:cannery_pier], the investigator notes Inés is dressed as she would be for an evening walk — coat, skirt, boots laced to the ankle — which is strange only because no one chooses to swim in their work clothes.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "vs_02",
+      "checkpoint": "victim_state",
+      "answer": "fully clothed, boots still laced",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "maider_txurruka"
+        ],
+        "location": "cannery_pier"
+      },
+      "text": "[char:Maider Txurruka] tells the investigator that Inés never went near the water at night without purpose — 'she wasn't the type to wander' — and confirms the clothing is exactly what Inés was wearing when she left the cannery that evening.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "vs_03",
+      "checkpoint": "victim_state",
+      "answer": "barefoot, coat missing",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "gorka_mendizabal"
+        ],
+        "location": "harbour_market"
+      },
+      "text": "[char:Gorka Mendizabal] remarks to the investigator that he thought he saw a woman's shoes on the pier railing earlier that morning, before the body was found — 'gone by the time the crowd gathered,' he says with a shrug.",
+      "red_herring_explanation": "Gorka is fabricating a detail to suggest Inés removed her shoes voluntarily, implying a suicide. No shoes were found on the railing; this is misdirection."
+    },
+    {
+      "id": "vs_04",
+      "checkpoint": "victim_state",
+      "answer": "dressed for travel, bag nearby",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "soledad_iturriaga"
+        ],
+        "location": null
+      },
+      "text": "[char:Soledad Iturriaga] was overheard telling the hostal owner that Inés had spoken of leaving Culebra Chica 'before the week was out' — and locals began to assume she had a bag packed and was heading to the boat landing when she died.",
+      "red_herring_explanation": "Inés had spoken of leaving but had not packed; she went to the caves that night because Bixente summoned her there, not to depart. The rumour of imminent travel was real but the bag was not."
+    },
+    {
+      "id": "vs_05",
+      "checkpoint": "victim_state",
+      "answer": "nightclothes, no shoes",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "patxi_urresti"
+        ],
+        "location": "fishermen_quarter"
+      },
+      "text": "[char:Patxi Urresti] insists the figure he heard in the caves that night sounded 'soft-footed, like no boots' — he demonstrates by slapping his bare sole on the cobblestone — and seems genuinely puzzled when told she was found in boots.",
+      "red_herring_explanation": "Patxi only heard the sound, not saw Inés. The acoustics of the cave distort footfall, and he is extrapolating freely from a sound impression."
+    },
+    {
+      "id": "perp_01",
+      "checkpoint": "perpetrator",
+      "answer": "bixente_arrizabalaga",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "item": "bixentes_coat"
+      },
+      "text": "The monogrammed coat — 'B.A.' in red thread — was found bundled under the dock planking at [loc:cannery_pier], still damp and smelling of the caves; [char:Bixente Arrizabalaga] owns no other coat of this cut, and no explanation he later offers accounts for why it was hidden.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_02",
+      "checkpoint": "perpetrator",
+      "answer": "bixente_arrizabalaga",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "goikoetxea_house",
+        "item": "account_ledger"
+      },
+      "text": "The ledger at [loc:goikoetxea_house] shows six fraudulent entries initialled in a hand that matches the signature on every Arrizabalaga Cannery contract — and the last entry is dated two days before Inés died, which is the day she told Bixente she had written to Bilbao.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_03",
+      "checkpoint": "perpetrator",
+      "answer": "gorka_mendizabal",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "gorka_mendizabal"
+        ],
+        "location": "tidal_caves"
+      },
+      "text": "[char:Gorka Mendizabal] goes pale when the investigator meets him at [loc:tidal_caves] — he was clearly not expecting to be found here — and there is cave mud on his boots that matches the chamber floor exactly.",
+      "red_herring_explanation": "Gorka helped move the body on Bixente's orders, which is why he was at the caves and why he is afraid. He did not commit the murder, though he is an accessory and knows it."
+    },
+    {
+      "id": "perp_04",
+      "checkpoint": "perpetrator",
+      "answer": "maider_txurruka",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "maider_txurruka"
+        ],
+        "location": null
+      },
+      "text": "[char:Maider Txurruka] tells the investigator she spent the evening alone, but the woman who sells bread at [loc:harbour_market] later told the investigator she saw Maider walking toward the waterfront path — the one that leads to [loc:tidal_caves] — at around half past nine.",
+      "red_herring_explanation": "Maider walked to the path but turned back — she often went that way to think. She did not reach the caves and saw nothing of the crime."
+    },
+    {
+      "id": "perp_05",
+      "checkpoint": "perpetrator",
+      "answer": "soledad_iturriaga",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "soledad_iturriaga"
+        ],
+        "location": "hostal_portua",
+        "item": "bilbao_letter"
+      },
+      "text": "Shown the Bilbao letter at [loc:hostal_portua], [char:Soledad Iturriaga] admits she knew about the audit request and had offered Inés money for copies of the accounts — 'I wanted them first,' she says, which is motive enough for half the town to eye her carefully.",
+      "red_herring_explanation": "Soledad wanted the ledgers for a rival business deal, not as reason enough to kill. Her admission is honest and actually exonerates her from the murder, though it confirms she is not innocent in other ways."
+    },
+    {
+      "id": "mot_01",
+      "checkpoint": "motive",
+      "answer": "self-preservation",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "goikoetxea_house",
+        "item": "bilbao_letter"
+      },
+      "text": "The letter in [loc:goikoetxea_house] confirms that an external auditor was already engaged and would arrive within weeks — [char:Bixente Arrizabalaga] faced not just disgrace but criminal exposure; killing the only person who could produce the evidence was the only door he saw.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_02",
+      "checkpoint": "motive",
+      "answer": "self-preservation",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "bixente_arrizabalaga"
+        ],
+        "location": "arrizabalaga_warehouse",
+        "item": "account_ledger"
+      },
+      "text": "Shown the ledger at [loc:arrizabalaga_warehouse], [char:Bixente Arrizabalaga] says nothing for a long time — then: 'I would have lost everything my father built.' He seems to mean it as an explanation rather than a confession, but it is both.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_03",
+      "checkpoint": "motive",
+      "answer": "jealousy",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "maider_txurruka"
+        ],
+        "location": "txurruka_cottage"
+      },
+      "text": "[char:Maider Txurruka] does not deny, when asked directly at [loc:txurruka_cottage], that she was in love with Inés — 'everyone knew, even if she pretended not to' — and that Inés had told her the week before that she was leaving for Bilbao and not coming back.",
+      "red_herring_explanation": "Maider had motive born of love and loss, but she did not act on it. She is honest about her feelings precisely because she knows they look damning."
+    },
+    {
+      "id": "mot_04",
+      "checkpoint": "motive",
+      "answer": "debt",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "gorka_mendizabal"
+        ],
+        "location": "fishermen_quarter"
+      },
+      "text": "[char:Gorka Mendizabal] admits to the investigator in [loc:fishermen_quarter] that Bixente owns his boats, his debts, and — his word — 'my back': he does what Bixente says because the alternative is ruin, which gives him a reason to silence a threat to Bixente just as strong as Bixente's own.",
+      "red_herring_explanation": "Gorka's debt to Bixente made him an instrument, not the killer. His motive is real but it points toward Bixente as the principal, not Gorka as the perpetrator."
+    },
+    {
+      "id": "mot_05",
+      "checkpoint": "motive",
+      "answer": "obsession",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "soledad_iturriaga"
+        ],
+        "location": null
+      },
+      "text": "Word reached the investigator that [char:Soledad Iturriaga] had been seen copying names from Inés's personal correspondence at the hostal table — her interest in the accountant went beyond any business deal, locals agreed, and had the intensity of something personal.",
+      "red_herring_explanation": "Soledad is obsessed with the financial opportunity the ledgers represent, not with Inés personally. Her behaviour looked strange because her commercial espionage required her to track Inés's movements and contacts."
+    }
+  ],
+  "relations": [
+    { "from": "bixente_arrizabalaga", "to": "ines_goikoetxea", "label": "employed" },
+    { "from": "bixente_arrizabalaga", "to": "gorka_mendizabal", "label": "employs" },
+    { "from": "maider_txurruka", "to": "ines_goikoetxea", "label": "in love with" },
+    { "from": "bixente_arrizabalaga", "to": "maider_txurruka", "label": "employs" }
+  ],
+  "leads": [
+    {
+      "id": "lead_01",
+      "text": "The body at [loc:cannery_pier] is still wet — but the pier boards around it are dry, and the tide has not reached this height since yesterday evening, which suggests the water came with her rather than from here.",
+      "character_id": null,
+      "location_id": "cannery_pier"
+    },
+    {
+      "id": "lead_02",
+      "text": "[char:Patxi Urresti] is the old man sitting on the rock wall above [loc:tidal_caves], watching the water with the focused patience of someone who knows he saw something and hasn't yet decided whether to say so.",
+      "character_id": "patxi_urresti",
+      "location_id": "tidal_caves"
+    },
+    {
+      "id": "lead_03",
+      "text": "[char:Maider Txurruka] has not left [loc:cannery_floor] since the body was found, and the women working beside her say she wept once, briefly, then went back to her knives — and that she keeps looking at the door.",
+      "character_id": "maider_txurruka",
+      "location_id": "cannery_floor"
+    }
+  ],
+  "opening_narrative": "The fishing boat that brought the investigator into [loc:cannery_pier] arrived to find the dock already crowded. A cannery girl had gone down at first light to check the morning catch tallies and found a woman's body at the edge of the planking, face to the water. She ran back up the hill screaming, woke her mother, and her mother woke the priest, and the priest — finding himself badly out of his depth — sent the fastest boy in Culebra Chica to flag the coastal road.\n\nBy the time official word reached the district office, three hours had passed and half the town had already walked past the body to look. The summer heat had made the morning long. The [loc:cannery_pier] smelled the way it always did — of salt and rust and yesterday's fish — but no one was working.\n\n[char:Bixente Arrizabalaga] was the one who met the investigator at the dock. He shook hands firmly and said that Culebra Chica was a quiet place and that he was sure there was an explanation, and he said both things with the rehearsed calm of a man who has been saying them to himself since before dawn."
+}

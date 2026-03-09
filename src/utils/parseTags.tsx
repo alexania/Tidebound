@@ -1,22 +1,18 @@
 import React from 'react'
 
-const LOCATION_NAMES: Record<string, string> = {
-  harbour:      'Harbour',
-  tavern:       'Tavern',
-  lighthouse:   'Lighthouse',
-  chapel:       'Chapel',
-  doctors_house: "Doctor's House",
-  manor:        'Manor',
-  cottage_row:  'Cottage Row',
-  cliffs:       'Cliffs',
-  forest_edge:  'Forest Edge',
+function formatLocationId(id: string): string {
+  return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 }
 
-// Parses [char:Name], [loc:location_id], [item:Name] → styled spans
+export function buildLocationNames(locations: { id: string; name?: string }[]): Record<string, string> {
+  return Object.fromEntries(locations.map(l => [l.id, l.name ?? formatLocationId(l.id)]))
+}
+
+// Parses [char:Name], [loc:location_id], [item:Name], [time:...] → styled spans
 // Returns an array of strings and React elements.
-export function parseTaggedText(text: string): React.ReactNode[] {
+export function parseTaggedText(text: string, locationNames?: Record<string, string>): React.ReactNode[] {
   const parts: React.ReactNode[] = []
-  const regex = /\[(char|loc|item):([^\]]+)\]/g
+  const regex = /\[(char|loc|item|time):([^\]]+)\]/g
   let lastIndex = 0
   let match: RegExpExecArray | null
   let key = 0
@@ -30,8 +26,11 @@ export function parseTaggedText(text: string): React.ReactNode[] {
       parts.push(<span key={key++} className="tag-char">{value}</span>)
     } else if (type === 'item') {
       parts.push(<span key={key++} className="tag-item">{value}</span>)
+    } else if (type === 'time') {
+      parts.push(<span key={key++} className="tag-time">{value}</span>)
     } else {
-      parts.push(<span key={key++} className="tag-loc">{LOCATION_NAMES[value] ?? value}</span>)
+      const label = locationNames?.[value] ?? formatLocationId(value)
+      parts.push(<span key={key++} className="tag-loc">{label}</span>)
     }
     lastIndex = regex.lastIndex
   }

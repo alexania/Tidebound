@@ -5,7 +5,7 @@
   --color-border:    #4a3728;
   --color-accent:    #c4a882;
   --color-text:      #e8ddd0;
-  --color-text-dim:  #8b7355;
+  --color-text-dim:  #a8916d;
   --color-confirmed: #5a8a5a;
   --color-locked:    #3a3a4a;
   --color-error:     #8a3a3a;
@@ -76,3 +76,4 @@ select option {
 .tag-char { color: #d4a96a; font-style: italic; }
 .tag-loc  { color: #7ab8c4; text-decoration: underline dotted; text-underline-offset: 2px; }
 .tag-item { color: #b8c47a; font-style: italic; }
+.tag-time { color: #a89cc8; font-style: italic; }

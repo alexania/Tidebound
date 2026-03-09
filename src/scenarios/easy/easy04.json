@@ -11,6 +11,7 @@
     "body_found_location": "chapel",
     "body_was_moved": true,
     "time_of_death": "between eight and ten in the evening",
+    "victim_state": "He was about to change his will",
     "perpetrator_ids": [
       "aldous_penn"
     ],
@@ -175,17 +176,6 @@
         "between ten and midnight",
         "in the early hours of the morning",
         "during the afternoon"
-      ]
-    },
-    {
-      "id": "last_seen",
-      "label": "Who last saw Oswin Crale alive?",
-      "answer_options": [
-        "Betta Dorch",
-        "Maren Voss",
-        "Aldous Penn",
-        "Pell Drach",
-        "Sem Orr"
       ]
     },
     {
@@ -414,72 +404,6 @@
       },
       "text": "[char:Maren Voss] tells the investigator she heard the [loc:chapel] door — she can hear it from the cliff path, it has a particular sound — sometime after ten. 'A slow sound,' she says. 'Not hurried.' She is certain of the time because the lighthouse beam had just completed its long rotation.",
       "red_herring_explanation": "Maren Voss did hear the chapel door, but it was the perpetrator leaving after moving the body — not the time of death, which was earlier. Her testimony confuses the transport with the killing."
-    },
-    {
-      "id": "ls_hard_01",
-      "checkpoint": "last_seen",
-      "answer": "Aldous Penn",
-      "weight": "hard",
-      "condition": {
-        "type": "characters_in_location_with_item",
-        "characters": [
-          "investigator",
-          "aldous_penn"
-        ],
-        "location": "manor",
-        "item": "leather_ledger"
-      },
-      "text": "When the investigator opens the ledger to the last entry, [char:Aldous Penn]'s composure shifts — small but visible. The final notation, in [char:Oswin Crale]'s hand, reads: 'Supper with A.P., eight o'clock, manor study.' [char:Aldous Penn] says quietly, 'He invited me. We ate. I left him alive.' He does not say what time he left.",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "ls_soft_01",
-      "checkpoint": "last_seen",
-      "answer": "Aldous Penn",
-      "weight": "soft",
-      "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "betta_dorch"
-        ],
-        "location": "tavern"
-      },
-      "text": "[char:Betta Dorch] mentions, without being asked about it, that [char:Aldous Penn] came in sometime after nine last night — 'later than usual, quieter than usual' — drank two measures, and said nothing about his evening. She has known him long enough to find the silence notable. The [loc:manor] ledger might say more than he does.",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "ls_soft_02",
-      "checkpoint": "last_seen",
-      "answer": "Aldous Penn",
-      "weight": "soft",
-      "condition": {
-        "type": "characters_anywhere_with_item",
-        "characters": [
-          "investigator",
-          "sem_orr"
-        ],
-        "location": null,
-        "item": "leather_ledger"
-      },
-      "text": "[char:Sem Orr] looks at the ledger entry and nods slowly. 'Penn had supper at the manor most Thursdays this past month,' he says. 'Crale was teaching him the accounts, some said. Others said it was the other way around.' He hands back the ledger. 'I saw Penn's lamp lit in [loc:cottage_row] before midnight. He was home.'",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "ls_rh_01",
-      "checkpoint": "last_seen",
-      "answer": "Maren Voss",
-      "weight": "red_herring",
-      "condition": {
-        "type": "n_characters_together",
-        "characters": [
-          "investigator",
-          "sem_orr"
-        ],
-        "location": null
-      },
-      "text": "[char:Sem Orr] tells the investigator that [char:Oswin Crale] and [char:Maren Voss] were seen on the [loc:cliffs] together that afternoon — the same cliff path she works. He doesn't say what they were doing. 'Old business between them,' he offers. 'Not my place.'",
-      "red_herring_explanation": "Maren Voss and Oswin Crale did meet on the cliffs that afternoon, but this was hours before the death. The meeting was about a personal matter unrelated to the killing; she was not the last to see him alive."
     },
     {
       "id": "vs_hard_01",

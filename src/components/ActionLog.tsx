@@ -44,13 +44,14 @@ export function ActionLog({ log, pinnedCards, onPinCard }: Props) {
           <div key={turn} className="action-log__turn-group">
             <div className="action-log__turn-label">Turn {turn}</div>
             {entries.map(entry => (
-              <div key={entry.id} className={`log-entry ${entry.isNew ? 'log-entry--new' : ''}`}>
+              <div key={entry.id} className={[
+                'log-entry',
+                entry.isNew ? 'log-entry--new' : '',
+                entry.clueId && pinnedIds.has(entry.clueId) ? 'log-entry--pinned' : '',
+              ].join(' ').trim()}>
                 <div className="log-entry__location">{entry.locationId.replace('_', ' ')}</div>
                 <div className="log-entry__body">
                   <div className="log-entry__text">{parseTaggedText(entry.text)}</div>
-                  {entry.weight === 'hard' && (
-                    <span className="log-entry__badge">Key finding</span>
-                  )}
                 </div>
                 {entry.clueId && (
                   <button

@@ -80,6 +80,12 @@
   color: var(--color-confirmed);
 }
 
+.log-entry--pinned {
+  border: 1px solid var(--color-confirmed);
+  border-left-width: 2px;
+  background: rgba(90, 138, 90, 0.06);
+}
+
 .action-log__turn-label--leads {
   color: var(--color-text-dim);
   font-style: italic;

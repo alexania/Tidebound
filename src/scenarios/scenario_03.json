@@ -1,0 +1,709 @@
+{
+  "village": {
+    "name": "Trevannack",
+    "history": "Trevannack grew from a pilchard-curing station into a modest holiday village over two centuries, its harbour wall rebuilt twice after storms and paid for largely by the Penrose family, whose money came from a failed tin mine and a successful tea room. The village runs on small dignities: the church fete, the bakery, the lifeboat committee. Strangers are welcomed with suspicion dressed as courtesy, and debts — financial and moral — are tracked with the patience of tides.",
+    "season": "summer",
+    "weather": "bright and flat, with a stiff onshore wind",
+    "arrival_location": "harbour_steps"
+  },
+  "crime": {
+    "cause_of_death": "poisoning — plant-based",
+    "murder_location": "tea_room",
+    "body_found_location": "cliff_path",
+    "body_was_moved": false,
+    "time_of_death": "between eight and ten in the evening",
+    "victim_state": "face-down on the cliff path, one hand outstretched toward the sea",
+    "perpetrator_ids": [
+      "rev_callow"
+    ],
+    "motive": "self-preservation",
+    "hidden_truth": null
+  },
+  "characters": [
+    {
+      "id": "edith_penrose",
+      "name": "Edith Penrose",
+      "isVictim": true,
+      "local": true,
+      "home_location": "tea_room",
+      "starting_location": "cliff_path",
+      "description": "Edith Penrose, sixty-one, widow of the late harbourmaster and sole proprietor of the Trevannack Tea Room — a woman of energetic opinions who kept the village's social ledger in her head and settled scores with a raised eyebrow. The investigator finds her face-down on the cliff path above the south cove, one hand outstretched toward the sea, her apron still tied and her tea room keys on a cord around her wrist; the grass beneath her is undisturbed, and her shoes are dry."
+    },
+    {
+      "id": "rev_callow",
+      "name": "Rev. Arthur Callow",
+      "isVictim": false,
+      "local": true,
+      "home_location": "church",
+      "starting_location": "church",
+      "description": "The Reverend Callow has served Trevannack's Church of St Ia for eleven years, a mild-mannered bachelor of fifty-three who is better known for his honey sponge at the fete than for his sermons. He administered the church rebuilding fund, raised over three years of parish suppers and donated teas. He had reason to fear any thorough audit of those accounts, and Edith Penrose had lately been asking pointed questions about the fund's balance."
+    },
+    {
+      "id": "nora_trevithick",
+      "name": "Nora Trevithick",
+      "isVictim": false,
+      "local": true,
+      "home_location": "fishermans_cottage",
+      "starting_location": "fishermans_cottage",
+      "description": "Nora Trevithick, forty, is the village baker whose husband drowned three seasons ago; she supplies the tea room with its famous splits and was in open dispute with Edith over the price per dozen. She is a practical woman who smells of flour and keeps her grief to herself. Anyone in the village would tell you she had cause to want Edith Penrose off her back."
+    },
+    {
+      "id": "tom_garvey",
+      "name": "Tom Garvey",
+      "isVictim": false,
+      "local": true,
+      "home_location": "harbour_steps",
+      "starting_location": "harbour_steps",
+      "description": "Tom Garvey is the harbour ferryman and boat-hire man, a leathery sixty-year-old who has known Edith since childhood and was, until recently, her most reliable customer for the tea room's crab sandwiches. He was overheard last month saying Edith had no right to contest his mooring licence, and several villagers witnessed the argument on the quay."
+    },
+    {
+      "id": "cecily_vane",
+      "name": "Cecily Vane",
+      "isVictim": false,
+      "local": false,
+      "home_location": "boarding_house",
+      "starting_location": "boarding_house",
+      "description": "Cecily Vane, thirty-two, arrived in Trevannack six weeks ago, apparently for her nerves, and has been staying at the boarding house run by Nora Trevithick's sister. She is a solicitor's secretary from Truro, and the village has noticed she takes long walks on the cliff path and posts many letters. She had been seen twice in the tea room in private conversation with Edith, and speculation about their connection is lively."
+    },
+    {
+      "id": "dr_hicks",
+      "name": "Dr. Samuel Hicks",
+      "isVictim": false,
+      "local": true,
+      "home_location": "surgery",
+      "starting_location": "surgery",
+      "description": "Dr. Hicks, fifty-eight, is the village's only doctor and certifying physician, a careful man who nonetheless signed the death certificate for Nora's husband without a full inquest. He has a long-standing personal dislike of Edith, who publicly questioned the circumstances of that certification. He was the first person summoned when Edith's body was found, and he is the one who sent for the investigator."
+    }
+  ],
+  "items": [
+    {
+      "id": "cream_pot",
+      "name": "Cream Pot",
+      "description": "A white ceramic pot with a blue rim, half-full of clotted cream; the inside rim has a faint greenish-grey residue distinct from the cream itself.",
+      "starting_location": "tea_room"
+    },
+    {
+      "id": "ledger_page",
+      "name": "Torn Ledger Page",
+      "description": "A single page torn from a ruled account book, figures in two columns, several entries crossed out in red ink; the bottom-right corner has been torn away, removing whatever total was written there.",
+      "starting_location": "tea_room"
+    },
+    {
+      "id": "reverend_note",
+      "name": "Reverend's Note",
+      "description": "A folded square of writing paper in a round clerical hand: 'E — I shall call at closing time. Do not speak of this to anyone. — A.C.'",
+      "starting_location": "tea_room"
+    },
+    {
+      "id": "tea_cup",
+      "name": "Used Tea Cup",
+      "description": "A china teacup with a residue of dark tea at the bottom and a thin greasy line around the inside just below the rim, as though something fatty was mixed into the drink.",
+      "starting_location": "tea_room"
+    },
+    {
+      "id": "foxglove_stems",
+      "name": "Cut Foxglove Stems",
+      "description": "Three stems of foxglove, freshly cut, their lower leaves stripped; they sit in a jam jar of water on the vestry windowsill.",
+      "starting_location": "church"
+    },
+    {
+      "id": "mooring_licence",
+      "name": "Mooring Licence Copy",
+      "description": "A carbon copy of a harbour mooring licence application, signed at the bottom in a different hand from the body of the form; the date has been written over once.",
+      "starting_location": "harbour_steps"
+    }
+  ],
+  "locations": [
+    {
+      "id": "harbour_steps",
+      "name": "Harbour Steps",
+      "flavour": "Granite steps slick with spray where the ferry rope is hitched each morning and the post boat calls twice a week.",
+      "col": 1,
+      "row": 2
+    },
+    {
+      "id": "tea_room",
+      "name": "Trevannack Tea Room",
+      "flavour": "A low-ceilinged room of gingham tablecloths and steamed-up windows, smelling of clotted cream and the sea.",
+      "col": 0,
+      "row": 2
+    },
+    {
+      "id": "cliff_path",
+      "name": "Cliff Path",
+      "flavour": "A narrow track of flattened turf along the headland where the wind is always stronger than expected.",
+      "col": 0,
+      "row": 1
+    },
+    {
+      "id": "church",
+      "name": "Church of St Ia",
+      "flavour": "A squat Norman tower behind a low wall of sea-bleached stone, the churchyard extending almost to the cliff edge.",
+      "col": 1,
+      "row": 0
+    },
+    {
+      "id": "surgery",
+      "name": "Dr. Hicks's Surgery",
+      "flavour": "A converted fisherman's store with a painted red cross above the door and a waiting bench worn smooth.",
+      "col": 2,
+      "row": 1
+    },
+    {
+      "id": "fishermans_cottage",
+      "name": "Trevithick's Cottage",
+      "flavour": "A whitewashed cottage wedged between the bakery and the harbour wall, its windowsills always dusted with flour.",
+      "col": 2,
+      "row": 2
+    },
+    {
+      "id": "boarding_house",
+      "name": "Cove Boarding House",
+      "flavour": "A tall Edwardian house set back from the cliff path with a view of the open sea and net curtains that move.",
+      "col": 0,
+      "row": 0
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "harbour_steps",
+      "to": "tea_room"
+    },
+    {
+      "from": "harbour_steps",
+      "to": "fishermans_cottage"
+    },
+    {
+      "from": "tea_room",
+      "to": "cliff_path"
+    },
+    {
+      "from": "cliff_path",
+      "to": "boarding_house"
+    },
+    {
+      "from": "cliff_path",
+      "to": "church"
+    },
+    {
+      "from": "church",
+      "to": "surgery"
+    },
+    {
+      "from": "boarding_house",
+      "to": "church"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "How did Edith Penrose die?",
+      "answer_options": [
+        "poisoning — plant-based",
+        "drowning",
+        "blunt trauma",
+        "strangulation"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where did the murder take place?",
+      "answer_options": [
+        "tea_room",
+        "cliff_path",
+        "church",
+        "boarding_house"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When did Edith Penrose die?",
+      "answer_options": [
+        "between eight and ten in the evening",
+        "between noon and two in the afternoon",
+        "between two and four in the afternoon",
+        "after ten at night"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Edith Penrose?",
+      "answer_options": [
+        "Rev. Arthur Callow",
+        "Nora Trevithick",
+        "Tom Garvey",
+        "Cecily Vane",
+        "Dr. Samuel Hicks"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Edith Penrose killed?",
+      "answer_options": [
+        "self-preservation",
+        "debt",
+        "jealousy",
+        "revenge",
+        "obsession"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cod_01",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "tea_room",
+        "item": "cream_pot"
+      },
+      "text": "The cream pot on the kitchen shelf has the usual ivory of clotted cream, but a greenish-grey residue clings to the inside rim above the cream line — grainy and distinct, with no smell of dairy. The pot has been used recently; the cream is still cool.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_02",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — plant-based",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "dr_hicks"
+        ],
+        "location": "surgery",
+        "item": "tea_cup"
+      },
+      "text": "[char:Dr. Samuel Hicks] examines the used teacup alongside the investigator and points to the greasy ring just below the rim. 'Something was introduced into the liquid,' he says flatly. 'Not milk. Not sugar.' He sets the cup down and looks away.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_03",
+      "checkpoint": "cause_of_death",
+      "answer": "drowning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "tom_garvey"
+        ],
+        "location": "harbour_steps"
+      },
+      "text": "[char:Tom Garvey] is coiling rope on the [loc:harbour_steps] when a passing fisherman asks after Edith. Garvey straightens and says, 'Tide was running fast last night below the path. A person could go in and not come back.' He turns back to his rope without another word.",
+      "red_herring_explanation": "Garvey is speculating about the cliff path's danger to seed doubt; the tide and cliff proximity suggest drowning but Edith's dry shoes and undisturbed grass contradict any contact with the sea."
+    },
+    {
+      "id": "cod_04",
+      "checkpoint": "cause_of_death",
+      "answer": "blunt trauma",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "nora_trevithick"
+        ],
+        "location": "fishermans_cottage"
+      },
+      "text": "[char:Nora Trevithick] wipes her hands on her apron and tells the investigator that Edith had a habit of walking the [loc:cliff_path] after closing, and that the path has a loose section of wall near the headland. 'She could have caught her head on the stones going down,' Nora says. 'The light's gone by nine.'",
+      "red_herring_explanation": "Nora is offering an innocent explanation rooted in real knowledge of the path; the suggestion of head injury from a fall is plausible but no such wound exists on the body."
+    },
+    {
+      "id": "cod_05",
+      "checkpoint": "cause_of_death",
+      "answer": "strangulation",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "cecily_vane"
+        ],
+        "location": null
+      },
+      "text": "[char:Cecily Vane] tells the investigator she heard raised voices from the direction of the tea room on her evening walk — a man's voice, sharp and urgent. 'I couldn't make out words,' she says, 'but it ended very suddenly. Silence like a door slammed.'",
+      "red_herring_explanation": "The abrupt silence Cecily describes suggests violent silencing and points suspicion toward strangulation, but the silence was simply Callow leaving the tea room after Edith lost consciousness."
+    },
+    {
+      "id": "loc_01",
+      "checkpoint": "true_location",
+      "answer": "tea_room",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "tea_room",
+        "item": "reverend_note"
+      },
+      "text": "Tucked beneath the counter in the [loc:tea_room], the folded note reads: 'E — I shall call at closing time. Do not speak of this to anyone. — A.C.' The teacup and cream pot are on the kitchen shelf behind the counter, unwashed.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "loc_02",
+      "checkpoint": "true_location",
+      "answer": "tea_room",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "nora_trevithick"
+        ],
+        "location": "tea_room",
+        "item": "ledger_page"
+      },
+      "text": "[char:Nora Trevithick] has a key to the [loc:tea_room] for early deliveries and lets the investigator in. She notices the torn ledger page on the counter and stops. 'She never left her papers out,' Nora says. 'Edith always locked them in the till drawer before she stepped outside.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "loc_03",
+      "checkpoint": "true_location",
+      "answer": "cliff_path",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cliff_path"
+      },
+      "text": "The section of cliff path where [char:Edith Penrose] was found is wind-flattened turf with a shallow depression in the grass, the shape of a person lying face-down. The loose wall Nora mentioned is three yards further along, two stones dislodged and lying on the path.",
+      "red_herring_explanation": "The body's impression on the turf and the nearby dislodged stones make the cliff path appear to be where the crime occurred; in fact Edith walked here after being poisoned in the tea room and collapsed."
+    },
+    {
+      "id": "loc_04",
+      "checkpoint": "true_location",
+      "answer": "church",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator",
+          "rev_callow"
+        ],
+        "location": null,
+        "item": "foxglove_stems"
+      },
+      "text": "[char:Rev. Arthur Callow] shows the investigator the vestry, where a jam jar of cut foxglove stems sits on the windowsill. 'For the altar arrangement,' he says. 'I cut them yesterday morning from the churchyard bank.' The lower leaves have been stripped from all three stems.",
+      "red_herring_explanation": "The foxglove stems in the church vestry suggest the poison was prepared at the church and point to it as the crime scene; the stems are real but the preparation took place elsewhere."
+    },
+    {
+      "id": "loc_05",
+      "checkpoint": "true_location",
+      "answer": "boarding_house",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "cecily_vane"
+        ],
+        "location": null
+      },
+      "text": "[char:Cecily Vane] tells the investigator that Edith visited the [loc:boarding_house] two evenings before her death, and that they sat together in the parlour for nearly an hour. 'She gave me a document to hold for safekeeping,' Cecily says. 'She told me not to show it to anyone in the village.'",
+      "red_herring_explanation": "Cecily's revelation of a secret meeting and a document handed over at the boarding house creates the impression that whatever happened to Edith began there; the boarding house meeting was real but the crime occurred later at the tea room."
+    },
+    {
+      "id": "tod_01",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten in the evening",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "cecily_vane"
+        ],
+        "location": "boarding_house"
+      },
+      "text": "[char:Cecily Vane] tells the investigator she passed the [loc:tea_room] on her evening walk and saw a light inside — 'the closed sign was up but the lamp was lit.' She checks her wristwatch habit and says it was just after half past eight. By the time she returned along the same path an hour later, the light was gone and Edith's body was on the path.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_02",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten in the evening",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "dr_hicks"
+        ],
+        "location": "surgery"
+      },
+      "text": "[char:Dr. Samuel Hicks] states his observations to the investigator: the body temperature and the state of the grass beneath her suggested she had been lying outside for [time:between one and three hours] before he was called at half past ten. He writes the figure in his notebook and underlines it.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_03",
+      "checkpoint": "time_of_death",
+      "answer": "between noon and two in the afternoon",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "nora_trevithick"
+        ],
+        "location": "fishermans_cottage"
+      },
+      "text": "[char:Nora Trevithick] tells the investigator she delivered her last batch of splits to the [loc:tea_room] at midday and found Edith in an irritable mood, speaking sharply and sending Nora away quickly. 'She was flush in the face,' Nora says. 'I thought she was coming down with something even then.'",
+      "red_herring_explanation": "Nora's description of Edith's flushed and unwell appearance at midday plants the suggestion that whatever killed her was already working by noon; the flush was agitation, not poison."
+    },
+    {
+      "id": "tod_04",
+      "checkpoint": "time_of_death",
+      "answer": "between two and four in the afternoon",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "tom_garvey"
+        ],
+        "location": "harbour_steps"
+      },
+      "text": "[char:Tom Garvey] tells the investigator he saw Edith closing the tea room shutters in the early afternoon — 'three o'clock or thereabouts, early for her.' She had her coat on, he says, and was hurrying.",
+      "red_herring_explanation": "Garvey's observation that Edith closed early and was seen in her coat suggests an afternoon death and possible flight; she was closing early to prepare for the evening meeting with Callow, not because she was ill."
+    },
+    {
+      "id": "tod_05",
+      "checkpoint": "time_of_death",
+      "answer": "after ten at night",
+      "weight": "red_herring",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cliff_path"
+      },
+      "text": "At the spot where [char:Edith Penrose] was found, the investigator notices the night dew has soaked through the fabric of her dress at the shoulders and back. The local tide chart pinned at the [loc:harbour_steps] shows that after ten o'clock the onshore wind drops and heavy dew sets in along the headland.",
+      "red_herring_explanation": "The heavy dew soaked into Edith's clothing suggests she lay outside long enough to accumulate post-ten-o'clock dew; in fact the dew gathered after death, not before, and the body was found at half past ten."
+    },
+    {
+      "id": "perp_01",
+      "checkpoint": "perpetrator",
+      "answer": "Rev. Arthur Callow",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "tea_room",
+        "item": "reverend_note"
+      },
+      "text": "The note tucked beneath the counter is written on paper watermarked with a small cross — the same stock the [loc:church] uses for its parish newsletter. The initials 'A.C.' are written in a round, deliberate hand.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_02",
+      "checkpoint": "perpetrator",
+      "answer": "Rev. Arthur Callow",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "tom_garvey"
+        ],
+        "location": "harbour_steps"
+      },
+      "text": "[char:Tom Garvey] tells the investigator that around nine in the evening he saw a figure in a dark coat coming down from the direction of the [loc:tea_room] toward the lane that leads to the [loc:church]. 'Parson's walk,' Garvey says. 'I know it from the shoulders.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_03",
+      "checkpoint": "perpetrator",
+      "answer": "Nora Trevithick",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "nora_trevithick"
+        ],
+        "location": "tea_room",
+        "item": "cream_pot"
+      },
+      "text": "[char:Nora Trevithick] identifies the cream pot immediately. 'That's my pot — I loan it to Edith when her own is cracked.' She points to a small 'T' scratched into the base. 'I brought it with the delivery two days ago.'",
+      "red_herring_explanation": "Nora's ownership of the cream pot that contains residue makes her appear the most obvious suspect; she lent it innocently and has no knowledge of what was added to it afterward."
+    },
+    {
+      "id": "perp_04",
+      "checkpoint": "perpetrator",
+      "answer": "Dr. Samuel Hicks",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together_alone",
+        "characters": [
+          "investigator",
+          "dr_hicks"
+        ],
+        "location": null
+      },
+      "text": "Alone with the investigator, [char:Dr. Samuel Hicks] admits he was the first to examine the body and that he waited [time:nearly thirty minutes] before sending for the investigator. 'I wanted to be certain,' he says, and does not elaborate.",
+      "red_herring_explanation": "Hicks's unexplained delay in summoning the investigator and his history of antagonism toward Edith make his behaviour suspicious; the delay was professional caution by a doctor who wanted to confirm death before raising an alarm."
+    },
+    {
+      "id": "perp_05",
+      "checkpoint": "perpetrator",
+      "answer": "Cecily Vane",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "cecily_vane"
+        ],
+        "location": null
+      },
+      "text": "[char:Cecily Vane] reveals to the investigator that she works for the solicitor who handled the late Mr. Penrose's will, and that Edith had been asking her about the disposition of the church fund donation made in her husband's name. 'She wanted to know if the donation could be recalled,' Cecily says.",
+      "red_herring_explanation": "Cecily's legal connection to the estate and her secret meetings with Edith make her appear to have knowledge that could motivate harm; she is in Trevannack on behalf of her employer, not on any personal mission."
+    },
+    {
+      "id": "mot_01",
+      "checkpoint": "motive",
+      "answer": "self-preservation",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "rev_callow"
+        ],
+        "location": "church",
+        "item": "ledger_page"
+      },
+      "text": "When the investigator places the torn ledger page before [char:Rev. Arthur Callow] in the [loc:church], the reverend goes very still. The figures on the page are in two columns: one headed 'Received', the other 'Disbursed'. The totals do not match. The torn corner is where the balance would have been written.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_02",
+      "checkpoint": "motive",
+      "answer": "self-preservation",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "cecily_vane"
+        ],
+        "location": null
+      },
+      "text": "[char:Cecily Vane] produces the document Edith gave her for safekeeping: a handwritten summary of the church rebuilding fund's receipts, with a note in Edith's hand at the bottom: 'Receipts confirm £240 unaccounted. A.C. has seen this page.'",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_03",
+      "checkpoint": "motive",
+      "answer": "debt",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator",
+          "tom_garvey"
+        ],
+        "location": null,
+        "item": "mooring_licence"
+      },
+      "text": "[char:Tom Garvey] shows the investigator the mooring licence copy, pointing to the overwritten date. 'Edith was the one who queried it with the harbour board,' he says. 'She told me she had evidence it was backdated — evidence she was going to use.' He rubs the back of his neck.",
+      "red_herring_explanation": "Garvey's mooring licence dispute with Edith and his reference to evidence she held suggests a debt or legal threat as motive; the licence dispute was real but unrelated to her death."
+    },
+    {
+      "id": "mot_04",
+      "checkpoint": "motive",
+      "answer": "revenge",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "dr_hicks"
+        ],
+        "location": "surgery"
+      },
+      "text": "[char:Dr. Samuel Hicks] tells the investigator, without being asked, that Edith Penrose wrote a formal letter to the county medical board last winter challenging his handling of a death certification. 'She wanted my licence,' he says. 'She made no secret of it.'",
+      "red_herring_explanation": "Hicks's open resentment of Edith's campaign against his professional standing makes revenge a compelling motive for him; he had cause but no opportunity or means at the relevant time."
+    },
+    {
+      "id": "mot_05",
+      "checkpoint": "motive",
+      "answer": "jealousy",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "nora_trevithick"
+        ],
+        "location": "fishermans_cottage"
+      },
+      "text": "[char:Nora Trevithick] tells the investigator that Edith had recently approached a bakery in Penzance about supplying the tea room's splits — cutting Nora out entirely. 'Three years I supplied her,' Nora says, her voice flat. 'She didn't even tell me herself. I heard it from the postman.'",
+      "red_herring_explanation": "Nora's commercial grievance and the personal slight of being replaced without notice suggests jealousy and wounded pride as motive; the dispute was real and bitter, but Nora had no knowledge of or involvement in the poisoning."
+    }
+  ],
+  "relations": [
+    {
+      "from": "rev_callow",
+      "to": "edith_penrose",
+      "label": "administered fund donated in memory of"
+    },
+    {
+      "from": "nora_trevithick",
+      "to": "edith_penrose",
+      "label": "supplies bakery goods to"
+    },
+    {
+      "from": "tom_garvey",
+      "to": "edith_penrose",
+      "label": "rivals with over mooring licence"
+    },
+    {
+      "from": "cecily_vane",
+      "to": "edith_penrose",
+      "label": "met privately with"
+    },
+    {
+      "from": "dr_hicks",
+      "to": "edith_penrose",
+      "label": "open enmity with"
+    },
+    {
+      "from": "nora_trevithick",
+      "to": "cecily_vane",
+      "label": "sister employs"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_01",
+      "text": "The [loc:tea_room] is still unlocked; the closed sign is up but the latch has not been thrown. A lamp burned in there last night, and [char:Nora Trevithick] has a key.",
+      "character_id": "nora_trevithick",
+      "location_id": "tea_room"
+    },
+    {
+      "id": "lead_02",
+      "text": "[char:Tom Garvey] was on the [loc:harbour_steps] until late last night and is there still, coiling rope and watching the path up to the headland.",
+      "character_id": "tom_garvey",
+      "location_id": "harbour_steps"
+    },
+    {
+      "id": "lead_03",
+      "text": "[char:Rev. Arthur Callow] sent no word this morning and has not opened the [loc:church] for the early bell; the vestry door is ajar.",
+      "character_id": "rev_callow",
+      "location_id": "church"
+    }
+  ],
+  "opening_narrative": "The post boat that brought the investigator to Trevannack arrived at the [loc:harbour_steps] just after dawn, the crew tight-lipped about what had happened the night before. [char:Tom Garvey] was waiting at the bottom of the steps with a rope in his hands and nothing useful to say. He pointed up toward the headland and said only that the doctor was already there.\n\nThe previous evening, [char:Dr. Samuel Hicks] had been walking back from a call at the far end of the village when he noticed something pale and still on the [loc:cliff_path] above the south cove. He recognised [char:Edith Penrose] immediately — she was known to walk that path at dusk — and sent the nearest child running for the harbour office to telegraph for an investigator from the county.\n\nBy the time the telegraph was sent, several villagers had gathered at the bottom of the path and been turned back by the doctor. [char:Nora Trevithick] had come out of her cottage with a lantern, and [char:Cecily Vane] was said to have been seen on the path earlier that same evening. The [loc:tea_room] was dark by the time anyone thought to check it, and its door stood unlocked."
+}

@@ -1,0 +1,750 @@
+{
+  "village": {
+    "name": "Misaki-cho",
+    "history": "Misaki-cho grew from a single net-drying beach into a licensed port town over three centuries, its prosperity always hostage to the sea's moods and the prefecture's appetite for revenue. In the last decade, a strip of teahouses and drinking parlours opened along the landward lane behind the fish market — their red and green neon signs the most modern thing in town, their owners the most recently arrived. Old fishing families distrust the new money; the new money bribes whom it can and ignores the rest. The customs house sits between both worlds, and whoever holds its stamp holds the town.",
+    "season": "summer",
+    "weather": "steady tsuyu rain, gutters running",
+    "arrival_location": "police_box"
+  },
+  "crime": {
+    "cause_of_death": "blunt trauma",
+    "murder_location": "cold_storage",
+    "body_found_location": "neon_alley",
+    "body_was_moved": true,
+    "time_of_death": "between ten and midnight",
+    "victim_state": "body was moved after death",
+    "perpetrator_ids": [
+      "ogawa_riku"
+    ],
+    "motive": "self-preservation",
+    "hidden_truth": null
+  },
+  "characters": [
+    {
+      "id": "tanaka_seiji",
+      "name": "Tanaka Seiji",
+      "isVictim": true,
+      "local": false,
+      "home_location": "customs_house",
+      "starting_location": "neon_alley",
+      "description": "Tanaka Seiji was the port's customs inspector — posted from Yokohama two years ago, unmarried to the town if not to his work, known for meticulous ledgers and a habit of walking the docks alone after dark. The investigator finds him face-down in the neon alley behind [loc:neon_alley], dressed in his formal inspection coat, one arm extended as though reaching for the wall, a dark depression visible at the back of the skull beneath rain-matted hair."
+    },
+    {
+      "id": "ogawa_riku",
+      "name": "Ogawa Riku",
+      "isVictim": false,
+      "local": true,
+      "home_location": "fish_market",
+      "starting_location": "fish_market",
+      "description": "Ogawa Riku runs the largest fish wholesaling operation in Misaki-cho, a broad-shouldered man of fifty who smells of brine and speaks slowly, as though each word costs him. He had reason to fear Seiji: a recent audit threatened to revoke his wholesale licence over irregularities in barrel manifests, and without that licence he loses everything built over thirty years."
+    },
+    {
+      "id": "mori_hana",
+      "name": "Mori Hana",
+      "isVictim": false,
+      "local": true,
+      "home_location": "hana_teahouse",
+      "starting_location": "hana_teahouse",
+      "description": "Mori Hana owns and runs the Hana-ya teahouse, whose back door opens directly onto the neon alley. A composed woman of forty with ink-dark hair and a reputation for discretion, she is known to have hosted Seiji for drinks on at least three occasions — a fact that invites gossip and, now, suspicion that she knew something she did not share."
+    },
+    {
+      "id": "nakashima_yuki",
+      "name": "Nakashima Yuki",
+      "isVictim": false,
+      "local": true,
+      "home_location": "fishing_quarter",
+      "starting_location": "fishing_quarter",
+      "description": "Nakashima Yuki is Seiji's estranged wife — a local woman who married him when he was first posted here and separated from him eighteen months ago after a dispute that the town has many theories about. She fishes from a small boat she owns outright and speaks of Seiji without warmth. Half the town believes she had the oldest motive of all."
+    },
+    {
+      "id": "dohi_saburo",
+      "name": "Dohi Saburo",
+      "isVictim": false,
+      "local": true,
+      "home_location": "fishing_quarter",
+      "starting_location": "harbour_dock",
+      "description": "Dohi Saburo is a weather-beaten fisherman of sixty who has worked the Misaki-cho harbour his whole life and is known to have had a running dispute with Seiji over deep-water fishing permits. He was present on the dock the night of the murder securing his boat against the tsuyu storm, and has no witness to account for the full span of those hours."
+    },
+    {
+      "id": "uchida_kenji",
+      "name": "Uchida Kenji",
+      "isVictim": false,
+      "local": true,
+      "home_location": "shrine",
+      "starting_location": "shrine",
+      "description": "Uchida Kenji is the priest at the clifftop Shinto shrine above the town, a lean man of fifty-five who has served the community for two decades and knows where most of Misaki-cho's secrets are buried. He is believed by several locals to have been sought out by Seiji in the weeks before his death — a visit the priest has neither confirmed nor denied."
+    }
+  ],
+  "items": [
+    {
+      "id": "mooring_mallet",
+      "name": "Weighted Mooring Mallet",
+      "description": "A short-handled wooden mallet with a lead core, the striking face dark with a substance that has dried to a rust-brown, a single dark hair adhering to the flat.",
+      "starting_location": "cold_storage"
+    },
+    {
+      "id": "barrel_manifest",
+      "name": "Customs Barrel Manifest",
+      "description": "A two-page carbon-copy document printed on prefecture stationery, several line items circled in red ink, the lower corner stamped with the customs house seal and initialled T.S.",
+      "starting_location": "customs_house"
+    },
+    {
+      "id": "ice_melt_puddle",
+      "name": "Pale Runoff Stain",
+      "description": "A chalky white residue spread across the cobblestones in a rough oval roughly two metres wide, distinct from the grey rain-pooling surrounding it.",
+      "starting_location": "neon_alley"
+    },
+    {
+      "id": "teahouse_ledger",
+      "name": "Teahouse Guest Ledger",
+      "description": "A cloth-bound register of nightly guests, the most recent pages water-warped, two entries from the past week written in the same hand but crossed out with a single diagonal stroke.",
+      "starting_location": "hana_teahouse"
+    },
+    {
+      "id": "kanzashi_pin",
+      "name": "Lacquered Kanzashi Pin",
+      "description": "A woman's hair ornament in black lacquer with a small coral bead at the tip, the stem slightly bent, found tucked behind a cold-storage barrel.",
+      "starting_location": "cold_storage"
+    },
+    {
+      "id": "tide_chart",
+      "name": "Harbour Tide Chart",
+      "description": "A printed monthly tide chart pinned to the harbourmaster's board, the column for the previous night marked in pencil at two intervals, one smeared.",
+      "starting_location": "harbour_dock"
+    }
+  ],
+  "locations": [
+    {
+      "id": "police_box",
+      "name": "Police Box",
+      "flavour": "A single-room koban at the top of the harbour road, its lamp burning through the rain — the first official presence a visitor encounters.",
+      "col": 0,
+      "row": 0
+    },
+    {
+      "id": "neon_alley",
+      "name": "Neon Alley",
+      "flavour": "A narrow lane behind the pleasure quarter where red and green neon bleeds into standing water and the smell of frying oil meets the harbour wind.",
+      "col": 1,
+      "row": 0
+    },
+    {
+      "id": "hana_teahouse",
+      "name": "Hana-ya Teahouse",
+      "flavour": "The most reputable of the lane's establishments — paper screens, lacquered tables, a proprietress who forgets nothing.",
+      "col": 2,
+      "row": 0
+    },
+    {
+      "id": "customs_house",
+      "name": "Customs House",
+      "flavour": "A grey concrete building planted between the fish market and the dock, its stamp the last word on who trades and who does not.",
+      "col": 2,
+      "row": 1
+    },
+    {
+      "id": "fish_market",
+      "name": "Fish Market",
+      "flavour": "Open-sided stalls running the length of the quay — deserted in the rain, the ice-bins covered, the scale weights chained.",
+      "col": 1,
+      "row": 1
+    },
+    {
+      "id": "harbour_dock",
+      "name": "Harbour Dock",
+      "flavour": "Weathered planking over black water, boats listing in their lines, the smell of diesel and low tide persistent even in heavy rain.",
+      "col": 0,
+      "row": 1
+    },
+    {
+      "id": "cold_storage",
+      "name": "Cold Storage Warehouse",
+      "flavour": "A low concrete building at the dock's landward end — padlocked most hours, the floor perpetually wet, the air sharp with ammonia and old ice.",
+      "col": 0,
+      "row": 2
+    },
+    {
+      "id": "fishing_quarter",
+      "name": "Fishing Quarter",
+      "flavour": "Tight rows of wooden houses on the inland slope, net-drying poles standing empty in the rain, cats watching from every overhang.",
+      "col": 1,
+      "row": 2
+    },
+    {
+      "id": "shrine",
+      "name": "Clifftop Shrine",
+      "flavour": "A small Shinto shrine on the headland above the harbour — stone torii, salt-bleached wood, the sea visible in three directions.",
+      "col": 2,
+      "row": 2
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "police_box",
+      "to": "neon_alley"
+    },
+    {
+      "from": "neon_alley",
+      "to": "hana_teahouse"
+    },
+    {
+      "from": "neon_alley",
+      "to": "fish_market"
+    },
+    {
+      "from": "hana_teahouse",
+      "to": "customs_house"
+    },
+    {
+      "from": "fish_market",
+      "to": "customs_house"
+    },
+    {
+      "from": "fish_market",
+      "to": "harbour_dock"
+    },
+    {
+      "from": "harbour_dock",
+      "to": "cold_storage"
+    },
+    {
+      "from": "cold_storage",
+      "to": "fishing_quarter"
+    },
+    {
+      "from": "fishing_quarter",
+      "to": "shrine"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "How was Tanaka Seiji killed?",
+      "answer_options": [
+        "blunt trauma",
+        "drowning",
+        "stabbing",
+        "poisoning — compound",
+        "strangulation"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where was Seiji actually killed?",
+      "answer_options": [
+        "cold_storage",
+        "neon_alley",
+        "harbour_dock",
+        "hana_teahouse",
+        "customs_house"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When did Seiji die?",
+      "answer_options": [
+        "between ten and midnight",
+        "before ten in the evening",
+        "between midnight and two in the morning",
+        "after two in the morning"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Tanaka Seiji?",
+      "answer_options": [
+        "Ogawa Riku",
+        "Mori Hana",
+        "Nakashima Yuki",
+        "Dohi Saburo",
+        "Uchida Kenji"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Seiji killed?",
+      "answer_options": [
+        "self-preservation",
+        "jealousy",
+        "revenge",
+        "debt",
+        "inheritance"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cod_correct_1",
+      "checkpoint": "cause_of_death",
+      "answer": "blunt trauma",
+      "weight": "correct",
+      "condition": {
+        "type": "character_in_location",
+        "characters": [
+          "investigator"
+        ],
+        "location": "neon_alley",
+        "item": null
+      },
+      "text": "The wound at the back of [char:Tanaka Seiji]'s skull is a single oval depression, deep and clean-edged, with no radiating fracture lines. The face, hands, and coat show no other injury — no defensive marks, no grazing from the cobblestones beneath him. The body of [char:Tanaka Seiji] lies in [loc:neon_alley], but something about the wound sits wrong against the soft ground he is face-down on.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_correct_2",
+      "checkpoint": "cause_of_death",
+      "answer": "blunt trauma",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cold_storage",
+        "item": "mooring_mallet"
+      },
+      "text": "The weighted mooring mallet in [loc:cold_storage] carries a dried rust-brown stain on its striking face and a single dark hair pressed flat against it. The lead-loaded head is roughly oval in cross-section — the same oval shape as the wound on [char:Tanaka Seiji]'s skull. The mallet sits on top of a barrel rather than in its rack on the wall.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_rh_1",
+      "checkpoint": "cause_of_death",
+      "answer": "drowning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "dohi_saburo"
+        ],
+        "location": "harbour_dock",
+        "item": null
+      },
+      "text": "[char:Dohi Saburo] tells the investigator that [char:Tanaka Seiji] came to the dock alone at least once a week to walk the pier after dark, and that the planking near the far end is rotten and has dropped men into the water before. [char:Dohi Saburo] gestures toward the black water below — the harbour here is deep enough that a man could be under for an hour before he rose.",
+      "red_herring_explanation": "Saburo's account directs suspicion toward drowning by emphasising the dangerous dock and deep water near where Seiji walked, but Seiji's body was dry beneath his saturated coat, and no water was found in the lungs."
+    },
+    {
+      "id": "cod_rh_2",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning — compound",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "mori_hana"
+        ],
+        "location": "hana_teahouse",
+        "item": "teahouse_ledger"
+      },
+      "text": "[char:Mori Hana] opens the guest ledger and points to a crossed-out entry: [char:Tanaka Seiji] reserved a private room for the night before his death. She says he drank two cups of the house shochu and left before midnight, then adds, unprompted, that the shochu comes from a new Osaka supplier and she has had complaints of headaches from other customers that week.",
+      "red_herring_explanation": "Hana's mention of the new shochu supplier and headache complaints suggests poisoning via drink, directing suspicion away from blunt trauma; the headaches have an unrelated cause and Seiji's toxicology will show nothing significant."
+    },
+    {
+      "id": "cod_rh_3",
+      "checkpoint": "cause_of_death",
+      "answer": "strangulation",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "uchida_kenji"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Uchida Kenji] tells the investigator that three weeks before his death, [char:Tanaka Seiji] came to the shrine visibly shaken and said he had been grabbed by the collar and threatened outside the fish market by a man he declined to name. [char:Uchida Kenji] noticed ligature redness on [char:Tanaka Seiji]'s neck at that visit and noted it in his private shrine record.",
+      "red_herring_explanation": "The prior threat and redness on the neck implies strangulation was either attempted before or completed now; the collar-grab was a real prior incident but unrelated to the cause of death, and the wound pattern is inconsistent with strangulation."
+    },
+    {
+      "id": "tl_correct_1",
+      "checkpoint": "true_location",
+      "answer": "cold_storage",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cold_storage",
+        "item": "kanzashi_pin"
+      },
+      "text": "Behind the second row of barrels in [loc:cold_storage], a lacquered kanzashi pin lies on the wet concrete floor alongside a dark smear roughly the width of a man's shoulder. The ammonia reek of the storage unit is underlaid by something organic. The smear runs from the centre of the floor toward the loading door, as though something heavy was dragged across it.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tl_correct_2",
+      "checkpoint": "true_location",
+      "answer": "cold_storage",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "neon_alley",
+        "item": "ice_melt_puddle"
+      },
+      "text": "The pale chalky residue pooled around [char:Tanaka Seiji]'s body in [loc:neon_alley] is ringed by normal grey rain-pooling, but its own colour and consistency differ — chalky, slightly viscous, carrying a faint ammonia note. It forms an oval that radiates outward from the coat's hem, as though something cold and wet was present before the rain arrived at this spot.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tl_rh_1",
+      "checkpoint": "true_location",
+      "answer": "hana_teahouse",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "mori_hana"
+        ],
+        "location": "hana_teahouse",
+        "item": null
+      },
+      "text": "[char:Mori Hana] tells the investigator that [char:Tanaka Seiji] was at her back table until just before midnight. She describes the back room in detail — the low screen, the single lamp — and mentions that he received a folded note delivered through the kitchen door which he read and pocketed. The back room of [loc:hana_teahouse] opens directly onto [loc:neon_alley] through a sliding panel.",
+      "red_herring_explanation": "Hana's detailed account of Seiji's last known location inside her teahouse, and the mysterious note he received there, suggest the killing happened on her premises; the note was delivered but Seiji left the teahouse alive."
+    },
+    {
+      "id": "tl_rh_2",
+      "checkpoint": "true_location",
+      "answer": "harbour_dock",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator",
+          "dohi_saburo"
+        ],
+        "location": "harbour_dock",
+        "item": "tide_chart"
+      },
+      "text": "[char:Dohi Saburo] points to two pencil marks on the tide chart pinned at [loc:harbour_dock] — marks at the ten o'clock and eleven-thirty positions from the previous night. He says he made the first mark himself when he checked the moorings, then claims a second person was on the dock at eleven-thirty, though he will not say who, and the second mark is in different-pressure pencil.",
+      "red_herring_explanation": "The two separate pencil marks and Saburo's evasiveness about the second visitor implies a confrontation on the dock at eleven-thirty; the marks were both made by Saburo at different times for tide-checking purposes and the second is not connected to the murder."
+    },
+    {
+      "id": "tl_rh_3",
+      "checkpoint": "true_location",
+      "answer": "customs_house",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "barrel_manifest"
+      },
+      "text": "The barrel manifest from [loc:customs_house] shows six line items circled in red ink by [char:Tanaka Seiji], each one from [char:Ogawa Riku]'s wholesale operation. A handwritten note in the margin reads 'verify on-site tonight' with yesterday's date. The customs house itself shows signs of a recent search — drawers slightly open, a chair pulled from the desk.",
+      "red_herring_explanation": "The 'verify on-site tonight' annotation and the disturbed customs house suggest Seiji was killed at his desk during or after the on-site review; the disturbance was caused by Ogawa searching the office afterward for the manifest, not during the murder itself."
+    },
+    {
+      "id": "tod_correct_1",
+      "checkpoint": "time_of_death",
+      "answer": "between ten and midnight",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "mori_hana"
+        ],
+        "location": "hana_teahouse",
+        "item": null
+      },
+      "text": "[char:Mori Hana] tells the investigator that [char:Tanaka Seiji] left the teahouse through the back panel at a few minutes before midnight. Her wall clock, visible from the table, showed eleven forty-eight. She heard no sound from the alley immediately afterward — no voices, no impact — and went to close the panel herself perhaps ten minutes later.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_correct_2",
+      "checkpoint": "time_of_death",
+      "answer": "between ten and midnight",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "harbour_dock",
+        "item": "tide_chart"
+      },
+      "text": "The tide chart at [loc:harbour_dock] shows the harbour water was at its highest between ten in the evening and midnight, which corresponds to a note in pencil reading 'C.S. lock — high water.' [loc:cold_storage]'s loading door sits at dock level and is only reachable from the water side during high tide. The note is in a different hand from the printed chart annotations.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_rh_1",
+      "checkpoint": "time_of_death",
+      "answer": "before ten in the evening",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "nakashima_yuki"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Nakashima Yuki] tells the investigator she saw [char:Tanaka Seiji] walking toward the fish market at dusk — she sets the time as around seven in the evening — and that he was carrying his inspection case and appeared to be in a hurry. She says she called out to him and he did not turn around. She did not see him again after that.",
+      "red_herring_explanation": "Yuki's sighting of Seiji at dusk while apparently hurrying toward the market suggests he met his death early in the evening, before ten; the sighting is genuine but Seiji continued on to the teahouse and was still alive well past ten."
+    },
+    {
+      "id": "tod_rh_2",
+      "checkpoint": "time_of_death",
+      "answer": "between midnight and two in the morning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "dohi_saburo"
+        ],
+        "location": "harbour_dock",
+        "item": null
+      },
+      "text": "[char:Dohi Saburo] tells the investigator he heard a heavy dragging sound from the direction of [loc:cold_storage] at around half past midnight — a sound he describes as 'a barrel shifted on wet concrete.' He was securing the last of his mooring lines at the time and did not investigate. He estimates the sound lasted no more than thirty seconds.",
+      "red_herring_explanation": "Saburo's account of a dragging sound at half past midnight suggests the killing occurred after midnight; the dragging sound was real but was Ogawa moving the body out of the storage warehouse, not the moment of death, which occurred before midnight."
+    },
+    {
+      "id": "tod_rh_3",
+      "checkpoint": "time_of_death",
+      "answer": "after two in the morning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "uchida_kenji"
+        ],
+        "location": "shrine",
+        "item": null
+      },
+      "text": "[char:Uchida Kenji] says he keeps a practice of ringing the shrine bell at two in the morning during the tsuyu season — an old purification rite against summer sickness. He says he looked down toward the harbour lights from the torii during last night's ringing and observed that the neon alley was still unlit, both signs dark, which he says is unusual for that hour.",
+      "red_herring_explanation": "Uchida's observation of the dark alley at two in the morning implies the body may not have been there yet at that hour, suggesting death after two; the alley signs were dark because of a power interruption that night, not because the alley was empty — the body was already present."
+    },
+    {
+      "id": "perp_correct_1",
+      "checkpoint": "perpetrator",
+      "answer": "Ogawa Riku",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cold_storage",
+        "item": "mooring_mallet"
+      },
+      "text": "The mooring mallet in [loc:cold_storage] is stencilled on the handle in faded black paint: OGAWA WHOLESALE — a standard marking for dock equipment rented from the wholesale operation. The mallet rack on the wall has four slots; three are occupied; the fourth slot carries a dust outline matching this mallet's handle width.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_correct_2",
+      "checkpoint": "perpetrator",
+      "answer": "Ogawa Riku",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "barrel_manifest"
+      },
+      "text": "The circled entries on the barrel manifest from [loc:customs_house] are all consignments registered to [char:Ogawa Riku]'s wholesale operation. The final circled entry carries a handwritten note: 'discrepancy confirmed — revocation recommended.' The document is dated the same day as [char:Tanaka Seiji]'s death.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_rh_1",
+      "checkpoint": "perpetrator",
+      "answer": "Mori Hana",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_alone_in_location_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": "cold_storage",
+        "item": "kanzashi_pin"
+      },
+      "text": "The lacquered kanzashi pin found behind the barrels in [loc:cold_storage] is black with a coral bead at the tip — the same style worn by [char:Mori Hana] in every account the investigator has gathered. A single strand of dark hair is wound around the pin's stem.",
+      "red_herring_explanation": "The kanzashi pin of Hana's distinctive style in the cold storage warehouse places her at the murder scene, implicating her as the killer; the pin was dropped during an earlier visit when Hana delivered a private message to Ogawa and is unconnected to the killing."
+    },
+    {
+      "id": "perp_rh_2",
+      "checkpoint": "perpetrator",
+      "answer": "Nakashima Yuki",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "dohi_saburo"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Dohi Saburo] tells the investigator, without being prompted, that he saw [char:Nakashima Yuki]'s boat tied up at the cold storage landing for nearly an hour the previous evening — unusual, since she normally moors in the fishing quarter. He estimates the time as between ten and eleven. He says her running light was off, which was what drew his attention.",
+      "red_herring_explanation": "Yuki's boat at the cold storage landing with the light off at the critical hour makes her look like the person who committed the crime or disposed of evidence; she was there to deliver a catch to the market's cold storage under an informal arrangement, not connected to the murder."
+    },
+    {
+      "id": "perp_rh_3",
+      "checkpoint": "perpetrator",
+      "answer": "Dohi Saburo",
+      "weight": "red_herring",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator",
+          "uchida_kenji"
+        ],
+        "location": null,
+        "item": "tide_chart"
+      },
+      "text": "[char:Uchida Kenji] tells the investigator that [char:Dohi Saburo] came to the shrine two days before [char:Tanaka Seiji]'s death in a state of visible agitation, saying that if Seiji's audit continued he would lose his deep-water permit. [char:Uchida Kenji] recalls that [char:Dohi Saburo] picked up the tide chart the priest had left on the offering table and studied it for several minutes without speaking before leaving.",
+      "red_herring_explanation": "Saburo's agitation about the audit and his careful study of the tide chart suggests he planned a tide-dependent method to dispose of a body at sea, pointing to him as the killer; his use of the chart was to plan his mooring schedule during the storm, and his anger was real but he did not act on it."
+    },
+    {
+      "id": "motive_correct_1",
+      "checkpoint": "motive",
+      "answer": "self-preservation",
+      "weight": "correct",
+      "condition": {
+        "type": "characters_anywhere_with_item",
+        "characters": [
+          "investigator"
+        ],
+        "location": null,
+        "item": "barrel_manifest"
+      },
+      "text": "The barrel manifest's circled entries each correspond to a consignment where declared weight and species differ from the quantities [loc:cold_storage] intake records show. The final note reads 'revocation recommended' — the formal first step in withdrawing a wholesale operating licence, which cannot be reinstated once proceedings begin.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "motive_correct_2",
+      "checkpoint": "motive",
+      "answer": "self-preservation",
+      "weight": "correct",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "ogawa_riku"
+        ],
+        "location": "fish_market",
+        "item": null
+      },
+      "text": "Asked directly about the audit, [char:Ogawa Riku] tells the investigator that [char:Tanaka Seiji] summoned him to [loc:customs_house] the morning of the death and showed him the circled manifest entries. [char:Ogawa Riku] says Seiji gave him until the following morning to produce counter-documentation — documentation [char:Ogawa Riku] states he did not have.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "motive_rh_1",
+      "checkpoint": "motive",
+      "answer": "jealousy",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_together",
+        "characters": [
+          "investigator",
+          "nakashima_yuki"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Nakashima Yuki] tells the investigator that she and [char:Tanaka Seiji] separated after she discovered he had spent three consecutive evenings at [loc:hana_teahouse] in the company of [char:Mori Hana] — evenings he had claimed to be working late at [loc:customs_house]. She uses the word 'humiliation' and does not elaborate further.",
+      "red_herring_explanation": "Yuki's account of Seiji's apparent relationship with Hana gives her a jealousy motive — romantic humiliation leading to a violent confrontation — when in fact the separation, though bitter, had already run its course, and Yuki's anger had long since hardened into indifference."
+    },
+    {
+      "id": "motive_rh_2",
+      "checkpoint": "motive",
+      "answer": "revenge",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "dohi_saburo"
+        ],
+        "location": "harbour_dock",
+        "item": null
+      },
+      "text": "[char:Dohi Saburo] tells the investigator that two years ago, [char:Tanaka Seiji]'s audit resulted in the revocation of his cousin's fishing licence — the man lost his boat and left the town. [char:Dohi Saburo] says he has not forgiven Seiji for it and does not pretend otherwise. He plants both hands on a mooring post and looks out at the water.",
+      "red_herring_explanation": "Saburo's unambiguous statement of lasting grievance over his cousin's ruined livelihood gives him a revenge motive of exactly the kind that can precede violence; the grievance is real, but Saburo's anger is spoken anger — he has lived alongside it for two years without acting."
+    },
+    {
+      "id": "motive_rh_3",
+      "checkpoint": "motive",
+      "answer": "debt",
+      "weight": "red_herring",
+      "condition": {
+        "type": "n_characters_in_location",
+        "characters": [
+          "investigator",
+          "uchida_kenji"
+        ],
+        "location": "shrine",
+        "item": null
+      },
+      "text": "[char:Uchida Kenji] tells the investigator that [char:Tanaka Seiji] confided to him, in the informal way of shrine visits, that he had lent a considerable sum to someone in the town who had not repaid it, and that he intended to force the matter before the end of the month. The priest declines to say who the debtor was.",
+      "red_herring_explanation": "The priest's account of an outstanding unpaid debt that Seiji was about to force to a conclusion gives the unnamed debtor a debt motive for silencing him; the debtor exists but is not Ogawa — the debt is unconnected to the licensing dispute that actually motivated the killing."
+    }
+  ],
+  "relations": [
+    {
+      "from": "ogawa_riku",
+      "to": "tanaka_seiji",
+      "label": "under audit by"
+    },
+    {
+      "from": "mori_hana",
+      "to": "tanaka_seiji",
+      "label": "regular host of"
+    },
+    {
+      "from": "nakashima_yuki",
+      "to": "tanaka_seiji",
+      "label": "estranged wife of"
+    },
+    {
+      "from": "dohi_saburo",
+      "to": "tanaka_seiji",
+      "label": "rivals with"
+    },
+    {
+      "from": "ogawa_riku",
+      "to": "dohi_saburo",
+      "label": "employs (seasonal)"
+    },
+    {
+      "from": "uchida_kenji",
+      "to": "ogawa_riku",
+      "label": "community elder alongside"
+    },
+    {
+      "from": "mori_hana",
+      "to": "nakashima_yuki",
+      "label": "neighbours with"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_1",
+      "text": "The body was found behind [loc:hana_teahouse] — [char:Mori Hana] was the one who raised the alarm before dawn, and she is still inside.",
+      "character_id": "mori_hana",
+      "location_id": "hana_teahouse"
+    },
+    {
+      "id": "lead_2",
+      "text": "The pale residue pooled around the body in [loc:neon_alley] carries an ammonia note distinct from rain-pooling — [loc:cold_storage] at the dock end uses an ammonia refrigerant system.",
+      "character_id": null,
+      "location_id": "cold_storage"
+    },
+    {
+      "id": "lead_3",
+      "text": "[char:Dohi Saburo] was on [loc:harbour_dock] through the night securing his boat and is still there — he was one of the first to hear about the body.",
+      "character_id": "dohi_saburo",
+      "location_id": "harbour_dock"
+    }
+  ],
+  "opening_narrative": "The tsuyu rain had been falling since afternoon when the officer at [loc:police_box] sent word up the coast road: a body in [loc:neon_alley], behind the Hana-ya. By the time the message reached the prefecture office, it was nearly four in the morning. A man named [char:Tanaka Seiji] — the port's customs inspector — had been found by [char:Mori Hana] when she stepped outside to close the teahouse's back ventilation panel before bed.\n\n[char:Mori Hana] had gone to the local officer first, then waited inside. [char:Dohi Saburo], still at [loc:harbour_dock] with his mooring lines, heard the officer's whistle and came as far as the alley entrance before being turned back. By dawn, enough of the town had stirred that the officer decided the matter was beyond the [loc:police_box]'s remit and sent for outside assistance.\n\nThe investigator arrived by the first coastal motor-bus of the morning, rain still falling, the neon signs of [loc:neon_alley] dark and cold in the grey light. The officer met him at [loc:police_box] with a map of the port and a short account of what had been found — and left the rest to him."
+}
