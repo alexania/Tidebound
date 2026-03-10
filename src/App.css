@@ -36,6 +36,27 @@
   text-transform: uppercase;
 }
 
+.menu__manual-gen {
+  margin-top: -8px;
+}
+
+.menu__copy-prompt {
+  background: none;
+  border: none;
+  color: var(--color-text-dim);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.6;
+}
+
+.menu__copy-prompt:hover {
+  opacity: 1;
+  color: var(--color-text);
+}
+
 .api-key-screen {
   display: flex;
   flex-direction: column;
@@ -96,9 +117,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  gap: 24px;
+  min-height: 100vh;
+  padding: 64px 24px;
+  gap: 16px;
   text-align: center;
 }
 
@@ -115,6 +136,30 @@
   color: var(--color-confirmed);
 }
 
-.solved-screen p {
+.solved-screen__meta {
   color: var(--color-text-dim);
+  margin-bottom: 24px;
+}
+
+.solved-screen__epilogue {
+  max-width: 640px;
+  text-align: left;
+  border-top: 1px solid var(--color-border);
+  padding-top: 32px;
+  margin-bottom: 16px;
+}
+
+.solved-screen__epilogue h3 {
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 20px;
+}
+
+.solved-screen__epilogue p {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 14px;
 }

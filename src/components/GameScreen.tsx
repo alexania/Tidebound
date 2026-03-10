@@ -39,8 +39,8 @@ export function GameScreen({
   return (
     <div className="game-screen">
       <div className="game-screen__header">
-        <span className="game-screen__village">{scenario.village.name}</span>
-        <span className="game-screen__weather">{scenario.village.weather}</span>
+        <span className="game-screen__village">{scenario.location.name}</span>
+        <span className="game-screen__weather">{scenario.location.weather}</span>
         <span className="game-screen__turn">Turn {gameState.turn}</span>
       </div>
 

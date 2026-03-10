@@ -1,0 +1,788 @@
+{
+  "location": {
+    "name": "Caille Mòr",
+    "season": "autumn",
+    "weather": "low haar rolling off the firth, burning off by noon",
+    "arrival_location": "harbour_quay"
+  },
+  "crime": {
+    "cause_of_death": "throat cut",
+    "murder_location": "peat_cutting",
+    "body_found_location": "peat_cutting",
+    "body_was_moved": false,
+    "time_of_death": "between midnight and two in the morning",
+    "perpetrator_ids": [
+      "fergus_keel"
+    ],
+    "motive": "preventing exposure of a false identity",
+    "hidden_truth": "Niall Osson was living under a false name — he was born Niall Bourke, a deserter from the Revenue service who embezzled from a seizure fund twelve years ago"
+  },
+  "characters": [
+    {
+      "id": "niall_osson",
+      "name": "Niall Osson",
+      "isVictim": true,
+      "local": false,
+      "location": "peat_cutting",
+      "description": "A reed-thin man in his mid-forties who arrived in Caille Mòr seven years ago, bought the croft above the peat banks, and kept largely to himself. His hands are folded under his chest and there is dark staining on the peat around his collar, though his face is turned away from the path."
+    },
+    {
+      "id": "fergus_keel",
+      "name": "Fergus Keel",
+      "isVictim": false,
+      "local": true,
+      "location": "keel_cooperage",
+      "description": "A broad-shouldered barrel-maker in his early fifties, with a white scar along his left jaw and hands perpetually stained with oak tannin. He greets the investigator with a flat handshake and an offer of water, watching the door throughout."
+    },
+    {
+      "id": "marta_ross",
+      "name": "Marta Ross",
+      "isVictim": false,
+      "local": true,
+      "location": "harbour_quay",
+      "description": "The harbour-master's widow, who took over the ledger work after her husband drowned three winters past. She is perhaps sixty, compact and precise, with ink-stained fingers and a habit of finishing other people's sentences. She meets the investigator at the quay before the boat has even tied off."
+    },
+    {
+      "id": "cora_vane",
+      "name": "Cora Vane",
+      "isVictim": false,
+      "local": false,
+      "location": "spire_chapel",
+      "description": "A minister's assistant who arrived from the mainland two seasons ago and has been cataloguing the chapel's parish records. She is pale, earnest, and slightly out of breath from climbing the hill. She keeps a leather ledger pressed against her ribs."
+    },
+    {
+      "id": "donal_birch",
+      "name": "Donal Birch",
+      "isVictim": false,
+      "local": true,
+      "location": "croft_road",
+      "description": "A young crofter, perhaps twenty-two, who leased the lower field from Niall Osson and still owes two seasons of rent. He stands in the road with his cap turning in his hands, red-eyed but not visibly weeping."
+    },
+    {
+      "id": "ines_tam",
+      "name": "Ines Tam",
+      "isVictim": false,
+      "local": true,
+      "location": "croft_road",
+      "description": "Donal Birch's aunt and the closest thing Caille Mòr has to a physician — she extracts teeth, sets bones, and sells tinctures from a basket. She is small and deliberate, with white hair cut close, and she regards the investigator with professional detachment."
+    }
+  ],
+  "items": [
+    {
+      "id": "folding_knife",
+      "name": "Folding Knife",
+      "description": "A heavy bone-handled folding knife, blade open and fixed with a locking pin, blade edge showing a dark reddish-brown discolouration along the lower third.",
+      "starting_location": "peat_cutting"
+    },
+    {
+      "id": "cooper_gauge",
+      "name": "Cooper's Gauge",
+      "description": "A flat brass stave-gauge stamped with a thistle mark and the initials F.K., found lying in the peat sedge roughly four yards from the body.",
+      "starting_location": "peat_cutting"
+    },
+    {
+      "id": "revenue_paper",
+      "name": "Revenue Paper",
+      "description": "A folded sheet of heavy cream paper, the letterhead partially torn away, bearing a list of surnames and dates in a formal copperplate hand, with one line heavily scored through in different ink.",
+      "starting_location": "spire_chapel"
+    },
+    {
+      "id": "tallow_lantern",
+      "name": "Tallow Lantern",
+      "description": "A small tin field-lantern with a cracked horn panel, the tallow inside burned down to a flat stub, the exterior sooted from extended use.",
+      "starting_location": "peat_cutting"
+    },
+    {
+      "id": "wet_boots",
+      "name": "Pair of Wet Boots",
+      "description": "A pair of heavy leather working boots, left outside the cooperage door, the soles caked with dark peat and the uppers wet to the ankle.",
+      "starting_location": "keel_cooperage"
+    },
+    {
+      "id": "parish_ledger",
+      "name": "Parish Ledger",
+      "description": "A thick cloth-bound register of baptisms and burials dating back forty years, with a loose leaf tucked inside the back cover bearing two names connected by an arrow in pencil.",
+      "starting_location": "spire_chapel"
+    }
+  ],
+  "locations": [
+    {
+      "id": "harbour_quay",
+      "name": "Harbour Quay",
+      "flavour": "Barnacled stone steps descend into grey water, and the smell of salt and old fish-gut never quite leaves.",
+      "col": 0,
+      "row": 2
+    },
+    {
+      "id": "keel_cooperage",
+      "name": "Keel's Cooperage",
+      "flavour": "The tang of hot iron hoops and fresh shavings fills the air; the thud of a mallet comes through the walls even when the door is shut.",
+      "col": 1,
+      "row": 2
+    },
+    {
+      "id": "croft_road",
+      "name": "Croft Road",
+      "flavour": "A rutted track between low drystone walls, the haar clinging longest in the hollows between the stones.",
+      "col": 2,
+      "row": 2
+    },
+    {
+      "id": "peat_cutting",
+      "name": "Peat Cutting",
+      "flavour": "Stepped trenches of black and amber earth stretch toward the firth, the ground soft enough to swallow a boot whole.",
+      "col": 2,
+      "row": 1
+    },
+    {
+      "id": "spire_chapel",
+      "name": "Pale Spire Chapel",
+      "flavour": "The whitewashed steeple is the first and last thing visible in mist; inside it smells of old wool and lamp-black.",
+      "col": 0,
+      "row": 0
+    },
+    {
+      "id": "firth_shore",
+      "name": "Firth Shore",
+      "flavour": "Flat grey rock shelving into brown water, the tide-line edged with bladder-wrack and sun-bleached driftwood.",
+      "col": 1,
+      "row": 1
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "harbour_quay",
+      "to": "keel_cooperage"
+    },
+    {
+      "from": "harbour_quay",
+      "to": "firth_shore"
+    },
+    {
+      "from": "keel_cooperage",
+      "to": "croft_road"
+    },
+    {
+      "from": "keel_cooperage",
+      "to": "firth_shore"
+    },
+    {
+      "from": "croft_road",
+      "to": "peat_cutting"
+    },
+    {
+      "from": "peat_cutting",
+      "to": "firth_shore"
+    },
+    {
+      "from": "spire_chapel",
+      "to": "firth_shore"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "Cause of Death",
+      "answer_options": [
+        "throat cut",
+        "drowning",
+        "blunt force to the skull",
+        "poisoning",
+        "stabbing to the torso"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where Was the Murder Committed?",
+      "answer_options": [
+        "Peat Cutting",
+        "Keel's Cooperage",
+        "Firth Shore",
+        "Croft Road",
+        "Pale Spire Chapel"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When Did the Murder Occur?",
+      "answer_options": [
+        "Between midnight and two in the morning",
+        "Late afternoon, before sunset",
+        "Shortly after dusk",
+        "In the early hours before dawn, after three",
+        "Around midday"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who Committed the Murder?",
+      "answer_options": [
+        "Fergus Keel",
+        "Marta Ross",
+        "Cora Vane",
+        "Donal Birch",
+        "Ines Tam"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why Was Niall Osson Killed?",
+      "answer_options": [
+        "To prevent exposure of a false identity",
+        "To cancel an unpaid debt",
+        "Revenge for a past betrayal",
+        "To seize the croft and its land",
+        "To silence a witness to smuggling"
+      ]
+    },
+    {
+      "id": "hidden_truth",
+      "label": "What Was Niall Osson Hiding?",
+      "answer_options": [
+        "He was a Revenue deserter living under a false name after embezzling from a seizure fund",
+        "He was a fugitive convicted of manslaughter on the mainland",
+        "He was a spy placed in the village by a merchant syndicate",
+        "He was the illegitimate heir to a contested estate",
+        "He had previously faked his own death to escape a marriage contract"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cod_c1",
+      "checkpoint": "cause_of_death",
+      "answer": "throat cut",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "peat_cutting",
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "Crouching beside the body at [loc:peat_cutting], the investigator can see a wide horizontal wound across the front of the throat, the edges clean and the cut running ear to near-ear in depth.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_c2",
+      "checkpoint": "cause_of_death",
+      "answer": "throat cut",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "folding_knife"
+      },
+      "requires_clue_id": "cod_c1",
+      "text": "The blade of the folding knife is single-edged and slightly curved, exactly consistent in width with the wound seen at [loc:peat_cutting], and the discolouration runs along the full length of the cutting edge.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_rh1",
+      "checkpoint": "cause_of_death",
+      "answer": "drowning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marta_ross"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marta Ross] tells the investigator that [char:Niall Osson] was seen walking alone toward the firth shore the night before his body was found, and that he had no lantern with him.",
+      "red_herring_explanation": "Points toward drowning by placing the victim near the water at night, but the cause of death is a cut throat and the body was found at the peat cutting."
+    },
+    {
+      "id": "cod_rh2",
+      "checkpoint": "cause_of_death",
+      "answer": "blunt force to the skull",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "ines_tam"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Ines Tam] tells the investigator that [char:Niall Osson] came to her [time:three weeks ago] with a headache and a bruise above his left ear, which he said came from slipping on wet rock at the firth.",
+      "red_herring_explanation": "Implies a history of head injury and suggests blunt force, but the injury was old and unrelated to the murder."
+    },
+    {
+      "id": "cod_rh3",
+      "checkpoint": "cause_of_death",
+      "answer": "poisoning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "donal_birch"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Donal Birch] tells the investigator that [char:Niall Osson] had been complaining of stomach cramps and refused food at the harvest supper [time:four days ago], and that he had looked grey-faced for a week before his death.",
+      "red_herring_explanation": "Suggests poisoning through a pattern of physical decline, but the cramps were unrelated to the cause of death."
+    },
+    {
+      "id": "loc_c1",
+      "checkpoint": "true_location",
+      "answer": "Peat Cutting",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "peat_cutting",
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "At [loc:peat_cutting], the ground immediately around the body is heavily disturbed — deep heel-scuffs in the wet peat surface on both sides of the corpse, with no comparable disturbance visible on the path leading in.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "loc_c2",
+      "checkpoint": "true_location",
+      "answer": "Peat Cutting",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "peat_cutting",
+        "item": "tallow_lantern"
+      },
+      "requires_clue_id": null,
+      "text": "The tallow lantern at [loc:peat_cutting] is burned entirely to its stub; the tallow used matches the duration of a full night burning, and the exterior soot pattern shows it was set down and left upright on flat ground, not carried.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "loc_rh1",
+      "checkpoint": "true_location",
+      "answer": "Firth Shore",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "firth_shore",
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "At [loc:firth_shore], there is a flattened area in the bladder-wrack along the tide-line, roughly body-sized, with the wrack pressed down and not yet sprung back.",
+      "red_herring_explanation": "Suggests the body lay here, implying the firth shore as murder location, but the flattened wrack is from a boat being dragged up the previous evening."
+    },
+    {
+      "id": "loc_rh2",
+      "checkpoint": "true_location",
+      "answer": "Keel's Cooperage",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marta_ross"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marta Ross] tells the investigator she heard raised voices from the direction of [loc:keel_cooperage] [time:late on the night of the murder], though the wind off the firth made it difficult to fix the direction precisely.",
+      "red_herring_explanation": "Implies the confrontation happened at the cooperage, but the voices were Fergus Keel arguing with a different matter entirely, earlier in the evening."
+    },
+    {
+      "id": "loc_rh3",
+      "checkpoint": "true_location",
+      "answer": "Croft Road",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "croft_road",
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "On [loc:croft_road], there is a dark smear on the top course of the drystone wall at knee height, roughly hand-sized and dried to a rust colour.",
+      "red_herring_explanation": "Suggests a struggle or the body passing this point, but the smear is sheep-marking dye applied that same week."
+    },
+    {
+      "id": "tod_c1",
+      "checkpoint": "time_of_death",
+      "answer": "Between midnight and two in the morning",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "ines_tam"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Ines Tam] examines the body at the investigator's request and states that the stiffness has fully taken hold in the jaw and neck but has not yet reached the lower legs, and that in the cold of a September night she would place death at [time:between eight and ten hours before dawn].",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_c2",
+      "checkpoint": "time_of_death",
+      "answer": "Between midnight and two in the morning",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "peat_cutting",
+        "item": "tallow_lantern"
+      },
+      "requires_clue_id": "tod_c1",
+      "text": "The tallow stub in the lantern at [loc:peat_cutting] is burned flat, and a field lantern of this size burns for five to six hours; if lit at dusk around [time:seven in the evening], it would have guttered out [time:between midnight and one in the morning].",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_rh1",
+      "checkpoint": "time_of_death",
+      "answer": "Shortly after dusk",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "donal_birch"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Donal Birch] tells the investigator that [char:Niall Osson] did not come to the croft road boundary at the usual [time:evening hour] to check the gate latch, which he did every night without fail.",
+      "red_herring_explanation": "Implies Niall was already dead or incapacitated by dusk, but in fact he simply skipped the routine that evening to go directly to the peat cutting."
+    },
+    {
+      "id": "tod_rh2",
+      "checkpoint": "time_of_death",
+      "answer": "In the early hours before dawn, after three",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marta_ross"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marta Ross] tells the investigator she was awake at [time:half past three in the morning] due to a beached boat scraping the quay, and heard footsteps on the path above the harbour — unhurried, single person, heading inland.",
+      "red_herring_explanation": "Suggests movement around the peat cutting after three, implying a later murder, but the footsteps were a fisherman returning from a night catch."
+    },
+    {
+      "id": "tod_rh3",
+      "checkpoint": "time_of_death",
+      "answer": "Late afternoon, before sunset",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "cora_vane"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Cora Vane] tells the investigator she saw [char:Niall Osson] walking away from [loc:spire_chapel] at [time:around four in the afternoon], and that he had left abruptly mid-conversation, his face white.",
+      "red_herring_explanation": "Implies the fatal encounter occurred shortly after this meeting, suggesting an afternoon death, but Niall was alive well into the night."
+    },
+    {
+      "id": "perp_c1",
+      "checkpoint": "perpetrator",
+      "answer": "Fergus Keel",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "peat_cutting",
+        "item": "cooper_gauge"
+      },
+      "requires_clue_id": null,
+      "text": "The brass gauge found in the peat sedge at [loc:peat_cutting] is stamped with the initials F.K. and a thistle mark identical to the stamp visible on finished barrels stacked outside [loc:keel_cooperage].",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_c2",
+      "checkpoint": "perpetrator",
+      "answer": "Fergus Keel",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "wet_boots"
+      },
+      "requires_clue_id": "perp_c1",
+      "text": "The peat caked on the soles of the wet boots outside [loc:keel_cooperage] is dark black and fibrous — the same upper-bank peat visible at [loc:peat_cutting] — not the grey-brown estuary mud found closer to [loc:firth_shore] or [loc:harbour_quay].",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_rh1",
+      "checkpoint": "perpetrator",
+      "answer": "Donal Birch",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "donal_birch"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Donal Birch] tells the investigator he cannot account for his whereabouts between [time:eleven at night and two in the morning], saying only that he was walking and could not sleep, and he will not say where.",
+      "red_herring_explanation": "The missing alibi makes Donal appear suspicious, but he was visiting a girl in the next township and will not say so for reasons of propriety."
+    },
+    {
+      "id": "perp_rh2",
+      "checkpoint": "perpetrator",
+      "answer": "Cora Vane",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "cora_vane"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Cora Vane] becomes visibly agitated when the investigator mentions [char:Niall Osson]'s name, breaks off eye contact, and states she only spoke to him twice before going quiet and asking if the conversation is finished.",
+      "red_herring_explanation": "Her distress implies personal involvement in the death, but she is frightened because she discovered the revenue paper and has not yet decided whether to come forward."
+    },
+    {
+      "id": "perp_rh3",
+      "checkpoint": "perpetrator",
+      "answer": "Marta Ross",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marta_ross"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marta Ross] tells the investigator she had a formal dispute with [char:Niall Osson] over the harbour levy register, and that she had written twice to the county office about irregularities in his declared catch weights.",
+      "red_herring_explanation": "The formal dispute creates motive for Marta, but the complaint was bureaucratic only and she had no knowledge of Niall's concealed identity."
+    },
+    {
+      "id": "mot_c1",
+      "checkpoint": "motive",
+      "answer": "To prevent exposure of a false identity",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "parish_ledger"
+      },
+      "requires_clue_id": "perp_c1",
+      "text": "The loose leaf tucked into the back of the parish ledger shows two names connected by a pencilled arrow: 'Niall Bourke' pointing to 'Niall Osson', with a date beside the second name matching the year Niall arrived in Caille Mòr.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_c2",
+      "checkpoint": "motive",
+      "answer": "To prevent exposure of a false identity",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "fergus_keel"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": "mot_c1",
+      "text": "When the investigator shows [char:Fergus Keel] the parish ledger's loose leaf, he goes very still, then says that [char:Niall Osson] had told him [time:the week before the murder] that someone in the village had found out his real name and that he was going to be ruined.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_rh1",
+      "checkpoint": "motive",
+      "answer": "To cancel an unpaid debt",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "donal_birch"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Donal Birch] tells the investigator that [char:Niall Osson] had recently told him the overdue rent would be called in before winter, and that if it was not paid, he would be put off the lower field entirely.",
+      "red_herring_explanation": "Creates a debt-cancellation motive for Donal, but the murder was committed by Fergus Keel for an unrelated reason."
+    },
+    {
+      "id": "mot_rh2",
+      "checkpoint": "motive",
+      "answer": "To silence a witness to smuggling",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marta_ross"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marta Ross] tells the investigator that two barrels of undeclared spirit were found in a sea-cave below [loc:peat_cutting] last spring, and that [char:Niall Osson] was the one who reported them to the county — then withdrew the report a week later.",
+      "red_herring_explanation": "The withdrawn smuggling report implies Niall was silenced before he could speak again, but the withdrawal was made under pressure unrelated to his death."
+    },
+    {
+      "id": "mot_rh3",
+      "checkpoint": "motive",
+      "answer": "To seize the croft and its land",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "ines_tam"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Ines Tam] tells the investigator that [char:Niall Osson]'s croft sits above a freshwater spring, and that [char:Fergus Keel] had made two offers to buy the land in the past three years, both refused.",
+      "red_herring_explanation": "Implies Fergus killed to acquire the croft, but his actual motive was protecting the secret Niall had discovered about Fergus's own past identity fraud."
+    },
+    {
+      "id": "ht_c1",
+      "checkpoint": "hidden_truth",
+      "answer": "He was a Revenue deserter living under a false name after embezzling from a seizure fund",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "revenue_paper"
+      },
+      "requires_clue_id": null,
+      "text": "The revenue paper is a listing of agents assigned to a coastal seizure operation dated [time:twelve years ago]; the name scored through in different ink reads 'N. Bourke', with 'absconded' written in the margin beside a figure in pounds.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "ht_c2",
+      "checkpoint": "hidden_truth",
+      "answer": "He was a Revenue deserter living under a false name after embezzling from a seizure fund",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "cora_vane"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": "ht_c1",
+      "text": "[char:Cora Vane] tells the investigator that while cross-referencing the parish register she found a baptismal entry for a 'Niall Bourke' in a coastal parish forty miles south, and that the birth year, physical description, and father's trade all matched [char:Niall Osson] exactly — but no death record for Bourke exists anywhere in the register system.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "ht_rh1",
+      "checkpoint": "hidden_truth",
+      "answer": "He was a fugitive convicted of manslaughter on the mainland",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marta_ross"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marta Ross] tells the investigator that a travelling drover who passed through [time:two summers ago] claimed to recognise [char:Niall Osson] as a man who had been tried for a killing in Inverness, though she dismissed it as drink-talk at the time.",
+      "red_herring_explanation": "Implies a violent criminal past under a false name, but the drover was mistaken; the true secret was revenue fraud and desertion."
+    },
+    {
+      "id": "ht_rh2",
+      "checkpoint": "hidden_truth",
+      "answer": "He was a spy placed in the village by a merchant syndicate",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "donal_birch"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Donal Birch] tells the investigator that [char:Niall Osson] received sealed letters by the coastal packet four or five times a year, always burned them the same day in the field, and never mentioned who sent them.",
+      "red_herring_explanation": "The destroyed correspondence implies covert communication with an outside organisation, but the letters were from a cousin keeping track of whether Niall had been found."
+    },
+    {
+      "id": "ht_rh3",
+      "checkpoint": "hidden_truth",
+      "answer": "He had previously faked his own death to escape a marriage contract",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "ines_tam"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Ines Tam] tells the investigator that when she once treated [char:Niall Osson] for a wound she noticed a faded tattoo on his inner forearm — a knotwork band with a date worked into it — and that he covered it immediately and said it was from before he was married.",
+      "red_herring_explanation": "A tattoo with a hidden date suggests a past life event like a marriage or its evasion, but the tattoo marked his recruitment intake date into the Revenue service and is unrelated to any marriage."
+    }
+  ],
+  "relations": [
+    {
+      "from": "fergus_keel",
+      "to": "niall_osson",
+      "label": "made repeated land offers to"
+    },
+    {
+      "from": "donal_birch",
+      "to": "niall_osson",
+      "label": "tenant of"
+    },
+    {
+      "from": "ines_tam",
+      "to": "donal_birch",
+      "label": "aunt of"
+    },
+    {
+      "from": "marta_ross",
+      "to": "niall_osson",
+      "label": "in formal dispute with"
+    },
+    {
+      "from": "cora_vane",
+      "to": "spire_chapel",
+      "label": "employed at"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_1",
+      "text": "The body of [char:Niall Osson] was found at first light by [char:Donal Birch] at [loc:peat_cutting]; [char:Donal Birch] and his aunt [char:Ines Tam] are both waiting on [loc:croft_road], which runs past the cutting.",
+      "character_id": "donal_birch",
+      "location_id": "croft_road"
+    },
+    {
+      "id": "lead_2",
+      "text": "A brass tool was spotted lying in the peat sedge near the body at [loc:peat_cutting], some yards from where [char:Niall Osson] lies.",
+      "character_id": null,
+      "location_id": "peat_cutting"
+    },
+    {
+      "id": "lead_3",
+      "text": "[char:Cora Vane] has been working in [loc:spire_chapel] for two seasons cataloguing parish records; she was reportedly one of the last people to speak with [char:Niall Osson] before his death.",
+      "character_id": "cora_vane",
+      "location_id": "spire_chapel"
+    }
+  ],
+  "opening_narrative": "The packet boat from the county seat put the investigator ashore at [loc:harbour_quay] in the early morning, the haar still thick on the water and the village of Caille Mòr barely visible above its own reflection. [char:Marta Ross] was waiting at the top of the quay steps with a shawl over her shoulders and a ledger under her arm, as if she had come to record his arrival rather than request it.\n\nShe explained, in the flat tones of someone who has already explained the same thing several times that morning, that [char:Niall Osson] — a crofter who had lived above the peat banks for seven years without incident — had been found dead at [loc:peat_cutting] at first light. The parish had no constable. The county had been written to [time:at dawn]. The investigator had come on the fast packet because the county factor knew the body could not wait.\n\n[char:Marta Ross] offered to walk him up herself, then thought better of it and pointed him toward [loc:croft_road] instead, where [char:Donal Birch] and his aunt [char:Ines Tam] were waiting to show the way. The firth was audible but not visible, and the pale steeple of [loc:spire_chapel] was the only fixed point in the grey."
+}

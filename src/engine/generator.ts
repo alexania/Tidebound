@@ -6,75 +6,111 @@ import type { Scenario, Difficulty } from '../types/scenario'
 import { validateScenario } from './validator'
 
 const SYSTEM_PROMPT = `You are generating a complete murder mystery scenario for a single-player deduction game.
-The only hard setting constraint is that it is coastal — the sea is present, accessible, part of daily life.
-Everything else — culture, era, tone, geography — is yours to decide based on the seed.
-
-Tone: matter-of-fact and specific. Eerie where earned, not by default. Violence and sexuality are not sanitised but not gratuitous. The supernatural may be implied but is never confirmed.
-
-You must return ONLY a valid JSON object. No preamble, no explanation, no markdown fences. Raw JSON only.
+The only hard setting constraint is that it is coastal.
+The culture is provided as a constraint — use it as the primary lens for setting, naming, social structure, and atmosphere. Era, tone, and geography follow from the culture.
 
 THE INVESTIGATOR:
-Every scenario includes a special character with id "investigator" — an official brought in from outside, whose presence is why people are talking at all. Not named or described in the JSON; the engine adds him. He always starts at the arrival_location. Use "investigator" as a character id in clue conditions. Roughly half of clue conditions should involve the investigator. Do not include him in the characters array.
+Every scenario includes a special character with id "investigator" — an official brought in from outside, whose presence is why people are talking at all. Not named or described in the JSON; the engine adds him. He always starts at the arrival_location. All clue conditions involve the investigator — every condition type begins with "investigator_". Do not include him in the characters array.
 
-GENERATION ORDER — work through these steps before writing JSON:
+═══════════════════════════════════════════════════════
+PHASE 1 — STORY BIBLE
+Write everything inside <story></story> tags. Complete all steps before writing any JSON.
+═══════════════════════════════════════════════════════
 
-STEP 1 — SETTING: Decide coastal location (real or fictional region), era, cultural texture, season, weather, village name. Let the seed influence these. Avoid defaulting to English/fog/autumn. Consider Nordic, Basque, Louisiana bayou, Japanese fishing prefecture, West African coastal town, Ottoman port, Pacific island, Baltic amber coast, and so on.
+STEP 1 — SETTING
+Build the setting from the culture. Decide: coastal location, season, weather, location name. Use the seed for atmospheric texture.
 
-STEP 2 — CRIME: Decide the full truth before writing characters or clues. Who the victim is. Who the perpetrator is and exactly why. Method, murder location, body found location, whether moved, time window. The one or two things the perpetrator did wrong that the investigator will find.
+STEP 2 — CRIME
+Decide the full truth before writing characters or clues: who the victim is, who the perpetrator is and exactly why, method, murder location, body found location, whether moved, time window.
+Then identify the one or two things the perpetrator could not avoid — traces that require inference, not observation. The perpetrator should have a plausible innocent explanation for being connected to at least one piece of evidence; the investigator must disprove it, not merely observe it. Avoid evidence that is personally identified (monogrammed, signed, initialled).
 
-STEP 3 — CHARACTERS & RELATIONS: 5–7 characters including the victim. Every non-victim character must have a plausible stated motive — even the innocent ones. Also generate publicly known relationships between characters: employment, family, open romantic interest, open enmity. No secrets, no debts, nothing crime-related. Label each relation briefly and directionally: "employs", "sister of", "in love with", "rivals with".
+STEP 3 — CHARACTERS & RELATIONS
+5–7 characters including the victim. Every non-victim character must have a plausible stated motive — even the innocent ones. Set their location — fixed for the whole game. Place them where it makes narrative sense and creates interesting investigator routes.
+No more than 2 characters should share any location. Concentrating characters in one place floods a single turn with clues and removes the need to plan routes. Spread characters so the player has genuine decisions about where to go.
+For each non-perpetrator character: note what they know, what they suspect, and what they are concealing — and why.
+Publicly known relationships: employment, family, open romantic interest, open enmity. No secrets, no debts, nothing crime-related. Label each directionally: "employs", "sister of", "rivals with".
 
-STEP 4 — LOCATIONS: Up to 9 locations — as many as the scenario genuinely needs, no more. One must be the arrival_location. Each has id (snake_case), name (display string), flavour (one atmospheric sentence), and a col (0–2) and row (0–2) placing it in a 3×3 grid. No two locations may share the same (col, row). Also define location_adjacencies — pairs of locations connected by paths, shorelines, or sightlines (3–8 pairs, visual only). Don't invent locations just to fill a grid.
+STEP 4 — CLUE PLAN
+Plan the full clue structure before writing any JSON. This is the most critical step.
 
-STEP 5 — ITEMS: As many items as the scenario needs, up to 8. Each must be referenced in at least one clue condition. No orphan items. Item descriptions are plain physical observations only — colour, shape, condition, visible markings. Do not include interpretive detail that reveals what the item is evidence of; that is the clue's job. BAD: "a residue that smells nothing like dairy." GOOD: "a faint discolouration above the cream line."
+For each of the 5 checkpoints (cause_of_death, true_location, time_of_death, perpetrator, motive):
 
-STEP 6 — CHECKPOINTS: All 6, with 4–6 answer options each. Correct answer present but not marked.
+CORRECT CLUES — plan 2, obtainable from different locations. For each:
+- What is the condition? (investigator where, with whom, with what item)
+- What raw observation does the clue text contain? No interpretations — only what was seen, heard, touched, or said.
+- DISCOVERABILITY: What specific information already visible to the player — character descriptions, item descriptions at their starting locations, relations, leads, or text from an already-collectable clue — would cause them to attempt this exact condition? Name it explicitly. If you cannot, the condition is wrong: move a character, relocate an item, or add a lead until a clear path exists.
 
-STEP 7 — CLUES: Per checkpoint: exactly 2 "correct" clues + 3 "red_herring" clues, each pointing at a DIFFERENT wrong answer. If two red herrings point at the same answer, the player has no logical way to eliminate it — the puzzle breaks.
-Before finalising each clue condition, ask: what information already visible to the player — character descriptions, starting locations, item starting locations, relations, leads, or text from a simpler already-fireable clue — would cause them to try this exact combination? If no clear answer exists, the condition is wrong. Simplify it, move a character or item to a more natural location, or add a lead that supplies the missing motivation. Every condition must be reachable through logical inference, not trial and error.
+RED HERRING CLUES — plan 3, each pointing at a DIFFERENT wrong answer_option. For each: which wrong answer does it target, and what makes the evidence misleading?
 
-STEP 8 — LEADS: Exactly 3 leads, at least 2 pointing toward early-game clue conditions.
+STORY DETAIL → PLAYER VISIBILITY:
+Every key fact from the story bible that a player needs to solve a checkpoint must be visible somewhere in the JSON — in a clue text, character description, item description, or location flavour. If it exists only in the story bible, it does not exist for the player. Before finalising, check each checkpoint: could a player who has read every piece of visible JSON text reach the correct answer? Pay particular attention to motive — the specific reason the perpetrator killed must be reconstructable from clue texts alone, not just implied by the story.
 
-HARD RULES:
-- No clue text may state or imply the answer to any checkpoint. This means no deductions, no interpretations, no phrases like "consistent with", "suggesting", "indicating", "which means", "pointing to", or "ruling out." Present only raw observations: what was seen, heard, touched, or said. The player connects the dots; the clue never connects them.
-  BAD (deduction): "The watch stopped at eleven-eighteen — consistent with the moment of a struggle at that location."
-  BAD (reasoning chain): "The tide table confirms the body could not have arrived earlier without tidal interference."
-  BAD (conclusion): "The wound pattern rules out a fall."
-  GOOD (raw observation): "The watch face is cracked, its hands stopped at eleven-eighteen. The tide table on the wall shows the rock shelf is submerged from two hours before midnight until dawn."
-  GOOD (raw observation): "The wound is a single oval depression at the back of the skull. The face and front of the clothing show no injury."
-- Clue text must be self-contained. Never reference information the player may not yet have — do not mention what another character "said", "mentioned", or "told you" unless that character is in this clue's own condition. Each clue must read as a fresh observation with no assumed prior knowledge.
-- If a clue condition does not include a character, do not name that character in the clue text or connect physical evidence to them by name. BAD: "The initials D.F. on the watch place Domingos Ferreira at the scene." GOOD: "The watch case is engraved with the initials D.F."
+STEP 5 — CONSISTENCY & VISIBILITY CHECK
+- VISIBILITY: The player sees only clue texts, character descriptions, item descriptions, and relations. For each checkpoint, trace what a player would conclude from those fields alone. Is it sufficient to reach the correct answer? If no, rewrite the relevant clues.
+- AMBIGUITY: For each correct clue, could a player reasonably cite the same observation as evidence for a wrong answer? If yes, add specificity.
+- COVERAGE: Do all 3 red herrings per checkpoint point at different wrong options? Two pointing at the same wrong answer means the player cannot eliminate it.
+- CONTRADICTIONS: Resolve everything before writing JSON.
+
+═══════════════════════════════════════════════════════
+PHASE 2 — JSON
+After </story>, write the JSON object and nothing else. No markdown fences.
+═══════════════════════════════════════════════════════
+
+LOCATIONS: Up to 9 — as many as the scenario genuinely needs. One must be the arrival_location. Each has id (snake_case), name, flavour (one atmospheric sentence), col (0–2) and row (0–2) in a 3×3 grid. No two locations share the same (col, row). Define 3–8 location_adjacencies. Don't invent locations to fill a grid.
+
+ITEMS: As many as the scenario needs, up to 8. Each must be referenced in at least one clue condition — no orphan items. Item descriptions are plain physical observations only: colour, shape, condition, visible markings. Do not include interpretive detail that reveals what the item is evidence of; that is the clue's job.
+
+CHECKPOINTS: Exactly these 5: cause_of_death, true_location, time_of_death, perpetrator, motive — each with 4–6 answer options, correct answer present but not marked.
+
+CLUES: Follow the plan from Phase 1. Per checkpoint: exactly 2 "correct" + 3 "red_herring". A clue may have requires_clue_id — the id of a correct clue that must be collected first. Set to null if immediately available. requires_clue_id must always point at a "correct" clue, never a red herring — red herrings are stripped at lower difficulties, making the dependent clue permanently unreachable.
+
+LEADS: Exactly 3. At least 2 pointing toward early-game clue conditions. Each lead must give the player a concrete reason to visit a location or seek out a character — not just name them.
+
+CLUE-WRITING RULES:
+- No clue text may state or imply the answer to any checkpoint. No deductions, no interpretations, no phrases like "consistent with", "suggesting", "indicating", "which means", "pointing to", or "ruling out." Present only raw observations: what was seen, heard, touched, or said. The player connects the dots.
+- A correct clue must be specific enough that it cannot be equally cited as evidence for a wrong answer option. Before finalising, ask: could a player reasonably use this same observation to argue for another option? If yes, add physical or testimonial specificity.
+- Perpetrator correct clues must not be individually conclusive. Each should be suspicious but deniable alone; only the combination of both should be conclusive.
+- Clue text must be self-contained. Do not reference what another character "said" unless that character is in this clue's own condition.
+- All clue conditions involve the investigator. Use only the 5 condition types defined in the schema.
+- If a clue condition does not include a character, do not name any character in the clue text — unless that character's fixed location matches the condition location.
+- When the condition includes a character, write direct testimony: "[char:Name] tells the investigator...", "Asked directly, [char:Name] admits...", "Overhearing [char:Name]..."
+- Each clue should address one checkpoint only — avoid observations that simultaneously imply answers to multiple checkpoints.
+
+GENERAL RULES:
+- Characters have a single location field — they do not move. Any character described as greeting the investigator on arrival must have location set to arrival_location.
 - The opening_narrative describes only the events leading to the investigator being summoned. No body description, no evidence.
-- Wrap character names in [char:Name] and location names in [loc:location_id] tags throughout all prose. Wrap time references in [time:phrase] tags.
+- Wrap character names in [char:Name], location names in [loc:location_id], and time references in [time:phrase] tags throughout all prose.
 - Every character id in any condition must exist in characters (except "investigator"). Every item id must exist in items. Every location id must exist in locations.
 - Red herring clues must point at a wrong answer_option and must have a red_herring_explanation.
 - Exactly one character must have isVictim: true.
-- Do NOT include "unlocked_by" on clues.
-- No two clues may share identical condition fields.
-- Any character described as meeting or greeting the investigator on arrival must have starting_location set to arrival_location.
-- If a clue involves a character saying or being overheard, the condition must include at least 2 characters.
-- If the investigator is NOT in the condition, the clue text must explain how the information reached the investigation.
-- If the investigator IS in the condition alongside another character, write direct witness: "[char:Name] tells the investigator...", "Asked directly...", "Overhearing..."`
+- Do not include multiple character conditions unless those characters share the same location.
+
+═══════════════════════════════════════════════════════
+PHASE 3 — JSON AUDIT
+After writing the JSON, trace the discovery path for every correct clue before finishing.
+═══════════════════════════════════════════════════════
+
+For each correct clue, write the complete chain: what does the player see at the start of the game that leads them to eventually attempt that condition? Trace every step. If any step requires the player to guess or try conditions at random, the clue is unreachable — fix the condition, move an item, add a lead, or surface the missing information in a prior clue's text.
+
+For each checkpoint, confirm: could a player who collected both correct clues reach the correct answer from the clue texts alone, without author knowledge? If no, rewrite.`
 
 
 const SCHEMA = `{
-  "village": {
+  "location": {
     "name": string,
-    "history": string (one paragraph — specific texture of this place; what it was built on, what shapes behaviour here),
     "season": "spring" | "summer" | "autumn" | "winter",
     "weather": string (one short evocative phrase),
     "arrival_location": location_id (where the investigator arrives — must match a location id in locations)
   },
 
   "crime": {
-    "cause_of_death": string (one of: "drowning", "poisoning — plant-based", "poisoning — compound", "blunt trauma", "strangulation", "exposure", "arson", "ritual act", "stabbing", "shooting", "decapitation", "torture", "throat cut"),
+    "cause_of_death": string,
     "murder_location": location_id,
     "body_found_location": location_id,
     "body_was_moved": boolean,
     "time_of_death": string (human-readable window),
     "perpetrator_ids": [char_id],
-    "motive": string (one of: "inheritance", "jealousy", "self-preservation", "revenge", "protection", "belief", "debt", "obsession"),
-    "hidden_truth": string | null (the correct answer for the hidden_truth checkpoint, or null if not used)
+    "motive": string
   },
 
   "characters": [
@@ -83,9 +119,8 @@ const SCHEMA = `{
       "name": string,
       "isVictim": boolean,
       "local": boolean,
-      "home_location": location_id,
-      "starting_location": location_id,
-      "description": string (2–3 sentences; victim: character sketch + investigator's first observation of the body, surface only, no cause of death; others: character sketch + their plausible motive for the crime)
+      "location": location_id (fixed for the whole game — characters do not move),
+      "description": string (2–3 sentences; victim: character sketch + investigator's first observation of the body, surface only, no cause of death; others: character sketch + investigator's first observation upon meeting)
     }
     // DO NOT include "investigator". Exactly 1 isVictim: true.
   ],
@@ -94,14 +129,14 @@ const SCHEMA = `{
     {
       "id": string (unique, snake_case),
       "name": string,
-      "description": string (one sentence — direct observation only),
+      "description": string (one sentence — direct observation only, no deductions),
       "starting_location": location_id
     }
   ],
 
   "locations": [
     { "id": location_id, "name": string, "flavour": string, "col": 0|1|2, "row": 0|1|2 }
-    // 1–9. One id must match village.arrival_location. Include only locations the scenario uses.
+    // 1–9. One id must match location.arrival_location. Include only locations the scenario uses.
     // col and row place each location in a 3×3 grid. No two locations may share the same (col, row).
     // Not all 9 cells need to be used — leave cells empty if the scenario has fewer locations.
   ],
@@ -114,16 +149,11 @@ const SCHEMA = `{
 
   "checkpoints": [
     {
-      "id": "cause_of_death" | "true_location" | "time_of_death" | "hidden_truth" | "perpetrator" | "motive",
+      "id": "cause_of_death" | "true_location" | "time_of_death" | "perpetrator" | "motive",
       "label": string,
       "answer_options": [string] (4–6 options, correct one included but not marked)
     }
-    // Always include: cause_of_death, true_location, time_of_death, perpetrator, motive (5 total).
-    // Optionally include hidden_truth as a 6th investigative checkpoint when the scenario has a
-    // meaningful secondary mystery worth surfacing — something the player couldn't deduce from the
-    // other five checkpoints alone. If there is no compelling hidden truth, omit it entirely.
-    // hidden_truth label and answer_options are yours to define based on the scenario.
-    // hidden_truth is an investigative checkpoint — it unlocks with the others, not after perpetrator.
+    // Exactly these 5, no more: cause_of_death, true_location, time_of_death, perpetrator, motive.
   ],
 
   "clues": [
@@ -133,12 +163,13 @@ const SCHEMA = `{
       "answer": string (must exactly match an entry in that checkpoint's answer_options),
       "weight": "correct" | "red_herring",
       "condition": {
-        "type": one of the 8 condition types,
-        "characters": [char_id],
-        "location": location_id | null,
-        "item": item_id | null
+        "type": one of the 5 investigator condition types,
+        "characters": [char_id] (for investigator_with_character types; empty array otherwise),
+        "location": location_id | null (for investigator_at_location types; null otherwise),
+        "item": item_id | null (for investigator_with_item types; null otherwise)
       },
-      "text": string (1–3 sentences, [char:Name] and [loc:location_id] tags, answers something AND implies next step),
+      "requires_clue_id": string | null (id of a "correct" clue that must be collected first; null = immediately available; never reference a red herring),
+      "text": string (1–3 sentences, [char:Name], [loc:location_id] and [time:phrase] tags, answers something AND implies next step),
       "red_herring_explanation": string | null
     }
     // Per checkpoint: exactly 2 "correct" + 3 "red_herring".
@@ -153,29 +184,101 @@ const SCHEMA = `{
   "leads": [
     {
       "id": string,
-      "text": string (1–2 sentences, [char:Name] and [loc:location_id] tags, observation not instruction),
+      "text": string (1–2 sentences, [char:Name], [loc:location_id] and [time:phrase] tags, observation not instruction),
       "character_id": char_id | null,
       "location_id": location_id | null
     }
     // Exactly 3. At least 2 point toward early clue conditions.
   ],
 
-  "opening_narrative": string (2–3 paragraphs, [char:Name] and [loc:location_id] tags, events up to summoning only)
+  "opening_narrative": string (2–3 paragraphs, [char:Name], [loc:location_id] and [time:phrase] tags, events up to summoning only),
+
+  "epilogue": string (2–3 paragraphs revealed after the case is solved. Its primary purpose is to surface the story bible details the player never needed to solve the crime: the victim's full history and secrets, what the perpetrator was truly concealing beyond the immediate crime, relationships and events the investigator never directly uncovered, the texture of the world before it broke. Written in past tense. May briefly note what became of key characters, but only where it illuminates something about the story — not as an accounting of outcomes. Uses [char:Name], [loc:location_id] and [time:phrase] tags. No new plot twists — revelation only.)
 }
 
-CONDITION OBJECT — use exactly these type strings:
-  { "type": "character_in_location", "characters": [char_id], "location": location_id }
-  { "type": "n_characters_in_location", "characters": [char_id, ...], "location": location_id }
-  { "type": "n_characters_together", "characters": [char_id, ...], "location": null }
-  { "type": "n_characters_together_alone", "characters": [char_id, ...], "location": null }
-  { "type": "characters_in_location_with_item", "characters": [char_id, ...], "location": location_id, "item": item_id }
-  { "type": "characters_alone_in_location_with_item", "characters": [char_id, ...], "location": location_id, "item": item_id }
-  { "type": "characters_anywhere_with_item", "characters": [char_id, ...], "location": null, "item": item_id }
-  { "type": "characters_anywhere_with_item_alone", "characters": [char_id, ...], "location": null, "item": item_id }
+CONDITION OBJECT — use exactly these 5 type strings:
+  { "type": "investigator_at_location", "characters": [], "location": location_id, "item": null }
+  { "type": "investigator_with_character", "characters": [char_id], "location": null, "item": null }
+  { "type": "investigator_with_item", "characters": [], "location": null, "item": item_id }
+  { "type": "investigator_at_location_with_item", "characters": [], "location": location_id, "item": item_id }
+  { "type": "investigator_with_character_and_item", "characters": [char_id], "location": null, "item": item_id }`
 
-CHECKPOINT GATING:
-  cause_of_death, true_location, time_of_death, hidden_truth (if present) — available from turn 1.
-  perpetrator, motive — locked until all investigative checkpoints are confirmed.`
+const CAUSES_OF_DEATH = [
+  'drowning',
+  'poisoning by ingestion',
+  'poisoning by contact or inhalation',
+  'strangulation',
+  'stabbing',
+  'suffocation',
+  'exposure and hypothermia',
+  'a fall from height',
+  'burning',
+  'blunt force trauma',
+  'exsanguination from a deep wound',
+  'drowning in a confined space',
+  'a blow to the base of the skull',
+  'asphyxiation by smoke',
+  'crushing by a heavy object',
+  'overdose — forced or staged as accidental',
+  'a thin blade between the ribs',
+  'garrotting with a cord or wire',
+  'head held underwater in a barrel or trough',
+  'throat cut',
+]
+
+const MOTIVES = [
+  'jealousy over a romantic rival',
+  'silencing a witness to an old crime',
+  'revenge for a past wrong, long nursed',
+  'concealing an ongoing affair',
+  'inheritance or property dispute',
+  'blackmail gone wrong',
+  'protecting a trade or professional secret',
+  'a debt that could never be repaid',
+  'ideological or religious conviction',
+  'rivalry over land or livelihood',
+  'preventing exposure of a false identity',
+  'protecting a family member from ruin',
+  'fury at perceived betrayal by a trusted friend',
+  'greed over a discovered cache of valuables',
+  'eliminating a rival claimant to a position or title',
+  'covering up a previous accidental death',
+  'fear of being disinherited',
+  'resentment over years of public humiliation',
+  'preventing a marriage the perpetrator opposed',
+  'destroying evidence of wartime collaboration or desertion',
+]
+
+const BODY_MOVED = [true, false]
+
+const CULTURES = [
+  'Norse fishing communities of the 10th century',
+  'Ottoman coastal traders of the 16th century',
+  'Celtic-influenced Atlantic island clans',
+  'Edo-period Japanese fishing villages',
+  'Caribbean free settlements of the 17th century',
+  'Hanseatic trading port cultures of medieval Germany',
+  'Polynesian outrigger seafarers',
+  'Venetian lagoon dwellers of the Renaissance',
+  'Victorian-era Cornish wrecker communities',
+  'Ancient Phoenician merchant colonies',
+  'The Drenathi — a fictional theocratic archipelago nation',
+  'The Kauvari — a fictional matrilineal salt-trading culture',
+  'Ming dynasty pearl-diving communities',
+  'West African Ijaw delta fishermen of the 18th century',
+  'The Orrish — a fictional cold-water culture with strict ancestor veneration',
+  'Colonial New England whalers',
+  'Basque deep-sea fishing communities of the 16th century',
+  'The Valdessi — a fictional Mediterranean city-state built on stilts',
+  'Meiji-era Japanese modernising coastal towns',
+  'The Greymarch Confederacy — a fictional northern archipelago with a mercantile senate',
+]
+
+function hashSeed(seed: string, offset: number): number {
+  let h = offset
+  for (const c of seed) h = (Math.imul(h, 31) + c.charCodeAt(0)) >>> 0
+  return h
+}
 
 function generateSeed(): string {
   const nouns = [
@@ -194,6 +297,32 @@ function generateSeed(): string {
   return `${adj}-${n1}-${n2}-${num}`
 }
 
+function buildUserMessage(seed: string): string {
+  const causeOfDeath = CAUSES_OF_DEATH[hashSeed(seed, 0) % CAUSES_OF_DEATH.length]
+  const motive = MOTIVES[hashSeed(seed, 1) % MOTIVES.length]
+  const bodyMoved = BODY_MOVED[hashSeed(seed, 2) % BODY_MOVED.length]
+  const culture = CULTURES[hashSeed(seed, 3) % CULTURES.length]
+
+  return `Scenario seed: ${seed}
+Culture: ${culture}
+Cause of death: ${causeOfDeath}
+Motive: ${motive}
+Body moved: ${bodyMoved ? 'yes — the body was moved from the murder location before being found' : 'no — the body was found exactly where the murder occurred'}
+
+Use the seed as a creative starting point for setting, atmosphere, and narrative texture. The cause of death, motive, and body moved flag are constraints — build the crime around them.
+
+Generate a complete Tidebound murder mystery scenario.
+
+Return a JSON object matching this schema exactly:
+
+${SCHEMA}`
+}
+
+export function generatePromptForClipboard(): string {
+  const seed = generateSeed()
+  return buildUserMessage(seed)
+}
+
 export interface GeneratorOptions {
   difficulty: Difficulty
   apiKey: string
@@ -204,15 +333,7 @@ export async function generateScenario(options: GeneratorOptions): Promise<Scena
   const { difficulty, apiKey, maxRetries = 3 } = options
 
   const seed = generateSeed()
-
-  const userMessage = `Scenario seed: ${seed}
-Use this seed as a creative starting point — let it influence the setting, atmosphere, and narrative texture.
-
-Generate a complete Tidebound murder mystery scenario.
-
-Return a JSON object matching this schema exactly:
-
-${SCHEMA}`
+  const userMessage = buildUserMessage(seed)
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     console.log(`Generation attempt ${attempt}/${maxRetries} (seed: ${seed})...`)
@@ -227,7 +348,7 @@ ${SCHEMA}`
       },
       body: JSON.stringify({
         model: 'claude-opus-4-6',
-        max_tokens: 8000,
+        max_tokens: 10000,
         temperature: 1.0,
         system: SYSTEM_PROMPT,
         messages: [{ role: 'user', content: userMessage }],
@@ -244,9 +365,13 @@ ${SCHEMA}`
       .map((b: { text: string }) => b.text)
       .join('')
 
+    // Strip the <story>...</story> bible before parsing JSON
+    const storyEnd = rawText.indexOf('</story>')
+    const jsonText = storyEnd !== -1 ? rawText.slice(storyEnd + '</story>'.length).trim() : rawText
+
     let parsed: Scenario
     try {
-      parsed = JSON.parse(rawText)
+      parsed = JSON.parse(jsonText)
     } catch {
       console.warn(`Attempt ${attempt}: JSON parse failed. Retrying...`)
       continue
@@ -279,7 +404,7 @@ const PLAYED_KEY = 'tidebound_played'
 export function saveScenario(scenario: Scenario, difficulty: Difficulty): string {
   const key = `${STORAGE_KEY_PREFIX}${difficulty}`
   const existing = loadScenarios(difficulty)
-  const id = `${scenario.village.name.toLowerCase().replace(/\s+/g, '_')}_${Date.now()}`
+  const id = `${scenario.location.name.toLowerCase().replace(/\s+/g, '_')}_${Date.now()}`
   existing.push({ id, scenario })
   localStorage.setItem(key, JSON.stringify(existing))
   return id

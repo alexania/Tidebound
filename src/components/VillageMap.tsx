@@ -26,7 +26,7 @@ function getLocationAnnotation(
 
   if (locId === scenario.crime.body_found_location) return 'Body found here'
   if (locId === scenario.crime.murder_location && trueLocationConfirmed) return 'Crime scene'
-  if (victim && locId === victim.home_location) return "Victim's home"
+  if (victim && locId === victim.location) return "Victim's home"
   return null
 }
 
@@ -40,7 +40,8 @@ interface Props {
 
 export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, onSelect }: Props) {
   const [dragOver, setDragOver] = useState<LocationId | null>(null)
-  const canAct = gameState.phase === 'setup' && gameState.actionsRemaining > 0
+  const inSetup = gameState.phase === 'setup'
+  const canMoveItem = inSetup && gameState.actionsRemaining > 0
 
   const mapRef = useRef<HTMLDivElement>(null)
   const [mapSize, setMapSize] = useState({ w: 0, h: 0 })
@@ -57,14 +58,15 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
   }, [])
 
   const handleDragStart = (e: React.DragEvent, type: 'character' | 'item', id: string) => {
-    if (!canAct) { e.preventDefault(); return }
+    if (type === 'item' && !canMoveItem) { e.preventDefault(); return }
+    if (type === 'character' && !inSetup) { e.preventDefault(); return }
     e.dataTransfer.setData('type', type)
     e.dataTransfer.setData('id', id)
     e.dataTransfer.effectAllowed = 'move'
   }
 
   const handleDragOver = (e: React.DragEvent, locationId: LocationId) => {
-    if (!canAct) return
+    if (!inSetup) return
     e.preventDefault()
     e.dataTransfer.dropEffect = 'move'
     setDragOver(locationId)
@@ -76,8 +78,8 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
     const type = e.dataTransfer.getData('type')
     const id = e.dataTransfer.getData('id')
     if (!id) return
-    if (type === 'character') onMoveCharacter(id, locationId)
-    else if (type === 'item') onMoveItem(id, locationId)
+    if (type === 'character' && id === INVESTIGATOR_ID) onMoveCharacter(id, locationId)
+    else if (type === 'item' && canMoveItem) onMoveItem(id, locationId)
   }
 
   const handleDragLeave = () => setDragOver(null)
@@ -156,7 +158,7 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
         return (
           <div
             key={locId}
-            className={`map-location ${isDragOver ? 'map-location--drag-over' : ''} ${!canAct ? 'map-location--disabled' : ''}`}
+            className={`map-location ${isDragOver ? 'map-location--drag-over' : ''} ${!inSetup ? 'map-location--disabled' : ''}`}
             style={{ left: `${x}%`, top: `${y}%` }}
             onDragOver={e => handleDragOver(e, locId)}
             onDrop={e => handleDrop(e, locId)}
@@ -169,7 +171,7 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
               {gameState.board.characterLocations[INVESTIGATOR_ID] === locId && (
                 <div
                   className="map-token map-token--investigator"
-                  draggable={canAct}
+                  draggable={inSetup}
                   onDragStart={e => handleDragStart(e, 'character', INVESTIGATOR_ID)}
                   onClick={e => { e.stopPropagation(); onSelect(`char:${INVESTIGATOR_ID}`) }}
                 >
@@ -180,8 +182,7 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
                 <div
                   key={char.id}
                   className={`map-token ${char.isVictim ? 'map-token--victim' : 'map-token--character'}`}
-                  draggable={!char.isVictim && canAct}
-                  onDragStart={e => !char.isVictim && handleDragStart(e, 'character', char.id)}
+                  draggable={false}
                   onClick={e => { e.stopPropagation(); onSelect(`char:${char.id}`) }}
                 >
                   {char.name.split(' ')[0]}
@@ -191,7 +192,7 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
                 <div
                   key={item.id}
                   className="map-token map-token--item"
-                  draggable={canAct}
+                  draggable={canMoveItem}
                   onDragStart={e => handleDragStart(e, 'item', item.id)}
                   onClick={e => { e.stopPropagation(); onSelect(`item:${item.id}`) }}
                 >

@@ -8,7 +8,6 @@ export type CheckpointId =
   | 'cause_of_death'
   | 'true_location'
   | 'time_of_death'
-  | 'hidden_truth'
   | 'perpetrator'
   | 'motive'
 
@@ -16,18 +15,14 @@ export type ClueWeight = 'correct' | 'red_herring'
 export type Difficulty = 'easy' | 'medium' | 'hard'
 
 export type ConditionType =
-  | 'character_in_location'
-  | 'n_characters_in_location'
-  | 'n_characters_together'
-  | 'n_characters_together_alone'
-  | 'characters_in_location_with_item'
-  | 'characters_alone_in_location_with_item'
-  | 'characters_anywhere_with_item'
-  | 'characters_anywhere_with_item_alone'
+  | 'investigator_at_location'
+  | 'investigator_with_character'
+  | 'investigator_with_item'
+  | 'investigator_at_location_with_item'
+  | 'investigator_with_character_and_item'
 
 export interface Village {
   name: string
-  history: string
   season: 'spring' | 'summer' | 'autumn' | 'winter'
   weather: string
   arrival_location: string
@@ -41,7 +36,6 @@ export interface Crime {
   time_of_death: string
   perpetrator_ids: string[]
   motive: string
-  hidden_truth: string | null
 }
 
 export interface Character {
@@ -49,10 +43,7 @@ export interface Character {
   name: string
   isVictim: boolean
   local: boolean
-  // Where this character lives — shown in info panel
-  home_location: LocationId
-  // Where this character is when the game starts — may differ from home_location
-  starting_location: LocationId
+  location: LocationId  // fixed for the whole game
   description: string
 }
 
@@ -94,8 +85,8 @@ export interface Clue {
   checkpoint: CheckpointId
   answer: string
   weight: ClueWeight
-  // All clues are available from turn 1 — no unlocked_by gating.
   condition: ClueCondition
+  requires_clue_id: string | null  // clue that must be collected first; null = available immediately
   text: string
   red_herring_explanation: string | null
 }
@@ -115,7 +106,7 @@ export interface Relation {
 }
 
 export interface Scenario {
-  village: Village
+  location: Village
   crime: Crime
   characters: Character[]
   items: Item[]
@@ -126,4 +117,5 @@ export interface Scenario {
   relations: Relation[]
   location_adjacencies?: LocationAdjacency[]
   opening_narrative: string
+  epilogue?: string
 }

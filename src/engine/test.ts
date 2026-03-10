@@ -3,7 +3,7 @@
 import scenario from '../scenarios/easy/hallow_cove_02.json' assert { type: 'json' }
 import type { Scenario } from '../types/scenario'
 import { validateScenario } from './validator'
-import { initGameState, moveCharacter, resolveTurn, submitCheckpoint } from './gameEngine'
+import { initGameState, moveInvestigator, resolveTurn, submitCheckpoint } from './gameEngine'
 
 const s = scenario as unknown as Scenario
 
@@ -30,13 +30,13 @@ for (const [id, loc] of Object.entries(state.board.characterLocations)) {
   console.log(`  ${char?.name ?? id} → ${loc}`)
 }
 
-// ── 3. Turn 1: move aldric to doctors_house to trigger clue_cod_hard ──
+// ── 3. Turn 1: move investigator to trigger early clues ──
 console.log('\n═══ TURN 1 — Setup ═══')
-// Move first two characters to create conditions for early clues
-const [char1, char2] = s.characters.filter(c => !c.isVictim).slice(0, 2)
-state = moveCharacter(state, char1.id, char1.starting_location)
-state = moveCharacter(state, char2.id, char2.starting_location)
-console.log(`Moved ${char1.name} and ${char2.name}. Actions remaining: ${state.actionsRemaining}`)
+const firstNonVictim = s.characters.find(c => !c.isVictim)
+if (firstNonVictim) {
+  state = moveInvestigator(state, firstNonVictim.location)
+  console.log(`Investigator moved to ${firstNonVictim.location}. Actions remaining: ${state.actionsRemaining}`)
+}
 
 console.log('\n═══ TURN 1 — Resolve ═══')
 state = resolveTurn(state, s)

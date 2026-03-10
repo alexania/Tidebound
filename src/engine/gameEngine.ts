@@ -47,9 +47,9 @@ export const INVESTIGATOR_ID = 'investigator'
 export function initGameState(scenario: Scenario, difficulty: Difficulty): GameState {
   const characterLocations: Record<string, LocationId> = {}
   for (const char of scenario.characters) {
-    characterLocations[char.id] = char.starting_location
+    characterLocations[char.id] = char.location
   }
-  characterLocations[INVESTIGATOR_ID] = scenario.village.arrival_location
+  characterLocations[INVESTIGATOR_ID] = scenario.location.arrival_location
 
   const itemLocations: Record<string, LocationId> = {}
   for (const item of scenario.items) {
@@ -61,7 +61,7 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
 
   const victim = scenario.characters.find(c => c.isVictim)
 
-  const arrival = scenario.village.arrival_location
+  const arrival = scenario.location.arrival_location
 
   const leadEntries: LogEntry[] = scenario.leads.map((lead, i) => ({
     id: `log_0_lead_${i}`,
@@ -83,15 +83,16 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
   }
 
   return {
-    scenarioId: scenario.village.name,
+    scenarioId: scenario.location.name,
     difficulty,
     turn: 1,
     phase: 'setup',
-    actionsRemaining: 3,
+    actionsRemaining: 1,
     board,
-    movedCharacterIds: [],
+    foundLocationIds: [],
     foundCharacterIds: [],
     foundItemIds: [],
+    turnStartItemLocations: { ...itemLocations },
     collectedClueIds: [],
     log: [...leadEntries, seedEntry],
     pinnedCards: [],
@@ -106,25 +107,21 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
 // Setup phase actions (each costs 1 action)
 // ─────────────────────────────────────────────
 
-export function moveCharacter(
+// Investigator movement is free — no action cost.
+// Other characters cannot be moved by the player; they are fixed.
+export function moveInvestigator(
   state: GameState,
-  characterId: string,
   targetLocation: LocationId
 ): GameState {
-  if (state.phase !== 'setup' || state.actionsRemaining <= 0) return state
-  if (characterId !== INVESTIGATOR_ID && !state.foundCharacterIds.includes(characterId)) return state
+  if (state.phase !== 'setup') return state
 
   return {
     ...state,
-    actionsRemaining: state.actionsRemaining - 1,
-    movedCharacterIds: state.movedCharacterIds.includes(characterId)
-      ? state.movedCharacterIds
-      : [...state.movedCharacterIds, characterId],
     board: {
       ...state.board,
       characterLocations: {
         ...state.board.characterLocations,
-        [characterId]: targetLocation,
+        [INVESTIGATOR_ID]: targetLocation,
       },
     },
   }
@@ -135,12 +132,18 @@ export function moveItem(
   itemId: string,
   targetLocation: LocationId
 ): GameState {
-  if (state.phase !== 'setup' || state.actionsRemaining <= 0) return state
+  if (state.phase !== 'setup') return state
   if (!state.foundItemIds.includes(itemId)) return state
+
+  const currentLoc = state.board.itemLocations[itemId]
+  const turnStartLoc = state.turnStartItemLocations[itemId]
+  const isUndoing = targetLocation === turnStartLoc && currentLoc !== turnStartLoc
+
+  if (!isUndoing && state.actionsRemaining <= 0) return state
 
   return {
     ...state,
-    actionsRemaining: state.actionsRemaining - 1,
+    actionsRemaining: isUndoing ? state.actionsRemaining + 1 : state.actionsRemaining - 1,
     board: {
       ...state.board,
       itemLocations: {
@@ -162,17 +165,15 @@ export function setSelected(state: GameState, selected: string | null): GameStat
 export function resolveTurn(state: GameState, scenario: Scenario): GameState {
   if (state.phase !== 'setup') return state
 
-  const allCharacterIds = [
-    INVESTIGATOR_ID,
-    ...scenario.characters.filter(c => !c.isVictim).map(c => c.id),
-  ]
-
-  const ctx = { board: state.board, allCharacterIds }
+  const ctx = { board: state.board }
 
   // ── Clue evaluation ─────────────────────────
-  const availableClues = scenario.clues.filter(
-    clue => !state.collectedClueIds.includes(clue.id)
-  )
+  const collectedSet = new Set(state.collectedClueIds)
+  const availableClues = scenario.clues.filter(clue => {
+    if (collectedSet.has(clue.id)) return false
+    if (clue.requires_clue_id && !collectedSet.has(clue.requires_clue_id)) return false
+    return true
+  })
 
   // ── Character and item discovery ─────────────
   const investigatorLoc = state.board.characterLocations[INVESTIGATOR_ID]
@@ -193,6 +194,22 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
 
   const newClueIds: string[] = []
   const newLogEntries: LogEntry[] = []
+
+  // Location discovery — fires first, before characters and items
+  const isNewLocation = !state.foundLocationIds.includes(investigatorLoc as string)
+  if (isNewLocation && investigatorLoc) {
+    const loc = scenario.locations.find(l => l.id === investigatorLoc)
+    if (loc) {
+      newLogEntries.push({
+        id: `log_${state.turn}_loc_${investigatorLoc}`,
+        turn: state.turn,
+        locationId: investigatorLoc as LocationId,
+        text: loc.flavour,
+        clueId: null,
+        isNew: true,
+      })
+    }
+  }
 
   for (const charId of newlyFoundCharacterIds) {
     const char = scenario.characters.find(c => c.id === charId)!
@@ -224,7 +241,7 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
   for (const clue of availableClues) {
     if (!evaluateCondition(clue.condition, ctx)) continue
 
-    const loc = resolveClueLocation(clue, state.board, scenario.village.arrival_location)
+    const loc = resolveClueLocation(clue, state.board, scenario.location.arrival_location)
     newClueIds.push(clue.id)
     newLogEntries.push({
       id: `log_${state.turn}_${clue.id}`,
@@ -252,31 +269,17 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
 
-  // Characters not moved this turn return to their home location for next turn.
-  // The investigator never resets.
-  const movedSet = new Set(state.movedCharacterIds)
-  const resetLocations: Record<string, LocationId> = {}
-  for (const char of scenario.characters) {
-    if (!char.isVictim && !movedSet.has(char.id)) {
-      resetLocations[char.id] = char.home_location
-    }
-  }
-
   return {
     ...state,
     phase: 'setup',
     turn: state.turn + 1,
-    actionsRemaining: 3,
-    movedCharacterIds: [],
-    board: {
-      ...state.board,
-      characterLocations: {
-        ...state.board.characterLocations,
-        ...resetLocations,
-      },
-    },
+    actionsRemaining: 1,
+    foundLocationIds: isNewLocation && investigatorLoc
+      ? [...state.foundLocationIds, investigatorLoc as string]
+      : state.foundLocationIds,
     foundCharacterIds: [...state.foundCharacterIds, ...newlyFoundCharacterIds],
     foundItemIds: [...state.foundItemIds, ...newlyFoundItemIds],
+    turnStartItemLocations: { ...state.board.itemLocations },
     collectedClueIds: [...state.collectedClueIds, ...newClueIds],
     pinnedCards: [...state.pinnedCards, ...autoPinnedCards],
     log: [...updatedLog, ...newLogEntries],
@@ -284,14 +287,8 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
 }
 
 function resolveClueLocation(clue: Clue, board: BoardState, arrivalLocation: string): LocationId {
-  if (clue.condition.location) return clue.condition.location
-
-  const chars = clue.condition.characters
-  if (chars && chars.length > 0) {
-    return board.characterLocations[chars[0]] ?? arrivalLocation
-  }
-
-  return arrivalLocation
+  // Clues always fire at the investigator's current location
+  return board.characterLocations[INVESTIGATOR_ID] ?? clue.condition.location ?? arrivalLocation
 }
 
 // ─────────────────────────────────────────────
@@ -360,7 +357,6 @@ function getCorrectAnswer(checkpointId: CheckpointId, scenario: Scenario): strin
       return scenario.characters.find(c => c.id === perpId)?.name ?? perpId
     }
     case 'motive':       return crime.motive
-    case 'hidden_truth': return crime.hidden_truth ?? ''
     default: return ''
   }
 }

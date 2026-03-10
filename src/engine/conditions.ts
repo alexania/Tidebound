@@ -9,21 +9,14 @@ import type { BoardState } from '../types/gameState'
 
 interface EvalContext {
   board: BoardState
-  // All character ids currently on the board (excludes victim if dead/removed)
-  allCharacterIds: string[]
 }
 
-function getCharacterLocation(board: BoardState, characterId: string): LocationId | null {
-  return board.characterLocations[characterId] ?? null
+function loc(board: BoardState, id: string): LocationId | null {
+  return board.characterLocations[id] ?? null
 }
 
-function getItemLocation(board: BoardState, itemId: string): LocationId | null {
+function itemLoc(board: BoardState, itemId: string): LocationId | null {
   return board.itemLocations[itemId] ?? null
-}
-
-// Returns all character ids currently at a given location
-function charactersAtLocation(board: BoardState, allIds: string[], location: LocationId): string[] {
-  return allIds.filter(id => board.characterLocations[id] === location)
 }
 
 // ─────────────────────────────────────────────
@@ -31,87 +24,42 @@ function charactersAtLocation(board: BoardState, allIds: string[], location: Loc
 // ─────────────────────────────────────────────
 
 export function evaluateCondition(condition: ClueCondition, ctx: EvalContext): boolean {
-  const { board, allCharacterIds } = ctx
+  const { board } = ctx
+  const invLoc = loc(board, 'investigator')
   const chars = condition.characters ?? []
 
   switch (condition.type) {
 
-    // A specific character is at a specific location
-    case 'character_in_location': {
-      if (chars.length === 0 || !condition.location) return false
-      return getCharacterLocation(board, chars[0]) === condition.location
+    // Investigator is at a specific location
+    case 'investigator_at_location': {
+      if (!condition.location) return false
+      return invLoc === condition.location
     }
 
-    // N specific characters are ALL at a specific location
-    case 'n_characters_in_location': {
-      if (chars.length === 0 || !condition.location) return false
-      return chars.every(id => getCharacterLocation(board, id) === condition.location)
+    // Investigator is at the same location as a specific character (characters are fixed)
+    case 'investigator_with_character': {
+      if (chars.length === 0) return false
+      const charLoc = loc(board, chars[0])
+      return invLoc !== null && invLoc === charLoc
     }
 
-    // N specific characters are all at the same location (anywhere)
-    case 'n_characters_together': {
-      if (chars.length < 2) return false
-      const firstLoc = getCharacterLocation(board, chars[0])
-      if (!firstLoc) return false
-      return chars.every(id => getCharacterLocation(board, id) === firstLoc)
+    // Investigator is at the same location as a specific item (item may be anywhere)
+    case 'investigator_with_item': {
+      if (!condition.item) return false
+      return invLoc !== null && itemLoc(board, condition.item) === invLoc
     }
 
-    // N specific characters together, with no one else present
-    case 'n_characters_together_alone': {
-      if (chars.length < 2) return false
-      const firstLoc = getCharacterLocation(board, chars[0])
-      if (!firstLoc) return false
-      const allTogether = chars.every(id => getCharacterLocation(board, id) === firstLoc)
-      if (!allTogether) return false
-      const othersPresent = allCharacterIds.some(
-        id => !chars.includes(id) && getCharacterLocation(board, id) === firstLoc
-      )
-      return !othersPresent
+    // Investigator at a specific location with a specific item also present there
+    case 'investigator_at_location_with_item': {
+      if (!condition.location || !condition.item) return false
+      return invLoc === condition.location && itemLoc(board, condition.item) === condition.location
     }
 
-    // Character(s) at a specific location, with a specific item also there
-    case 'characters_in_location_with_item': {
-      if (chars.length === 0 || !condition.location || !condition.item) return false
-      const allCharsPresent = chars.every(
-        id => getCharacterLocation(board, id) === condition.location
-      )
-      const itemPresent = getItemLocation(board, condition.item) === condition.location
-      return allCharsPresent && itemPresent
-    }
-
-    // Character(s) alone at a specific location with a specific item
-    case 'characters_alone_in_location_with_item': {
-      if (chars.length === 0 || !condition.location || !condition.item) return false
-      const allCharsPresent = chars.every(
-        id => getCharacterLocation(board, id) === condition.location
-      )
-      const itemPresent = getItemLocation(board, condition.item) === condition.location
-      if (!allCharsPresent || !itemPresent) return false
-      const othersPresent = allCharacterIds.some(
-        id => !chars.includes(id) && getCharacterLocation(board, id) === condition.location
-      )
-      return !othersPresent
-    }
-
-    // Character(s) at the same location as a specific item, anywhere
-    case 'characters_anywhere_with_item': {
+    // Investigator at a character's location with a specific item also present there
+    case 'investigator_with_character_and_item': {
       if (chars.length === 0 || !condition.item) return false
-      const itemLoc = getItemLocation(board, condition.item)
-      if (!itemLoc) return false
-      return chars.every(id => getCharacterLocation(board, id) === itemLoc)
-    }
-
-    // Character(s) alone with a specific item, anywhere
-    case 'characters_anywhere_with_item_alone': {
-      if (chars.length === 0 || !condition.item) return false
-      const itemLoc = getItemLocation(board, condition.item)
-      if (!itemLoc) return false
-      const allWithItem = chars.every(id => getCharacterLocation(board, id) === itemLoc)
-      if (!allWithItem) return false
-      const othersPresent = allCharacterIds.some(
-        id => !chars.includes(id) && getCharacterLocation(board, id) === itemLoc
-      )
-      return !othersPresent
+      const charLoc = loc(board, chars[0])
+      return invLoc !== null && invLoc === charLoc && itemLoc(board, condition.item) === charLoc
     }
 
     default:

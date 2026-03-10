@@ -12,8 +12,8 @@ export function OpeningNarrative({ scenario, onContinue }: Props) {
   return (
     <div className="opening">
       <div className="opening__inner">
-        <div className="opening__village">{scenario.village.name}</div>
-        <div className="opening__weather">{scenario.village.weather}</div>
+        <div className="opening__village">{scenario.location.name}</div>
+        <div className="opening__weather">{scenario.location.weather}</div>
         <div className="opening__text">
           {scenario.opening_narrative.split('\n\n').map((para, i) => (
             <p key={i}>{parseTaggedText(para, locationNames)}</p>

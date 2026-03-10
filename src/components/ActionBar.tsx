@@ -15,14 +15,9 @@ export function ActionBar({ gameState, scenario, onEndTurn, onToggleBoard, showB
   return (
     <div className="action-bar">
       <div className="action-bar__pips">
-        {[0, 1, 2].map(i => (
-          <div
-            key={i}
-            className={`action-bar__pip ${i < actionsRemaining ? 'action-bar__pip--full' : ''}`}
-          />
-        ))}
+        <div className={`action-bar__pip ${actionsRemaining > 0 ? 'action-bar__pip--full' : ''}`} />
       </div>
-      <span className="action-bar__label">actions</span>
+      <span className="action-bar__label">item move</span>
 
       <div className="action-bar__spacer" />
 

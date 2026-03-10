@@ -52,10 +52,6 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
           </div>
           <div className="info-panel__desc">{parseTaggedText(char.description, locationNames)}</div>
         </div>
-        <div className="info-panel__col">
-          <div className="info-panel__meta">home</div>
-          <div className="info-panel__desc">{locationNames[char.home_location] ?? char.home_location}</div>
-        </div>
       </div>
     )
   }

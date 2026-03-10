@@ -3,16 +3,17 @@ import type { Scenario, Difficulty, CheckpointId, LocationId } from './types/sce
 import type { GameState } from './types/gameState'
 import {
   initGameState, filterCluesToDifficulty,
-  moveCharacter, moveItem,
+  moveInvestigator, moveItem,
   resolveTurn, submitCheckpoint,
   pinClue, updateCardImplied, assignCardToLane, unpinCard, setSelected,
 } from './engine/gameEngine'
 import {
-  generateScenario, saveScenario,
+  generateScenario, generatePromptForClipboard, saveScenario,
   getUnplayedScenario, markPlayed, getPlayedIds,
 } from './engine/generator'
 import { getBundledScenarios } from './scenarios/index'
 import { OpeningNarrative } from './components/OpeningNarrative'
+import { parseTaggedText, buildLocationNames } from './utils/parseTags'
 import { GameScreen } from './components/GameScreen'
 import './App.css'
 
@@ -24,7 +25,7 @@ interface ActiveScenario {
 }
 
 function downloadScenario(scenario: Scenario, difficulty: Difficulty) {
-  const name = scenario.village.name.toLowerCase().replace(/\s+/g, '_')
+  const name = scenario.location.name.toLowerCase().replace(/\s+/g, '_')
   const filename = `${name}_${difficulty}_${Date.now()}.json`
   const blob = new Blob([JSON.stringify(scenario, null, 2)], { type: 'application/json' })
   const url = URL.createObjectURL(blob)
@@ -53,6 +54,7 @@ export default function App() {
   }
   const [apiKey, setApiKey] = useState('')
   const [genError, setGenError] = useState('')
+  const [clipboardMsg, setClipboardMsg] = useState('')
 
   // ── Scenario loading ──────────────────────────────────────────
 
@@ -111,9 +113,9 @@ export default function App() {
   const gs = gameState
   const sc = activeFilteredScenario
 
-  const handleMoveCharacter = (charId: string, location: LocationId) => {
+  const handleMoveCharacter = (_charId: string, location: LocationId) => {
     if (!gs) return
-    setGameState(moveCharacter(gs, charId, location))
+    setGameState(moveInvestigator(gs, location))
   }
 
   const handleMoveItem = (itemId: string, location: LocationId) => {
@@ -167,6 +169,13 @@ export default function App() {
 
   // ── Render ────────────────────────────────────────────────────
 
+  const handleCopyPrompt = async () => {
+    const prompt = generatePromptForClipboard()
+    await navigator.clipboard.writeText(prompt)
+    setClipboardMsg('Copied!')
+    setTimeout(() => setClipboardMsg(''), 2000)
+  }
+
   if (screen === 'menu') {
     return (
       <div className="menu">
@@ -178,6 +187,11 @@ export default function App() {
               {d}
             </button>
           ))}
+        </div>
+        <div className="menu__manual-gen">
+          <button className="menu__copy-prompt" onClick={handleCopyPrompt}>
+            {clipboardMsg || 'Copy prompt for claude.ai'}
+          </button>
         </div>
       </div>
     )
@@ -243,12 +257,25 @@ export default function App() {
     )
   }
 
-  if (screen === 'solved' && gs) {
+  if (screen === 'solved' && gs && activeScenario) {
+    const sc = activeScenario.scenario
+    const locationNames = buildLocationNames(sc.locations)
+    const epilogueParagraphs = sc.epilogue
+      ? sc.epilogue.split(/\n\n+/).filter(Boolean)
+      : []
     return (
       <div className="solved-screen">
         <h2>Case Closed</h2>
         <div className="score">{gs.finalScore}</div>
-        <p>points — {gs.difficulty} difficulty — {gs.turn} turns</p>
+        <p className="solved-screen__meta">points — {gs.difficulty} difficulty — {gs.turn} turns</p>
+        {epilogueParagraphs.length > 0 && (
+          <div className="solved-screen__epilogue">
+            <h3>Epilogue</h3>
+            {epilogueParagraphs.map((para, i) => (
+              <p key={i}>{parseTaggedText(para, locationNames)}</p>
+            ))}
+          </div>
+        )}
         <button onClick={() => setScreen('menu')}>Play Again</button>
       </div>
     )

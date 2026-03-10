@@ -1,726 +1,690 @@
 {
-  "village": {
-    "name": "Culebra Chica",
-    "history": "Culebra Chica grew up around a single pier where Basque whalers once sheltered before the long Atlantic crossing, and the town never quite forgot that it was built on departure. By 1923 the whaling was gone but the cannery stayed, and the smell of salt-packed sardines soaked into the whitewashed walls of every building along the waterfront. Loyalties here run along family lines that go back three generations, and an outsider — even an official one — is watched the way gulls watch a fishing boat: patiently, and with appetite.",
-    "season": "summer",
-    "weather": "salt haze, still air, the kind of heat that makes distances shimmer",
-    "arrival_location": "cannery_pier"
+  "location": {
+    "name": "Vaur Tessek",
+    "season": "autumn",
+    "weather": "salt-fog thick on the water each morning",
+    "arrival_location": "quayside"
   },
   "crime": {
-    "cause_of_death": "drowning",
-    "murder_location": "tidal_caves",
-    "body_found_location": "cannery_pier",
+    "cause_of_death": "Stabbing",
+    "murder_location": "records_room",
+    "body_found_location": "salt_works",
     "body_was_moved": true,
-    "time_of_death": "between ten o'clock and midnight",
-    "victim_state": "fully clothed, boots still laced",
+    "time_of_death": "Between the second bell of night and first light",
     "perpetrator_ids": [
-      "bixente_arrizabalaga"
+      "maret_doun"
     ],
-    "motive": "self-preservation",
-    "hidden_truth": null
+    "motive": "Silencing a witness to an old crime"
   },
   "characters": [
     {
-      "id": "ines_goikoetxea",
-      "name": "Inés Goikoetxea",
+      "id": "tessek_oravi",
+      "name": "Tessek Oravi",
       "isVictim": true,
       "local": true,
-      "home_location": "goikoetxea_house",
-      "starting_location": "cannery_pier",
-      "description": "Inés was the cannery's head accountant — thirty-four years old, unmarried, known for keeping two sets of ledgers that she claimed were for 'clarity.' She was found face-down at the edge of [loc:cannery_pier] in the early morning, fully clothed with her boots still laced, one arm extended toward the water as though reaching. Her hair was sodden, her lips blue, and a faint bruise marked the back of her neck just below the hairline."
+      "location": "salt_works",
+      "description": "A meticulous woman of about fifty, lineage bookkeeper for the Tessek family and a respected salt-merchant in her own right. She is found slumped against the railing of the salt-pan platform, her posture too composed for a fall — and her outer robe, despite the heavy pre-dawn fog, is dry."
     },
     {
-      "id": "bixente_arrizabalaga",
-      "name": "Bixente Arrizabalaga",
+      "id": "maret_doun",
+      "name": "Maret Doun",
       "isVictim": false,
       "local": true,
-      "home_location": "arrizabalaga_warehouse",
-      "starting_location": "cannery_pier",
-      "description": "Bixente owns the cannery and half the boats in the harbour — a broad, soft-spoken man of fifty who inherited the business from his father and expanded it by methods he prefers not to discuss. He had been skimming revenue through a false supplier account for two years; Inés had found it, and had told him so the week before her death."
+      "location": "salt_works",
+      "description": "The Tessek salt-works overseer, a sturdy woman of about forty who speaks in the measured tones of someone used to giving direction. She is the one who found the body and sent the overnight runner for help, and she answers questions about it with a steadiness that sits just at the edge of composure."
     },
     {
-      "id": "maider_txurruka",
-      "name": "Maider Txurruka",
+      "id": "nitha_tessek",
+      "name": "Nitha Tessek",
       "isVictim": false,
       "local": true,
-      "home_location": "txurruka_cottage",
-      "starting_location": "cannery_floor",
-      "description": "Maider runs the cannery floor, organising the women who pack the tins and setting the daily quotas. She is forty, fierce, and was in love with Inés for years — a fact Inés never acknowledged. She had recently learned that Inés was planning to leave Culebra Chica entirely, and the thought of it had been eating her alive."
+      "location": "matrons_house",
+      "description": "The Matron of the Tessek lineage, a sharp-faced woman of sixty who carries her authority the way others carry grief — always present, always shaping how she moves through a room. She makes no secret of the fact that she and Oravi had clashed repeatedly over lineage records, and she speaks of the death with genuine shock and unconcealed relief."
     },
     {
-      "id": "gorka_mendizabal",
-      "name": "Gorka Mendizabal",
+      "id": "senne_arak",
+      "name": "Senne Arak",
       "isVictim": false,
       "local": true,
-      "home_location": "fishermen_quarter",
-      "starting_location": "harbour_market",
-      "description": "Gorka is a boat captain who owes Bixente a debt large enough to own him — he runs errands, looks the other way, and occasionally disposes of things. He was seen near the tidal caves the night Inés died, and everyone in town knows he does what Bixente asks."
+      "location": "upper_walkway",
+      "description": "The Matron's night-watcher, a young woman of about twenty-five who stands at her post with the careful stillness of someone trying not to be noticed. She is quick to speak but her answers arrive in the slightly-too-complete way of someone who has rehearsed them."
     },
     {
-      "id": "soledad_iturriaga",
-      "name": "Soledad Iturriaga",
+      "id": "dauvek_pol",
+      "name": "Dauvek Pol",
+      "isVictim": false,
+      "local": true,
+      "location": "covered_market",
+      "description": "Tessek Oravi's nephew — her sister's son — a broad-shouldered man of about thirty-five who trades at the covered market in display salts and cured goods. He does not hide that he had been pressing his aunt to have a lineage document revised in his favor, and he speaks of her with the brittle warmth of a man who has been recently refused."
+    },
+    {
+      "id": "irret_sou",
+      "name": "Irret Sou",
       "isVictim": false,
       "local": false,
-      "home_location": "hostal_portua",
-      "starting_location": "hostal_portua",
-      "description": "Soledad arrived three weeks ago from Bilbao, presenting herself as a buyer for a canning goods importer. She met with Inés twice — officially to discuss supply contracts, unofficially because Inés had written to her employer requesting an outside audit. She looks guilty of something, because she is: she was feeding information back to a rival cannery owner and had offered Inés money to copy the ledgers."
-    },
-    {
-      "id": "patxi_urresti",
-      "name": "Patxi Urresti",
-      "isVictim": false,
-      "local": true,
-      "home_location": "fishermen_quarter",
-      "starting_location": "tidal_caves",
-      "description": "Patxi is a retired fisherman of seventy who lives near the tidal caves and insists on sleeping with the door open to hear the sea. He drinks too much and talks too much and saw more than he realises. He had a quarrel with Inés's family over a land boundary decades ago — a grudge he nurtures with the dedication of a gardener."
+      "location": "quayside",
+      "description": "A traveling salt-auditor from an inland trade council, a composed woman of thirty who has been berthed at the quayside for three days conducting a routine cargo review. She was on deck before dawn for the morning muster and was the first outsider to reach the body; she is forthcoming with what she observed and speaks with the precision of someone accustomed to recording exactly what she sees."
     }
   ],
   "items": [
     {
-      "id": "account_ledger",
-      "name": "Leather-bound ledger",
-      "description": "A water-damaged ledger with marbled endpapers, the ink on the last three pages badly smeared; a false supplier entry — 'Distribuciones Iraola' — appears six times in the final column, each initialled in a hand that is not the accountant's.",
-      "starting_location": "goikoetxea_house"
+      "id": "salt_scraper",
+      "name": "Salt-Scraper",
+      "description": "A narrow iron-bladed tool, roughly palm-length, used to lift caked salt from the harvest pans; the blade is clean and the handle wood is pale and unweathered, showing none of the grey salt-staining common to tools in regular use.",
+      "starting_location": "salt_works"
     },
     {
-      "id": "wet_rope_coil",
-      "name": "Coil of tarred rope",
-      "description": "A short coil of tarred fishing rope, still wet, with a knot at one end tied in the style fishermen use to secure a tow — not a mooring knot — and a few dark hairs caught in the fibres.",
-      "starting_location": "tidal_caves"
+      "id": "records_room_key",
+      "name": "Records Room Key",
+      "description": "A heavy iron key with a Tessek lineage mark filed into the bow; the shank shows no tarnish, and a faint damp smell clings to the metal.",
+      "starting_location": "salt_works"
     },
     {
-      "id": "tortoiseshell_comb",
-      "name": "Tortoiseshell hair comb",
-      "description": "A woman's hair comb in amber-coloured tortoiseshell, one tine snapped clean off; engraved on the spine in small letters: 'I.G. 1911.'",
-      "starting_location": "cannery_pier"
+      "id": "salt_ledger",
+      "name": "Salt Ledger",
+      "description": "A thick bound ledger lying open to a page dense with columns of figures; the ink in the rightmost column of the open page is smeared in a broad streak, as though the page was disturbed before the ink had dried.",
+      "starting_location": "records_room"
     },
     {
-      "id": "bilbao_letter",
-      "name": "Folded letter",
-      "description": "A letter written on Bilbao business stationery, addressed to Inés Goikoetxea, confirming that an auditor would arrive within the month and asking her to 'preserve the relevant documentation.'",
-      "starting_location": "goikoetxea_house"
-    },
-    {
-      "id": "bixentes_coat",
-      "name": "Dark wool overcoat",
-      "description": "A man's heavy wool coat, size large, with a monogrammed lining — 'B.A.' in red thread — found bundled under the dock planking, damp and smelling of the caves.",
-      "starting_location": "cannery_pier"
+      "id": "watch_log_tablet",
+      "name": "Watch-Log Tablet",
+      "description": "A wooden tablet carved with rows of notched marks recording check-in intervals; the notches on one side of a blank gap are pressed deeper into the wood than those on the other side.",
+      "starting_location": "upper_walkway"
     }
   ],
   "locations": [
     {
-      "id": "cannery_pier",
-      "name": "Cannery Pier",
-      "flavour": "The pier's boards are stained rust-orange from decades of fish blood and brine, and the morning light catches the oil slick on the water below in colours that have no business being beautiful."
+      "id": "quayside",
+      "name": "The Quayside",
+      "flavour": "Flat-bottomed trade boats rock against salt-bleached pilings as the morning fog lifts in slow ribbons off the estuary water.",
+      "col": 0,
+      "row": 2
     },
     {
-      "id": "arrizabalaga_warehouse",
-      "name": "Arrizabalaga Warehouse",
-      "flavour": "Stacked tin crates reach the ceiling beams and the air is thick with machine oil and salt; a private office at the rear has its curtain perpetually drawn."
+      "id": "covered_market",
+      "name": "The Covered Market",
+      "flavour": "Bolts of undyed canvas overhead filter the pale autumn light into something softer, and the air holds the mingled smell of brine, clay salt, and lamp oil.",
+      "col": 0,
+      "row": 1
     },
     {
-      "id": "cannery_floor",
-      "name": "Cannery Floor",
-      "flavour": "Twenty women work shoulder to shoulder at long zinc tables, the rhythm of their knives as steady as a tide, their conversation dropping to nothing when anyone unfamiliar walks in."
+      "id": "records_room",
+      "name": "The Records Room",
+      "flavour": "Shelves of bound ledgers and rolled documents line every wall, and the single lamp bracket above the reading table has left a ghost of soot on the plaster ceiling.",
+      "col": 0,
+      "row": 0
     },
     {
-      "id": "goikoetxea_house",
-      "name": "Goikoetxea House",
-      "flavour": "A narrow whitewashed house two streets back from the water, its shutters closed even in summer, the front step worn smooth by years of the same boots."
+      "id": "matrons_house",
+      "name": "The Matron's House",
+      "flavour": "The main hall smells of cedar oil and old salt, and the Tessek lineage marks above the door lintel have been repainted so many times the original lines are lost beneath them.",
+      "col": 1,
+      "row": 0
     },
     {
-      "id": "tidal_caves",
-      "name": "Tidal Caves",
-      "flavour": "At low tide, the cliff face opens into a series of chambers where smugglers once cached barrels; the walls are always wet and the sound of the sea never fully leaves."
+      "id": "upper_walkway",
+      "name": "The Upper Walkway",
+      "flavour": "A covered passage of salt-weathered planks runs between the Matron's House and the works complex, its boards damp and filmed with the fine white residue that settles everywhere in Vaur Tessek.",
+      "col": 2,
+      "row": 1
     },
     {
-      "id": "hostal_portua",
-      "name": "Hostal Portua",
-      "flavour": "The only place in Culebra Chica that takes guests, its dining room doubling as the room where serious conversations happen when the bar is too public."
+      "id": "salt_works",
+      "name": "The Salt-Works",
+      "flavour": "Wide shallow pans stretch toward the estuary's edge, their surfaces crusted and still; the harvest is over and the flat-boats are beached, hull-up, along the near bank.",
+      "col": 2,
+      "row": 2
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "quayside",
+      "to": "covered_market"
     },
     {
-      "id": "harbour_market",
-      "name": "Harbour Market",
-      "flavour": "By eight in the morning the stalls are already half-packed, the serious business of the day done before the heat sets in and the flies grow ambitious."
+      "from": "quayside",
+      "to": "salt_works"
     },
     {
-      "id": "txurruka_cottage",
-      "name": "Txurruka Cottage",
-      "flavour": "Maider's cottage sits at the edge of the cannery district with a direct view of the pier — a detail she has never mentioned to anyone."
+      "from": "covered_market",
+      "to": "records_room"
     },
     {
-      "id": "fishermen_quarter",
-      "name": "Fishermen's Quarter",
-      "flavour": "A tangle of low streets where the houses share walls and the nets are mended on the doorsteps; nothing happens here that isn't known by morning."
+      "from": "covered_market",
+      "to": "matrons_house"
+    },
+    {
+      "from": "records_room",
+      "to": "matrons_house"
+    },
+    {
+      "from": "matrons_house",
+      "to": "upper_walkway"
+    },
+    {
+      "from": "upper_walkway",
+      "to": "salt_works"
     }
   ],
   "checkpoints": [
     {
       "id": "cause_of_death",
-      "label": "How did Inés die?",
+      "label": "How did Tessek Oravi die?",
       "answer_options": [
-        "drowning",
-        "strangulation",
-        "blunt trauma",
-        "poisoning — compound"
+        "Stabbing",
+        "Drowning",
+        "Blunt blow to the head",
+        "Poisoning",
+        "Exposure"
       ]
     },
     {
       "id": "true_location",
-      "label": "Where was Inés actually killed?",
+      "label": "Where was Tessek Oravi killed?",
       "answer_options": [
-        "tidal_caves",
-        "cannery_pier",
-        "arrizabalaga_warehouse",
-        "goikoetxea_house"
+        "The Salt-Works",
+        "The Records Room",
+        "The Upper Walkway",
+        "The Covered Market",
+        "The Quayside"
       ]
     },
     {
       "id": "time_of_death",
-      "label": "When did Inés die?",
+      "label": "When did Tessek Oravi die?",
       "answer_options": [
-        "between ten o'clock and midnight",
-        "between midnight and two in the morning",
-        "before nine in the evening",
-        "at dawn"
-      ]
-    },
-    {
-      "id": "victim_state",
-      "label": "What was notable about Inés's condition when found?",
-      "answer_options": [
-        "fully clothed, boots still laced",
-        "barefoot, coat missing",
-        "dressed for travel, bag nearby",
-        "nightclothes, no shoes"
+        "Before the evening meal",
+        "Between the evening meal and the second bell",
+        "Between the second bell of night and first light",
+        "At first light",
+        "After first light"
       ]
     },
     {
       "id": "perpetrator",
-      "label": "Who killed Inés Goikoetxea?",
+      "label": "Who killed Tessek Oravi?",
       "answer_options": [
-        "bixente_arrizabalaga",
-        "maider_txurruka",
-        "gorka_mendizabal",
-        "soledad_iturriaga"
+        "Maret Doun",
+        "Nitha Tessek",
+        "Dauvek Pol",
+        "Senne Arak",
+        "Irret Sou"
       ]
     },
     {
       "id": "motive",
-      "label": "Why was Inés killed?",
+      "label": "Why was Tessek Oravi killed?",
       "answer_options": [
-        "self-preservation",
-        "jealousy",
-        "debt",
-        "obsession"
+        "Silencing a witness to an old crime",
+        "Stealing the lineage inheritance records",
+        "Settling a long-standing personal feud",
+        "Preventing exposure of falsified trade accounts",
+        "Revenge for a family dishonoring"
       ]
     }
   ],
   "clues": [
     {
-      "id": "cod_01",
+      "id": "cod_a",
       "checkpoint": "cause_of_death",
-      "answer": "drowning",
+      "answer": "Stabbing",
       "weight": "correct",
       "condition": {
-        "type": "character_in_location",
-        "characters": [
-          "investigator"
-        ],
-        "location": "cannery_pier"
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "salt_works",
+        "item": null
       },
-      "text": "Examining the body at [loc:cannery_pier], the investigator notes the lungs are clearly waterlogged — there is foam at the lips and the classic pink tinge in the nostrils consistent with water in the airways. The sea is immediately below; the question is whether she entered it here or elsewhere.",
+      "requires_clue_id": null,
+      "text": "Examining the body at [loc:salt_works], the investigator shifts the outer robe aside and finds a narrow puncture wound on the left side of Tessek Oravi's torso; the robe itself has a corresponding slit in the fabric, its edges stiff with dried dark brown residue.",
       "red_herring_explanation": null
     },
     {
-      "id": "cod_02",
+      "id": "cod_b",
       "checkpoint": "cause_of_death",
-      "answer": "drowning",
+      "answer": "Stabbing",
       "weight": "correct",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "irret_sou"
         ],
-        "location": "tidal_caves",
-        "item": "wet_rope_coil"
+        "location": null,
+        "item": null
       },
-      "text": "Inside [loc:tidal_caves], the investigator finds the rope coil and, crucially, a pool of still water in a low chamber that shows signs of recent disturbance — scrape marks on the rock lip and a smear of the same hair oil Inés wore, confirming she was held under in this chamber.",
+      "requires_clue_id": null,
+      "text": "[char:Irret Sou] tells the investigator that when she first knelt beside the body, she noticed a thin dark line running along the left side of Tessek Oravi's robe — too straight and too narrow to be a fold or a shadow — which she noted before anyone else disturbed the scene.",
       "red_herring_explanation": null
     },
     {
-      "id": "cod_03",
+      "id": "cod_rh1",
       "checkpoint": "cause_of_death",
-      "answer": "strangulation",
+      "answer": "Drowning",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "maider_txurruka"
-        ],
-        "location": "cannery_floor"
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "salt_works",
+        "item": null
       },
-      "text": "[char:Maider Txurruka] tells the investigator, voice flat, that she saw the bruise on Inés's neck and has seen marks like that before — her words trail off into silence and she turns back to the zinc table.",
-      "red_herring_explanation": "Maider is describing the bruise from the rope used to hold Inés down, not a strangulation mark. She is also deflecting suspicion from the drowning method because she suspects Bixente and fears him."
+      "requires_clue_id": null,
+      "text": "At the edge of the salt-pan platform where the body was found, Tessek Oravi's hands carry a visible coating of wet salt residue, and the railing she is slumped against faces directly onto the nearest brine channel.",
+      "red_herring_explanation": "The wet salt on the victim's hands suggests she may have fallen or been pushed into the brine channel, pointing toward drowning — but the residue was transferred when the body was placed against the railing, not from any contact with the water."
     },
     {
-      "id": "cod_04",
+      "id": "cod_rh2",
       "checkpoint": "cause_of_death",
-      "answer": "blunt trauma",
+      "answer": "Blunt blow to the head",
       "weight": "red_herring",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "patxi_urresti"
+          "senne_arak"
         ],
-        "location": "tidal_caves",
-        "item": "wet_rope_coil"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Patxi Urresti] points at the cave wall with a bony finger: 'Hit her head there, I'd reckon. That's what a man would do in the dark.' He seems proud of this theory; there is no blood on the wall.",
-      "red_herring_explanation": "Patxi is speculating without evidence — there is no blood on the cave wall. He didn't witness anything directly and is constructing a dramatic story."
+      "requires_clue_id": null,
+      "text": "[char:Senne Arak] tells the investigator that [time:during the deep part of the night], while she was on watch at [loc:upper_walkway], she heard a single heavy thud from the direction of the Matron's complex — loud enough to make her stop and listen, though she heard nothing after it.",
+      "red_herring_explanation": "The thud heard by the night-watcher suggests an impact event — consistent with someone being struck or a body falling — but the sound was in fact Oravi being moved and the body being set down against the railing."
     },
     {
-      "id": "cod_05",
+      "id": "cod_rh3",
       "checkpoint": "cause_of_death",
-      "answer": "poisoning — compound",
+      "answer": "Poisoning",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "soledad_iturriaga"
+          "dauvek_pol"
         ],
-        "location": "hostal_portua"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Soledad Iturriaga] mentions, almost casually, that she had dinner with Inés two nights before and that Inés complained of nausea afterward — 'I assumed the fish,' she says, but her eyes don't settle.",
-      "red_herring_explanation": "Soledad is nervous and inadvertently casting suspicion through her own anxiety. The nausea was real but unrelated — Inés was under severe stress about the ledgers."
+      "requires_clue_id": null,
+      "text": "[char:Dauvek Pol] tells the investigator that in the weeks before her death, [char:Tessek Oravi] had complained to him of persistent stomach pains and had twice visited the herbalist who keeps a stall at [loc:covered_market].",
+      "red_herring_explanation": "The recent herbalist visits and stomach complaints suggest Oravi may have been experiencing symptoms of slow poisoning, but her illness was unrelated — a seasonal complaint — and distract from the physical evidence of stabbing."
     },
     {
-      "id": "tl_01",
+      "id": "loc_a",
       "checkpoint": "true_location",
-      "answer": "tidal_caves",
+      "answer": "The Records Room",
       "weight": "correct",
       "condition": {
-        "type": "characters_anywhere_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "item": "wet_rope_coil"
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "records_room",
+        "item": null
       },
-      "text": "The rope coil is tarred in the style used only by the deep-water boats moored at the base of [loc:tidal_caves], and the dark hairs caught in the fibres match Inés's in colour and length — the caves are where she died, not the pier.",
+      "requires_clue_id": null,
+      "text": "On the inner face of the [loc:records_room] doorframe, at roughly waist height, there is a rust-brown smear shaped like a partial hand-wipe — the heel of a palm pressed and then dragged downward across the wood.",
       "red_herring_explanation": null
     },
     {
-      "id": "tl_02",
+      "id": "loc_b",
       "checkpoint": "true_location",
-      "answer": "tidal_caves",
+      "answer": "The Records Room",
       "weight": "correct",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "patxi_urresti"
+          "nitha_tessek"
         ],
-        "location": "tidal_caves"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Patxi Urresti] admits, when pressed in the caves themselves, that he heard splashing and a single short cry from the inner chamber [time:between ten o'clock and midnight] — he thought it was boys messing about and turned over.",
+      "requires_clue_id": null,
+      "text": "[char:Nitha Tessek] tells the investigator that she herself locked the [loc:records_room] door the previous evening before retiring, and when she checked the following morning, the door stood unlocked and the interior bolt had been forced out of its bracket.",
       "red_herring_explanation": null
     },
     {
-      "id": "tl_03",
+      "id": "loc_rh1",
       "checkpoint": "true_location",
-      "answer": "cannery_pier",
+      "answer": "The Upper Walkway",
       "weight": "red_herring",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "senne_arak"
         ],
-        "location": "cannery_pier",
-        "item": "tortoiseshell_comb"
+        "location": null,
+        "item": null
       },
-      "text": "The comb with Inés's initials lies at the edge of [loc:cannery_pier], one tine broken off — it looks like a struggle happened right here, within reach of the black water below.",
-      "red_herring_explanation": "The comb was in Inés's coat pocket and fell out when Bixente and Gorka dragged her body onto the pier to stage the scene. It was not lost in a struggle here."
+      "requires_clue_id": null,
+      "text": "[char:Senne Arak] tells the investigator that [time:in the middle of the night] she heard footsteps on the boards of [loc:upper_walkway] moving in the direction of the storage eaves, followed by a scraping sound she could not identify.",
+      "red_herring_explanation": "The footsteps and scraping on the covered walkway suggest a struggle or incident there, but the sounds were in fact Maret Doun moving the body along the walkway route — the Upper Walkway was traversed, not the site of the killing."
     },
     {
-      "id": "tl_04",
+      "id": "loc_rh2",
       "checkpoint": "true_location",
-      "answer": "arrizabalaga_warehouse",
+      "answer": "The Covered Market",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "bixente_arrizabalaga"
+          "dauvek_pol"
         ],
-        "location": "arrizabalaga_warehouse"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Bixente Arrizabalaga] tells the investigator he spoke with Inés in [loc:arrizabalaga_warehouse] at half past nine — 'a short conversation, nothing unusual' — but he is sweating despite the shade and does not meet the investigator's eyes.",
-      "red_herring_explanation": "Bixente is lying about the content of the meeting to establish a benign last contact. The meeting was where he confronted her about the audit letter, then followed her to the caves afterward."
+      "requires_clue_id": null,
+      "text": "[char:Dauvek Pol] tells the investigator that [time:late in the evening], he saw [char:Tessek Oravi] walking in the direction of [loc:covered_market] with a ledger tucked under one arm, and she did not acknowledge him when he called out to her.",
+      "red_herring_explanation": "Dauvek's account places the victim heading toward the Covered Market late in the evening, suggesting that is where she went — but Oravi was in fact heading to the Records Room, which is accessible through the same route, and Dauvek misread her direction."
     },
     {
-      "id": "tl_05",
+      "id": "loc_rh3",
       "checkpoint": "true_location",
-      "answer": "goikoetxea_house",
+      "answer": "The Quayside",
       "weight": "red_herring",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "irret_sou"
         ],
-        "location": "goikoetxea_house",
-        "item": "bilbao_letter"
+        "location": null,
+        "item": null
       },
-      "text": "The Bilbao letter in Inés's desk is addressed to her home at [loc:goikoetxea_house], and the desk chair is pulled back as if she left in a hurry — the investigator notes a faint muddy footprint on the threshold that is too large for Inés.",
-      "red_herring_explanation": "The footprint belongs to Gorka, who searched the house after the murder on Bixente's instructions to retrieve the letter. He did not find it in time."
+      "requires_clue_id": null,
+      "text": "[char:Irret Sou] tells the investigator that [time:earlier that same evening], [char:Tessek Oravi] had told her she intended to check a cargo manifest in the dockside ledger office before the night was out.",
+      "red_herring_explanation": "Oravi's stated intention to visit the dockside office suggests the Quayside as a possible location for the killing, but she never went — she changed her plans and went to the Records Room instead."
     },
     {
-      "id": "tod_01",
+      "id": "time_a",
       "checkpoint": "time_of_death",
-      "answer": "between ten o'clock and midnight",
+      "answer": "Between the second bell of night and first light",
       "weight": "correct",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "patxi_urresti"
+          "senne_arak"
         ],
-        "location": "fishermen_quarter"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Patxi Urresti] tells the investigator that the church clock had just struck ten when he heard the sound from the caves — 'I was counting the chimes because I owed my wife an apology for being late.' The timing is precise and unsolicited.",
+      "requires_clue_id": null,
+      "text": "[char:Senne Arak] tells the investigator that she personally watched [char:Tessek Oravi] enter the Matron's complex [time:at the second bell of night], and that by [time:one bell before first light], when Senne's watch ended, Oravi had not come back out through the main entrance.",
       "red_herring_explanation": null
     },
     {
-      "id": "tod_02",
+      "id": "time_b",
       "checkpoint": "time_of_death",
-      "answer": "between ten o'clock and midnight",
+      "answer": "Between the second bell of night and first light",
       "weight": "correct",
       "condition": {
-        "type": "character_in_location",
-        "characters": [
-          "investigator"
-        ],
-        "location": "tidal_caves"
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "records_room",
+        "item": "salt_ledger"
       },
-      "text": "At [loc:tidal_caves], the investigator can see the tide line on the cave walls: the inner chamber floods completely at high tide, which tables show occurred [time:at half past midnight] — the body must have been moved before then, placing the death before midnight.",
+      "requires_clue_id": null,
+      "text": "The open page of the [loc:records_room] ledger carries a final entry dated [time:the night of the death], written in the same careful hand as the surrounding columns; the ink in the rightmost column is smeared in a broad streak across the figures, as if the page was sharply disturbed before the ink had finished drying.",
       "red_herring_explanation": null
     },
     {
-      "id": "tod_03",
+      "id": "time_rh1",
       "checkpoint": "time_of_death",
-      "answer": "before nine in the evening",
+      "answer": "Before the evening meal",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "maider_txurruka"
+          "maret_doun"
         ],
-        "location": "txurruka_cottage"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Maider Txurruka] says she saw Inés walking toward the water at what she believed was around eight or half-eight — 'the sun was still up, I remember' — and her voice is firm, her gaze steady.",
-      "red_herring_explanation": "Maider is confusing this evening with the previous one; Inés had walked the same route the night before. Maider's grief is distorting her memory."
+      "requires_clue_id": null,
+      "text": "[char:Maret Doun] tells the investigator that she saw [char:Tessek Oravi] at [loc:salt_works] [time:in the late afternoon], and that Oravi had seemed agitated and distracted, speaking in clipped sentences and leaving before their conversation was finished.",
+      "red_herring_explanation": "Maret's account of Oravi's visible agitation in the late afternoon implies something may have happened to her then, but the distress was due to what Oravi had found in the old records — not the time of her death."
     },
     {
-      "id": "tod_04",
+      "id": "time_rh2",
       "checkpoint": "time_of_death",
-      "answer": "between midnight and two in the morning",
+      "answer": "Between the evening meal and the second bell",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "gorka_mendizabal"
+          "dauvek_pol"
         ],
-        "location": "harbour_market"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Gorka Mendizabal] tells the investigator he was on the water until well past midnight and saw nothing unusual at the pier before one in the morning — the implication being that whatever happened, happened after he was gone.",
-      "red_herring_explanation": "Gorka is lying to create a timeline that places the death after his involvement ended. He helped move the body shortly after midnight but wants to appear as a non-witness."
+      "requires_clue_id": null,
+      "text": "[char:Dauvek Pol] tells the investigator that he encountered [char:Tessek Oravi] [time:just after the evening meal] and that she was in good health — speaking clearly, moving quickly — which was the last time he saw her alive.",
+      "red_herring_explanation": "Dauvek frames his sighting as the last confirmed sighting of Oravi alive, which implies she may have died shortly afterward — between the meal and the second bell — but she survived well past that point."
     },
     {
-      "id": "tod_05",
+      "id": "time_rh3",
       "checkpoint": "time_of_death",
-      "answer": "at dawn",
+      "answer": "After first light",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_together",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "soledad_iturriaga"
+          "irret_sou"
         ],
-        "location": null
+        "location": null,
+        "item": null
       },
-      "text": "Word reached the investigator that [char:Soledad Iturriaga] had told the hostal owner she heard screaming near the water 'just as the light came,' suggesting to several locals that the death must have occurred at first light.",
-      "red_herring_explanation": "Soledad heard a gull — a common sound at dawn near the pier — and convinced herself it was a scream after learning of the death. She is not lying deliberately, but her account is wrong."
+      "requires_clue_id": null,
+      "text": "[char:Irret Sou] tells the investigator that when she first saw the body at sunrise, the color of the exposed skin still appeared to her as relatively fresh — she had assumed at the time that the death must have occurred very recently, perhaps within the hour.",
+      "red_herring_explanation": "Irret's lay impression that the body appeared fresh at sunrise leads her to estimate death just before or after first light, but she is not trained in such assessments, and the cool foggy morning had slowed the visible signs of death."
     },
     {
-      "id": "vs_01",
-      "checkpoint": "victim_state",
-      "answer": "fully clothed, boots still laced",
-      "weight": "correct",
-      "condition": {
-        "type": "character_in_location",
-        "characters": [
-          "investigator"
-        ],
-        "location": "cannery_pier"
-      },
-      "text": "Looking at the body at [loc:cannery_pier], the investigator notes Inés is dressed as she would be for an evening walk — coat, skirt, boots laced to the ankle — which is strange only because no one chooses to swim in their work clothes.",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "vs_02",
-      "checkpoint": "victim_state",
-      "answer": "fully clothed, boots still laced",
-      "weight": "correct",
-      "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "maider_txurruka"
-        ],
-        "location": "cannery_pier"
-      },
-      "text": "[char:Maider Txurruka] tells the investigator that Inés never went near the water at night without purpose — 'she wasn't the type to wander' — and confirms the clothing is exactly what Inés was wearing when she left the cannery that evening.",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "vs_03",
-      "checkpoint": "victim_state",
-      "answer": "barefoot, coat missing",
-      "weight": "red_herring",
-      "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "gorka_mendizabal"
-        ],
-        "location": "harbour_market"
-      },
-      "text": "[char:Gorka Mendizabal] remarks to the investigator that he thought he saw a woman's shoes on the pier railing earlier that morning, before the body was found — 'gone by the time the crowd gathered,' he says with a shrug.",
-      "red_herring_explanation": "Gorka is fabricating a detail to suggest Inés removed her shoes voluntarily, implying a suicide. No shoes were found on the railing; this is misdirection."
-    },
-    {
-      "id": "vs_04",
-      "checkpoint": "victim_state",
-      "answer": "dressed for travel, bag nearby",
-      "weight": "red_herring",
-      "condition": {
-        "type": "n_characters_together",
-        "characters": [
-          "investigator",
-          "soledad_iturriaga"
-        ],
-        "location": null
-      },
-      "text": "[char:Soledad Iturriaga] was overheard telling the hostal owner that Inés had spoken of leaving Culebra Chica 'before the week was out' — and locals began to assume she had a bag packed and was heading to the boat landing when she died.",
-      "red_herring_explanation": "Inés had spoken of leaving but had not packed; she went to the caves that night because Bixente summoned her there, not to depart. The rumour of imminent travel was real but the bag was not."
-    },
-    {
-      "id": "vs_05",
-      "checkpoint": "victim_state",
-      "answer": "nightclothes, no shoes",
-      "weight": "red_herring",
-      "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "patxi_urresti"
-        ],
-        "location": "fishermen_quarter"
-      },
-      "text": "[char:Patxi Urresti] insists the figure he heard in the caves that night sounded 'soft-footed, like no boots' — he demonstrates by slapping his bare sole on the cobblestone — and seems genuinely puzzled when told she was found in boots.",
-      "red_herring_explanation": "Patxi only heard the sound, not saw Inés. The acoustics of the cave distort footfall, and he is extrapolating freely from a sound impression."
-    },
-    {
-      "id": "perp_01",
+      "id": "perp_a",
       "checkpoint": "perpetrator",
-      "answer": "bixente_arrizabalaga",
+      "answer": "Maret Doun",
       "weight": "correct",
       "condition": {
-        "type": "characters_anywhere_with_item",
+        "type": "investigator_with_character_and_item",
         "characters": [
-          "investigator"
+          "maret_doun"
         ],
-        "item": "bixentes_coat"
+        "location": null,
+        "item": "records_room_key"
       },
-      "text": "The monogrammed coat — 'B.A.' in red thread — was found bundled under the dock planking at [loc:cannery_pier], still damp and smelling of the caves; [char:Bixente Arrizabalaga] owns no other coat of this cut, and no explanation he later offers accounts for why it was hidden.",
+      "requires_clue_id": null,
+      "text": "When shown the key, [char:Maret Doun] states that she found it lying on the floor inside the [loc:records_room] doorway the morning after the death and had kept it intending to return it to the Matron; when the investigator asks when she entered the Records Room to find it, Maret pauses and then says she found it from the doorway, without going in.",
       "red_herring_explanation": null
     },
     {
-      "id": "perp_02",
+      "id": "perp_b",
       "checkpoint": "perpetrator",
-      "answer": "bixente_arrizabalaga",
+      "answer": "Maret Doun",
       "weight": "correct",
       "condition": {
-        "type": "characters_in_location_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "location": "goikoetxea_house",
-        "item": "account_ledger"
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "records_room",
+        "item": "records_room_key"
       },
-      "text": "The ledger at [loc:goikoetxea_house] shows six fraudulent entries initialled in a hand that matches the signature on every Arrizabalaga Cannery contract — and the last entry is dated two days before Inés died, which is the day she told Bixente she had written to Bilbao.",
+      "requires_clue_id": "perp_a",
+      "text": "The key fits the [loc:records_room] lock exactly; on the exterior face of the lock plate, there are three fresh scratches radiating from the keyhole — bright metal, not yet tarnished — consistent with a key inserted in poor light or in haste.",
       "red_herring_explanation": null
     },
     {
-      "id": "perp_03",
+      "id": "perp_rh1",
       "checkpoint": "perpetrator",
-      "answer": "gorka_mendizabal",
+      "answer": "Nitha Tessek",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "gorka_mendizabal"
+          "nitha_tessek"
         ],
-        "location": "tidal_caves"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Gorka Mendizabal] goes pale when the investigator meets him at [loc:tidal_caves] — he was clearly not expecting to be found here — and there is cave mud on his boots that matches the chamber floor exactly.",
-      "red_herring_explanation": "Gorka helped move the body on Bixente's orders, which is why he was at the caves and why he is afraid. He did not commit the murder, though he is an accessory and knows it."
+      "requires_clue_id": null,
+      "text": "[char:Nitha Tessek] tells the investigator that she was in the corridor outside the [loc:records_room] late that same evening, and shows a tear along the hem of her ceremonial sash — the kind of snag, she says, that happens on the iron bracket beside the Records Room door.",
+      "red_herring_explanation": "The torn sash places Nitha Tessek physically near the Records Room that evening and establishes she was in the corridor — but the tear occurred during a routine earlier pass through the corridor, not during any attack."
     },
     {
-      "id": "perp_04",
+      "id": "perp_rh2",
       "checkpoint": "perpetrator",
-      "answer": "maider_txurruka",
+      "answer": "Dauvek Pol",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_together",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "maider_txurruka"
+          "dauvek_pol"
         ],
-        "location": null
+        "location": null,
+        "item": null
       },
-      "text": "[char:Maider Txurruka] tells the investigator she spent the evening alone, but the woman who sells bread at [loc:harbour_market] later told the investigator she saw Maider walking toward the waterfront path — the one that leads to [loc:tidal_caves] — at around half past nine.",
-      "red_herring_explanation": "Maider walked to the path but turned back — she often went that way to think. She did not reach the caves and saw nothing of the crime."
+      "requires_clue_id": null,
+      "text": "[char:Dauvek Pol] shows the investigator his own salt-scraper kept beneath his market counter — a short iron-bladed tool with a dark reddish-brown stain across the flat of the blade that he says is residue from a red-clay ceremonial salt he handles.",
+      "red_herring_explanation": "The dark stain on Dauvek's scraper resembles dried blood and puts a potentially bladed weapon in his possession, but the residue is in fact from red-clay salt — a common market commodity — and the scraper shows no signs of recent cleaning."
     },
     {
-      "id": "perp_05",
+      "id": "perp_rh3",
       "checkpoint": "perpetrator",
-      "answer": "soledad_iturriaga",
+      "answer": "Senne Arak",
       "weight": "red_herring",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character_and_item",
         "characters": [
-          "investigator",
-          "soledad_iturriaga"
+          "senne_arak"
         ],
-        "location": "hostal_portua",
-        "item": "bilbao_letter"
+        "location": null,
+        "item": "watch_log_tablet"
       },
-      "text": "Shown the Bilbao letter at [loc:hostal_portua], [char:Soledad Iturriaga] admits she knew about the audit request and had offered Inés money for copies of the accounts — 'I wanted them first,' she says, which is motive enough for half the town to eye her carefully.",
-      "red_herring_explanation": "Soledad wanted the ledgers for a rival business deal, not as reason enough to kill. Her admission is honest and actually exonerates her from the murder, though it confirms she is not innocent in other ways."
+      "requires_clue_id": null,
+      "text": "When the investigator examines the [loc:upper_walkway] watch-log tablet with [char:Senne Arak] present, she identifies a gap of roughly [time:forty minutes] around [time:the third bell of night] containing no notched entries; asked to explain it, Senne says she stepped inside briefly to warm her hands and lost track of the time.",
+      "red_herring_explanation": "The unlogged gap in Senne's watch record creates a window during which she cannot account for her movements, suggesting she may have left her post to commit or assist in the crime — but the gap is in fact due to Senne falling briefly asleep at her post, a dereliction she is concealing out of fear of punishment."
     },
     {
-      "id": "mot_01",
+      "id": "mot_a",
       "checkpoint": "motive",
-      "answer": "self-preservation",
+      "answer": "Silencing a witness to an old crime",
       "weight": "correct",
       "condition": {
-        "type": "characters_in_location_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "location": "goikoetxea_house",
-        "item": "bilbao_letter"
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "records_room",
+        "item": "salt_ledger"
       },
-      "text": "The letter in [loc:goikoetxea_house] confirms that an external auditor was already engaged and would arrive within weeks — [char:Bixente Arrizabalaga] faced not just disgrace but criminal exposure; killing the only person who could produce the evidence was the only door he saw.",
+      "requires_clue_id": "loc_a",
+      "text": "On the open page of the [loc:records_room] ledger, among the columns of trade figures, a line from twelve years prior records a large payment to 'M. Doun, salt-works' with the notation 'compensation — structural loss, east pan'; beside it, in a different ink that appears freshly applied, a notation in a careful hand reads 'cross-ref: fire incident, Arak lineage stores.'",
       "red_herring_explanation": null
     },
     {
-      "id": "mot_02",
+      "id": "mot_b",
       "checkpoint": "motive",
-      "answer": "self-preservation",
+      "answer": "Silencing a witness to an old crime",
       "weight": "correct",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character_and_item",
         "characters": [
-          "investigator",
-          "bixente_arrizabalaga"
+          "irret_sou"
         ],
-        "location": "arrizabalaga_warehouse",
-        "item": "account_ledger"
+        "location": null,
+        "item": "salt_ledger"
       },
-      "text": "Shown the ledger at [loc:arrizabalaga_warehouse], [char:Bixente Arrizabalaga] says nothing for a long time — then: 'I would have lost everything my father built.' He seems to mean it as an explanation rather than a confession, but it is both.",
+      "requires_clue_id": "mot_a",
+      "text": "When shown the ledger entry, [char:Irret Sou] tells the investigator that twelve years ago, a fire destroyed the Arak lineage's salt stores at the height of the harvest season; a young male laborer was found dead inside the storage building, and though the fire was recorded as accidental, there had been talk at the time — never formally pursued — that the blaze was set deliberately.",
       "red_herring_explanation": null
     },
     {
-      "id": "mot_03",
+      "id": "mot_rh1",
       "checkpoint": "motive",
-      "answer": "jealousy",
+      "answer": "Settling a long-standing personal feud",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "maider_txurruka"
+          "nitha_tessek"
         ],
-        "location": "txurruka_cottage"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Maider Txurruka] does not deny, when asked directly at [loc:txurruka_cottage], that she was in love with Inés — 'everyone knew, even if she pretended not to' — and that Inés had told her the week before that she was leaving for Bilbao and not coming back.",
-      "red_herring_explanation": "Maider had motive born of love and loss, but she did not act on it. She is honest about her feelings precisely because she knows they look damning."
+      "requires_clue_id": null,
+      "text": "[char:Nitha Tessek] tells the investigator that [char:Tessek Oravi] had blocked the re-registration of a Tessek lineage property on three separate occasions over the past decade, and that the dispute had grown into an open enmity between them that everyone in [loc:matrons_house] knew about.",
+      "red_herring_explanation": "Nitha's openly stated hatred for Oravi and the specific, repeated nature of the property dispute provide a clear personal motive — but the feud, however genuine, was not the reason for the killing."
     },
     {
-      "id": "mot_04",
+      "id": "mot_rh2",
       "checkpoint": "motive",
-      "answer": "debt",
+      "answer": "Preventing exposure of falsified trade accounts",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "gorka_mendizabal"
+          "dauvek_pol"
         ],
-        "location": "fishermen_quarter"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Gorka Mendizabal] admits to the investigator in [loc:fishermen_quarter] that Bixente owns his boats, his debts, and — his word — 'my back': he does what Bixente says because the alternative is ruin, which gives him a reason to silence a threat to Bixente just as strong as Bixente's own.",
-      "red_herring_explanation": "Gorka's debt to Bixente made him an instrument, not the killer. His motive is real but it points toward Bixente as the principal, not Gorka as the perpetrator."
+      "requires_clue_id": null,
+      "text": "[char:Dauvek Pol] tells the investigator that his aunt had, in his view, been quietly adjusting the recorded salt-weights in the Tessek ledgers for years in her own favor, and says that if someone had finally found proof of it, that person would have had reason to act before she could destroy the evidence.",
+      "red_herring_explanation": "Dauvek implies that Oravi was herself guilty of fraud and that her killer acted to prevent her from destroying evidence — an inversion that redirects suspicion and obscures the actual motive."
     },
     {
-      "id": "mot_05",
+      "id": "mot_rh3",
       "checkpoint": "motive",
-      "answer": "obsession",
+      "answer": "Stealing the lineage inheritance records",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_together",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "soledad_iturriaga"
+          "senne_arak"
         ],
-        "location": null
+        "location": null,
+        "item": null
       },
-      "text": "Word reached the investigator that [char:Soledad Iturriaga] had been seen copying names from Inés's personal correspondence at the hostal table — her interest in the accountant went beyond any business deal, locals agreed, and had the intensity of something personal.",
-      "red_herring_explanation": "Soledad is obsessed with the financial opportunity the ledgers represent, not with Inés personally. Her behaviour looked strange because her commercial espionage required her to track Inés's movements and contacts."
+      "requires_clue_id": null,
+      "text": "[char:Senne Arak] tells the investigator that [time:some weeks before the death], she overheard [char:Tessek Oravi] in a sharp exchange with someone she could not see, in which Oravi said clearly: 'those records are not yours to take, and they never will be.'",
+      "red_herring_explanation": "The overheard argument about records 'not being yours to take' suggests the motive was theft or appropriation of inheritance documents — consistent with Dauvek's known pressure on Oravi — but the exchange was in fact about Oravi refusing to let anyone tamper with the historical trade records she was reviewing."
     }
   ],
   "relations": [
-    { "from": "bixente_arrizabalaga", "to": "ines_goikoetxea", "label": "employed" },
-    { "from": "bixente_arrizabalaga", "to": "gorka_mendizabal", "label": "employs" },
-    { "from": "maider_txurruka", "to": "ines_goikoetxea", "label": "in love with" },
-    { "from": "bixente_arrizabalaga", "to": "maider_txurruka", "label": "employs" }
+    {
+      "from": "nitha_tessek",
+      "to": "maret_doun",
+      "label": "employs"
+    },
+    {
+      "from": "nitha_tessek",
+      "to": "senne_arak",
+      "label": "employs"
+    },
+    {
+      "from": "nitha_tessek",
+      "to": "tessek_oravi",
+      "label": "rivals with"
+    },
+    {
+      "from": "dauvek_pol",
+      "to": "tessek_oravi",
+      "label": "nephew of"
+    },
+    {
+      "from": "irret_sou",
+      "to": "tessek_oravi",
+      "label": "professional acquaintance of"
+    }
   ],
   "leads": [
     {
-      "id": "lead_01",
-      "text": "The body at [loc:cannery_pier] is still wet — but the pier boards around it are dry, and the tide has not reached this height since yesterday evening, which suggests the water came with her rather than from here.",
-      "character_id": null,
-      "location_id": "cannery_pier"
+      "id": "lead_1",
+      "text": "A traveling salt-auditor named [char:Irret Sou] was berthed at [loc:quayside] when the body was found — she reached it before anyone else did, and she mentioned to the runner who summoned help that something about how the body lay had struck her as wrong.",
+      "character_id": "irret_sou",
+      "location_id": "quayside"
     },
     {
-      "id": "lead_02",
-      "text": "[char:Patxi Urresti] is the old man sitting on the rock wall above [loc:tidal_caves], watching the water with the focused patience of someone who knows he saw something and hasn't yet decided whether to say so.",
-      "character_id": "patxi_urresti",
-      "location_id": "tidal_caves"
+      "id": "lead_2",
+      "text": "The victim [char:Tessek Oravi] had been sent by the Matron to review ledgers at [loc:records_room] that same evening — the room was found unlocked the following morning, in violation of standing orders that [char:Nitha Tessek] herself enforces.",
+      "character_id": "nitha_tessek",
+      "location_id": "records_room"
     },
     {
-      "id": "lead_03",
-      "text": "[char:Maider Txurruka] has not left [loc:cannery_floor] since the body was found, and the women working beside her say she wept once, briefly, then went back to her knives — and that she keeps looking at the door.",
-      "character_id": "maider_txurruka",
-      "location_id": "cannery_floor"
+      "id": "lead_3",
+      "text": "The night-watcher [char:Senne Arak] holds her post at [loc:upper_walkway], which overlooks the passage between the Matron's House and the salt-works — she would have been on watch during the hours in question.",
+      "character_id": "senne_arak",
+      "location_id": "upper_walkway"
     }
   ],
-  "opening_narrative": "The fishing boat that brought the investigator into [loc:cannery_pier] arrived to find the dock already crowded. A cannery girl had gone down at first light to check the morning catch tallies and found a woman's body at the edge of the planking, face to the water. She ran back up the hill screaming, woke her mother, and her mother woke the priest, and the priest — finding himself badly out of his depth — sent the fastest boy in Culebra Chica to flag the coastal road.\n\nBy the time official word reached the district office, three hours had passed and half the town had already walked past the body to look. The summer heat had made the morning long. The [loc:cannery_pier] smelled the way it always did — of salt and rust and yesterday's fish — but no one was working.\n\n[char:Bixente Arrizabalaga] was the one who met the investigator at the dock. He shook hands firmly and said that Culebra Chica was a quiet place and that he was sure there was an explanation, and he said both things with the rehearsed calm of a man who has been saying them to himself since before dawn."
+  "opening_narrative": "The boat from the outer estuary reaches [loc:quayside] in the grey hour before the salt-fog fully lifts. [loc:quayside] smells of brine and wet rope, and the flat-bottomed trade vessels knock quietly against the pilings as the investigator steps ashore. The runner who came to fetch him said only that a woman was dead at the salt-works, that the body had been found at dawn, and that the Tessek lineage had sent for someone from outside because no one in [loc:quayside] could be seen to take a side.\n\nThe dead woman is [char:Tessek Oravi], bookkeeper and salt-merchant of the Tessek lineage — a position of no small consequence in a town whose livelihood rises and falls with the tidal harvest. She was found [time:at sunrise] by the overseer, [char:Maret Doun], slumped against the railing of the main salt-pan platform at [loc:salt_works]. The Matron, [char:Nitha Tessek], has not yet come down from [loc:matrons_house]. The market is still shuttered. Word has spread anyway, as word always does in Vaur Tessek, carried on the same salt-wind that carries everything else.\n\nThe investigator has been told that [char:Tessek Oravi] was working alone the previous evening and that nothing seemed amiss. He has been told this by the same people who are now waiting to see what he will do with what he finds.",
+  "epilogue": "What [char:Tessek Oravi] had been assembling in the months before her death was not a formal accusation but a private record — a set of marginal notations in the old trade ledgers that, taken together, would have been difficult to ignore. She had never been a woman who made claims she could not support in ink, and she had not intended to bring anything before [char:Nitha Tessek] until every line was legible and every figure cross-referenced. She was not quite finished when [char:Maret Doun] learned what she was doing.\n\n[char:Maret Doun] had built twelve years of quiet on the assumption that the fire at the Arak lineage stores had been closed as an accident and forgotten. The young laborer who died in it — a boy of seventeen named Pek Arak, her sister's son — had been working alone in the storage building when Maret set the blaze from outside, believing it empty. The payment recorded in the ledger as 'structural compensation' had in fact been a quieting sum arranged between Maret and a Tessek lineage factor who had since died, keeping the transaction out of any formal record. It was only Oravi's methodical habit of cross-referencing every unusual payment against the event records that had surfaced it at all. [char:Maret Doun] heard of it from a junior clerk who had noticed Oravi's notations and mentioned them to the overseer out of ordinary professional deference. Maret used the salt-scraper — a new one, drawn from the back stores so it would leave no traceable history — and she used the walkway she had walked every morning for twelve years to move the body before [loc:quayside] came to life.\n\n[char:Senne Arak], whose family name matched the lineage of the boy who died, had no connection to the crime and no knowledge of it — her gap in the watch log was nothing more than exhaustion and the cold. [char:Dauvek Pol] lost his petition to revise the lineage document; [char:Nitha Tessek], to her visible displeasure, was required to honor [char:Tessek Oravi]'s last completed set of records as the authoritative version. [char:Irret Sou] completed her cargo audit and sailed south [time:before the next tide], leaving behind a single page of notes on the state of Vaur Tessek's trade records — thorough, precise, and filed where anyone diligent enough to look would eventually find it."
 }

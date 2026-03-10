@@ -52,10 +52,10 @@ export function validateScenario(s: Scenario): ValidationError[] {
     }
   }
 
-  if (!s.village.arrival_location) {
-    errors.push({ rule: 'arrival_location', message: 'village.arrival_location is missing' })
-  } else if (!locationIds.has(s.village.arrival_location)) {
-    errors.push({ rule: 'arrival_location', message: `village.arrival_location "${s.village.arrival_location}" is not a valid location id` })
+  if (!s.location.arrival_location) {
+    errors.push({ rule: 'arrival_location', message: 'location.arrival_location is missing' })
+  } else if (!locationIds.has(s.location.arrival_location)) {
+    errors.push({ rule: 'arrival_location', message: `location.arrival_location "${s.location.arrival_location}" is not a valid location id` })
   }
 
   // ── Characters ─────────────────────────────
@@ -64,11 +64,8 @@ export function validateScenario(s: Scenario): ValidationError[] {
   }
 
   for (const char of s.characters) {
-    if (!locationIds.has(char.home_location)) {
-      errors.push({ rule: 'char_home_location', message: `Character ${char.id} has invalid home_location: ${char.home_location}` })
-    }
-    if (!locationIds.has(char.starting_location)) {
-      errors.push({ rule: 'char_starting_location', message: `Character ${char.id} has invalid starting_location: ${char.starting_location}` })
+    if (!locationIds.has(char.location)) {
+      errors.push({ rule: 'char_location', message: `Character ${char.id} has invalid location: ${char.location}` })
     }
   }
 
@@ -81,7 +78,7 @@ export function validateScenario(s: Scenario): ValidationError[] {
   // ── Items ──────────────────────────────────
   for (const item of s.items) {
     if (!locationIds.has(item.starting_location)) {
-      errors.push({ rule: 'item_location', message: `Item ${item.id} has invalid starting_location` })
+      errors.push({ rule: 'item_location', message: `Item ${item.id} has invalid starting_location: ${item.starting_location}` })
     }
   }
 
@@ -112,6 +109,8 @@ export function validateScenario(s: Scenario): ValidationError[] {
     }
   }
 
+  const clueIds = new Set(s.clues.map(c => c.id))
+
   for (const clue of s.clues) {
     if (!checkpointIds.has(clue.checkpoint)) {
       errors.push({ rule: 'clue_checkpoint', message: `Clue ${clue.id} references unknown checkpoint: ${clue.checkpoint}` })
@@ -124,6 +123,28 @@ export function validateScenario(s: Scenario): ValidationError[] {
 
     if (clue.weight === 'red_herring' && !clue.red_herring_explanation) {
       errors.push({ rule: 'red_herring_explanation', message: `Clue ${clue.id} is red_herring but has no red_herring_explanation` })
+    }
+
+    if (clue.requires_clue_id) {
+      if (!clueIds.has(clue.requires_clue_id)) {
+        errors.push({ rule: 'requires_clue_id', message: `Clue ${clue.id} requires_clue_id "${clue.requires_clue_id}" is not a valid clue id` })
+      } else {
+        const dep = s.clues.find(c => c.id === clue.requires_clue_id)
+        if (dep?.weight === 'red_herring') {
+          errors.push({ rule: 'requires_clue_id_red_herring', message: `Clue ${clue.id} requires_clue_id "${clue.requires_clue_id}" is a red_herring — red herrings are trimmed on lower difficulties, making this clue permanently unreachable` })
+        }
+      }
+    }
+
+    const validConditionTypes = new Set([
+      'investigator_at_location',
+      'investigator_with_character',
+      'investigator_with_item',
+      'investigator_at_location_with_item',
+      'investigator_with_character_and_item',
+    ])
+    if (!validConditionTypes.has(clue.condition.type)) {
+      errors.push({ rule: 'condition_type', message: `Clue ${clue.id} has unknown condition type: ${clue.condition.type}` })
     }
 
     for (const cid of (clue.condition.characters ?? [])) {

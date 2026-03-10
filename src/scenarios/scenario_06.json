@@ -1,0 +1,794 @@
+{
+  "location": {
+    "name": "Holviken",
+    "season": "autumn",
+    "weather": "low chalk-white fog sitting on the water",
+    "arrival_location": "harbour_steps"
+  },
+  "crime": {
+    "cause_of_death": "a thin blade between the ribs",
+    "murder_location": "chalk_barn",
+    "body_found_location": "tidal_flats",
+    "body_was_moved": true,
+    "time_of_death": "between ten at night and midnight",
+    "perpetrator_ids": [
+      "sigrid_arnell"
+    ],
+    "motive": "concealing an ongoing affair",
+    "hidden_truth": "The victim had discovered Sigrid and the lighthouse keeper meeting secretly and had written it down in a ledger before he was killed."
+  },
+  "characters": [
+    {
+      "id": "nils_vander",
+      "name": "Nils Vander",
+      "isVictim": true,
+      "local": true,
+      "location": "tidal_flats",
+      "description": "Nils was the village's chalk merchant, a meticulous man in his fifties known for keeping careful records. His body lies face-down in the tidal silt, boots still on, coat undone at the collar, one arm stretched toward the sea."
+    },
+    {
+      "id": "sigrid_arnell",
+      "name": "Sigrid Arnell",
+      "isVictim": false,
+      "local": true,
+      "location": "arnell_house",
+      "description": "Sigrid is Nils Vander's business partner and the widow of a sea captain; she manages the chalk-export accounts with a composed efficiency that unsettles people who expect grief. She meets the investigator at her door with dry hands and a steady gaze, a narrow gutting knife hanging from her belt in its sheath."
+    },
+    {
+      "id": "ebbe_strand",
+      "name": "Ebbe Strand",
+      "isVictim": false,
+      "local": true,
+      "location": "lighthouse",
+      "description": "Ebbe is the lighthouse keeper, a lean man in his late thirties with calloused palms and a habit of looking past whoever he speaks to. He is polite when the investigator climbs the lighthouse steps, though his eyes move to the window and the fog beyond."
+    },
+    {
+      "id": "marte_okkel",
+      "name": "Marte Okkel",
+      "isVictim": false,
+      "local": true,
+      "location": "harbour_steps",
+      "description": "Marte runs the harbourmaster's office and was the one who sent for the investigator after the body was found by a fisherman at dawn. She is a broad-shouldered woman in her forties with ink on her fingers, and she speaks quickly, as if she has already rehearsed what she will and will not say."
+    },
+    {
+      "id": "per_haas",
+      "name": "Per Haas",
+      "isVictim": false,
+      "local": true,
+      "location": "chalk_barn",
+      "description": "Per is the chalk barn's labourer, young, sun-browned, and visibly frightened; he was sleeping in the barn's loft the night of the murder and claims he heard nothing. His hands shake slightly when he gestures toward the stacked chalk blocks."
+    },
+    {
+      "id": "idunn_vander",
+      "name": "Idunn Vander",
+      "isVictim": false,
+      "local": true,
+      "location": "arnell_house",
+      "description": "Idunn is Nils Vander's daughter, twenty years old, and has worked as a clerk in the chalk business since she left school. She is sitting at Sigrid's kitchen table when the investigator arrives, her eyes red, a cup of untouched tea before her."
+    }
+  ],
+  "items": [
+    {
+      "id": "ledger",
+      "name": "Account Ledger",
+      "description": "A thick cloth-bound ledger, pages water-swollen at the edges; the final two pages have been torn out, leaving ragged paper stubs at the spine.",
+      "starting_location": "chalk_barn"
+    },
+    {
+      "id": "gutting_knife",
+      "name": "Gutting Knife",
+      "description": "A thin-bladed knife, roughly twenty centimetres long, with a bone handle worn smooth; a dark reddish-brown stain runs along the fuller near the hilt.",
+      "starting_location": "arnell_house"
+    },
+    {
+      "id": "chalk_dust_boot",
+      "name": "Chalk-Dusted Boot Print",
+      "description": "A single dried boot print pressed into the mud at the barn threshold, caked with white chalk dust on its sole-edge.",
+      "starting_location": "chalk_barn"
+    },
+    {
+      "id": "torn_pages",
+      "name": "Torn Ledger Pages",
+      "description": "Two loose pages of dense handwritten columns, damp and partially smeared; they were folded and tucked beneath a loose floorboard.",
+      "starting_location": "lighthouse"
+    },
+    {
+      "id": "lantern_oil_stain",
+      "name": "Lantern Oil Stain",
+      "description": "A palm-sized dark stain on the chalk barn's earthen floor near the west wall, with a small crescent of broken glass pressed into the soil beside it.",
+      "starting_location": "chalk_barn"
+    },
+    {
+      "id": "wet_coat",
+      "name": "Damp Wool Coat",
+      "description": "A heavy wool coat hanging on a peg inside the lighthouse door, its lower hem and sleeves still damp and smelling of tidal mud.",
+      "starting_location": "lighthouse"
+    }
+  ],
+  "locations": [
+    {
+      "id": "harbour_steps",
+      "name": "Harbour Steps",
+      "flavour": "Broad stone steps descend from the village into the grey harbour water; lobster pots and coiled rope line the upper landing.",
+      "col": 1,
+      "row": 2
+    },
+    {
+      "id": "tidal_flats",
+      "name": "Tidal Flats",
+      "flavour": "At low tide the sea retreats to reveal a wide shelf of grey-white silt criss-crossed with boot marks and the tracks of wading birds.",
+      "col": 0,
+      "row": 2
+    },
+    {
+      "id": "chalk_barn",
+      "name": "Chalk Barn",
+      "flavour": "A long low building of tarred timber; the air inside is pale with chalk dust that coats every surface in a fine white powder.",
+      "col": 1,
+      "row": 1
+    },
+    {
+      "id": "arnell_house",
+      "name": "Arnell House",
+      "flavour": "A sea captain's house, solidly built and facing the water; the shutters are freshly painted but the garden has been left to go wild.",
+      "col": 0,
+      "row": 1
+    },
+    {
+      "id": "lighthouse",
+      "name": "Lighthouse",
+      "flavour": "The chalk-white tower stands on the northern headland, its beam cutting through the fog at irregular intervals the fishermen say they could set a clock by.",
+      "col": 2,
+      "row": 0
+    },
+    {
+      "id": "cliff_path",
+      "name": "Cliff Path",
+      "flavour": "A narrow track cut into the chalk headland connects the village to the lighthouse; the fog collects here and the path edge crumbles without warning.",
+      "col": 2,
+      "row": 1
+    },
+    {
+      "id": "harbourmaster_office",
+      "name": "Harbourmaster's Office",
+      "flavour": "A single room above the harbour steps with salt-bleached charts pinned to every wall and a tide-table scratched directly into the windowsill.",
+      "col": 1,
+      "row": 0
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "harbour_steps",
+      "to": "tidal_flats"
+    },
+    {
+      "from": "harbour_steps",
+      "to": "chalk_barn"
+    },
+    {
+      "from": "harbour_steps",
+      "to": "harbourmaster_office"
+    },
+    {
+      "from": "chalk_barn",
+      "to": "arnell_house"
+    },
+    {
+      "from": "chalk_barn",
+      "to": "cliff_path"
+    },
+    {
+      "from": "cliff_path",
+      "to": "lighthouse"
+    },
+    {
+      "from": "cliff_path",
+      "to": "harbourmaster_office"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "Cause of Death",
+      "answer_options": [
+        "a thin blade between the ribs",
+        "blunt force to the skull",
+        "drowning in tidal water",
+        "strangulation"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Murder Location",
+      "answer_options": [
+        "the chalk barn",
+        "the tidal flats",
+        "the cliff path",
+        "the lighthouse",
+        "Arnell House"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "Time of Death",
+      "answer_options": [
+        "between ten at night and midnight",
+        "between eight and ten at night",
+        "between midnight and two in the morning",
+        "shortly before dawn"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Perpetrator",
+      "answer_options": [
+        "Sigrid Arnell",
+        "Ebbe Strand",
+        "Per Haas",
+        "Marte Okkel",
+        "Idunn Vander"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Motive",
+      "answer_options": [
+        "concealing an ongoing affair",
+        "a dispute over the chalk business accounts",
+        "revenge for the death of a family member",
+        "silencing a witness to smuggling",
+        "a debt that could not be repaid"
+      ]
+    },
+    {
+      "id": "hidden_truth",
+      "label": "What Did the Victim Know?",
+      "answer_options": [
+        "The victim had discovered Sigrid and the lighthouse keeper meeting secretly and had written it down in a ledger before he was killed.",
+        "The victim had uncovered evidence of fraud in the chalk export records.",
+        "The victim was planning to sell the chalk barn without Sigrid's consent.",
+        "The victim had witnessed a shipwreck being deliberately caused.",
+        "The victim was secretly the father of Idunn's child."
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cod_c1",
+      "checkpoint": "cause_of_death",
+      "answer": "a thin blade between the ribs",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "tidal_flats",
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "Examining the body where it lies in the silt, the investigator finds a single small entry wound on the left side of the torso, just below the fourth rib — narrow, clean-edged, no tearing of the surrounding cloth.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_c2",
+      "checkpoint": "cause_of_death",
+      "answer": "a thin blade between the ribs",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "gutting_knife"
+      },
+      "requires_clue_id": null,
+      "text": "The blade is narrow — no wider than a finger — and tapers to a fine point; the stain near the hilt is dry and dark, and the edge shows no nicks or damage.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_rh1",
+      "checkpoint": "cause_of_death",
+      "answer": "drowning in tidal water",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marte_okkel"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marte Okkel] tells the investigator: \"The fisherman who found him said Nils was lying right at the water's edge, face down in the wet. The tide had been up past him not two hours before.\"",
+      "red_herring_explanation": "Marte is reporting the body's position truthfully, but drowning is not the cause of death; the location of the body reflects it having been moved, not how the victim died."
+    },
+    {
+      "id": "cod_rh2",
+      "checkpoint": "cause_of_death",
+      "answer": "blunt force to the skull",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "per_haas"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Per Haas] tells the investigator: \"I heard a bang from below, sometime in the evening — like something heavy falling against the chalk blocks. I didn't go down.\"",
+      "red_herring_explanation": "Per heard the lantern being knocked over during the struggle in the barn; the sound was not a blow to the victim's head."
+    },
+    {
+      "id": "cod_rh3",
+      "checkpoint": "cause_of_death",
+      "answer": "strangulation",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "idunn_vander"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Idunn Vander] tells the investigator: \"His collar was undone when they found him — Father never wore it that way. He was very particular about his appearance.\"",
+      "red_herring_explanation": "Idunn correctly observes the undone collar but draws no conclusion; the collar was loosened when the body was dragged, not as part of any struggle around the neck."
+    },
+    {
+      "id": "loc_c1",
+      "checkpoint": "true_location",
+      "answer": "the chalk barn",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "chalk_barn",
+        "item": "lantern_oil_stain"
+      },
+      "requires_clue_id": null,
+      "text": "The oil stain and broken glass sit on the earthen floor beside a smear of dark matter that extends several feet toward the barn's rear door; the chalk dust on the floor around it is disturbed in two broad arcs, as if something was dragged.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "loc_c2",
+      "checkpoint": "true_location",
+      "answer": "the chalk barn",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "chalk_barn",
+        "item": "chalk_dust_boot"
+      },
+      "requires_clue_id": null,
+      "text": "The boot print at the threshold faces outward — toward the tidal flats path — and the chalk dust on its sole-edge is heavier on the heel than the toe, as if the foot was moving under considerable weight.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "loc_rh1",
+      "checkpoint": "true_location",
+      "answer": "the tidal flats",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marte_okkel"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marte Okkel] tells the investigator: \"Nils walked the tidal flats most evenings — everyone knew it. If you wanted to find him alone after dark, that's where you'd go.\"",
+      "red_herring_explanation": "Marte is describing Nils's known habit accurately, but the murder did not occur on the tidal flats; the body was brought there afterward."
+    },
+    {
+      "id": "loc_rh2",
+      "checkpoint": "true_location",
+      "answer": "Arnell House",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "idunn_vander"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Idunn Vander] tells the investigator: \"Father went to see Sigrid that evening — he told me before supper. He said he needed to go over the accounts with her and that he'd be back by nine.\"",
+      "red_herring_explanation": "Nils did visit Arnell House, but he and Sigrid moved to the chalk barn to retrieve the ledger; the murder took place in the barn, not the house."
+    },
+    {
+      "id": "loc_rh3",
+      "checkpoint": "true_location",
+      "answer": "the cliff path",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "cliff_path",
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "On the chalk path, the investigator finds a small piece of dark wool snagged on a gorse branch at chest height, and below it a partial boot print in the pale soil.",
+      "red_herring_explanation": "The wool and print belong to Ebbe Strand, who used the cliff path to visit Sigrid the previous night; they pre-date the murder and are not connected to the crime scene."
+    },
+    {
+      "id": "tod_c1",
+      "checkpoint": "time_of_death",
+      "answer": "between ten at night and midnight",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "per_haas"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Per Haas] tells the investigator: \"I heard the bang and then voices — short and quiet — sometime after the harbour bell struck ten. I fell back asleep before I heard the bell again.\"",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_c2",
+      "checkpoint": "time_of_death",
+      "answer": "between ten at night and midnight",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marte_okkel"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marte Okkel] tells the investigator: \"The tide chart shows the flats were fully exposed by [time:half past eleven]. The body was left when the tide was already out — you can see from the silt marks where the water stopped, and it stopped well short of him.\"",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_rh1",
+      "checkpoint": "time_of_death",
+      "answer": "between eight and ten at night",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "idunn_vander"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Idunn Vander] tells the investigator: \"Father left the house just after supper — [time:around eight]. He didn't come home. I waited until ten and then I went to bed.\"",
+      "red_herring_explanation": "Idunn establishes when her father left, not when he died; the departure time is earlier than the murder window."
+    },
+    {
+      "id": "tod_rh2",
+      "checkpoint": "time_of_death",
+      "answer": "shortly before dawn",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "ebbe_strand"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Ebbe Strand] tells the investigator: \"I was watching the water from the lamp room [time:around four in the morning] and I saw nothing on the flats — no shape, no movement. Whatever was down there, I didn't see it until the fog thinned at first light.\"",
+      "red_herring_explanation": "Ebbe's testimony concerns visibility and the fog, not the time of death; the body was already there when he claims not to have seen it."
+    },
+    {
+      "id": "tod_rh3",
+      "checkpoint": "time_of_death",
+      "answer": "between midnight and two in the morning",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "harbourmaster_office",
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "On the tide-table scratched into the windowsill, the investigator finds a pencil mark at [time:one in the morning] beside the notation \"full ebb\"; the scratch is recent, the pencil dust still loose.",
+      "red_herring_explanation": "The pencil mark was made by Marte working out when to send for the investigator; it refers to tide timing, not to the hour of death."
+    },
+    {
+      "id": "perp_c1",
+      "checkpoint": "perpetrator",
+      "answer": "Sigrid Arnell",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "gutting_knife"
+      },
+      "requires_clue_id": "cod_c2",
+      "text": "The bone handle of the knife is worn on the right side in a pattern consistent with years of the same grip; a single dark hair is caught beneath the bolster, pressed flat as if trapped when the knife was last sheathed.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_c2",
+      "checkpoint": "perpetrator",
+      "answer": "Sigrid Arnell",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "sigrid_arnell"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": "loc_c1",
+      "text": "Asked directly, [char:Sigrid Arnell] admits she was at [loc:chalk_barn] that evening, saying she and Nils had gone to retrieve a ledger; her boots, still on her feet, carry a film of white chalk dust on the soles and lower heel.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_rh1",
+      "checkpoint": "perpetrator",
+      "answer": "Per Haas",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "per_haas"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Per Haas] tells the investigator: \"Nils was going to let me go — Sigrid told me last week. Said the business was shrinking and he'd be working the barn himself from winter.\"",
+      "red_herring_explanation": "Per has a reason to resent Nils and was present in the barn, but the murder weapon belongs to Sigrid and Per had no access to it."
+    },
+    {
+      "id": "perp_rh2",
+      "checkpoint": "perpetrator",
+      "answer": "Ebbe Strand",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "wet_coat"
+      },
+      "requires_clue_id": null,
+      "text": "The coat is damp from hem to mid-sleeve with tidal mud; on the right cuff, there is a faint white powdery residue along the inside edge of the sleeve.",
+      "red_herring_explanation": "The coat is damp because Ebbe walked the tidal path the previous evening visiting Sigrid; the chalk residue is from the cliff path, not the chalk barn interior."
+    },
+    {
+      "id": "perp_rh3",
+      "checkpoint": "perpetrator",
+      "answer": "Marte Okkel",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "harbourmaster_office",
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "On the desk, among the charts, there is a folded note in a hand the investigator does not recognise: \"Tonight — after the bell — do not wait up.\" The note has no signature.",
+      "red_herring_explanation": "The note was sent to Marte by a fishing captain she was seeing; it has no connection to the murder."
+    },
+    {
+      "id": "mot_c1",
+      "checkpoint": "motive",
+      "answer": "concealing an ongoing affair",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "torn_pages"
+      },
+      "requires_clue_id": "perp_c1",
+      "text": "The torn pages contain rows of dates, initials, and times; two sets of initials — S.A. and E.S. — recur on the same dates across four months, always late at night, with a location notation that reads \"L.H.\"",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_c2",
+      "checkpoint": "motive",
+      "answer": "concealing an ongoing affair",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "ebbe_strand"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": "mot_c1",
+      "text": "Shown the torn pages, [char:Ebbe Strand] goes very still; after a long pause he says: \"Nils came to the lighthouse [time:three weeks ago]. He had the ledger with him. He said nothing — just looked at me and wrote something down.\"",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_rh1",
+      "checkpoint": "motive",
+      "answer": "a dispute over the chalk business accounts",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "ledger"
+      },
+      "requires_clue_id": null,
+      "text": "The intact pages of the ledger show a series of shipment entries where the weight recorded at dispatch is consistently higher than the weight recorded at receipt; the discrepancy runs across the last three months.",
+      "red_herring_explanation": "The weight discrepancies are a genuine bookkeeping irregularity Nils had noticed, but they are unrelated to why he was killed; the torn pages, not the account columns, were what Sigrid needed to destroy."
+    },
+    {
+      "id": "mot_rh2",
+      "checkpoint": "motive",
+      "answer": "silencing a witness to smuggling",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "marte_okkel"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Marte Okkel] tells the investigator: \"There have been unlicensed landings on the northern flats twice this autumn — no manifest, no duty paid. Nils logged them both in the harbourmaster's record. Someone knew.\"",
+      "red_herring_explanation": "Nils did log the unlicensed landings, but Sigrid killed him to protect the affair, not to stop him reporting smuggling; the landings are a separate matter Marte is handling."
+    },
+    {
+      "id": "mot_rh3",
+      "checkpoint": "motive",
+      "answer": "a debt that could not be repaid",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "idunn_vander"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Idunn Vander] tells the investigator: \"Father lent Sigrid money when Captain Arnell died — a considerable sum. She was supposed to repay it from the business profits, but she never did. Father mentioned it [time:last spring], and then he never mentioned it again.\"",
+      "red_herring_explanation": "The unpaid debt is a real grievance but it ran in Sigrid's favour, not against her; she had no financial motive to kill the man to whom she owed money."
+    },
+    {
+      "id": "ht_c1",
+      "checkpoint": "hidden_truth",
+      "answer": "The victim had discovered Sigrid and the lighthouse keeper meeting secretly and had written it down in a ledger before he was killed.",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "lighthouse",
+        "item": "torn_pages"
+      },
+      "requires_clue_id": "perp_c2",
+      "text": "Holding the torn pages inside the lighthouse, the investigator can see that the paper's watermark matches exactly the ledger found in the chalk barn; the pages slot back against the torn stubs with a precise fit.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "ht_c2",
+      "checkpoint": "hidden_truth",
+      "answer": "The victim had discovered Sigrid and the lighthouse keeper meeting secretly and had written it down in a ledger before he was killed.",
+      "weight": "correct",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "sigrid_arnell"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": "mot_c1",
+      "text": "Shown the torn pages, [char:Sigrid Arnell] says nothing for a long moment; then: \"He kept records of everything. That was always his way.\"",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "ht_rh1",
+      "checkpoint": "hidden_truth",
+      "answer": "The victim had uncovered evidence of fraud in the chalk export records.",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "ledger"
+      },
+      "requires_clue_id": null,
+      "text": "A pencilled annotation in the margin of the ledger reads: \"Check Arnell receipts — weight variance consistent, not random,\" followed by a date [time:six weeks ago].",
+      "red_herring_explanation": "Nils did notice the weight variance and suspected something; but the torn pages show his primary concern was the affair, not fraud. The annotation reflects a parallel suspicion he never acted on."
+    },
+    {
+      "id": "ht_rh2",
+      "checkpoint": "hidden_truth",
+      "answer": "The victim was planning to sell the chalk barn without Sigrid's consent.",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "per_haas"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Per Haas] tells the investigator: \"I overheard Nils on the road [time:two weeks ago], speaking to a man from the town — something about a sale price and clearing the lease before winter.\"",
+      "red_herring_explanation": "Nils was discussing a separate property matter — a storage lot near the harbour — not the chalk barn itself. Per misunderstood what he overheard."
+    },
+    {
+      "id": "ht_rh3",
+      "checkpoint": "hidden_truth",
+      "answer": "The victim had witnessed a shipwreck being deliberately caused.",
+      "weight": "red_herring",
+      "condition": {
+        "type": "investigator_with_character",
+        "characters": [
+          "ebbe_strand"
+        ],
+        "location": null,
+        "item": null
+      },
+      "requires_clue_id": null,
+      "text": "[char:Ebbe Strand] tells the investigator: \"There was a vessel that went on the rocks [time:last spring] — the light was operating correctly. Some people in the village blamed me anyway. Nils was among them.\"",
+      "red_herring_explanation": "The shipwreck was an accident and Ebbe is sensitive about the accusation; but Nils's grievance never went beyond village gossip and is unrelated to the ledger entries."
+    }
+  ],
+  "relations": [
+    {
+      "from": "sigrid_arnell",
+      "to": "nils_vander",
+      "label": "business partner of"
+    },
+    {
+      "from": "idunn_vander",
+      "to": "nils_vander",
+      "label": "daughter of"
+    },
+    {
+      "from": "idunn_vander",
+      "to": "sigrid_arnell",
+      "label": "employed by"
+    },
+    {
+      "from": "per_haas",
+      "to": "nils_vander",
+      "label": "employed by"
+    },
+    {
+      "from": "sigrid_arnell",
+      "to": "ebbe_strand",
+      "label": "in open conflict with"
+    },
+    {
+      "from": "marte_okkel",
+      "to": "nils_vander",
+      "label": "rivals with"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_1",
+      "text": "The chalk barn is the centre of Nils's working life — [char:Per Haas] sleeps there and [char:Sigrid Arnell] holds a key.",
+      "character_id": null,
+      "location_id": "chalk_barn"
+    },
+    {
+      "id": "lead_2",
+      "text": "[char:Marte Okkel] was the first official to reach the body and has the tide charts for last night; she is at the [loc:harbour_steps].",
+      "character_id": "marte_okkel",
+      "location_id": "harbour_steps"
+    },
+    {
+      "id": "lead_3",
+      "text": "The knife on [char:Sigrid Arnell]'s belt drew the fisherman's eye when she came to the harbour this morning — he noted it was usually kept in her kitchen.",
+      "character_id": "sigrid_arnell",
+      "location_id": null
+    }
+  ],
+  "opening_narrative": "The fog came in off the Kattemark shelf [time:two nights ago] and has not shifted since. In the village of Holviken, where the chalk cliffs run down to a tidal shelf and the fishermen read the lighthouse beam like a heartbeat, fog is ordinary. The body of [char:Nils Vander], chalk merchant, found face-down in the grey silt of the [loc:tidal_flats] at first light — that was not.\n\n[char:Marte Okkel], harbourmaster, sent the message herself, bypassing the district constable entirely. Her note was brief: a man of standing found dead in circumstances she did not wish to characterise, a village that would not speak freely to its own, and a request for someone from outside. She included the tide table as an attachment, which suggested she was already thinking carefully.\n\nThe investigator arrives by the morning packet at the [loc:harbour_steps], the fog still sitting low on the water. [char:Marte Okkel] is waiting on the upper landing, her coat buttoned to the throat, a rolled chart under one arm. She says only: \"He was well-liked here. That will make it harder.\" Then she turns and walks back toward the village, leaving the investigator to follow."
+}

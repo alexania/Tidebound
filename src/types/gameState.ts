@@ -66,12 +66,13 @@ export interface GameState {
 
   board: BoardState
 
-  // Characters the player explicitly moved this turn — used to determine who resets to home
-  movedCharacterIds: string[]
-
-  // Characters and items found by the investigator visiting their location
+  // Locations, characters, and items discovered by the investigator
+  foundLocationIds: string[]
   foundCharacterIds: string[]
   foundItemIds: string[]
+
+  // Item locations at the start of the current turn — used to detect moves that are undone
+  turnStartItemLocations: Record<string, LocationId>
 
   collectedClueIds: string[]
   log: LogEntry[]

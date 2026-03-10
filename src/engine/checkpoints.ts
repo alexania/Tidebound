@@ -1,8 +1,10 @@
 // ─────────────────────────────────────────────
 // TIDEBOUND — Checkpoint Tree
 //
-// All 5 investigative checkpoints are available from turn 1.
-// Accusation checkpoints lock until all 5 investigative confirmed.
+// Investigative checkpoints (cause_of_death, true_location, time_of_death)
+// are available from turn 1.
+// Accusation phase unlocks in sequence once all investigative are confirmed:
+//   perpetrator → motive → hidden_truth (if present)
 // ─────────────────────────────────────────────
 
 import type { CheckpointId } from '../types/scenario'
@@ -33,8 +35,6 @@ export function recomputeCheckpointStatuses(
       status = investigativeDone ? 'available' : 'locked'
     } else if (id === 'motive') {
       status = updated['perpetrator']?.status === 'confirmed' ? 'available' : 'locked'
-    } else if (id === 'hidden_truth') {
-      status = updated['motive']?.status === 'confirmed' ? 'available' : 'locked'
     } else {
       status = 'locked'
     }
