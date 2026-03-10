@@ -235,7 +235,6 @@
         "location": "salt_works",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "Examining the body at [loc:salt_works], the investigator shifts the outer robe aside and finds a narrow puncture wound on the left side of Tessek Oravi's torso; the robe itself has a corresponding slit in the fabric, its edges stiff with dried dark brown residue.",
       "red_herring_explanation": null
     },
@@ -252,7 +251,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Irret Sou] tells the investigator that when she first knelt beside the body, she noticed a thin dark line running along the left side of Tessek Oravi's robe — too straight and too narrow to be a fold or a shadow — which she noted before anyone else disturbed the scene.",
       "red_herring_explanation": null
     },
@@ -267,7 +265,6 @@
         "location": "salt_works",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "At the edge of the salt-pan platform where the body was found, Tessek Oravi's hands carry a visible coating of wet salt residue, and the railing she is slumped against faces directly onto the nearest brine channel.",
       "red_herring_explanation": "The wet salt on the victim's hands suggests she may have fallen or been pushed into the brine channel, pointing toward drowning — but the residue was transferred when the body was placed against the railing, not from any contact with the water."
     },
@@ -284,7 +281,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Senne Arak] tells the investigator that [time:during the deep part of the night], while she was on watch at [loc:upper_walkway], she heard a single heavy thud from the direction of the Matron's complex — loud enough to make her stop and listen, though she heard nothing after it.",
       "red_herring_explanation": "The thud heard by the night-watcher suggests an impact event — consistent with someone being struck or a body falling — but the sound was in fact Oravi being moved and the body being set down against the railing."
     },
@@ -301,7 +297,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Dauvek Pol] tells the investigator that in the weeks before her death, [char:Tessek Oravi] had complained to him of persistent stomach pains and had twice visited the herbalist who keeps a stall at [loc:covered_market].",
       "red_herring_explanation": "The recent herbalist visits and stomach complaints suggest Oravi may have been experiencing symptoms of slow poisoning, but her illness was unrelated — a seasonal complaint — and distract from the physical evidence of stabbing."
     },
@@ -316,7 +311,6 @@
         "location": "records_room",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "On the inner face of the [loc:records_room] doorframe, at roughly waist height, there is a rust-brown smear shaped like a partial hand-wipe — the heel of a palm pressed and then dragged downward across the wood.",
       "red_herring_explanation": null
     },
@@ -333,7 +327,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Nitha Tessek] tells the investigator that she herself locked the [loc:records_room] door the previous evening before retiring, and when she checked the following morning, the door stood unlocked and the interior bolt had been forced out of its bracket.",
       "red_herring_explanation": null
     },
@@ -350,7 +343,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Senne Arak] tells the investigator that [time:in the middle of the night] she heard footsteps on the boards of [loc:upper_walkway] moving in the direction of the storage eaves, followed by a scraping sound she could not identify.",
       "red_herring_explanation": "The footsteps and scraping on the covered walkway suggest a struggle or incident there, but the sounds were in fact Maret Doun moving the body along the walkway route — the Upper Walkway was traversed, not the site of the killing."
     },
@@ -367,7 +359,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Dauvek Pol] tells the investigator that [time:late in the evening], he saw [char:Tessek Oravi] walking in the direction of [loc:covered_market] with a ledger tucked under one arm, and she did not acknowledge him when he called out to her.",
       "red_herring_explanation": "Dauvek's account places the victim heading toward the Covered Market late in the evening, suggesting that is where she went — but Oravi was in fact heading to the Records Room, which is accessible through the same route, and Dauvek misread her direction."
     },
@@ -384,7 +375,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Irret Sou] tells the investigator that [time:earlier that same evening], [char:Tessek Oravi] had told her she intended to check a cargo manifest in the dockside ledger office before the night was out.",
       "red_herring_explanation": "Oravi's stated intention to visit the dockside office suggests the Quayside as a possible location for the killing, but she never went — she changed her plans and went to the Records Room instead."
     },
@@ -401,7 +391,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Senne Arak] tells the investigator that she personally watched [char:Tessek Oravi] enter the Matron's complex [time:at the second bell of night], and that by [time:one bell before first light], when Senne's watch ended, Oravi had not come back out through the main entrance.",
       "red_herring_explanation": null
     },
@@ -416,7 +405,6 @@
         "location": "records_room",
         "item": "salt_ledger"
       },
-      "requires_clue_id": null,
       "text": "The open page of the [loc:records_room] ledger carries a final entry dated [time:the night of the death], written in the same careful hand as the surrounding columns; the ink in the rightmost column is smeared in a broad streak across the figures, as if the page was sharply disturbed before the ink had finished drying.",
       "red_herring_explanation": null
     },
@@ -433,7 +421,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Maret Doun] tells the investigator that she saw [char:Tessek Oravi] at [loc:salt_works] [time:in the late afternoon], and that Oravi had seemed agitated and distracted, speaking in clipped sentences and leaving before their conversation was finished.",
       "red_herring_explanation": "Maret's account of Oravi's visible agitation in the late afternoon implies something may have happened to her then, but the distress was due to what Oravi had found in the old records — not the time of her death."
     },
@@ -450,7 +437,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Dauvek Pol] tells the investigator that he encountered [char:Tessek Oravi] [time:just after the evening meal] and that she was in good health — speaking clearly, moving quickly — which was the last time he saw her alive.",
       "red_herring_explanation": "Dauvek frames his sighting as the last confirmed sighting of Oravi alive, which implies she may have died shortly afterward — between the meal and the second bell — but she survived well past that point."
     },
@@ -467,7 +453,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Irret Sou] tells the investigator that when she first saw the body at sunrise, the color of the exposed skin still appeared to her as relatively fresh — she had assumed at the time that the death must have occurred very recently, perhaps within the hour.",
       "red_herring_explanation": "Irret's lay impression that the body appeared fresh at sunrise leads her to estimate death just before or after first light, but she is not trained in such assessments, and the cool foggy morning had slowed the visible signs of death."
     },
@@ -484,7 +469,6 @@
         "location": null,
         "item": "records_room_key"
       },
-      "requires_clue_id": null,
       "text": "When shown the key, [char:Maret Doun] states that she found it lying on the floor inside the [loc:records_room] doorway the morning after the death and had kept it intending to return it to the Matron; when the investigator asks when she entered the Records Room to find it, Maret pauses and then says she found it from the doorway, without going in.",
       "red_herring_explanation": null
     },
@@ -499,7 +483,6 @@
         "location": "records_room",
         "item": "records_room_key"
       },
-      "requires_clue_id": "perp_a",
       "text": "The key fits the [loc:records_room] lock exactly; on the exterior face of the lock plate, there are three fresh scratches radiating from the keyhole — bright metal, not yet tarnished — consistent with a key inserted in poor light or in haste.",
       "red_herring_explanation": null
     },
@@ -516,7 +499,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Nitha Tessek] tells the investigator that she was in the corridor outside the [loc:records_room] late that same evening, and shows a tear along the hem of her ceremonial sash — the kind of snag, she says, that happens on the iron bracket beside the Records Room door.",
       "red_herring_explanation": "The torn sash places Nitha Tessek physically near the Records Room that evening and establishes she was in the corridor — but the tear occurred during a routine earlier pass through the corridor, not during any attack."
     },
@@ -533,7 +515,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Dauvek Pol] shows the investigator his own salt-scraper kept beneath his market counter — a short iron-bladed tool with a dark reddish-brown stain across the flat of the blade that he says is residue from a red-clay ceremonial salt he handles.",
       "red_herring_explanation": "The dark stain on Dauvek's scraper resembles dried blood and puts a potentially bladed weapon in his possession, but the residue is in fact from red-clay salt — a common market commodity — and the scraper shows no signs of recent cleaning."
     },
@@ -550,7 +531,6 @@
         "location": null,
         "item": "watch_log_tablet"
       },
-      "requires_clue_id": null,
       "text": "When the investigator examines the [loc:upper_walkway] watch-log tablet with [char:Senne Arak] present, she identifies a gap of roughly [time:forty minutes] around [time:the third bell of night] containing no notched entries; asked to explain it, Senne says she stepped inside briefly to warm her hands and lost track of the time.",
       "red_herring_explanation": "The unlogged gap in Senne's watch record creates a window during which she cannot account for her movements, suggesting she may have left her post to commit or assist in the crime — but the gap is in fact due to Senne falling briefly asleep at her post, a dereliction she is concealing out of fear of punishment."
     },
@@ -565,7 +545,6 @@
         "location": "records_room",
         "item": "salt_ledger"
       },
-      "requires_clue_id": "loc_a",
       "text": "On the open page of the [loc:records_room] ledger, among the columns of trade figures, a line from twelve years prior records a large payment to 'M. Doun, salt-works' with the notation 'compensation — structural loss, east pan'; beside it, in a different ink that appears freshly applied, a notation in a careful hand reads 'cross-ref: fire incident, Arak lineage stores.'",
       "red_herring_explanation": null
     },
@@ -582,7 +561,6 @@
         "location": null,
         "item": "salt_ledger"
       },
-      "requires_clue_id": "mot_a",
       "text": "When shown the ledger entry, [char:Irret Sou] tells the investigator that twelve years ago, a fire destroyed the Arak lineage's salt stores at the height of the harvest season; a young male laborer was found dead inside the storage building, and though the fire was recorded as accidental, there had been talk at the time — never formally pursued — that the blaze was set deliberately.",
       "red_herring_explanation": null
     },
@@ -599,7 +577,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Nitha Tessek] tells the investigator that [char:Tessek Oravi] had blocked the re-registration of a Tessek lineage property on three separate occasions over the past decade, and that the dispute had grown into an open enmity between them that everyone in [loc:matrons_house] knew about.",
       "red_herring_explanation": "Nitha's openly stated hatred for Oravi and the specific, repeated nature of the property dispute provide a clear personal motive — but the feud, however genuine, was not the reason for the killing."
     },
@@ -616,7 +593,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Dauvek Pol] tells the investigator that his aunt had, in his view, been quietly adjusting the recorded salt-weights in the Tessek ledgers for years in her own favor, and says that if someone had finally found proof of it, that person would have had reason to act before she could destroy the evidence.",
       "red_herring_explanation": "Dauvek implies that Oravi was herself guilty of fraud and that her killer acted to prevent her from destroying evidence — an inversion that redirects suspicion and obscures the actual motive."
     },
@@ -633,7 +609,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Senne Arak] tells the investigator that [time:some weeks before the death], she overheard [char:Tessek Oravi] in a sharp exchange with someone she could not see, in which Oravi said clearly: 'those records are not yours to take, and they never will be.'",
       "red_herring_explanation": "The overheard argument about records 'not being yours to take' suggests the motive was theft or appropriation of inheritance documents — consistent with Dauvek's known pressure on Oravi — but the exchange was in fact about Oravi refusing to let anyone tamper with the historical trade records she was reviewing."
     }

@@ -1,420 +1,415 @@
 <story>
 STEP 1 — SETTING
-Location: Trevannick Cove, a remote hamlet on the north Cornish coast — a scatter of stone cottages clinging to a cliff above a narrow shingle beach, accessible by a single track road that turns treacherous in wet weather. The community has lived for generations by wrecking: lighting false signals to lure ships onto the rocks, then claiming the cargo. Everyone knows it. Nobody speaks of it.
-Season: Winter. Late January.
-Weather: Iron frost and a cutting easterly — the kind of cold that turns sea-spray to rime on the harbour wall.
-Arrival location: The Anchor & Tallow Inn (the only public house, where the local constable has set up a temporary post and awaits the investigator).
-Atmosphere (seed: narrow-frost-thorn): The cove sits in a narrow cleft in the cliffs, so the wind funnels through like a blade. Frost stiffens the seaweed on the rocks. The hawthorn hedges inland are leafless and black, all thorns. This is a place that does not welcome strangers.
+Seed: bitter-marrow-tern-102 — "bitter" evokes cold, resentment, something gnawed down to bone; "marrow" suggests depths, ancestry, something vital extracted; "tern" is a seabird of coastal cliffs; "102" is just a number.
+The Orrish: A cold-water culture with strict ancestor veneration. I imagine them as a northern-Atlantic-analog society — think Norse/Faroese/Gaelic edge. They live on sea-cliff settlements, venerate carved bone ancestor-pillars, and have a caste of Bone-Speakers (priests who interpret ancestor will through carved marrow-tokens). Their society is deeply conservative; defiance of ancestral decree is the gravest sin.
+Location: Greyspine Reach — a jagged coastal promontory in late autumn. A small Orrish settlement clings to the clifftops above a cold sea. The dominant feature: the Spire of Moored Voices, a tall natural sea-stack connected to the clifftop by a narrow land bridge, where the community's ancestor pillars stand. Fog rolls in from the sea every morning.
+Season: Autumn
+Weather: Sea-fog and iron sleet
+Arrival location: The harbour steps — the investigator arrives by boat
 
 STEP 2 — CRIME
-Victim: Josiah Carne, 62, formerly the acknowledged "captain" of the local wrecking gang — the man who gave the signal, decided who got what share of salvage, and enforced order with violence when necessary. Retired now in name only; still collects his share from younger men out of fear and habit.
-Perpetrator: Merryn Trevithick, 48, the innkeeper's wife. Her maiden name was Merryn Polglase. Twenty-two years ago, her brother Thomas Polglase drowned when a wrecking operation went wrong — Josiah, wanting a larger share and suspecting Thomas of skimming, deliberately withheld the signal lantern that would have told Thomas it was safe to swim back from the wreck. Thomas drowned. Josiah told everyone Thomas panicked and was taken by the current. Merryn knew — she had been watching from the cliff path. She has nursed this for over two decades.
-Method: Poison by ingestion. Merryn prepared Josiah's customary evening cup of spiced rum toddy at the inn — she added powdered foxglove (digitalis), obtained from dried foxglove seed heads she had been collecting and grinding over several months. Foxglove grows wild on the clifftops and is common knowledge as a plant, though its deadly properties when concentrated are less widely known.
-Murder location: The snug of the Anchor & Tallow Inn (a private back room where Josiah habitually drank alone after the main bar closed).
-Body found location: The inn snug — same location. Body was NOT moved.
-Time of death: Between [time:ten o'clock] and [time:midnight] on the night before the investigator's arrival.
-The perpetrator could not avoid:
+Victim: Eredan Volke, the community's Bone-Speaker (high priest of ancestor veneration). Male, 60s, gaunt, revered. Found dead at the base of the Spire of Moored Voices — fallen from the top of the sea-stack where the ancestor pillars stand.
+Perpetrator: Solvaine Drest, Eredan's apprentice and designated successor. Female, 30s. Deeply committed to the old faith.
+Why: Eredan had been secretly composing a theological text arguing that the ancestor pillars should be moved inland — that the sea's encroachment was a sign the ancestors wished to relocate, and that the community should follow. To Solvaine, this was not just wrong but a cosmic betrayal — the Orrish believe the ancestors are literally anchored to the place where their bones rest. Moving the pillars would "unmoor" the ancestors, condemning them and all living descendants. Solvaine killed Eredan out of genuine religious conviction: she could not allow him to enact this heresy.
+Method: During the pre-dawn ancestor observance — a ritual only Solvaine and Eredan perform together — Solvaine pushed Eredan from the top of the Spire. The fall killed him. Body not moved.
+Time window: Between [time:second bell and dawn] (roughly 2–4 hours before sunrise).
+Unavoidable traces:
 
-She prepared and served the drink — the cup was made for him specifically (no one else drinks spiced rum toddy at the inn; it was made fresh that evening).
-She had access to the foxglove — her drying shed behind the inn contains the remains of dried foxglove seed heads, and the grinding stone has yellowish dust on it.
+The ancestor observance is a two-person ritual — only Solvaine could have been present. But she claims Eredan sent her away early, saying he wished to commune alone. This is her innocent explanation. The investigator must find a witness who saw the two of them ascending together and no one descending alone before the body was found.
+Eredan's satchel, left at the top of the Spire, contains his heretical manuscript. Solvaine claims she knew nothing of it. But the manuscript has a page with notes in two handwritings — Eredan's and Solvaine's own — showing she had read and annotated it. This is the ideological motive, and disproves her claim of ignorance.
 
-Plausible innocent explanation: Merryn will say she always prepares Josiah's toddy — it is a nightly habit, means nothing. The foxglove in the shed is dried for "herb bundles" she makes and sells; many coastal women dry hedgerow plants. She will not volunteer that she knows about digitalis toxicity.
-What the investigator must disprove: The innocent explanation for the foxglove. A local herbalist (Widow Nancarrow) can confirm that the seed heads — not the flowers — are the most concentrated toxic part, and that grinding them defeats any notion of decorative use. The combination of the ground seed heads AND the customised cup is conclusive.
+What the perpetrator could not avoid:
+
+Being the only one who could have been on the Spire with Eredan at that hour
+Her own handwriting in the manuscript she claims not to know about
+
 
 STEP 3 — CHARACTERS & RELATIONS
 
-Josiah Carne (victim, 62) — innkeeper's landlord and wrecking boss. Body found in the inn snug. Heavyset, florid face now grey in death, large hands. A man who inspired fear rather than affection.
-Merryn Trevithick (perpetrator, 48) — innkeeper's wife. Runs the kitchen and bar. Hard-faced, efficient, dry-eyed since the body was found. Her composure is remarkable and unsettling. Location: the Inn (arrival location).
-Cador Trevithick (40) — innkeeper, Merryn's husband. Does not know what his wife did. He is concealing the fact that he owed Josiah a significant sum of money (an old salvage-share debt) and that Josiah had recently been pressing for repayment, giving Cador an apparent motive. What he suspects: nothing about Merryn; he is too frightened about his own debt being discovered. Location: the Inn.
-Elias Veal (55) — the oldest surviving member of the wrecking gang; Josiah's lieutenant for thirty years. Knows Josiah by reputation for ruthlessness, including suspicions about Thomas Polglase's death (he was there; he saw Josiah pocket the lantern). Has never spoken of it out of self-preservation. Concealing: he saw Josiah pocket the signal lantern the night Thomas drowned. Suspects: Merryn could have known what happened to her brother. Location: the Harbour Wall (he spends his days watching the sea — too old to wreck now, too deep in the habit to stop looking).
-Tamsin Veal (28) — Elias's granddaughter, helps at the inn as a pot-girl. She has a romantic interest in a young fisherman, Abel Hicks, who Josiah disapproved of and had threatened (Abel had refused to join the wrecking operation). Tamsin therefore had an apparent motive — she hated Josiah for threatening Abel. Concealing: she knows her grandfather saw something the night Thomas Polglase drowned and has been trying to get him to speak for years. Location: the Inn.
-Widow Nancarrow (70) — a hedgerow herbalist, known locally as a wise woman, lives alone in a cottage above the cove. She recognised the smell of foxglove on the body when she was called in before the investigator's arrival (the local constable knows her). She knows the properties of foxglove thoroughly. She suspects foul play but has told only the constable that the smell was unusual. Concealing: she sold Merryn a small copper hand-grinding mortar about four months ago, remarking at the time that Merryn seemed very interested in the seed heads on the dried foxglove she had hanging in her workroom. She has not connected this clearly to the death yet. Location: Nancarrow's Cottage.
-Constable Tredrea (35) — local constable, the one who sent for the investigator. Honest but limited. He found the body when the inn failed to open at its usual hour. He is concealing nothing criminal but is intimidated by the wrecking community and has deliberately not pushed hard in his initial questions. Location: the Inn.
+Eredan Volke (victim) — Bone-Speaker, age ~65, found at base of the Spire. Body at the Spire.
+Solvaine Drest (perpetrator) — Eredan's apprentice, stationed at the Ancestor Hall where she has retreated after "finding" the body. Claims she left the Spire early at Eredan's request. Concealing: that she was present at time of death, that she knew about the manuscript, that she killed him.
+Orric Vann — Harbour-master, male, 50s. Fixed at the harbour. He was awake before dawn tending to a moored vessel. He saw Solvaine and Eredan ascending the land bridge to the Spire together at second bell. Knows: what he saw. Concealing: nothing directly. Suspects: foul play but doesn't know by whom. His stated motive for suspicion: he and Eredan had a long-running dispute over harbour dues the temple claimed exemption from. He has reason to want Eredan gone, making him a suspect.
+Brynn Ossler — Elder widow, female, 70s, the community's genealogy-keeper. Fixed at the Records House. She knows about the manuscript — Eredan discussed his ideas with her months ago, seeking her blessing. She didn't give it. She conceals: how strongly she opposed the relocation idea, making her a suspect for motive. Knows: the contents of Eredan's plans, and that he had an annotated draft.
+Tauvek Drest — Solvaine's younger brother, male, 20s. A fisher. Fixed at the fish-smoking shed near the harbour. Provides a false alibi for Solvaine (says he saw her at the Ancestor Hall during the time of death). Concealing: the alibi is a lie to protect his sister, but he doesn't know she's guilty — he just assumes she's being unfairly suspected. Motive appearance: none, but his sister is accused.
+Maret Colne — A young stonecutter, female, late 20s. Fixed at the Cliff Workshop (where the ancestor pillars are carved and stored before placement). She found the body at dawn and raised the alarm. She had been secretly in love with Eredan's position — not him personally, but she'd hoped to be named an acolyte. Concealing: that she had rifled through the Spire's ceremonial box before raising the alarm (looking for the acolyte appointment she'd been promised — she found nothing). Motive appearance: could have wanted Eredan dead if he'd revoked a promise.
 
-Publicly known relations:
+Relations (public):
 
-Merryn Trevithick employs Tamsin Veal (employer → employee)
-Cador Trevithick is husband of Merryn Trevithick
-Elias Veal is grandfather of Tamsin Veal
-Josiah Carne has open enmity with Abel Hicks (Josiah rivals with Abel — though Abel is not a playable character, this is publicly known, gives Tamsin apparent motive) — actually, let me replace Abel with keeping it at the listed characters. I will note Josiah's enmity with Cador Trevithick as open (the debt pressure is known as tension, even if the exact sum is not).
-Josiah Carne has open enmity with Cador Trevithick (the pressing of debt was publicly visible as hostility)
+Solvaine Drest → Eredan Volke: "apprentice of"
+Tauvek Drest → Solvaine Drest: "brother of"
+Maret Colne → Eredan Volke: "acolyte-candidate of"
+Brynn Ossler → Eredan Volke: "elder councillor to"
+Orric Vann → Eredan Volke: "in dispute with"
 
+Locations:
+
+harbour_steps (arrival) — col:1, row:2 — where Orric Vann is
+ancestor_hall — col:0, row:1 — where Solvaine Drest is
+spire_base — col:2, row:0 — body found here (bottom of sea-stack, Maret Colne is here)
+spire_top — col:2, row:1 — top of sea-stack, murder location, where satchel/manuscript is
+records_house — col:0, row:0 — Brynn Ossler
+fish_shed — col:1, row:1 — Tauvek Drest
+cliff_workshop — col:1, row:0 — stonecutter workshop, no character (Maret was here at dawn but is now at spire_base)
+
+Actually, I want Maret at the cliff_workshop — she's returned there after raising the alarm. Let me redistribute.
+Characters and fixed locations:
+
+Solvaine Drest → ancestor_hall (col:0, row:1)
+Brynn Ossler → records_house (col:0, row:0)
+Orric Vann → harbour_steps (col:1, row:2)
+Tauvek Drest → fish_shed (col:1, row:1)
+Maret Colne → cliff_workshop (col:1, row:0)
+Eredan Volke (victim) → spire_base (col:2, row:0) [body found here]
+
+Spire_top is a location without a character — that's fine, the satchel/manuscript is there.
+7 locations total:
+
+records_house (0,0)
+ancestor_hall (0,1)
+harbour_steps (1,2) ← arrival
+fish_shed (1,1)
+cliff_workshop (1,0)
+spire_base (2,0)
+spire_top (2,1)
+
+Adjacencies:
+
+records_house ↔ ancestor_hall
+ancestor_hall ↔ fish_shed
+harbour_steps ↔ fish_shed
+fish_shed ↔ cliff_workshop
+cliff_workshop ↔ spire_base
+spire_base ↔ spire_top
+records_house ↔ cliff_workshop
+
+That's 7 adjacencies — within range.
 
 STEP 4 — CLUE PLAN
 CHECKPOINT: cause_of_death
-Answer options: Drowning, Stabbing, Poisoning by ingestion, Exposure to cold, Blunt force trauma
-Correct answer: Poisoning by ingestion
-Correct Clue 1 (COD-C1):
+True answer: Fall from height
+Correct Clue 1 (COD-C1): investigator_at_location, spire_base
 
-Condition: Investigator at the Inn snug (body location), no item, no character
-Observation: The body's lips and fingernails have a pronounced bluish tinge; the face is twisted in an expression of rigid grimace; there is a half-empty pewter cup on the table beside the body smelling strongly of spirits and something sweet-sharp beneath.
-Discoverability: The inn snug is where the body was found — the opening narrative will direct the investigator there. The lead from Constable Tredrea will mention the cup.
+Observation: The body is at the base of the sea-stack. The investigator examines it and observes injuries — severe fractures to the back of the skull and both legs consistent with vertical impact, no wounds to the front of the body, hands undamaged (no defensive marks, no scratch marks from grasping). The stone directly below the Spire's upper platform is directly above.
+Discoverability: The investigator arrives at harbour_steps. Lead 1 points to the body at spire_base. The investigator moves there and examines the scene.
 
-Correct Clue 2 (COD-C2):
+Correct Clue 2 (COD-C2): investigator_at_location, spire_top
 
-Condition: Investigator with Widow Nancarrow (at her cottage)
-Observation: Nancarrow tells the investigator she examined the body at the constable's request before the investigator arrived, and noted a bitter-sweet smell on the breath unlike alcohol, and that the hands were clenched in a manner she had seen once before in a man who ate hemlock berries by accident.
-Discoverability: Lead 1 mentions Nancarrow was called to examine the body; her cottage is on the map. Once investigator reaches her she gives this testimony.
+requires_clue_id: COD-C1 (need to know about the body first to think about going to the top)
+Observation: The investigator finds, at the top of the Spire, the stone platform. The outer railing — a rope-and-post arrangement — is intact with no damage. The stone lip at the edge shows a scrape of dark fabric fibre. Below this point is directly where the body lies.
+Discoverability: COD-C1's text references "the stone directly above" and the Spire's top, prompting the investigator to ascend.
 
-Red Herring 1 (COD-RH1) — targets Blunt force trauma:
+Red Herring 1 (COD-RH1): Wrong answer: Drowned — investigator_at_location, harbour_steps
 
-Josiah has a bruise on his temple. In fact this is a post-mortem bruise from falling from his chair as he died. A clue obtained by examining the body more closely with Constable Tredrea present will surface this bruise — without stating it is post-mortem, the player might read it as evidence of a blow.
-Condition: Investigator with Constable Tredrea (at Inn)
+Orric Vann mentions that when bodies go into the sea near here, they wash up at the base of the Reach with waterlogged lungs. He says the tides were particularly strong that night. Misleading: implies the body might have come from the water.
+red_herring_explanation: Orric's observation about tides and sea-deaths near the Reach implies the victim may have drowned, but the body's injuries and dry condition are inconsistent with drowning.
 
-Red Herring 2 (COD-RH2) — targets Exposure to cold:
+Red Herring 2 (COD-RH2): Wrong answer: Struck by a blunt instrument — investigator_with_character, Brynn Ossler
 
-The inn's rear window, facing the snug, was found unlatched and the room was frigidly cold when Tredrea arrived. This suggests cold exposure.
-Condition: Investigator at the Inn snug, no character, no item
+Brynn tells the investigator that the Bone-Speakers carry a ceremonial maul for driving pillar stakes. She says Eredan always carried his maul on Spire observances. Misleading: implies the maul (a blunt instrument) may have been the weapon.
+red_herring_explanation: Brynn's description of the ceremonial maul implies it could have been used as a weapon, but the actual cause of death is a fall.
 
-Wait — I already have COD-C1 at the inn snug. I need a different condition. I'll use the investigator at the snug with an item (the window latch) — but that requires an item. Let me plan: there is an item "unlatched_window_catch" — no, let me use: item "fisherman's oilskin cloak" left in the snug. Actually let me make RH2 condition: investigator at inn snug with the pewter_cup item.
-Actually let me re-examine. COD-C1 is investigator_at_location (inn_snug). RH2 could be investigator_at_location_with_item (inn_snug, pewter_cup) — different condition. That works.
-Red Herring 2 (COD-RH2) — targets Exposure to cold:
+Red Herring 3 (COD-RH3): Wrong answer: Exposure/cold — investigator_with_item, the_maul (item found at spire_top, which has no blood on it, but it's very cold/frosty — player might think exposure)
 
-Condition: investigator_at_location_with_item (inn_snug, pewter_cup). The cup is empty and ice-cold to the touch, and the room temperature — the investigator notices frost on the inside of the window glass — might suggest the victim succumbed to the cold.
-Wait, I want the cup to feature in the actual poison clue chain, so let me not muddy it here. Let me make RH2 point at drowning instead and use a different condition.
+Actually let me use: investigator_at_location_with_item where the item is the frost_cloak (Eredan's ceremonial cloak found near the body, soaking wet from the sea spray — player might think he died of cold or was in the water)
+Hmm, I need to be careful about conditions being meaningful. Let me keep this simpler: investigator_with_character, Maret Colne — she says when she found him, his lips were blue and his skin was like ice. Misleading: implies exposure/cold.
+red_herring_explanation: Maret's observation about Eredan's blue lips and cold skin could suggest death by exposure, but is a natural result of the cold weather and time elapsed since death.
 
-Let me reorganise:
-Red Herring 1 (COD-RH1) — targets Blunt force trauma:
+Answer options: Fall from height / Drowned / Struck by a blunt instrument / Exposure to cold / Stabbed
 
-Condition: investigator_with_character (Constable Tredrea, at Inn)
-Tredrea mentions a bruise on Josiah's temple he noticed when he found the body.
+CHECKPOINT: true_location
+True answer: Spire top (the murder happened at the top of the Spire)
+Correct Clue 1 (TL-C1): investigator_at_location, spire_top
 
-Red Herring 2 (COD-RH2) — targets Drowning:
+Observation: At the very edge of the platform, a piece of dark wool fabric is caught on a splintered post. The fabric matches the colour and weave of Eredan's outer robe. Directly below this post is the stone apron where the body was found.
+Discoverability: COD-C1 establishes the body at the base and prompts going up. Lead 2 explicitly mentions the Spire platform as where the ritual was performed.
 
-Condition: investigator_with_character (Tamsin Veal, at Inn)
-Tamsin says she heard Josiah choking and struggling before she went to bed; it sounded "like a man fighting the sea." (She heard the death throes from upstairs and misinterpreted them; the sound was real but her analogy misleads.)
+Correct Clue 2 (TL-C2): investigator_with_character_and_item (Solvaine Drest + the_satchel)
 
-Red Herring 3 (COD-RH3) — targets Exposure to cold:
+The satchel is found at spire_top. After collecting it (investigator_with_item / investigator_at_location), bring it to Solvaine.
+requires_clue_id: TL-C1 (satchel found while examining the spire_top)
+Actually, let me make TL-C2 a separate condition. The satchel starts at spire_top. investigator_at_location_with_item condition would require the investigator to be at spire_top with the satchel — but the satchel is already there, so this is just "pick up satchel while at spire_top."
+Better: TL-C2 condition = investigator_at_location_with_item, spire_top, the_satchel. Player is already at spire_top (having gone there for TL-C1), the satchel is there. Observation: inside the satchel is a manuscript in Eredan's hand, along with his personal bone-token — items he would never have left behind willingly, and which confirm he was present on the platform.
+requires_clue_id: TL-C1
 
-Condition: investigator_at_location (inn_snug)... but COD-C1 is already investigator_at_location (inn_snug). That's fine — different clues can have the same condition; they just both trigger.
-
-Wait, the schema doesn't prohibit two clues sharing a condition. But it may be confusing game-design-wise if one correct clue and one red herring share the exact same condition. Let me make RH3 use a different condition.
-Red Herring 3 (COD-RH3) — targets Exposure to cold:
-
-Condition: investigator_at_location_with_item (inn_snug, inn_window_catch) — an item: a window catch, found unlatched in the snug.
-The unlatched window explains the cold room. The player may think cold exposure killed him.
-
-OK that works. The item "inn_window_catch" is a small iron window catch found unlatched. That's a valid item.
-
-CHECKPOINT: true_location (where the murder was committed)
-Since the body was NOT moved, true_location = body found location = inn_snug. But the checkpoint asks where the murder occurred, and the answer is the Inn Snug. This checkpoint could become trivial since the body is right there — let me think about how to make it interesting. The red herrings should suggest the victim was moved TO the inn from somewhere else.
-Answer options: The inn snug, The harbour wall, The clifftop path, Nancarrow's cottage, The wreckers' storehouse
-Correct answer: The inn snug
-Correct Clue 1 (TL-C1):
-
-Condition: investigator_at_location (inn_snug)... already used for COD-C1.
-I should use a different condition. Let me use: investigator_with_character (Merryn Trevithick, at Inn). Merryn (lying smoothly) tells the investigator Josiah came into the snug at half past nine as usual and she brought him his drink and left him there. She never left the kitchen after that. This confirms Josiah was in the snug from half past nine — alive.
-Discoverability: Merryn is at the Inn; the lead from Tredrea will mention her.
-
-Correct Clue 2 (TL-C2):
-
-Condition: investigator_with_character_and_item (Merryn Trevithick, pewter_cup)
-When shown the pewter cup, Merryn identifies it as the cup she set for Josiah in the snug that evening — she describes filling it fresh in the kitchen and carrying it through. This confirms the drink was prepared and consumed at the inn.
-Discoverability: The pewter cup is in the inn snug (collectible item). Merryn is at the inn.
-
-Hmm, but TL-C1 and TL-C2 both involve Merryn. That's allowed but means both correct clues for this checkpoint are unlocked by talking to the same character. Let me change TL-C2:
-Correct Clue 2 (TL-C2):
-
-Condition: investigator_with_character (Tamsin Veal, at Inn)
-Tamsin tells the investigator she saw Josiah walk into the snug himself at around half past nine, carrying nothing, and that she heard him settle in — the scrape of his usual chair — before she went upstairs. She did not see or hear him leave.
-Discoverability: Tamsin is at the Inn; described as pot-girl, will be noticed when investigator arrives.
-
-Red Herring 1 (TL-RH1) — targets The harbour wall:
-
-Condition: investigator_with_character (Elias Veal, at harbour wall)
-Elias mentions seeing Josiah walking toward the harbour wall around eight o'clock that evening — which was unusual for a cold night. (Josiah did briefly go to the harbour wall earlier in the evening on unrelated business, but returned to the inn before being poisoned. This falsely suggests the harbour wall is significant.)
-
-Red Herring 2 (TL-RH2) — targets The clifftop path:
-
-Condition: investigator_at_location (clifftop_path)
-There are fresh boot prints in the frost on the clifftop path — in fact belonging to Constable Tredrea who went up there earlier that morning looking for disturbance — but they suggest recent nocturnal movement.
-
-Red Herring 3 (TL-RH3) — targets The wreckers' storehouse:
-
-Condition: investigator_at_location_with_item (wreckers_storehouse, iron_hook) — an item, a large iron salvage hook, found in the storehouse with what looks like a recent disturbance to the dust on the floor. (The disturbance is from Cador Trevithick, who nervously went there that morning to check his salvage records after Josiah died, fearing investigators would look into his debt. Nothing to do with the murder.)
-Actually I need to not over-complicate items. Let me revise:
-Condition: investigator_at_location (wreckers_storehouse). The floor shows a disturbed patch of sawdust near the door, and a lantern has been recently used — its wick is still warm. This suggests recent occupation. (Cador was there that morning.)
-
+Red Herring 1 (TL-RH1): Wrong answer: The ancestor hall — Tauvek Drest tells the investigator he heard raised voices from the direction of the Ancestor Hall at second bell. Misleading: implies a confrontation at the Ancestor Hall.
+Red Herring 2 (TL-RH2): Wrong answer: The cliff workshop — investigator_at_location, cliff_workshop — the investigator finds Eredan's walking staff leaning against the workshop wall, suggesting he may have been here. Misleading: the staff was left there days earlier; Maret can't explain it, making it seem suspicious.
+Red Herring 3 (TL-RH3): Wrong answer: The harbour steps — Orric Vann says he saw Eredan pause at the harbour steps briefly at first bell. Misleading: could imply a confrontation or something at the harbour.
+Answer options: The top of the Spire of Moored Voices / The ancestor hall / The cliff workshop / The harbour steps / The fish-smoking shed
 
 CHECKPOINT: time_of_death
-Answer options: Before nine o'clock in the evening, Between nine and ten in the evening, Between ten and midnight, After midnight, Early morning before dawn
-Correct answer: Between ten and midnight
-Correct Clue 1 (TOD-C1):
+True answer: Between second bell and dawn
+Correct Clue 1 (TOD-C1): investigator_with_character, Orric Vann
 
-Condition: investigator_with_character (Cador Trevithick, at Inn)
-Cador tells the investigator the main bar closed at half past nine, and Josiah was still alive in the snug — he heard him knock the table (his habit when wanting another drink) at around a quarter to ten. Cador did not go in, as it was Merryn's job to attend the snug after closing.
-Discoverability: Cador is at the Inn; the opening narrative mentions the inn failed to open — Cador will naturally be questioned.
+Orric tells the investigator he saw both Eredan and Solvaine crossing the land bridge toward the Spire together at second bell, both walking, Eredan carrying his satchel. He did not see either of them return before he went inside.
+Discoverability: Lead 3 says the harbour-master was on the dock before dawn and may have seen something.
 
-Correct Clue 2 (TOD-C2):
+Correct Clue 2 (TOD-C2): investigator_with_character, Maret Colne
 
-Condition: investigator_with_character (Elias Veal, at harbour wall)
-Elias says he was walking the harbour wall until about eleven o'clock (as is his insomniac habit) and the inn's snug light was still burning past ten. By the time he came back past at eleven, it was dark. This brackets the death to between roughly ten and eleven.
-Discoverability: Lead 3 will point the investigator to the harbour wall to speak to Elias (he's described as a night-watcher).
+Maret says she came to begin work at the cliff workshop at first light and heard nothing from the Spire. At dawn, she saw the body when the mist lifted. She had passed the base of the Spire at first bell (before second bell) and the area was empty.
+Discoverability: She found the body — this is mentioned in the opening narrative.
 
-Red Herring 1 (TOD-RH1) — targets Before nine o'clock:
+Red Herring 1 (TOD-RH1): Wrong answer: After dawn — Brynn Ossler says she heard the alarm bell rung at dawn, and that the body could have been put there any time before she looked out.
 
-Condition: investigator_with_character (Tamsin Veal, at Inn)
-Tamsin says Josiah seemed unwell when she served him in the main bar around seven — pale and sweating. (This is true — Josiah had been nursing a cold all week and was merely under the weather, not yet poisoned. The player might read this as early onset of poisoning.)
+red_herring_explanation: Brynn's speculation implies the death could have occurred after dawn, but this is her own guess and contradicted by witness testimony.
 
-Wait — I need to ensure no clue implies the answer. I should just have Tamsin report the observation, and let the player misread it. But the clue text must not say "suggesting he was already poisoned." Just: "[char:Tamsin Veal] tells the investigator that at [time:seven o'clock], when she served Josiah Carne in the main bar, his face was pale and there was visible perspiration on his forehead." That's fine — raw observation.
-Red Herring 2 (TOD-RH2) — targets After midnight:
+Red Herring 2 (TOD-RH2): Wrong answer: Before first bell — investigator_at_location, spire_base — the investigator notes frost on the body and that the fog has been present since before first bell.
 
-Condition: investigator_at_location (clifftop_path)
-Wait, I should use a different location. Let me use: investigator_at_location (harbour_wall). But TOD-C2 is also at harbour wall with Elias. Different condition type (location vs character).
-Actually: investigator_at_location_with_item (inn_snug, pewter_cup). The cup's contents are fully cold and the rum has separated in the manner of a drink left for many hours, suggesting it was drunk long before the body was found in the morning.
-Hmm, this could also be read as consistent with the correct window. Let me make it more specific to the wrong option: The cup has a thick skin on top of the rum, the kind that forms only after many hours — when Constable Tredrea found the body at dawn, the skin was thick. This might suggest the death happened much earlier (after midnight or even later).
+red_herring_explanation: The frost on the body could suggest death occurred very early (before first bell), but the frost accumulated after death during the cold night.
 
-Actually I want this to point at "after midnight" — so the clue text should make the drink look like it sat for only a few hours (i.e., death was later). Let me reconsider: if the body was found at dawn (say 7am), a drink consumed "between ten and midnight" would have been sitting 7-9 hours, while "after midnight" would mean 5-7 hours. The difference is slight. Let me instead use a different angle:
-Red Herring 2 (TOD-RH2) — targets After midnight:
+Red Herring 3 (TOD-RH3): Wrong answer: Between first bell and second bell — Tauvek Drest says he heard footsteps on the cliff path between first and second bell — could imply the death occurred then.
 
-Condition: investigator_with_character (Constable Tredrea, at Inn)
-Tredrea mentions the church clock had just struck two in the morning when he heard a dog howling near the inn — he thought nothing of it at the time. (The howling was unrelated — a dog disturbed by a fox — but the player may connect it to the death.)
+red_herring_explanation: Tauvek's claim about footsteps between first and second bell implies a different time window, but Maret confirmed the area was empty at first bell, and Orric saw both victims walking together at second bell.
 
-Red Herring 3 (TOD-RH3) — targets Between nine and ten:
+Answer options: Before first bell / Between first bell and second bell / Between second bell and dawn / After dawn / At midnight
+Timing elimination check:
 
-Condition: investigator_with_character_and_item (Cador Trevithick, pewter_cup)
-Cador, when shown the cup, says Merryn always brought Josiah his toddy right after bar-close, which was half past nine. The investigator might infer from this that the drink — and thus the death — was delivered and consumed at nine-thirty.
+"Before first bell": Maret passed the base at first bell and area was empty (contradicts death before first bell? No — if body was already there at first bell, area wouldn't be empty... actually "empty" could mean no body. Let me restate: Maret passed the base of the Spire at first bell and saw no one and nothing on the ground. So the death occurred after first bell. ✓
+"Between first bell and second bell": Orric saw both walking alive at second bell — contradicts death between first and second bell. ✓
+"After dawn": Maret saw the body at dawn (it was already there) — contradicts death after dawn. ✓
+"At midnight": Orric saw them walking at second bell (after midnight) — if midnight is before second bell, this contradicts. I'll define second bell as roughly 2am, first bell as roughly midnight. So: midnight = first bell. Let me reframe: first bell = midnight, second bell = ~2am, dawn = ~7am. Then "At midnight" = at first bell. Maret was at the base at first bell and nothing was there. ✓ Also Orric saw them going up at second bell, contradicts death at midnight.
 
+All wrong options are contradicted. ✓
 
 CHECKPOINT: perpetrator
-Answer options: Merryn Trevithick, Cador Trevithick, Elias Veal, Tamsin Veal, Constable Tredrea
-Correct answer: Merryn Trevithick
-Correct Clue 1 (PERP-C1):
+True answer: Solvaine Drest
+Correct Clue 1 (PERP-C1): investigator_with_character, Orric Vann
 
-Condition: investigator_at_location (drying_shed) — a separate small structure behind the inn
-In the drying shed behind the inn, the investigator finds dried foxglove seed heads with several broken open, and a small copper grinding mortar with a yellowish-green dust residue inside it. The mortar is set apart from the other herb-drying equipment on a separate shelf.
-Discoverability: Lead 2 will describe the drying shed visible behind the inn, noting it belongs to the inn's kitchen. Or: COD-C2 (Nancarrow's testimony) will mention that whoever used foxglove for poison would likely have obtained it from the clifftops and processed it — pointing toward someone with a drying and grinding setup.
+Wait, I'm already using Orric for TOD-C1. Can a character be used in multiple clues? Yes, different clues can have the same character. But I need to be careful not to conflate them.
+Actually, TOD-C1 with Orric establishes both the time window AND that both Solvaine and Eredan went up together. The clue text for TOD-C1 can address time of death, but separately I need a clue that establishes Solvaine as perpetrator.
+Let me think: PERP-C1 should address that Solvaine was the last person with Eredan. But if TOD-C1 already establishes that they went up together... I need to be careful. The clue texts address different checkpoints. TOD-C1's text is filed under time_of_death. A separate perpetrator clue with Orric is fine if the text specifically points at Solvaine.
 
-Actually, I need to be careful — PERP-C1 should not individually be conclusive. It shows someone at the inn processed foxglove. It doesn't name Merryn yet.
-Correct Clue 2 (PERP-C2):
+Actually, using the same character twice is legitimate. But let me consider another approach for PERP-C1.
+PERP-C1: investigator_with_character_and_item (Brynn Ossler + the_manuscript)
 
-Condition: investigator_with_character_and_item (Widow Nancarrow, grinding_mortar) — requires PERP-C1 first (investigator must have found the mortar)
-When shown the grinding mortar, Nancarrow identifies it: she sold that exact mortar to Merryn Trevithick approximately four months ago. She also says Merryn was asking questions about the seed heads of foxglove on the day of purchase.
-Discoverability: PERP-C1 yields the mortar as a collectable item. Nancarrow has already been visited for COD-C2. The text of PERP-C1 will implicitly suggest that someone could identify the mortar.
-requires_clue_id: PERP-C1
+The manuscript is in the satchel at spire_top. After collecting the satchel and reading the manuscript (TL-C2 already fires at spire_top_with_satchel), bring the manuscript to Brynn.
+Wait, the satchel IS the item for TL-C2. The manuscript could be a separate item inside the satchel... Let me make the manuscript a separate item with starting_location spire_top, and the satchel also at spire_top.
+PERP-C1: investigator_with_character_and_item, Brynn Ossler, the_manuscript
+requires_clue_id: (needs player to have gotten to spire_top first, so requires TL-C1)
+Observation: Brynn, looking at the manuscript, tells the investigator that the annotations in the margin are in Solvaine Drest's handwriting — she recognises it from years of reading Solvaine's records submissions. She points out three margin notes in a different hand from the body text.
+Discoverability: TL-C1 text mentions the satchel and manuscript on the platform. TL-C2 (spire_top_with_satchel) notes the manuscript has annotations in a second handwriting. Lead / clue text prompts bringing it to Brynn who keeps records and would know handwriting. The records_house description or Brynn's description can mention she verifies official documents.
 
-This combination is conclusive: the shed is behind the inn (Merryn's domain), the mortar was sold to Merryn, Merryn was asking about foxglove seed heads. Neither alone is conclusive; together they are.
-Red Herring 1 (PERP-RH1) — targets Cador Trevithick:
+PERP-C2: investigator_with_character, Orric Vann (different from TOD-C1 because that clue addresses time, this one addresses perpetrator)
 
-Condition: investigator_with_character (Constable Tredrea, at Inn)
-Tredrea tells the investigator that Cador Trevithick owed Josiah Carne a significant salvage debt, and that Josiah had been making public demands for repayment in recent weeks, causing visible friction between the two men.
+Wait, Orric for TOD-C1 already establishes "I saw them go up together." A separate perpetrator clue from Orric would be: "I saw Solvaine come down alone shortly before dawn, without Eredan." This is suspicious because she claimed she left early alone at Eredan's request, but going down alone shortly before dawn contradicts her timeline (she should have left hours earlier).
+Actually this is good and distinct from TOD-C1. TOD-C1 establishes they went up at second bell. PERP-C2 establishes Solvaine came down alone just before dawn (5+ hours later), contradicting her story of leaving early.
+requires_clue_id: null (immediately available)
 
-Red Herring 2 (PERP-RH2) — targets Elias Veal:
+Wait — but I said PERP-C1 uses Orric for perpetrator too. Let me reorganise:
+PERP-C1: investigator_with_character, Orric Vann — "I saw Solvaine come down from the Spire alone, just before the alarm was raised at dawn. She was moving quickly and her outer robe had a dark stain on the sleeve." This is the suspicious observation; alone doesn't prove guilt, but combined with PERP-C2 it does.
+PERP-C2: investigator_with_character_and_item (Brynn Ossler + the_manuscript) — Brynn recognises the margin annotations as Solvaine's handwriting.
 
-Condition: investigator_with_character (Elias Veal, at harbour wall)... already used for TOD-C2. Different clue, same condition — that's acceptable.
-Elias, when talked to, reveals (after some prompting — make it a requires_clue_id? No — red herrings can't require clues) — actually this is a separate clue from the same condition. Elias's description mentions that he was Josiah's lieutenant for thirty years and recently had a public falling-out with him over how the last salvage was divided. His knuckles are scarred from old fights.
+requires_clue_id: TL-C1 (because the manuscript is found at the top of the Spire, player needs to have been there)
+Discoverability: TL-C1's text mentions the satchel and notes inside it. TL-C2 clue text (satchel at spire_top) explicitly says "annotations in a second hand." Brynn's description mentions she authenticates written records. This gives reason to bring the manuscript to Brynn.
 
-Wait, I need to make sure the condition is triggerable. investigator_with_character(Elias Veal) will yield both TOD-C2 and PERP-RH2. That's fine — multiple clues can share conditions.
-Red Herring 3 (PERP-RH3) — targets Tamsin Veal:
+Red Herring 1 (PERP-RH1): Wrong answer: Orric Vann — investigator_at_location, harbour_steps — the investigator finds a bone-carving knife near the dock bollards with the Vann family mark scratched into the handle. Combined with Orric's dispute with Eredan, this looks suspicious. But it's Orric's work knife, not a murder weapon.
 
-Condition: investigator_with_character (Tamsin Veal, at Inn)... also already used for TL-C2 and TOD-RH1. Multiple clues same condition, fine.
-Tamsin's hands are shaking when the investigator first speaks to her, and she admits she argued loudly with Josiah two days before his death — he had threatened to have her young man Abel Hicks run out of the cove.
+red_herring_explanation: The presence of Orric's knife near the dock, combined with his known dispute with Eredan, implicates him — but the knife is unrelated to the cause of death and is simply a dropped work tool.
 
+Red Herring 2 (PERP-RH2): Wrong answer: Maret Colne — investigator_with_character, Maret Colne
+
+Maret admits she had been passed over for the acolyte appointment despite Eredan's repeated promises, and that she was angry about it. She also admits she touched the ceremonial box at the Spire before raising the alarm. Misleading: anger + being on scene first looks suspicious.
+red_herring_explanation: Maret's anger over the broken acolyte promise and her presence at the scene (she found the body) creates false suspicion, but she was at the cliff workshop during the critical window.
+
+Red Herring 3 (PERP-RH3): Wrong answer: Brynn Ossler — investigator_with_character, Brynn Ossler (no item, just talking to her)
+
+Brynn tells the investigator she argued strenuously with Eredan about his relocation plan months ago and told him she would "not permit it while she drew breath." She looks shaken and refuses to say more about their final conversation.
+red_herring_explanation: Brynn's fierce opposition to Eredan's plans and her cryptic statement about not permitting it create suspicion, but she was at home and had no access to the Spire at the time of death.
+
+Perpetrator answer options: Solvaine Drest / Orric Vann / Maret Colne / Brynn Ossler / Tauvek Drest
 
 CHECKPOINT: motive
-Answer options:
+True answer: Religious conviction — Solvaine killed Eredan to prevent him from "unmooring" the ancestors by relocating the pillars
+Correct Clue 1 (MOT-C1): investigator_with_item, the_manuscript
 
-Revenge for a brother's death
-To cancel a salvage debt
-To inherit the inn
-To protect a family secret about past wrecking
-To prevent exposure of a romantic affair
+The investigator reads the manuscript directly. The text describes Eredan's theological argument that the ancestor pillars must be moved inland to escape the encroaching sea. The manuscript's title page reads: "On the Necessary Relocation of the Moored Voices."
+Discoverability: The satchel is at spire_top. Lead 2 points the investigator to the Spire. TL-C1 explicitly mentions the satchel.
 
-Correct answer: Revenge for a brother's death
-Correct Clue 1 (MOT-C1):
+Correct Clue 2 (MOT-C2): investigator_with_character, Solvaine Drest
 
-Condition: investigator_with_character (Elias Veal, at harbour wall), requires TOD-C2 (so investigator has already spoken to Elias and established rapport)
+requires_clue_id: MOT-C1 (player must have read the manuscript first — the clue is Solvaine's reaction when confronted)
+Observation: When the investigator asks Solvaine about the relocation of the pillars, she says, "The ancestors cannot be moved. They are not stones — they are tethered. To move them is to murder them, and all who carry their blood. I told him this. I told him." Her voice does not waver.
+Discoverability: MOT-C1 surfaces the relocation plan. The player naturally wants to ask Solvaine (his apprentice) about it. Solvaine's description mentions she's in the Ancestor Hall, a location the player would visit.
 
-Wait — requires_clue_id must point at a correct clue. TOD-C2 is a correct clue from the time_of_death checkpoint — using it as a prerequisite is valid.
+Red Herring 1 (MOT-RH1): Wrong answer: Personal gain / inheritance — investigator_at_location, ancestor_hall
 
-Elias, in a second conversation (enabled by having heard from him already), tells the investigator that the night Thomas Polglase drowned — more than twenty years ago — he saw Josiah Carne pocket the signal lantern instead of raising it. Thomas Polglase was Merryn Trevithick's brother. Elias has kept this secret for twenty-two years.
-requires_clue_id: TOD-C2 (establishes trust with Elias in first conversation)
+The investigator finds on the hall's notice-board a formal declaration naming Solvaine as Eredan's successor, signed and sealed, to take effect at his retirement. Misleading: this suggests Solvaine had something to gain from his death (faster succession).
+red_herring_explanation: The succession document implies Solvaine had personal gain motive, but the true motive was doctrinal — she had already been named successor and would have assumed the role naturally.
 
-Correct Clue 2 (MOT-C2):
+Red Herring 2 (MOT-RH2): Wrong answer: Revenge for betrayal — investigator_with_character, Maret Colne
 
-Condition: investigator_at_location_with_item (clifftop_path, carved_token)
-On the clifftop path, the investigator finds a small carved wooden token — a wreckers' token bearing the initials T.P., worn smooth from handling, lying near the edge of the cliff above the spot where Thomas Polglase drowned. The item description: a small flat wooden disc, deeply worn on one face from repeated handling, with the letters "T.P." carved on the reverse.
-The clue text: The token is found at the clifftop path, and when the investigator examines it, they notice that behind the inn's chimney stack (visible from the path) there is a direct sightline to the spot where the old wrecking signal would have been raised.
-Actually I want the clue to surface the specific motive more cleanly. Let me reconsider.
+Maret says Eredan had once told her publicly that Solvaine was "a poor student who mistakes stubbornness for faith." She heard this herself. Misleading: implies Solvaine killed him out of wounded pride/personal revenge.
+red_herring_explanation: Maret's account of Eredan's public criticism of Solvaine suggests a personal grudge, but this is not the true motive — Solvaine killed to protect what she believed was the souls of the ancestors.
 
-The motive clues need to establish: (1) Thomas Polglase drowned, (2) Josiah was responsible, (3) Merryn is Thomas's sister.
-MOT-C1 (Elias) gives us: Josiah pocketed the lantern, Thomas Polglase drowned, Merryn is Thomas's sister.
-MOT-C2 should corroborate from a different angle.
-Correct Clue 2 (MOT-C2) revised:
+Red Herring 3 (MOT-RH3): Wrong answer: To conceal a personal secret — investigator_at_location_with_item (records_house + the_manuscript)...
 
-Condition: investigator_with_character_and_item (Merryn Trevithick, carved_token)
-When shown the token (which the investigator found at the clifftop path or in the inn — let me place it in the inn), Merryn's composure finally cracks slightly: she identifies it as belonging to her brother Thomas, and says she has carried it every day since he drowned. She says nothing more, but her voice changes.
-The clue text presents only the observation: Merryn's hands close around the token and she says "[char:Merryn Trevithick] tells the investigator that the token belonged to her brother Thomas, who drowned more than twenty years ago in the cove."
-The carved_token item starts at the Inn (Merryn always has it on her person, and it is found — say — in her kitchen after she is questioned, or she places it on the bar).
+Hmm, the manuscript starts at spire_top. Having the player bring it to records_house: the records_house is adjacent to cliff_workshop and ancestor_hall. Bringing the manuscript to the records_house (without Brynn condition) — what fires here?
+Alternative: investigator_with_character_and_item (Tauvek Drest + something else)
+Let me use: investigator_with_character, Tauvek Drest — Tauvek says Solvaine had been distraught for months over rumours that she had broken the celibacy vow of an apprentice Bone-Speaker. He hints that Eredan had threatened to expose her and revoke her succession. Misleading: implies she killed to conceal a personal scandal.
+red_herring_explanation: Tauvek's account of his sister's alleged broken vow and Eredan's supposed threat creates the impression of a personal secret worth killing for, but Tauvek is speculating and the true motive was religious.
 
-Wait, an item must have a starting_location. Let me say the carved_token is found in the inn's main bar area (on a shelf, always visible — Merryn keeps it in plain sight as a memorial). That's a meaningful placement.
-Discoverability: The carved token is visible in the inn bar from the start. Characters' descriptions or the inn location flavour can mention it. Once investigator picks it up, they can take it to Merryn.
-
-requires_clue_id: null (immediately available — the token is in the inn from the start)
-
-But I want MOT-C1 (Elias) to require TOD-C2 — this is because MOT-C1 is the bigger revelation (Josiah's guilt) and it makes sense Elias would only open up after having already spoken to the investigator about the night's timeline. Let me check the plan for requires_clue_id:
-MOT-C1 requires TOD-C2 (both correct clues — valid).
-MOT-C2 requires PERP-C1... no, that doesn't make thematic sense. MOT-C2 (showing Merryn the token) is discoverable immediately. requires_clue_id: null.
-But PERP-C2 requires PERP-C1. That's the main requires chain.
-Red Herring 1 (MOT-RH1) — targets To cancel a salvage debt:
-
-Condition: investigator_with_character (Cador Trevithick, at Inn)
-Cador confesses (nervously) that Josiah had been pressing him for repayment of a salvage debt for months, and that he had no means to pay. He says he was afraid of what Josiah might do. (Points to debt-cancellation as a motive — for Cador — but misleads about who the actual perpetrator is AND what the motive is.)
-
-Wait — this is also PERP-RH1. I should not have the exact same clue text serve double duty. I need MOT-RH1 to be a separate clue from PERP-RH1, pointing at a different wrong motive (not the same as pointing at a wrong perpetrator). Let me design them as separate clues that reinforce each other thematically but are distinct.
-PERP-RH1: condition investigator_with_character(Constable Tredrea) — Tredrea reports the public friction over the debt. Points at Cador as perpetrator.
-MOT-RH1: condition investigator_with_character(Cador Trevithick) — Cador himself describes the debt pressure in his own words, and the specific fear he felt. Points at "to cancel a salvage debt" as motive.
-These are different clue conditions and different texts — that works.
-Red Herring 2 (MOT-RH2) — targets To protect a family secret about past wrecking:
-
-Condition: investigator_at_location (wreckers_storehouse)
-In the storehouse, the investigator finds a ledger with coded entries that appear to be wrecking records going back decades, with Josiah's mark on many pages. Several recent pages have been torn out. (Someone — Cador, that morning — removed pages that showed his own involvement. The player may think Josiah was killed to silence him about the wrecking records, or that someone was protecting the community secret.)
-
-Red Herring 3 (MOT-RH3) — targets To prevent exposure of a romantic affair:
-
-Condition: investigator_at_location_with_item (clifftop_path, love_letter)
-On the clifftop path, the investigator finds a folded letter, partially obscured by frost on the ground. The letter is written in an intimate register — "my darling," signed only "M." — and references meeting in secret and a fear of discovery. (This was written by Merryn to Cador when they were courting — before their marriage — and fell from Merryn's pocket years ago; it is old and weather-worn but still legible. The investigator may read it as evidence of an active affair and a motive to silence Josiah if he knew. "M." could be Merryn, and the "fear of discovery" reads ominously in context.)
-
+Motive answer options: To prevent the relocation of the ancestor pillars / To inherit the Bone-Speaker position sooner / Revenge for public humiliation / To conceal a broken vow / To silence Eredan's knowledge of a harbour conspiracy
 
 STEP 5 — CONSISTENCY & VISIBILITY CHECK
-VISIBILITY check per checkpoint:
-Cause of death: COD-C1 (body observation at snug: blue lips, grimace, smell of sweet-sharp) + COD-C2 (Nancarrow: bitter-sweet smell, clenched hands like hemlock victim) → Player can conclude ingestion of a poison. ✓
-True location: TL-C1 (Merryn confirms Josiah entered the snug at half past nine, alive) + TL-C2 (Tamsin saw him enter the snug, didn't see him leave) → Player can conclude he was in the snug and stayed there. Since body wasn't moved, snug = murder location. ✓
-Time of death: TOD-C1 (Cador: heard table knock at quarter to ten, still alive) + TOD-C2 (Elias: snug light burning past ten, dark by eleven) → Between ten and midnight (brackets it to roughly ten to eleven, within the correct window). ✓
-Perpetrator: PERP-C1 (drying shed: foxglove seed heads, copper mortar with yellow-green dust) + PERP-C2 (Nancarrow identifies mortar as sold to Merryn, Merryn asked about seed heads) → Merryn processed foxglove at the inn. Combined with her being the one who made and served the drink (established in true_location clues and opening narrative flavour) → conclusive. ✓
-Motive: MOT-C1 (Elias: Josiah pocketed the signal lantern, Thomas Polglase drowned, Merryn is Thomas's sister) + MOT-C2 (Merryn identifies token as Thomas's, her voice changes) → Revenge for brother's death. ✓
-AMBIGUITY check:
+VISIBILITY:
 
-PERP-C1 alone: foxglove in drying shed doesn't name Merryn — only points to the inn. Not individually conclusive. ✓
-PERP-C2 alone: mortar sold to Merryn + she asked about seed heads — suspicious but could be innocent herbalism. Not individually conclusive. Together: conclusive. ✓
+cause_of_death: COD-C1 (body at spire_base, fractures from vertical fall) + COD-C2 (fabric on post at top, position above body) → player concludes "fall from height." ✓
+true_location: TL-C1 (fabric at top of Spire) + TL-C2 (satchel with manuscript left there, Eredan's bone-token) → player concludes crime happened at the top of the Spire. ✓
+time_of_death: TOD-C1 (Orric sees them at second bell) + TOD-C2 (Maret: empty at first bell, body at dawn) → player concludes between second bell and dawn. ✓
+perpetrator: PERP-C1 (Orric sees Solvaine come down alone before dawn) + PERP-C2 (Brynn recognises Solvaine's handwriting in manuscript) → player concludes Solvaine. ✓
+motive: MOT-C1 (manuscript contents: relocation plan) + MOT-C2 (Solvaine's statement about ancestors being "tethered") → player concludes religious/ideological conviction. ✓
+
+AMBIGUITY:
+
+PERP-C1 (Solvaine came down alone) could be explained away alone, but combined with PERP-C2 (her handwriting in the manuscript she denied knowing) → conclusive. ✓
+Each COD clue is specific to fall injuries and edge-position evidence. ✓
 
 COVERAGE:
 
-COD red herrings: Blunt force trauma (temple bruise), Drowning (Tamsin's analogy), Exposure to cold (unlatched window). All different. ✓
-TL red herrings: Harbour wall (Elias), Clifftop path (boot prints), Wreckers' storehouse (disturbed dust/lantern). All different. ✓
-TOD red herrings: Before nine (Josiah appeared unwell at seven), After midnight (church clock / dog howling), Between nine and ten (Merryn always brought drink right after bar-close). All different. ✓
-PERP red herrings: Cador (debt friction), Elias (falling-out over salvage division), Tamsin (argument about Abel). All different. ✓
-MOT red herrings: Cancel a salvage debt, Protect wrecking secret, Prevent affair exposure. All different. ✓
+COD red herrings: drowned, struck by blunt instrument, exposure to cold — all different. ✓
+TL red herrings: ancestor hall, cliff workshop, harbour steps — all different. ✓
+TOD red herrings: after dawn, before first bell, between first and second bell — all different. ✓
+PERP red herrings: Orric, Maret, Brynn — all different. ✓
+MOT red herrings: inherit position, revenge for humiliation, conceal broken vow — all different. ✓
 
-CONTRADICTIONS:
+TIMING ELIMINATION: (verified above) ✓
+DISCOVERABILITY:
 
-The carved_token needs a fixed starting location. Place it in the inn's main bar (on the bar shelf — Merryn keeps it as a memorial in plain sight).
-The love_letter needs a starting location: clifftop_path.
-The grinding_mortar starts in the drying_shed.
-The pewter_cup starts in the inn_snug.
-The inn_window_catch: this is the unlatched catch from the snug window. Actually this can just be an observation at the location, not an item. Let me replace COD-RH3 condition: investigator_at_location_with_item (inn_snug, inn_window_catch) — I need inn_window_catch as an item. OR I can make COD-RH3 a different condition not requiring a new item. Let me use: investigator_with_character (Constable Tredrea) for COD-RH3. But I already used Tredrea for PERP-RH1 and TOD-RH2. Multiple clues can share conditions — that's fine.
+The satchel at spire_top: Lead 2 points to the Spire as the ritual site. COD-C1 (spire_base) prompts going up. TL-C1 (spire_top) fires. TL-C2 (spire_top + satchel) fires. ✓
+The manuscript: found via TL-C2. Text of TL-C2 says "annotations in a second hand." Brynn's description says she validates official documents. → PERP-C2 and MOT-C1 are reachable. ✓
+PERP-C2 requires TL-C1 first (requires_clue_id). TL-C1 fires when investigator is at spire_top. spire_top is accessible from spire_base. ✓
+MOT-C2 requires MOT-C1 (requires_clue_id). MOT-C1 fires when investigator_with_item the_manuscript. MOT-C2 brings manuscript to Solvaine at ancestor_hall. ✓
 
-Actually let me re-examine whether I have too many clues hitting the same condition:
+Let me now also think about the items needed:
+Items:
 
-investigator_with_character(Constable Tredrea): PERP-RH1, TOD-RH2, and potentially COD-RH3. Three clues on one condition is fine — they all trigger together.
+the_satchel — Eredan's dark leather satchel, stained with sea salt, the strap frayed at one end. Starting_location: spire_top. Used in TL-C2.
+the_manuscript — A sheaf of vellum pages bound with gut twine, covered in dense script in two distinct hands, with ink smears near the margins. Starting_location: spire_top. Used in PERP-C2 and MOT-C1.
+the_bone_token — A small carved disc of yellowed bone bearing a spiral motif, worn smooth on one face. Starting_location: spire_top. Used in... hmm, I mentioned it for TL-C2 but don't need a separate clue condition. Actually let me fold the bone-token into TL-C2's text (the satchel contains both the manuscript and the bone-token, confirming Eredan was on the platform). The bone_token doesn't need to be a separate item if the manuscript is already there. Let me drop the bone_token as a separate item and just reference it in TL-C2's text (the satchel contains it alongside the manuscript).
+the_carving_knife — Orric's work knife, used in PERP-RH1.
+the_walking_staff — Used in TL-RH2 (found at cliff_workshop). Starting_location: cliff_workshop.
 
-For COD-RH3 (Exposure to cold):
+Wait, let me check: "Each must be referenced in at least one clue condition." The carving_knife is referenced in PERP-RH1 (investigator_at_location, harbour_steps — but the condition doesn't include an item!). I need to restructure.
+Let me make PERP-RH1 use an item condition: investigator_at_location_with_item (harbour_steps + the_carving_knife). But that requires the knife to START at harbour_steps and the player to pick it up. Actually condition type investigator_at_location_with_item means the investigator IS at harbour_steps AND HAS the knife. The knife starts at harbour_steps, so the player picks it up while there, then... examines it while there? Or the condition fires when the player is at harbour_steps with the knife in their inventory.
+Actually I think this works: the knife starts at harbour_steps. The player picks it up (or it can be examined on-site via investigator_at_location_with_item where the item is present at that location). ✓
+The walking_staff at cliff_workshop: TL-RH2 condition is investigator_at_location, cliff_workshop — this doesn't use an item. So the walking_staff as an item would be unreferenced in any condition. I need to make TL-RH2 use the staff: investigator_at_location_with_item (cliff_workshop + the_walking_staff). The staff starts at cliff_workshop. ✓
+Let me also check the manuscript: it's used in PERP-C2 (investigator_with_character_and_item, Brynn + manuscript) and MOT-C1 (investigator_with_item, manuscript). The satchel: TL-C2 (investigator_at_location_with_item, spire_top + satchel). ✓
+Items summary:
 
-Condition: investigator_at_location (inn_snug) — but COD-C1 is also investigator_at_location(inn_snug). Two clues same condition. Fine.
-Text: The window of the snug is unlatched and swings slightly in the wind; frost has formed on the inside of the lower pane; the room is cold enough to see the investigator's breath.
+the_satchel — spire_top — used in TL-C2
+the_manuscript — spire_top — used in PERP-C2, MOT-C1
+the_carving_knife — harbour_steps — used in PERP-RH1
+the_walking_staff — cliff_workshop — used in TL-RH2
 
-This works as a purely observational clue without needing a separate item.
-Let me also reconsider the wreckers' ledger for MOT-RH2. That can be a simple location observation at the storehouse without needing to be an item. Or I could make it an item. Let me make it an item: "wreckers_ledger" — starts at wreckers_storehouse.
-Similarly for TL-RH3: I said the storehouse had disturbed sawdust and a warm lantern wick. I can make "oil_lamp" an item starting at the storehouse, and the condition investigator_at_location_with_item(wreckers_storehouse, oil_lamp). The oil_lamp's description: a small tin oil lamp with a recently trimmed wick and a faint smell of warm oil, suggesting recent use.
-Now let me finalise the item list:
+4 items. Clean. But TL-C1 mentions "fabric on a post at the top" — should that be an item? The fabric swatch could be an item. Let me add it:
 
-pewter_cup — inn_snug
-carved_token — inn (bar area)
-grinding_mortar — drying_shed
-love_letter — clifftop_path
-oil_lamp — wreckers_storehouse
-wreckers_ledger — wreckers_storehouse
+the_fabric_swatch — spire_top — used in TL-C1 (investigator_at_location_with_item, spire_top + fabric_swatch? or just investigator_at_location, spire_top?)
 
-That's 6 items. Each referenced in at least one clue condition:
-
-pewter_cup: TL-C2 (investigator_with_character_and_item Merryn+cup), TOD-RH3 (investigator_with_character_and_item Cador+cup)
-carved_token: MOT-C2 (investigator_with_character_and_item Merryn+token)
-grinding_mortar: PERP-C1 (investigator_at_location drying_shed — discovered there), PERP-C2 (investigator_with_character_and_item Nancarrow+mortar)
-
-Wait — PERP-C1's condition is investigator_at_location(drying_shed), not a condition with item. The item grinding_mortar starts at drying_shed. When the investigator visits the drying_shed, the clue text mentions finding the mortar — but technically the condition doesn't reference the item. For the item to be "used" by a clue condition, it should appear in at least one clue's condition.item field. Let me make PERP-C1's condition: investigator_at_location_with_item(drying_shed, grinding_mortar) — requiring the investigator to examine the mortar specifically to get the clue. That's cleaner.
-But then how does the investigator know to look for the mortar? The lead or the location flavour should mention dried herbs / a grinding setup. Lead 2 can mention the drying shed.
-Updated item condition usage:
-
-pewter_cup: TL-C2, TOD-RH3 ✓
-carved_token: MOT-C2 ✓
-grinding_mortar: PERP-C1 (drying_shed + mortar), PERP-C2 (Nancarrow + mortar) ✓
-love_letter: MOT-RH3 (clifftop_path + love_letter) ✓
-oil_lamp: TL-RH3 (wreckers_storehouse + oil_lamp) ✓
-wreckers_ledger: MOT-RH2 (wreckers_storehouse — let me make this condition investigator_at_location_with_item(wreckers_storehouse, wreckers_ledger)) ✓
-
-Good — all 6 items referenced.
-Now let me define locations:
-
-inn (Anchor & Tallow Inn) — arrival_location — col 1, row 2 (bottom centre)
-inn_snug (The Inn Snug) — col 1, row 1 (centre)
-drying_shed (The Drying Shed) — col 2, row 2 (bottom right)
-harbour_wall (The Harbour Wall) — col 0, row 2 (bottom left)
-clifftop_path (The Clifftop Path) — col 0, row 0 (top left)
-wreckers_storehouse (The Wreckers' Storehouse) — col 2, row 1 (centre right)
-nancarrow_cottage (Nancarrow's Cottage) — col 2, row 0 (top right)
-
-That's 7 locations. 3×3 grid with cells: (0,0)=clifftop_path, (1,0)=empty, (2,0)=nancarrow_cottage, (0,1)=empty, (1,1)=inn_snug, (2,1)=wreckers_storehouse, (0,2)=harbour_wall, (1,2)=inn, (2,2)=drying_shed.
-The empty cells (1,0) and (0,1) — that's fine, not all cells need to be filled.
-Adjacencies (8 max):
-
-inn → inn_snug (back room of the inn)
-inn → drying_shed (behind the inn)
-inn → harbour_wall (short walk along the seafront)
-harbour_wall → clifftop_path (path climbs from harbour)
-clifftop_path → nancarrow_cottage (cottage at top of path)
-nancarrow_cottage → wreckers_storehouse (behind the cliff ridge)
-wreckers_storehouse → drying_shed (both behind inn)
-inn_snug → inn (same building)
-
-Wait — I'm double-defining inn↔inn_snug. Each adjacency appears once. I'll list 8:
-
-inn — inn_snug
-inn — drying_shed
-inn — harbour_wall
-harbour_wall — clifftop_path
-clifftop_path — nancarrow_cottage
-nancarrow_cottage — wreckers_storehouse
-wreckers_storehouse — drying_shed
-inn_snug — wreckers_storehouse (passage through the back of the building)
-
-Actually that last one feels forced. Let me drop it and keep 7 adjacencies. The schema says 3–8, so 7 is fine.
-CHARACTER LOCATIONS:
-
-Josiah Carne (victim): inn_snug
-Merryn Trevithick: inn
-Cador Trevithick: inn
-Tamsin Veal: inn
-Elias Veal: harbour_wall
-Widow Nancarrow: nancarrow_cottage
-Constable Tredrea: inn
-
-That's 7 characters including victim. Characters at inn: Merryn, Cador, Tamsin, Constable Tredrea — four characters plus victim (at inn_snug) — fine.
+Actually TL-C1 was going to be investigator_at_location, spire_top. The fabric observation is just part of being at that location, not requiring an item. But then the fabric swatch isn't an item. That's fine. COD-C2 is also investigator_at_location, spire_top but addresses a different checkpoint.
+Wait — I have TL-C1 as investigator_at_location (spire_top) and COD-C2 also as investigator_at_location (spire_top). These are two different clues with the same condition. Is that allowed? The schema doesn't prohibit it. However in game terms, visiting spire_top might fire both in the same turn. That could be intentional — being at the top yields observations about both cause of death AND true location. That seems fine actually.
+Let me also reconsider COD-C1 and PERP-RH2. COD-C1 is investigator_at_location (spire_base). PERP-RH2 is investigator_with_character (Maret Colne) — Maret is at cliff_workshop, not spire_base. Good.
+Let me now also check: the condition for MOT-RH1 is investigator_at_location (ancestor_hall). That fires when the player visits the ancestor_hall, before or after meeting Solvaine. The succession document is there. Good.
 LEADS:
-Lead 1 (points to Nancarrow): Before the investigator arrived, the local constable summoned [char:Widow Nancarrow] from [loc:nancarrow_cottage] to examine the body — she is said to know more about plants and their effects than any physician within twenty miles. Points to: Nancarrow → COD-C2, PERP-C2.
-Lead 2 (points to drying shed / PERP-C1): The drying shed behind [loc:inn] is kept locked, but [char:Constable Tredrea] noticed its padlock hanging open this morning when he went to check the outbuildings — the interior has a sharp, unfamiliar smell that he could not place. Points to: drying_shed → PERP-C1.
-Lead 3 (points to Elias Veal): [char:Elias Veal] walks the [loc:harbour_wall] every night regardless of weather and is said never to sleep — if anyone saw lights in the inn after closing, it would have been him. Points to: Elias → TOD-C2, MOT-C1.
-Good — at least 2 leads point toward early-game clue conditions (all three do).
 
-PHASE 3 — AUDIT
-Tracing every correct clue:
-COD-C1 (investigator_at_location, inn_snug): Inn snug is where the body is. Opening narrative says body found in the snug. Investigator starts at inn; inn is adjacent to inn_snug. Investigator goes to inn_snug → clue fires. ✓
-COD-C2 (investigator_with_character, Nancarrow): Lead 1 mentions Nancarrow was called to examine the body and lives at nancarrow_cottage. Investigator follows lead → visits cottage → clue fires. ✓
-TL-C1 (investigator_with_character, Merryn): Merryn is at the inn, the arrival location. Investigator speaks to her immediately. ✓
-TL-C2 (investigator_with_character, Tamsin): Tamsin is at the inn. Investigator speaks to her on arrival or early in investigation. ✓
-TOD-C1 (investigator_with_character, Cador): Cador is at the inn. Investigator speaks to him early. ✓
-TOD-C2 (investigator_with_character, Elias): Lead 3 directs investigator to harbour_wall to find Elias. Inn is adjacent to harbour_wall. Investigator follows lead. ✓
-PERP-C1 (investigator_at_location_with_item, drying_shed, grinding_mortar): Lead 2 explicitly mentions the open padlock and unfamiliar smell at the drying_shed. Inn is adjacent to drying_shed. Investigator goes there and examines the mortar. ✓
-PERP-C2 (investigator_with_character_and_item, Nancarrow, grinding_mortar): Requires PERP-C1. After getting the mortar from the shed, investigator takes it to Nancarrow (already visited for COD-C2). nancarrow_cottage is reachable via harbour_wall → clifftop_path → nancarrow_cottage. ✓
-MOT-C1 (investigator_with_character, Elias, requires TOD-C2): After TOD-C2 (first conversation with Elias establishes rapport), investigator speaks to Elias again → MOT-C1 fires. Same location (harbour_wall). requires_clue_id: TOD-C2. ✓
-MOT-C2 (investigator_with_character_and_item, Merryn, carved_token): carved_token starts at inn (bar area, visible from arrival). Investigator picks it up. Merryn is at the inn. Investigator shows token to Merryn. ✓
-All correct clues are reachable without guessing. ✓
-Checkpoint verification:
+Lead 1 → spire_base — "The stonecutter [char:Maret Colne] who found the body is reported to be near [loc:spire_base], where [char:Eredan Volke] lies." Points toward COD-C1 (early game).
+Lead 2 → spire_top — "The pre-dawn ancestor observance is performed atop [loc:spire_top], on the platform above the sea — the last known site of the ritual." Points toward TL-C1 and COD-C2 (early-mid game).
+Lead 3 → Orric Vann / harbour_steps — "The harbour-master [char:Orric Vann] was on the dock before dawn and may have seen who was moving on the clifftop paths." Points toward TOD-C1 and PERP-C1 (early game).
 
-Cause of death: Both clues (body symptoms + Nancarrow's testimony) point to ingestion of a toxic substance. "Poisoning by ingestion" ✓
-True location: Both clues (Merryn: Josiah entered snug alive; Tamsin: saw him enter, didn't leave) confirm snug as location. Body found there. "The inn snug" ✓
-Time of death: TOD-C1 (alive at quarter to ten) + TOD-C2 (light on past ten, dark by eleven) → "Between ten and midnight" (specifically ten to eleven) ✓
-Perpetrator: PERP-C1 (foxglove processed in inn's shed) + PERP-C2 (mortar sold to Merryn, she asked about seed heads) → "Merryn Trevithick" ✓
-Motive: MOT-C1 (Josiah pocketed lantern, Thomas Polglase drowned, Merryn is sister) + MOT-C2 (Merryn identifies token as Thomas's) → "Revenge for a brother's death" ✓
+At least 2 point toward early-game clue conditions. ✓ (Leads 1 and 3 are both early-game.)
 
-Everything checks out. Now writing the JSON.
+Now let me finalize all clue IDs and structure clearly:
+cause_of_death:
+
+cod_c1: correct, investigator_at_location (spire_base), requires null
+cod_c2: correct, investigator_at_location (spire_top), requires cod_c1
+cod_rh1: red_herring (Drowned), investigator_with_character (Orric Vann), requires null
+cod_rh2: red_herring (Struck by blunt instrument), investigator_with_character (Brynn Ossler), requires null
+cod_rh3: red_herring (Exposure to cold), investigator_with_character (Maret Colne), requires null
+
+true_location:
+
+tl_c1: correct, investigator_at_location (spire_top), requires null
+tl_c2: correct, investigator_at_location_with_item (spire_top, the_satchel), requires tl_c1
+tl_rh1: red_herring (ancestor_hall), investigator_with_character (Tauvek Drest), requires null
+tl_rh2: red_herring (cliff_workshop), investigator_at_location_with_item (cliff_workshop, the_walking_staff), requires null
+tl_rh3: red_herring (harbour_steps), investigator_with_character (Orric Vann), requires null
+
+Wait — I'm using Orric for cod_rh1 AND tl_rh3 AND perp_c1 AND tod_c1. That's 4 clues from one character. That seems a lot. Let me redistribute.
+tl_rh3: let me use investigator_at_location (harbour_steps) instead of with Orric. "The investigator, examining the harbour steps, notices recent marks in the soft mud at the base — boot prints in a style typical of Bone-Speakers, leading toward the water's edge." → implies Eredan was at harbour, not the Spire.
+Actually I'd rather not have too many investigator_at_location conditions without items at harbour_steps. Let me just keep tl_rh3 as investigator_at_location at harbour_steps. The boot-print observation.
+But then the boot print observation doesn't need Orric. Fine. And cod_rh1 (drowned) can stay with Orric. So Orric appears in: cod_rh1, tod_c1, perp_c1. Three clues. Better.
+Brynn appears in: cod_rh2, perp_c2, perp_rh3, mot_c2 (wait, mot_c2 is Solvaine). Let me recheck:
+
+Brynn: cod_rh2 (blunt instrument), perp_c2 (manuscript + handwriting), perp_rh3 (Brynn as suspect). Three clues from Brynn. Fine.
+
+Maret: cod_rh3, perp_rh2, tod_c2. Three. Fine.
+Solvaine: mot_c2, perp_rh... wait, let me check — Solvaine doesn't appear in any red herrings as a condition-character, only as a perpetrator answer option. Good.
+Tauvek: tl_rh1, tod_rh3, mot_rh3. Three. Fine.
+Also: PERP-RH1 is investigator_at_location_with_item (harbour_steps + carving_knife). No character. Fine.
+MOT-RH1 is investigator_at_location (ancestor_hall). No character. Fine.
+MOT-RH2 is investigator_with_character (Maret Colne). That's a 4th Maret clue (cod_rh3, tod_c2, perp_rh2, mot_rh2). That's quite a lot. Let me swap one.
+MOT-RH2 (revenge for humiliation) — instead of Maret, use investigator_with_character (Tauvek Drest). Tauvek says he overheard Eredan once call Solvaine a "stubborn fool" in the ancestor hall. That gives motive-revenge suggestion. Tauvek already has tl_rh1, tod_rh3, mot_rh3. Now also mot_rh2. Four clues from Tauvek. Still high.
+Actually let me use investigator_at_location (ancestor_hall) for mot_rh2 since the insult may have been written somewhere or recorded. The investigator finds a formal reprimand notice on the hall's records wall saying Eredan had issued Solvaine a rebuke in writing for "defiance of elder instruction." Condition: investigator_at_location (ancestor_hall). But MOT-RH1 is also investigator_at_location (ancestor_hall). Two clues from the same location condition — that would fire in the same turn... Actually I think that's allowed but not ideal. Two clues firing simultaneously at one location means the player gets both misleading clues at once.
+Let me instead make MOT-RH2 an item condition at the ancestor hall. Or better: keep MOT-RH2 as investigator_at_location (ancestor_hall) and MOT-RH1 also at ancestor_hall — they'd both fire on the same visit. The player gets two red herrings in one turn. That's a lot, but it's a red herring — not necessarily bad. Actually let me differentiate them by putting MOT-RH2 at a different location.
+MOT-RH2: investigator_with_character (Tauvek) — "Tauvek tells the investigator that Eredan once publicly called Solvaine's faith 'a mask for ambition' at a council meeting. The remark was never retracted." → implies personal grudge. This is mot_rh2 pointing at "Revenge for public humiliation." Tauvek has tl_rh1, tod_rh3, mot_rh3, mot_rh2 — four clues.
+You know what, let me just allow it. The schema doesn't cap per-character clues.
+Actually I realize there's a collision: tod_rh3 (Tauvek says he heard footsteps between first and second bell) and tl_rh1 (Tauvek says he heard voices from the direction of ancestor hall at second bell). Both are with_character (Tauvek) and neither requires a prior clue. Both would fire on the first visit to Tauvek. The player gets two clues from Tauvek in one visit. That's fine — it can read as Tauvek providing multiple bits of information.
+But wait: can two clues have the exact same condition? tl_rh1 = investigator_with_character (Tauvek), tod_rh3 = investigator_with_character (Tauvek). Yes, these are different clues that can fire from the same condition — the game engine handles this as multiple clues firing on one visit. That's fine.
+Same issue: cod_rh1 = investigator_with_character (Orric) and tod_c1 = investigator_with_character (Orric) and perp_c1 = investigator_with_character (Orric). All three would fire on one visit to Orric (unless requires_clue_id gates some). That's a lot of information at once. Let me gate PERP-C1 behind TOD-C1.
+PERP-C1 (Orric sees Solvaine come down alone before dawn): requires_clue_id = tod_c1. So on first visit to Orric, tod_c1 and cod_rh1 fire. On second visit (after collecting tod_c1), perp_c1 fires. That works narratively: first conversation Orric tells about seeing them go up and tides; second conversation (after the investigator knows more) Orric reveals he saw Solvaine come down alone.
+Actually that's great narratively. Let me lock that in.
+Similarly: perp_rh3 (Brynn as suspect) and cod_rh2 (Brynn, blunt instrument) both fire on first Brynn visit. Perp_c2 (Brynn + manuscript) fires later when the player brings the manuscript. Fine — two clues from Brynn on first visit, one on return with manuscript.
+Let me now write all this up cleanly.
+
+FINAL CLUE LIST:
+cause_of_death:
+
+cod_c1: correct, at spire_base, no req — body examination reveals injuries consistent with vertical impact (shattered back of skull, both legs broken, no wounds on front, undamaged hands)
+cod_c2: correct, at spire_top, requires cod_c1 — stone lip above body shows scrape of dark wool fibre; position directly above body
+cod_rh1: red_herring (Drowned), with_character Orric, no req — Orric notes strong tides, says sea-death bodies wash up right where Eredan lies
+cod_rh2: red_herring (Struck by blunt instrument), with_character Brynn, no req — Brynn describes the ceremonial maul Eredan always carried on Spire observances
+cod_rh3: red_herring (Exposure to cold), with_character Maret, no req — Maret describes Eredan's blue lips and ice-cold skin when she found him
+
+true_location:
+6. tl_c1: correct, at spire_top, no req — torn dark wool fragment on splintered post at outer edge; position above where body lies
+7. tl_c2: correct, at_location_with_item (spire_top + satchel), requires tl_c1 — satchel open on the platform, manuscript inside with bone-token tucked beneath, Eredan's personal effects confirming he was on this platform
+8. tl_rh1: red_herring (ancestor hall), with_character Tauvek, no req — Tauvek says he heard raised voices from the direction of the Ancestor Hall at second bell
+9. tl_rh2: red_herring (cliff workshop), at_location_with_item (cliff_workshop + walking_staff), no req — Eredan's distinctive pilgrim staff propped against the workshop wall, with fresh mud on its base
+10. tl_rh3: red_herring (harbour steps), at_location (harbour_steps), no req — boot prints in priest-style soft shoes leading toward the water's edge at the base of the steps
+time_of_death:
+11. tod_c1: correct, with_character Orric, no req — Orric says he saw both Eredan and Solvaine crossing the land bridge toward the Spire together at second bell, Eredan carrying his satchel; he did not see either return before going inside
+12. tod_c2: correct, with_character Maret, no req — Maret says she was at the cliff workshop from first bell onward, that the base of the Spire was empty when she passed it at first bell, and that she saw the body at dawn when the mist lifted
+13. tod_rh1: red_herring (after dawn), with_character Brynn, no req — Brynn says she heard the alarm at dawn and thinks the body could have been placed there beforehand at any hour
+14. tod_rh2: red_herring (before first bell), at_location (spire_base), no req — frost on Eredan's outer robe and the stone beneath him; the sea-fog settles before first bell every night
+15. tod_rh3: red_herring (between first bell and second bell), with_character Tauvek, no req — Tauvek says he heard footsteps on the cliff path between first and second bell
+perpetrator:
+16. perp_c1: correct, with_character Orric, requires tod_c1 — Orric says he saw Solvaine come down from the Spire alone just before the alarm bell sounded at dawn; she was moving quickly and her outer robe had a dark wet stain at the sleeve
+17. perp_c2: correct, with_character_and_item (Brynn + manuscript), requires tl_c1 — Brynn examines the manuscript, points to three marginal annotations in a different hand, and states without hesitation that the handwriting is Solvaine Drest's, identical to records submissions she has verified for years
+18. perp_rh1: red_herring (Orric Vann), at_location_with_item (harbour_steps + carving_knife), no req — a bone-handled carving knife with the Vann family mark scratched into the grip lies among the dock ropes near the harbour capstan
+19. perp_rh2: red_herring (Maret Colne), with_character Maret, no req — Maret admits she was promised an acolyte appointment by Eredan three times over two years, that no appointment ever came, and that she had searched the Spire's ceremonial box before raising the alarm
+20. perp_rh3: red_herring (Brynn Ossler), with_character Brynn, no req — Brynn says she argued with Eredan about his relocation plan and told him she would not permit it while she drew breath; she refuses to say whether they met in the days before his death
+motive:
+21. mot_c1: correct, with_item (manuscript), no req — the manuscript's title page reads "On the Necessary Relocation of the Moored Voices"; the text argues that the rising sea threatens the ancestor pillars and proposes moving them to the inland meadow
+22. mot_c2: correct, with_character Solvaine, requires mot_c1 — Solvaine, when the investigator asks about the relocation plan, says "The ancestors cannot be moved — they are tethered here. To move them is to murder them, and everyone who carries their blood. I told him this. I told him." Her voice does not waver
+23. mot_rh1: red_herring (inheritance of position), at_location (ancestor_hall), no req — a sealed succession parchment on the hall's notice-board formally names Solvaine as Eredan's successor, to take effect upon his retirement or death
+24. mot_rh2: red_herring (revenge for humiliation), with_character Tauvek, no req — Tauvek says that at last season's council meeting, Eredan called Solvaine's approach to the faith "a mask for ambition" in front of the full council, and the remark was never retracted
+25. mot_rh3: red_herring (conceal a broken vow), with_character Tauvek, no req — Tauvek tells the investigator that Solvaine had been rumoured for months to have broken her apprentice's celibacy vow, and that Eredan had reportedly threatened to revoke her succession on grounds of impurity
+Wait — I now have Tauvek appearing in: tl_rh1, tod_rh3, mot_rh2, mot_rh3. Four clues. And the first three (tl_rh1, tod_rh3, mot_rh2 — wait no, tl_rh1 and tod_rh3 both have no requires, so they both fire on first visit; mot_rh2 and mot_rh3 also no requires, so all four fire on first visit to Tauvek. That's 4 clues from one visit. That's too much — it floods the player with information and feels unrealistic.
+Let me gate some:
+
+mot_rh3 (broken vow): requires tl_rh1 (after hearing about the voices, Tauvek elaborates)... but requires_clue_id must point to a correct clue. I can't gate a red herring behind another red herring.
+mot_rh3 requires null (immediately available)
+mot_rh2 requires null
+
+I can't fix this with requires_clue_id since all of Tauvek's clues are red herrings. Let me redistribute mot_rh2 to a different character/condition.
+MOT-RH2 (revenge for humiliation): investigator_at_location (ancestor_hall) — the investigator finds a notice on the wall with Eredan's name and Solvaine's, dated two months prior, bearing the formal language of a public rebuke: Solvaine had "defied elder instruction in matters of doctrine and shown disrespect before the council." But wait, MOT-RH1 is also at ancestor_hall. Two red herrings at same condition again.
+Let me use investigator_at_location_with_item for one and plain at_location for the other, differentiating conditions. MOT-RH1 = investigator_at_location (ancestor_hall), MOT-RH2 = investigator_with_item (something specific at ancestor_hall). But what item?
+Or: MOT-RH2 uses investigator_with_character (Maret Colne). But Maret already has three clues (cod_rh3, tod_c2, perp_rh2). Four total if we add mot_rh2. Maret's condition fires always (no requires), so all four clues fire at once on first visit to Maret. Still flooded.
+Honestly, having 3 clues fire at once from a character isn't catastrophic in a deduction game — it simulates a character giving multiple bits of information. The game can display them sequentially. Let me allow it and move on.
+MOT-RH2 = investigator_with_character (Maret Colne): "Maret says that last season she heard Eredan tell Solvaine, in her presence at the cliff workshop, that he was considering replacing her as apprentice with a younger and more obedient candidate. Solvaine had gone pale and left without speaking."
+Maret's clues: cod_rh3 (blue lips/cold), tod_c2 (body found at dawn), perp_rh2 (acolyte grievance), mot_rh2 (replacement threat). Four clues on first visit. Manageable.
+Now Tauvek: tl_rh1 (voices from ancestor hall at second bell), tod_rh3 (footsteps between first and second bell), mot_rh3 (broken vow rumour). Three clues on first visit. That's fine.
+
+Let me now write the actual JSON. I'll construct it carefully.
+Opening narrative: The investigator is summoned from the mainland by the community's Elder Council. A Bone-Speaker has been found dead at the base of the sacred Spire of Moored Voices. The Council fears both violence and sacrilege.
+Epilogue: Reveals Eredan's full story — he'd spent a decade watching the sea eat the clifftop inch by inch, genuinely believed the ancestors needed to be moved to survive, had been in quiet correspondence with a mainland theologian who agreed with him. He had drafted the manuscript over three years. He had planned to announce it at the winter solstice ceremony. Solvaine had found and read the manuscript two months before his death and had argued passionately against it privately. Her annotations were her attempt to find counterarguments, not a conspiracy. The community ultimately chose not to relocate the pillars and they remain on the Spire today. Solvaine was the last Bone-Speaker of the old tradition — within a generation, the sea took the land bridge entirely.
 </story>

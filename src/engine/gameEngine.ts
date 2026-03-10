@@ -169,9 +169,14 @@ export function resolveTurn(state: GameState, scenario: Scenario): GameState {
 
   // ── Clue evaluation ─────────────────────────
   const collectedSet = new Set(state.collectedClueIds)
+  const ACCUSATION_CHECKPOINTS = new Set(['perpetrator', 'motive'])
+  const investigativeConfirmed = Object.entries(state.checkpoints)
+    .filter(([id]) => !ACCUSATION_CHECKPOINTS.has(id))
+    .every(([, cp]) => cp.status === 'confirmed')
+
   const availableClues = scenario.clues.filter(clue => {
     if (collectedSet.has(clue.id)) return false
-    if (clue.requires_clue_id && !collectedSet.has(clue.requires_clue_id)) return false
+    if (ACCUSATION_CHECKPOINTS.has(clue.checkpoint) && !investigativeConfirmed) return false
     return true
   })
 

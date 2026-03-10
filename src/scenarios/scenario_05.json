@@ -262,7 +262,6 @@
         "location": "tidal_flats",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "Examining the body at [loc:tidal_flats], the back of [char:Henk Blom]'s skull shows a single depressed fracture, roughly circular, with the surrounding scalp split cleanly — the wound is entirely dry and the edges show no waterlogging.",
       "red_herring_explanation": null
     },
@@ -277,7 +276,6 @@
         "location": null,
         "item": "iron_bung_mallet"
       },
-      "requires_clue_id": null,
       "text": "The iron bung mallet has a flat striking face approximately six centimetres across; the reddish-brown stain on that face has dried in a pattern consistent with a single hard contact, and several dark hairs are embedded in the discolouration.",
       "red_herring_explanation": null
     },
@@ -294,7 +292,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Daan Kuyt] tells the investigator: \"The body came in with the flood tide, face-down in the water. I assumed he'd gone in off the sea-wall — it's slick this time of year.\"",
       "red_herring_explanation": "Kuyt assumed drowning from the body's position in the water, but he has no medical knowledge; the wound was already present before the body entered the water."
     },
@@ -311,7 +308,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Sofie Renders] tells the investigator: \"I saw Henk and Piet arguing by the chandlery two days ago. Piet had his hand on Henk's collar — I thought for a moment he was going to throttle him.\"",
       "red_herring_explanation": "Renders witnessed a physical confrontation involving Voss grabbing Blom by the collar, which implies strangulation, but the actual cause of death was a blow to the head."
     },
@@ -328,7 +324,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Marten Oost] tells the investigator: \"Blom had supper here at the inn [time:two nights ago]. He complained of a bitter taste in his ale and left half of it. I thought it was just the local brew.\"",
       "red_herring_explanation": "Oost's account of Blom complaining about the taste of his drink suggests poisoning, but this was coincidental; the actual cause of death was blunt force trauma."
     },
@@ -343,7 +338,6 @@
         "location": "barrel_yard",
         "item": "drain_scrape"
       },
-      "requires_clue_id": null,
       "text": "The gouge marks in the stone floor of the barrel yard drainage channel run in a continuous line from the centre of the yard toward the sluice outlet; pale wool fibres caught in the rough edge are the same shade as [char:Henk Blom]'s overcoat.",
       "red_herring_explanation": null
     },
@@ -358,7 +352,6 @@
         "location": "barrel_yard",
         "item": "chalk_residue_sack"
       },
-      "requires_clue_id": null,
       "text": "The white powder from the torn sack has settled across the barrel yard floor in an even layer, but a broad path through it — roughly body-width — has been disturbed, sweeping from the centre of the yard to the drain channel along the far wall.",
       "red_herring_explanation": null
     },
@@ -375,7 +368,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Daan Kuyt] tells the investigator: \"The body was right at the tideline when the morning watch spotted it — he was half in the water, half on the mud. Blom walked that sea-wall path every evening after his rounds.\"",
       "red_herring_explanation": "Kuyt's statement about Blom's regular evening walk along the tidal flats suggests he was killed there, but the body was moved from the barrel yard."
     },
@@ -390,7 +382,6 @@
         "location": "tannery_floor",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "On the tannery floor, the stone sluice channel is wet and recently flushed; a smear of pale white residue — the same chalky white as the powder in the barrel yard — is visible on the lower channel wall near the outdoor connection.",
       "red_herring_explanation": "The chalk smear on the tannery floor channel suggests the killing happened inside, but the chalk residue was transferred during the body's movement through the connected drainage system from the barrel yard."
     },
@@ -407,7 +398,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "cod_rh_3",
       "text": "[char:Marten Oost] tells the investigator: \"The last time I saw Blom alive he was leaving through the inn's back door — the one that opens onto the quayside. That was [time:around ten o'clock at night].\"",
       "red_herring_explanation": "Oost places Blom leaving the inn toward the quayside, implying he was killed near there, but Blom's actual destination was the barrel yard and the killing took place there."
     },
@@ -424,7 +414,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Marten Oost] tells the investigator: \"I last saw Blom walking out of the inn [time:at a quarter past ten]. He told me he had one last errand before bed and would see me in the morning.\"",
       "red_herring_explanation": null
     },
@@ -441,7 +430,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Daan Kuyt] tells the investigator: \"The low-water sluice opens automatically [time:at half past eleven] on autumn nights — the tide tables are posted on my wall. Anything in that channel would have been carried out to the flats in under ten minutes.\"",
       "red_herring_explanation": null
     },
@@ -458,7 +446,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Sofie Renders] tells the investigator: \"I heard shouting from the direction of the tannery [time:around half past eight]. It stopped after a few minutes. I didn't think anything of it at the time — Piet often argues with the night-shift men.\"",
       "red_herring_explanation": "Renders heard shouting earlier in the evening, suggesting an earlier confrontation, but this was an unrelated argument; Blom was killed later, between ten and midnight."
     },
@@ -475,7 +462,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Lena Voss] tells the investigator: \"Piet came to bed [time:well after midnight] — I remember the church bell striking one. He smelled of the yard, same as always after a late stock-check.\"",
       "red_herring_explanation": "Lena places Piet returning late, after midnight, which might imply a later killing, but Voss was disposing of evidence and cleaning up after the earlier murder."
     },
@@ -490,7 +476,6 @@
         "location": null,
         "item": "blom_ledger"
       },
-      "requires_clue_id": null,
       "text": "The final legible entry in the oilskin ledger is dated with the current day and marked [time:3rd hour of the afternoon]; the ink is smeared as if the page was turned in haste, and the ledger's clasp was left undone.",
       "red_herring_explanation": "The afternoon timestamp on the ledger entry implies Blom was working — and possibly killed — in the afternoon, but the entry records only his last inspection visit; he was killed hours later."
     },
@@ -505,7 +490,6 @@
         "location": null,
         "item": "iron_bung_mallet"
       },
-      "requires_clue_id": "cod_correct_2",
       "text": "The handle of the iron bung mallet carries a partial handprint in the dried stain — the thumb smear is on the left side of the handle, consistent with a right-handed grip, and the hand is large; the amber-coloured tannin staining on the grip matches the permanent discolouration on [char:Piet Voss]'s palms.",
       "red_herring_explanation": null
     },
@@ -522,7 +506,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "loc_correct_1",
       "text": "Asked about the disturbed chalk dust in his barrel yard, [char:Piet Voss] says he cannot account for it; but the pale dust is visible in the creases of his boot soles and along the hem of his coat — the same boots he is wearing now.",
       "red_herring_explanation": null
     },
@@ -539,7 +522,6 @@
         "location": null,
         "item": "oost_receipt"
       },
-      "requires_clue_id": null,
       "text": "[char:Marten Oost] tells the investigator: \"Blom came to my room [time:the evening before he died] and asked to see this receipt. He spent a long time with it and left without a word.\"",
       "red_herring_explanation": "Oost's possession of the receipt and Blom's intense interest in it place Oost in suspicious proximity to the fraud investigation, implying he had reason to silence Blom, but Oost was a victim of the fraud, not its perpetrator."
     },
@@ -556,7 +538,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Lena Voss] tells the investigator: \"Blom came to this house [time:last week] and spoke with me privately for nearly an hour. I told him the household accounts were mine alone and he had no standing to review them.\"",
       "red_herring_explanation": "Lena's tense private meeting with Blom about household accounts she controls implies she had something to hide and a reason to stop him, but she was protecting her husband's books, not personally responsible for the killing."
     },
@@ -573,7 +554,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Sofie Renders] tells the investigator: \"Henk owed me money — a private arrangement, nothing written down. He'd been avoiding me for two months. I told him [time:last Sunday] that I needed it back before the winter.\"",
       "red_herring_explanation": "Renders had a financial dispute with the victim and had recently pressured him, providing a plausible personal motive, but she had no knowledge of the resin fraud and no access to the barrel yard that night."
     },
@@ -588,7 +568,6 @@
         "location": null,
         "item": "blom_ledger"
       },
-      "requires_clue_id": "tod_rh_3",
       "text": "The circled discrepancy in [char:Henk Blom]'s ledger shows two columns: one lists declared weights of resin barrels, the other lists weights Blom personally verified — the verified figures are consistently lower, and the gap widens across the season's entries.",
       "red_herring_explanation": null
     },
@@ -603,7 +582,6 @@
         "location": "barrel_yard",
         "item": "chalk_residue_sack"
       },
-      "requires_clue_id": "mot_correct_1",
       "text": "The white powder from the torn sack is odourless and gritty between the fingers; several sealed resin barrels nearby have been recently opened and re-bunged, and their lids carry traces of the same powder along the inner rim.",
       "red_herring_explanation": null
     },
@@ -620,7 +598,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Lena Voss] tells the investigator: \"Blom and my husband had an arrangement from years ago — money changed hands. I never knew the details. Piet said it was settled, but Blom kept coming back every season.\"",
       "red_herring_explanation": "Lena describes a recurring financial arrangement between Blom and Piet that she doesn't fully understand, which sounds like blackmail payments, but she is referring to legitimate inspections fees that Blom had always billed directly."
     },
@@ -637,7 +614,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "perp_rh_1",
       "text": "[char:Marten Oost] tells the investigator: \"My firm received a letter two weeks ago — unsigned — claiming the Brakkestrand resin was under-weight. I came to investigate. I had not yet told Voss about the letter.\"",
       "red_herring_explanation": "Oost's anonymous letter implies Blom had already informed on Voss to buyers, suggesting the motive was silencing a whistleblower, but Blom had not yet passed his findings to anyone; he was killed before he could act."
     },
@@ -654,7 +630,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Sofie Renders] tells the investigator: \"People talk in a village this size. Henk asked me [time:a fortnight ago] whether I spent time at the tannery after hours. It was a strange question. I told him I delivered supplies and left it at that.\"",
       "red_herring_explanation": "Blom's question about Renders' movements at the tannery implies he suspected a personal relationship between her and Voss, suggesting a personal motive for both parties, but his actual interest was in whether she had witnessed the adulteration of the resin barrels."
     },
@@ -669,7 +644,6 @@
         "location": null,
         "item": "sluice_gate_pin"
       },
-      "requires_clue_id": "loc_correct_1",
       "text": "The bent iron pin is the manual locking pin for the barrel yard sluice gate; when removed, the gate opens fully and the channel drains with enough force to carry loose material toward the tidal flats.",
       "red_herring_explanation": null
     },
@@ -686,7 +660,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "ht_correct_1",
       "text": "[char:Daan Kuyt] tells the investigator: \"The automatic sluice opens at low water, but someone opened the barrel yard gate manually [time:before eleven] last night — I heard it from my office window. That gate makes a particular groan when it lifts.\"",
       "red_herring_explanation": null
     },
@@ -703,7 +676,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Sofie Renders] tells the investigator: \"I couldn't sleep and I was at my upstairs window [time:around eleven]. I thought I saw a shape moving slowly along the top of the sea-wall toward the flats, but the mist was thick and I'm not certain of what I saw.\"",
       "red_herring_explanation": "Renders describes a figure on the sea-wall that might have been carrying the body, but she saw the mist playing tricks; the body was moved through the sluice channel, not carried overland."
     },
@@ -720,7 +692,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Marten Oost] tells the investigator: \"I heard oars in the harbour [time:around half past eleven]. I assumed it was a fisherman setting out early, but no boats were missing in the morning when I checked.\"",
       "red_herring_explanation": "Oost heard rowing sounds which suggest the body was transported by boat, but the sound was an unrelated night fisherman; no boat was used to move the body."
     },
@@ -735,7 +706,6 @@
         "location": "tidal_flats",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "In the grey mud of [loc:tidal_flats], two shallow parallel furrows — roughly boot-width apart — run for about four metres before disappearing where the tide has washed the surface smooth.",
       "red_herring_explanation": "The parallel furrows in the mud suggest the body was dragged across the flats, but these marks were made by a crab pot being hauled in earlier in the day; the body arrived via the sluice channel."
     }

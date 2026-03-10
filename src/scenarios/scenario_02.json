@@ -1,223 +1,232 @@
 {
   "location": {
-    "name": "Aldeia do Muro",
-    "history": "Aldeia do Muro — 'village of the wall' — clings to a basalt cliff face on the Portuguese Atlantic coast, its oldest houses built directly into the rock. The seawall itself is ancient, older than the village, and locals say it was laid by hands that predate Christianity on this shore. Fishing families have worked these waters for twenty generations; the catch is split, dried, and sold through a single cooperative that everyone depends on and no one fully trusts. The wall runs the length of the cliff-top, and children are told from infancy not to lean over it. Three people have gone over it in living memory. The sea here is cold even in summer.",
-    "season": "summer",
-    "weather": "flat white haze, air thick with salt and no wind",
+    "name": "Greyspine Reach",
+    "season": "autumn",
+    "weather": "iron sleet and sea-fog",
     "arrival_location": "harbour_steps"
   },
   "crime": {
-    "cause_of_death": "blunt trauma",
-    "murder_location": "cliff_wall",
-    "body_found_location": "rock_shelf",
+    "cause_of_death": "Fall from height",
+    "murder_location": "spire_top",
+    "body_found_location": "spire_base",
     "body_was_moved": false,
-    "time_of_death": "between ten o'clock and midnight",
-    "victim_state": "dressed for a meeting — clean shirt, good shoes",
+    "time_of_death": "Between second bell and dawn",
     "perpetrator_ids": [
-      "domingos_ferreira"
+      "solvaine_drest"
     ],
-    "motive": "self-preservation",
-    "hidden_truth": null
+    "motive": "Solvaine killed Eredan to prevent him from relocating the ancestor pillars, which she believed would unmoor and destroy the spirits of every Orrish ancestor"
   },
   "characters": [
     {
-      "id": "abel_santos",
-      "name": "Abel Santos",
+      "id": "eredan_volke",
+      "name": "Eredan Volke",
       "isVictim": true,
       "local": true,
-      "home_location": "cooperative_office",
-      "starting_location": "rock_shelf",
-      "description": "Abel Santos was the cooperative's bookkeeper — forty-three years old, precise, well-liked in the way that a useful man is well-liked. He had worked the accounts for eleven years without apparent complaint. The investigator finds him face-down on the rock shelf below the cliff wall, arms at his sides as though placed, wearing a clean white shirt and polished shoes. The back of his head is wrong. The tide has not reached him yet."
+      "location": "spire_base",
+      "description": "The community's Bone-Speaker — its highest religious authority — a gaunt man of sixty-some years with close-cropped white hair and long ink-stained fingers. He lies at the foot of the sea-stack, face upward in the grey shale, robed in the black wool of his office. His eyes are open."
     },
     {
-      "id": "domingos_ferreira",
-      "name": "Domingos Ferreira",
+      "id": "solvaine_drest",
+      "name": "Solvaine Drest",
       "isVictim": false,
       "local": true,
-      "home_location": "cooperative_office",
-      "starting_location": "drying_racks",
-      "description": "Domingos Ferreira is the cooperative's chairman — broad-shouldered, sixties, with the permanent squint of a man who spent his youth hauling nets. He runs the cooperative the way his father did: by feel and by favour. Abel Santos had been his bookkeeper, his chosen man. He will greet the investigator with correct concern and a firm handshake. He has been skimming cooperative funds for four years; Abel Santos found the discrepancy and arranged a private meeting at the wall to confront him before deciding whether to report it."
+      "location": "ancestor_hall",
+      "description": "Eredan Volke's apprentice and designated successor, a composed woman in her late thirties with deep-set grey eyes and ink on her right thumb. She stands near the ancestor pillars inside the hall, arms folded, watching the investigator enter with an expression of careful stillness."
     },
     {
-      "id": "marta_vaz",
-      "name": "Marta Vaz",
+      "id": "orric_vann",
+      "name": "Orric Vann",
       "isVictim": false,
       "local": true,
-      "home_location": "net_shed",
-      "starting_location": "net_shed",
-      "description": "Marta Vaz mends nets in the shed below the cooperative and has done so since her husband drowned six years ago. She is quiet, observant, and generally believed to know more than she says. Abel Santos had recently refused to approve a loan she had applied for through the cooperative; she had not spoken to him since, and several neighbours noted she was angry about it."
+      "location": "harbour_steps",
+      "description": "The harbour-master, a broad-shouldered man in his fifties with salt-bleached hair and a weathered face mapped with old wind-lines. He meets the investigator at the dock with his arms crossed, his expression sceptical, and does not offer his hand."
     },
     {
-      "id": "padre_ernesto",
-      "name": "Padre Ernesto",
-      "isVictim": false,
-      "local": false,
-      "home_location": "chapel_of_santa_luzia",
-      "starting_location": "chapel_of_santa_luzia",
-      "description": "Padre Ernesto arrived in Aldeia do Muro eight months ago, replacing an elderly priest who died in his sleep. He is younger than the village expected, intense in his attentions, and has been seen walking the cliff wall at night 'for contemplation.' Abel Santos had been pressing him about irregularities in the church collection accounts, which the padre administered on behalf of the cooperative's charitable fund."
-    },
-    {
-      "id": "inês_drummond",
-      "name": "Inês Drummond",
-      "isVictim": false,
-      "local": false,
-      "home_location": "widow_costa_house",
-      "starting_location": "widow_costa_house",
-      "description": "Inês Drummond is a cartographer from Lisbon, lodging with the widow Costa while she surveys the coastline for a government map commission. She is practical, direct, and carries expensive instruments. She and Abel Santos had been seen arguing at the cooperative office two days before his death, apparently over access to old survey records he controlled."
-    },
-    {
-      "id": "tomas_luz",
-      "name": "Tomás Luz",
+      "id": "brynn_ossler",
+      "name": "Brynn Ossler",
       "isVictim": false,
       "local": true,
-      "home_location": "harbour_steps",
-      "starting_location": "harbour_steps",
-      "description": "Tomás Luz is the harbour's young night-watchman — twenty-two, restless, ambitious enough to resent his position. He found Abel Santos on the rock shelf at first light when he walked the tide-line as routine. He is the one who fetched the investigator from the arriving boat. He had a debt with Abel Santos — a personal loan that Abel had recently called in."
+      "location": "records_house",
+      "description": "The community's genealogy-keeper and elder councillor, a small, upright woman of seventy who wears her authority in the set of her jaw rather than any outward sign of office. She sits surrounded by vellum ledgers and bone-bound registers, and examines the investigator for a long moment before speaking."
+    },
+    {
+      "id": "tauvek_drest",
+      "name": "Tauvek Drest",
+      "isVictim": false,
+      "local": true,
+      "location": "fish_shed",
+      "description": "Solvaine Drest's younger brother, a rangy man in his mid-twenties with a fisher's calloused hands and his sister's grey eyes. He works without looking up when the investigator arrives at the fish-smoking shed, and speaks quickly, as though anxious to get words out before they can be stopped."
+    },
+    {
+      "id": "maret_colne",
+      "name": "Maret Colne",
+      "isVictim": false,
+      "local": true,
+      "location": "cliff_workshop",
+      "description": "A stonecutter in her late twenties who found the body at dawn and raised the alarm. She has fine stone-dust in her dark hair and her hands will not be still — she turns a small chisel over and over in her fingers as she speaks, not meeting the investigator's eyes for long."
     }
   ],
   "items": [
     {
-      "id": "ledger_book",
-      "name": "Cooperative Ledger",
-      "description": "A water-stained cloth-bound ledger, its spine cracked from repeated opening; several pages near the back have been torn out with some force, leaving ragged margins.",
-      "starting_location": "cooperative_office"
+      "id": "the_satchel",
+      "name": "Eredan's Satchel",
+      "description": "A dark leather satchel, stiff with dried sea-salt, its shoulder strap frayed almost through at the buckle end, lying open on the stone platform.",
+      "starting_location": "spire_top"
     },
     {
-      "id": "broken_chair_leg",
-      "name": "Broken Chair Leg",
-      "description": "A turned oak chair leg, snapped near the base, with a dark stain along the wider end that has dried into the grain.",
-      "starting_location": "cliff_wall"
+      "id": "the_manuscript",
+      "name": "Vellum Manuscript",
+      "description": "A sheaf of vellum pages bound with gut twine, covered in dense script; the margins of several pages bear notes in a second, smaller hand, written in darker ink.",
+      "starting_location": "spire_top"
     },
     {
-      "id": "abel_letter",
-      "name": "Abel's Unsent Letter",
-      "description": "A folded sheet of paper in a coat pocket, addressed to the district cooperative authority in Lisbon, incomplete — it breaks off mid-sentence after the words 'irregularities I have confirmed in the accounts of'.",
-      "starting_location": "rock_shelf"
+      "id": "the_carving_knife",
+      "name": "Bone-Handled Carving Knife",
+      "description": "A short knife with a yellowed bone handle, its blade nicked along one edge; the family mark of three horizontal notches is scratched into the base of the grip.",
+      "starting_location": "harbour_steps"
     },
     {
-      "id": "domingos_watch",
-      "name": "Silver Pocket Watch",
-      "description": "A silver pocket watch engraved 'D.F.' on the case, the crystal face cracked, the hands stopped at eleven-eighteen.",
-      "starting_location": "cliff_wall"
-    },
-    {
-      "id": "survey_notebook",
-      "name": "Inês's Survey Notebook",
-      "description": "A small oilskin notebook filled with grid coordinates and elevation marks; the last entry is dated the day before the death and notes a measurement taken from 'the old wall, eastern section, 22:40.'",
-      "starting_location": "widow_costa_house"
+      "id": "the_walking_staff",
+      "name": "Pilgrim's Walking Staff",
+      "description": "A tall staff of driftwood-grey ash, its tip wrapped in worn leather, the lower third darkened with fresh mud; a small ancestor-spiral is carved into the wood just below the grip.",
+      "starting_location": "cliff_workshop"
     }
   ],
   "locations": [
     {
       "id": "harbour_steps",
       "name": "Harbour Steps",
-      "flavour": "Wide stone steps descend to the water, salt-bleached and slick; fishing boats knock against the pilings in the windless morning like something trying to get in."
+      "flavour": "Salt-rimed stone steps descend to a narrow dock where a single moored vessel knocks softly against the pilings in the swell.",
+      "col": 1,
+      "row": 2
     },
     {
-      "id": "rock_shelf",
-      "name": "Rock Shelf",
-      "flavour": "A flat basalt shelf at the cliff's foot, exposed at low tide; the sea has polished it black and deposited rope, shells, and whatever the wall sends down."
+      "id": "fish_shed",
+      "name": "Fish-Smoking Shed",
+      "flavour": "The low shed reeks of cold smoke and brine; bundles of dried fish hang from the rafters like pale lanterns in the grey light.",
+      "col": 1,
+      "row": 1
     },
     {
-      "id": "cliff_wall",
-      "name": "The Old Wall",
-      "flavour": "The ancient seawall runs the length of the cliff-top, chest-high and mortared with something that predates the village; at night the wind off the water sounds like argument."
+      "id": "ancestor_hall",
+      "name": "Ancestor Hall",
+      "flavour": "The hall's interior is dim, its walls lined with carved bone panels — each face worn smooth by generations of touching — and the air smells faintly of rendered fat and old wax.",
+      "col": 0,
+      "row": 1
     },
     {
-      "id": "cooperative_office",
-      "name": "Cooperative Office",
-      "flavour": "A low whitewashed room above the harbour, smelling of fish-scale and ink, its shelves heavy with binders and its single window facing directly out to sea."
+      "id": "records_house",
+      "name": "Records House",
+      "flavour": "Every available surface is covered in ledgers, vellum rolls, and bone-bound registers; the smell of tallow and old ink is overwhelming.",
+      "col": 0,
+      "row": 0
     },
     {
-      "id": "net_shed",
-      "name": "Net Shed",
-      "flavour": "A long salt-dark shed where nets hang in loops from the rafters like the ribs of something enormous; the floor is permanently damp."
+      "id": "cliff_workshop",
+      "name": "Cliff Workshop",
+      "flavour": "Stone dust coats every surface; half-finished ancestor pillars stand in rows against the seaward wall, their carved faces turned toward the grey sea below.",
+      "col": 1,
+      "row": 0
     },
     {
-      "id": "chapel_of_santa_luzia",
-      "name": "Chapel of Santa Luzia",
-      "flavour": "A small, severe chapel at the cliff-top's landward end, its whitewash renewed every year; the saint inside has no eyes, which the priest says is correct."
+      "id": "spire_base",
+      "name": "Base of the Spire",
+      "flavour": "The sea-stack rises sheer and dark from a skirt of grey shale; the smell of kelp and cold salt is sharp here, and the wind comes in gusts that lean a person sideways.",
+      "col": 2,
+      "row": 0
     },
     {
-      "id": "widow_costa_house",
-      "name": "Widow Costa's House",
-      "flavour": "A two-storey house set back from the wall, its ground floor given over to dried fish and its upper floor rented to strangers when the money is needed."
+      "id": "spire_top",
+      "name": "Top of the Spire",
+      "flavour": "The platform is exposed on three sides to the open sea; the ancestor pillars stand in a tight circle at the centre, their carved faces scoured pale by decades of salt wind.",
+      "col": 2,
+      "row": 1
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "harbour_steps",
+      "to": "fish_shed"
     },
     {
-      "id": "drying_racks",
-      "name": "Drying Racks",
-      "flavour": "Rows of wooden frames strung with bacalhau stretch between the cooperative and the cliff edge, the salted fish stiff as boards in the white summer air."
+      "from": "fish_shed",
+      "to": "ancestor_hall"
     },
     {
-      "id": "tide_pool_path",
-      "name": "Tide Pool Path",
-      "flavour": "A narrow path cut into the cliff face, used by the fishers to reach the shelf below; in summer the rock retains the day's heat long after dark."
+      "from": "fish_shed",
+      "to": "cliff_workshop"
+    },
+    {
+      "from": "ancestor_hall",
+      "to": "records_house"
+    },
+    {
+      "from": "records_house",
+      "to": "cliff_workshop"
+    },
+    {
+      "from": "cliff_workshop",
+      "to": "spire_base"
+    },
+    {
+      "from": "spire_base",
+      "to": "spire_top"
     }
   ],
   "checkpoints": [
     {
       "id": "cause_of_death",
-      "label": "How did Abel Santos die?",
+      "label": "How did Eredan Volke die?",
       "answer_options": [
-        "blunt trauma",
-        "drowning",
-        "stabbing",
-        "thrown from the wall — fall injuries",
-        "strangulation"
+        "Fall from height",
+        "Drowned",
+        "Struck by a blunt instrument",
+        "Exposure to cold",
+        "Stabbed"
       ]
     },
     {
       "id": "true_location",
       "label": "Where did the murder take place?",
       "answer_options": [
-        "cliff_wall",
-        "cooperative_office",
-        "rock_shelf",
-        "net_shed",
-        "chapel_of_santa_luzia"
+        "The top of the Spire of Moored Voices",
+        "The ancestor hall",
+        "The cliff workshop",
+        "The harbour steps",
+        "The fish-smoking shed"
       ]
     },
     {
       "id": "time_of_death",
-      "label": "When did Abel Santos die?",
+      "label": "When did Eredan Volke die?",
       "answer_options": [
-        "between ten o'clock and midnight",
-        "before nine o'clock",
-        "between midnight and two in the morning",
-        "at first light"
-      ]
-    },
-    {
-      "id": "victim_state",
-      "label": "What can be established about Abel Santos's state when he died?",
-      "answer_options": [
-        "dressed for a meeting — clean shirt, good shoes",
-        "in working clothes — had come from the office",
-        "in nightclothes — had been woken",
-        "dishevelled — signs of prior struggle",
-        "dressed for travel — bag nearby"
+        "Before first bell",
+        "Between first bell and second bell",
+        "Between second bell and dawn",
+        "After dawn",
+        "At midnight"
       ]
     },
     {
       "id": "perpetrator",
-      "label": "Who killed Abel Santos?",
+      "label": "Who killed Eredan Volke?",
       "answer_options": [
-        "domingos_ferreira",
-        "marta_vaz",
-        "padre_ernesto",
-        "inês_drummond",
-        "tomas_luz"
+        "Solvaine Drest",
+        "Orric Vann",
+        "Maret Colne",
+        "Brynn Ossler",
+        "Tauvek Drest"
       ]
     },
     {
       "id": "motive",
-      "label": "Why was Abel Santos killed?",
+      "label": "Why was Eredan Volke killed?",
       "answer_options": [
-        "self-preservation",
-        "debt",
-        "jealousy",
-        "revenge",
-        "obsession"
+        "To prevent the relocation of the ancestor pillars",
+        "To inherit the Bone-Speaker position sooner",
+        "Revenge for public humiliation",
+        "To conceal a broken vow",
+        "To silence knowledge of a harbour conspiracy"
       ]
     }
   ],
@@ -225,509 +234,431 @@
     {
       "id": "cod_c1",
       "checkpoint": "cause_of_death",
-      "answer": "blunt trauma",
+      "answer": "Fall from height",
       "weight": "correct",
       "condition": {
-        "type": "characters_in_location_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "location": "rock_shelf",
-        "item": "abel_letter"
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "spire_base",
+        "item": null
       },
-      "text": "Examining the body at [loc:rock_shelf], the investigator notes the wound at the back of the skull: a single deep depression, oval, with no stellate cracking — the kind made by something curved and heavy rather than an edge. The face and front of the clothing show no injury. Whatever struck him, it struck once.",
+      "text": "Examining [char:Eredan Volke], the investigator finds the back of the skull shattered and both legs broken at the thigh — damage concentrated on the rear and underside of the body, with the front and face unmarked. The hands show no cuts, abrasions, or broken nails. Directly overhead rises the sheer face of [loc:spire_top].",
       "red_herring_explanation": null
     },
     {
       "id": "cod_c2",
       "checkpoint": "cause_of_death",
-      "answer": "blunt trauma",
+      "answer": "Fall from height",
       "weight": "correct",
       "condition": {
-        "type": "characters_alone_in_location_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "location": "cliff_wall",
-        "item": "broken_chair_leg"
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "spire_top",
+        "item": null
       },
-      "text": "The broken chair leg found at [loc:cliff_wall] carries a dark stain along its wider end consistent with the wound on the body below — the diameter matches, and there are two dark hairs caught in the grain. It was not thrown; it was left, half-tucked behind the wall's base stones.",
+      "text": "At the outer edge of the platform, the investigator finds a splintered rope-post; caught on the raw wood is a tuft of black wool, the same weight and weave as [char:Eredan Volke]'s outer robe. The post stands directly above the patch of grey shale where the body lies far below.",
       "red_herring_explanation": null
     },
     {
       "id": "cod_rh1",
       "checkpoint": "cause_of_death",
-      "answer": "drowning",
+      "answer": "Drowned",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "tomas_luz"
+          "orric_vann"
         ],
-        "location": "harbour_steps"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Tomás Luz] tells the investigator that when he found the body, the face and shirt were wet — 'soaked, like he'd been in the water.' He says the tide hadn't reached the shelf yet, and he doesn't know how to account for it.",
-      "red_herring_explanation": "The moisture on Abel's face and shirt came from the morning sea-haze condensing on the cold basalt; Tomás misread it as sea-water. The wound and the absence of water in the lungs rule out drowning, but Tomás's account plants the doubt."
+      "text": "[char:Orric Vann] tells the investigator that the tides were running hard the night before, and that in his thirty years on this dock he has seen a half-dozen bodies come in from the sea and wash up on the shale at the base of the Reach — always in the same spot where [char:Eredan Volke] now lies.",
+      "red_herring_explanation": "Orric's description of where sea-drowned bodies wash up matches the body's location, suggesting Eredan may have drowned, but the body's injuries and dry clothing are inconsistent with drowning."
     },
     {
       "id": "cod_rh2",
       "checkpoint": "cause_of_death",
-      "answer": "thrown from the wall — fall injuries",
+      "answer": "Struck by a blunt instrument",
       "weight": "red_herring",
       "condition": {
-        "type": "character_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "brynn_ossler"
         ],
-        "location": "rock_shelf"
+        "location": null,
+        "item": null
       },
-      "text": "The investigator observes that the body lies thirty feet below [loc:cliff_wall], with no obvious route of descent other than the fall itself, and the rock shelf is the natural landing for anything going over the wall. The position — arms at the sides — reads at first as consistent with an impact fall.",
-      "red_herring_explanation": "A fall from that height would produce multiple fractures and likely facial injury; the body shows only the single posterior head wound. The position of the arms was arranged after death. The fall reading is initially compelling but does not survive scrutiny."
+      "text": "[char:Brynn Ossler] tells the investigator that [char:Eredan Volke] carried a ceremonial iron maul on every Spire observance — an instrument used to drive the base-stakes of new ancestor pillars. She says it is heavy enough to knock a man down and has been used that way in old disputes, and that it was not among his effects when the body was found.",
+      "red_herring_explanation": "The missing ceremonial maul implies it could have been used as a weapon, but the body's injuries are inconsistent with blunt-instrument blows and are consistent with a fall."
     },
     {
       "id": "cod_rh3",
       "checkpoint": "cause_of_death",
-      "answer": "strangulation",
+      "answer": "Exposure to cold",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_together",
+        "type": "investigator_with_character",
         "characters": [
-          "marta_vaz",
-          "tomas_luz"
+          "maret_colne"
         ],
-        "location": null
+        "location": null,
+        "item": null
       },
-      "text": "Word reached the investigator that [char:Marta Vaz] had been heard telling [char:Tomás Luz] that Abel Santos's neck was marked — 'a bruise, a line, like rope.' Marta had stood close to the body before anyone moved it.",
-      "red_herring_explanation": "The mark Marta noticed was a crease from the shirt collar pressed into the skin during the hours the body lay face-down on cold stone — a post-mortem artefact. Marta's account is offered in good faith but is incorrect."
+      "text": "[char:Maret Colne] says that when she reached [char:Eredan Volke] at dawn, his lips were slate-blue and his skin was so cold she pulled her hand back. She says she has seen fishers come in from bad crossings looking less dead than he did.",
+      "red_herring_explanation": "Maret's description of Eredan's blue lips and extreme cold could suggest death by exposure, but is a natural consequence of lying on frozen stone in a sea-wind for several hours after death."
     },
     {
       "id": "tl_c1",
       "checkpoint": "true_location",
-      "answer": "cliff_wall",
+      "answer": "The top of the Spire of Moored Voices",
       "weight": "correct",
       "condition": {
-        "type": "characters_alone_in_location_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "location": "cliff_wall",
-        "item": "broken_chair_leg"
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "spire_top",
+        "item": null
       },
-      "text": "At [loc:cliff_wall], the investigator finds a smear of dried blood on the inner face of the old stone, at the height of a seated man's head — and the broken chair leg tucked below it. The blood has run downward, not inward; whoever bled here fell away from the wall, toward the sea side.",
+      "text": "At the seaward edge of the platform, a rope-post has been splintered recently; a torn strip of black wool is snagged on the raw wood, and the stone lip just below shows a long pale scrape, the kind left by a body dragging across gritstone. On the platform nearby, [char:Eredan Volke]'s leather satchel lies open, his bone-token resting beneath the flap.",
       "red_herring_explanation": null
     },
     {
       "id": "tl_c2",
       "checkpoint": "true_location",
-      "answer": "cliff_wall",
+      "answer": "The top of the Spire of Moored Voices",
       "weight": "correct",
       "condition": {
-        "type": "characters_anywhere_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "location": null,
-        "item": "domingos_watch"
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "spire_top",
+        "item": "the_satchel"
       },
-      "text": "The silver watch engraved 'D.F.' was found on the ground at [loc:cliff_wall], its face cracked, hands stopped at eleven-eighteen — the crystal broken on the wall's stone edge, not on the rock shelf below. It was dropped here, not carried down.",
+      "text": "Inside the satchel the investigator finds a vellum manuscript and, tucked beneath it, a small carved bone-token engraved with [char:Eredan Volke]'s personal ancestor-mark — the same token that, by Orrish custom, a Bone-Speaker carries on his person at all times and surrenders only at death. The manuscript's margins bear annotations in a second hand, smaller and darker than the body text.",
       "red_herring_explanation": null
     },
     {
       "id": "tl_rh1",
       "checkpoint": "true_location",
-      "answer": "cooperative_office",
+      "answer": "The ancestor hall",
       "weight": "red_herring",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "tauvek_drest"
         ],
-        "location": "cooperative_office",
-        "item": "ledger_book"
+        "location": null,
+        "item": null
       },
-      "text": "The cooperative ledger at [loc:cooperative_office] has had pages torn from the back — recent, judging by the clean fibres. The last entry in Abel Santos's handwriting is dated the day of his death, and ends mid-column. The candle on his desk had burned almost to nothing.",
-      "red_herring_explanation": "Abel was at the cooperative office that evening, working late — this is true. But he left the office alive; the candle burned down after he was gone. The torn pages were removed by Domingos before the investigator arrived, not as part of the murder itself."
+      "text": "[char:Tauvek Drest] tells the investigator that [time:around second bell] he was awake outside the fish-smoking shed and heard raised voices carrying from the direction of [loc:ancestor_hall] — a man's voice, he thinks, though the wind off the sea made it hard to be certain.",
+      "red_herring_explanation": "Tauvek's account of raised voices from the direction of the Ancestor Hall suggests a confrontation there, but he admits uncertainty and the physical evidence places the crime at the top of the Spire."
     },
     {
       "id": "tl_rh2",
       "checkpoint": "true_location",
-      "answer": "net_shed",
+      "answer": "The cliff workshop",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "marta_vaz"
-        ],
-        "location": "net_shed"
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "cliff_workshop",
+        "item": "the_walking_staff"
       },
-      "text": "[char:Marta Vaz] tells the investigator, without being asked, that she heard voices near [loc:net_shed] after dark — 'two men, one of them angry, one low and trying to quiet him.' She cannot say if she dreamed it.",
-      "red_herring_explanation": "Marta likely heard a genuine argument — but it was earlier in the evening, between Domingos and a boat owner over a debt matter unrelated to the murder. The argument she heard did not occur at the net shed and did not involve Abel Santos."
+      "text": "Examining the staff at [loc:cliff_workshop], the investigator finds the lower third dark with fresh mud of the kind found on the cliff paths above the workshop, and the leather tip-wrap has a small fresh tear. The ancestor-spiral carved into the grip matches the style used exclusively by Bone-Speakers.",
+      "red_herring_explanation": "The presence of Eredan's distinctive staff at the cliff workshop with fresh mud on it suggests he was recently there, but the staff was left days earlier and the mud is from an unrelated errand."
     },
     {
       "id": "tl_rh3",
       "checkpoint": "true_location",
-      "answer": "chapel_of_santa_luzia",
+      "answer": "The harbour steps",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_together",
-        "characters": [
-          "investigator",
-          "padre_ernesto"
-        ],
-        "location": null
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "harbour_steps",
+        "item": null
       },
-      "text": "[char:Padre Ernesto] tells the investigator that Abel Santos had asked to speak with him privately at [loc:chapel_of_santa_luzia] 'about a matter of conscience' — and that Abel had never arrived for the appointment, which was set for eleven o'clock the night he died.",
-      "red_herring_explanation": "Abel Santos did plan to speak to the priest — he was considering whether to involve the church's moral authority before reporting Domingos. But he went to confront Domingos first, at the wall, and never made it to the chapel. The padre's account is truthful but misdirects toward his location."
+      "text": "In the soft mud at the base of the harbour steps, the investigator finds a clear set of boot prints — the wide-toed, soft-soled style worn by Bone-Speakers — leading toward the water's edge, with no return prints visible in the direction of the town.",
+      "red_herring_explanation": "The Bone-Speaker boot prints at the harbour's edge, with no visible return prints, suggest Eredan may have been at the harbour just before his death, but the prints were made during an earlier visit and the tide obscured the return tracks."
     },
     {
       "id": "tod_c1",
       "checkpoint": "time_of_death",
-      "answer": "between ten o'clock and midnight",
+      "answer": "Between second bell and dawn",
       "weight": "correct",
       "condition": {
-        "type": "characters_anywhere_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "orric_vann"
         ],
         "location": null,
-        "item": "domingos_watch"
+        "item": null
       },
-      "text": "The cracked watch found at [loc:cliff_wall] stopped at eleven-eighteen — consistent with the moment of a struggle at that location. The tide table confirms the rock shelf below was dry until past midnight, meaning the body could not have arrived there earlier without tidal interference.",
+      "text": "[char:Orric Vann] tells the investigator that [time:at second bell] he watched both [char:Eredan Volke] and [char:Solvaine Drest] cross the land bridge toward [loc:spire_top] together — Eredan carrying his leather satchel, Solvaine two steps behind him. He went inside [time:shortly after] and did not see either of them come back down before he closed the dock-house door.",
       "red_herring_explanation": null
     },
     {
       "id": "tod_c2",
       "checkpoint": "time_of_death",
-      "answer": "between ten o'clock and midnight",
+      "answer": "Between second bell and dawn",
       "weight": "correct",
       "condition": {
-        "type": "characters_anywhere_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "maret_colne"
         ],
         "location": null,
-        "item": "survey_notebook"
+        "item": null
       },
-      "text": "[char:Inês Drummond]'s survey notebook records measurements taken from the old wall's eastern section at [time:22:40] — she passed within thirty feet of the murder site less than an hour and a half before the likely time of death, and the wall was empty then.",
+      "text": "[char:Maret Colne] tells the investigator that she was at [loc:cliff_workshop] from [time:first bell] onward and walked past the base of the Spire on her way there; the shale was bare and the area was empty. She did not hear any sound from the Spire until [time:at dawn], when the fog thinned and she looked out and saw [char:Eredan Volke]'s body on the shale below.",
       "red_herring_explanation": null
     },
     {
       "id": "tod_rh1",
       "checkpoint": "time_of_death",
-      "answer": "before nine o'clock",
+      "answer": "After dawn",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "tomas_luz"
+          "brynn_ossler"
         ],
-        "location": "harbour_steps"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Tomás Luz] tells the investigator that he saw a figure at [loc:cliff_wall] just after the bell for eight o'clock — 'standing still, just standing, looking out.' He assumed it was the priest at his contemplation.",
-      "red_herring_explanation": "The figure Tomás saw was almost certainly Padre Ernesto, who does walk the wall most evenings. Abel Santos was still at his desk in the cooperative office at eight o'clock, as the ledger entry proves."
+      "text": "[char:Brynn Ossler] tells the investigator that she heard the alarm bell rung [time:at dawn] and that until that moment she had no reason to look toward the Spire. She says firmly that no one she knows of was watching the shale at the base through the night, and that the body might have been there for any number of hours before it was seen.",
+      "red_herring_explanation": "Brynn's statement that no one was watching the shale all night implies the death could have occurred after dawn and the body been there only briefly, but this is her speculation and is contradicted by Maret's testimony and the witness account of both figures ascending the Spire at second bell."
     },
     {
       "id": "tod_rh2",
       "checkpoint": "time_of_death",
-      "answer": "between midnight and two in the morning",
+      "answer": "Before first bell",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_together",
-        "characters": [
-          "investigator",
-          "inês_drummond"
-        ],
-        "location": null
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "spire_base",
+        "item": null
       },
-      "text": "[char:Inês Drummond] tells the investigator that she woke in the night at [loc:widow_costa_house] to what she thought was 'something heavy being dragged' — she checked her watch: it was [time:half past one in the morning]. She went to the window but saw nothing.",
-      "red_herring_explanation": "What Inês heard was the widow Costa moving furniture in the room below, a habit the landlady has when she cannot sleep. It had nothing to do with Abel Santos."
+      "text": "A thin layer of frost coats [char:Eredan Volke]'s outer robe and the grey shale beneath him; the sea-fog that carries that frost has been rolling in off the water [time:since before first bell] every night this season, settling on anything left in the open.",
+      "red_herring_explanation": "The frost on the body and stone suggests death occurred very early — before first bell when the frost first formed — but the frost accumulated after death during the hours the body lay exposed, and does not indicate the time of death."
     },
     {
       "id": "tod_rh3",
       "checkpoint": "time_of_death",
-      "answer": "at first light",
+      "answer": "Between first bell and second bell",
       "weight": "red_herring",
       "condition": {
-        "type": "character_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "tauvek_drest"
         ],
-        "location": "rock_shelf"
+        "location": null,
+        "item": null
       },
-      "text": "Examining the body on [loc:rock_shelf], the investigator notices the skin is cool but not cold — and in the summer heat the investigator considers whether the time of death might be more recent than first assumed, perhaps close to the discovery itself.",
-      "red_herring_explanation": "The rock shelf retains heat from the previous day's sun; the ambient temperature on the coast is mild overnight. The warmth of the body surface is environmental, not indicative of recent death. The watch and tide table data correct this misreading."
-    },
-    {
-      "id": "vs_c1",
-      "checkpoint": "victim_state",
-      "answer": "dressed for a meeting — clean shirt, good shoes",
-      "weight": "correct",
-      "condition": {
-        "type": "character_in_location",
-        "characters": [
-          "investigator"
-        ],
-        "location": "rock_shelf"
-      },
-      "text": "The body at [loc:rock_shelf] is dressed in a pressed white shirt, good leather shoes, and a waistcoat — not working clothes. The shirt is clean of fish-smell and ink; Abel Santos changed before he went out that night.",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "vs_c2",
-      "checkpoint": "victim_state",
-      "answer": "dressed for a meeting — clean shirt, good shoes",
-      "weight": "correct",
-      "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "marta_vaz"
-        ],
-        "location": "net_shed"
-      },
-      "text": "[char:Marta Vaz] tells the investigator that she saw [char:Abel Santos] walking past the [loc:net_shed] late in the evening — 'dressed up, like he was going to see the priest or someone important. Not like himself at that hour.'",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "vs_rh1",
-      "checkpoint": "victim_state",
-      "answer": "in working clothes — had come from the office",
-      "weight": "red_herring",
-      "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "tomas_luz"
-        ],
-        "location": "cooperative_office"
-      },
-      "text": "[char:Tomás Luz] tells the investigator at [loc:cooperative_office] that Abel Santos almost never left work without his coat, and the coat is still on the hook — 'he always wore it out, even in summer, it was his habit.'",
-      "red_herring_explanation": "Abel left without his coat because he intended only a brief conversation at the wall before returning. The missing coat suggests he left the office quickly, but Tomás's inference — that he never left at all — is incorrect."
-    },
-    {
-      "id": "vs_rh2",
-      "checkpoint": "victim_state",
-      "answer": "dishevelled — signs of prior struggle",
-      "weight": "red_herring",
-      "condition": {
-        "type": "character_in_location",
-        "characters": [
-          "investigator"
-        ],
-        "location": "rock_shelf"
-      },
-      "text": "One cuff of Abel Santos's shirt is torn at the button — a small tear, easily missed. The investigator notes it and considers whether it preceded the killing.",
-      "red_herring_explanation": "The cuff was torn when the body was dragged slightly along the basalt shelf by the initial impact of landing. It is post-mortem damage, not evidence of a prior struggle."
-    },
-    {
-      "id": "vs_rh3",
-      "checkpoint": "victim_state",
-      "answer": "dressed for travel — bag nearby",
-      "weight": "red_herring",
-      "condition": {
-        "type": "characters_in_location_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "location": "cooperative_office",
-        "item": "ledger_book"
-      },
-      "text": "In the cooperative office, the investigator finds a travel bag beneath Abel Santos's desk, partly packed — a change of clothes, a money purse with coins, and a folded schedule for the coastal steamer.",
-      "red_herring_explanation": "Abel Santos had been planning a trip to Lisbon to deliver his findings about the cooperative accounts to the district authority in person — the unsent letter was a draft. He had not yet decided to go; the bag was preparatory, not imminent. He was not dressed for travel on the night he died."
+      "text": "[char:Tauvek Drest] tells the investigator that [time:between first bell and second bell] he heard the sound of boot-steps on the cliff path above the fish-smoking shed — measured, deliberate steps, he says, not a fisher's walk — heading in the direction of [loc:spire_base].",
+      "red_herring_explanation": "Tauvek's account of footsteps toward the Spire between first and second bell suggests the fatal encounter occurred in that window, but Maret confirmed the area was empty at first bell, and Orric saw both Eredan and Solvaine alive and walking together at second bell — after this window."
     },
     {
       "id": "perp_c1",
       "checkpoint": "perpetrator",
-      "answer": "domingos_ferreira",
+      "answer": "Solvaine Drest",
       "weight": "correct",
       "condition": {
-        "type": "characters_anywhere_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator"
+          "orric_vann"
         ],
         "location": null,
-        "item": "domingos_watch"
+        "item": null
       },
-      "text": "The watch engraved 'D.F.' places [char:Domingos Ferreira] at [loc:cliff_wall] at [time:eleven-eighteen] — the precise time it cracked against the stone during a struggle. When shown the watch, Domingos offers no explanation for how it came to be there.",
+      "text": "When pressed further, [char:Orric Vann] says that [time:just before the alarm bell at dawn] he had come back out to check the mooring lines and saw [char:Solvaine Drest] coming down the land bridge from [loc:spire_top] alone — moving quickly, her outer robe dark at the left sleeve as though wet. He did not see [char:Eredan Volke] with her.",
       "red_herring_explanation": null
     },
     {
       "id": "perp_c2",
       "checkpoint": "perpetrator",
-      "answer": "domingos_ferreira",
+      "answer": "Solvaine Drest",
       "weight": "correct",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character_and_item",
         "characters": [
-          "investigator",
-          "domingos_ferreira"
+          "brynn_ossler"
         ],
-        "location": "cooperative_office",
-        "item": "ledger_book"
+        "location": null,
+        "item": "the_manuscript"
       },
-      "text": "Confronted at [loc:cooperative_office] with the ledger and its torn pages, [char:Domingos Ferreira] says Abel Santos must have removed them himself. But the remaining stubs show the tearing came from outside the binding — from someone reaching in, not someone turning pages.",
+      "text": "[char:Brynn Ossler] examines the manuscript and without hesitation points to the marginal annotations — three passages marked with small, tight script in darker ink — and states that the handwriting is [char:Solvaine Drest]'s, identical to the doctrinal submissions and record forms she has verified in her capacity as genealogy-keeper for the past twelve years.",
       "red_herring_explanation": null
     },
     {
       "id": "perp_rh1",
       "checkpoint": "perpetrator",
-      "answer": "tomas_luz",
+      "answer": "Orric Vann",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "tomas_luz"
-        ],
-        "location": "harbour_steps"
+        "type": "investigator_at_location_with_item",
+        "characters": [],
+        "location": "harbour_steps",
+        "item": "the_carving_knife"
       },
-      "text": "[char:Tomás Luz] is the one who found the body and the first to reach the investigator — convenient, the investigator notes. He had a personal debt with Abel Santos that Abel had called in the week before. He is evasive when asked where he was between ten and midnight.",
-      "red_herring_explanation": "Tomás was evasive because he was with a married woman from the village during those hours — not because he killed Abel Santos. His motive is real, but he was not present at the wall."
+      "text": "Examining the knife at [loc:harbour_steps], the investigator finds the blade recently wiped but still showing a faint reddish residue in the nick along its edge; the three-notch family mark scratched into the bone grip is the mark of the Vann family, as noted on the harbour-master's own dock register hanging inside the dock-house door.",
+      "red_herring_explanation": "The Vann-marked knife with a reddish residue near the dock implies Orric had something to hide, but the knife was used for rope-splicing work and the residue is fish-blood; the cause of death is inconsistent with a knife."
     },
     {
       "id": "perp_rh2",
       "checkpoint": "perpetrator",
-      "answer": "padre_ernesto",
+      "answer": "Maret Colne",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_together",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "padre_ernesto"
+          "maret_colne"
         ],
-        "location": null
+        "location": null,
+        "item": null
       },
-      "text": "[char:Padre Ernesto] admits to the investigator that he walks the cliff wall [loc:cliff_wall] most nights, often past midnight, and that he had financial disagreements with Abel Santos over the charitable fund. He cannot prove he was in the chapel all evening.",
-      "red_herring_explanation": "The padre walks the wall habitually, which makes him a plausible suspect, and his financial dispute with Abel is real. But he was at the chapel until after eleven, as confirmed by the sacristan who locked up — and the murder occurred at eleven-eighteen."
+      "text": "[char:Maret Colne] admits to the investigator that [char:Eredan Volke] had promised her an acolyte appointment on three separate occasions over two years and that no appointment ever came; she says she was angry enough to confront him about it. She also admits that before she ran to raise the alarm, she opened the ceremonial box at the base of the Spire and looked inside.",
+      "red_herring_explanation": "Maret's documented grievance against Eredan and her admission of tampering with the ceremonial box before raising the alarm create the appearance of guilt, but she was at the cliff workshop during the critical window and had no access to the Spire at the time of death."
     },
     {
       "id": "perp_rh3",
       "checkpoint": "perpetrator",
-      "answer": "inês_drummond",
+      "answer": "Brynn Ossler",
       "weight": "red_herring",
       "condition": {
-        "type": "characters_anywhere_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "inês_drummond"
+          "brynn_ossler"
         ],
         "location": null,
-        "item": "survey_notebook"
+        "item": null
       },
-      "text": "[char:Inês Drummond]'s notebook confirms she was at the wall [time:at twenty to eleven] — less than forty minutes before the murder. She and Abel Santos had argued publicly. Asked directly, she says she went straight back to [loc:widow_costa_house], but no one saw her arrive.",
-      "red_herring_explanation": "Inês did return directly to her lodgings; the widow Costa was awake and saw her come in just after eleven. The widow's confirmation was not obtained on the first pass of the investigation, making Inês appear unaccounted for."
+      "text": "[char:Brynn Ossler] tells the investigator that she had argued with [char:Eredan Volke] about a doctrinal matter for more than a year, and that in their last conversation she told him she would not permit his plan to proceed while she drew breath. She pauses, then adds that she did not see him again after that conversation.",
+      "red_herring_explanation": "Brynn's fierce stated opposition to Eredan's plans and her cryptic final-conversation remark create strong grounds for suspicion, but she was at home during the time of death and had no access to the Spire at the relevant hour."
     },
     {
       "id": "mot_c1",
       "checkpoint": "motive",
-      "answer": "self-preservation",
+      "answer": "To prevent the relocation of the ancestor pillars",
       "weight": "correct",
       "condition": {
-        "type": "characters_in_location_with_item",
-        "characters": [
-          "investigator"
-        ],
-        "location": "rock_shelf",
-        "item": "abel_letter"
+        "type": "investigator_with_item",
+        "characters": [],
+        "location": null,
+        "item": "the_manuscript"
       },
-      "text": "The unsent letter found on the body is addressed to the district cooperative authority and begins to name irregularities in the accounts — in [char:Domingos Ferreira]'s accounts specifically, though the name is not yet written. Abel Santos was not reporting a suspicion; he had confirmed it.",
+      "text": "The manuscript's title page reads: 'On the Necessary Relocation of the Moored Voices, being a theological argument for the removal of the ancestor pillars from [loc:spire_top] to the inland meadow, composed by Eredan Volke, Bone-Speaker of Greyspine Reach.' The body of the text argues that the encroaching sea will claim the land bridge within a generation and that the ancestors must be moved to survive.",
       "red_herring_explanation": null
     },
     {
       "id": "mot_c2",
       "checkpoint": "motive",
-      "answer": "self-preservation",
+      "answer": "To prevent the relocation of the ancestor pillars",
       "weight": "correct",
       "condition": {
-        "type": "characters_in_location_with_item",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "domingos_ferreira"
+          "solvaine_drest"
         ],
-        "location": "cooperative_office",
-        "item": "ledger_book"
+        "location": null,
+        "item": null
       },
-      "text": "The torn pages in the cooperative ledger at [loc:cooperative_office] correspond precisely to the four years of [char:Domingos Ferreira]'s chairmanship — the period Abel Santos had flagged in his letter. What remains in the ledger is enough to show the gap; what was torn out would have confirmed it entirely.",
+      "text": "When the investigator asks [char:Solvaine Drest] about the relocation of the ancestor pillars, she says: 'The ancestors cannot be moved. They are not stones — they are tethered here, to this rock, to this sea. To move them is to murder them, and every living soul who carries their blood. I told him this. I told him.' Her voice does not waver and she does not look away.",
       "red_herring_explanation": null
     },
     {
       "id": "mot_rh1",
       "checkpoint": "motive",
-      "answer": "debt",
+      "answer": "To inherit the Bone-Speaker position sooner",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
-        "characters": [
-          "investigator",
-          "tomas_luz"
-        ],
-        "location": "harbour_steps"
+        "type": "investigator_at_location",
+        "characters": [],
+        "location": "ancestor_hall",
+        "item": null
       },
-      "text": "[char:Tomás Luz] tells the investigator at [loc:harbour_steps] that Abel Santos had called in debts from three people in the month before he died — 'collecting, like he needed money fast or like he was settling things.' Tomás was one of them.",
-      "red_herring_explanation": "Abel was collecting debts because he was preparing to leave for Lisbon and wanted his affairs in order — not because someone owed him a fatal grudge. The debt collection points to Tomás's motive but is circumstantial and ultimately misdirects from Domingos."
+      "text": "On the hall's formal notice-board, the investigator finds a sealed succession parchment bearing both [char:Eredan Volke]'s seal and [char:Solvaine Drest]'s name: a written declaration naming her as his successor to the Bone-Speaker's office, to take effect upon his retirement or death, witnessed and dated two years prior.",
+      "red_herring_explanation": "The succession document confirms Solvaine stood to assume the Bone-Speaker role upon Eredan's death, implying a motive of personal gain, but she had already been formally named successor and would have inherited the position naturally at his retirement."
     },
     {
       "id": "mot_rh2",
       "checkpoint": "motive",
-      "answer": "revenge",
+      "answer": "Revenge for public humiliation",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_in_location",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "marta_vaz"
+          "maret_colne"
         ],
-        "location": "net_shed"
+        "location": null,
+        "item": null
       },
-      "text": "[char:Marta Vaz] tells the investigator at [loc:net_shed] that her husband's drowning — officially an accident — was made possible by Abel Santos's decision to approve an unseaworthy boat for the cooperative fleet. She has never forgiven him, and does not pretend otherwise.",
-      "red_herring_explanation": "Marta's grievance is real and her anger genuine, but she is not the killer. She provides this information unsolicited and directly — someone who had just committed murder would be less forthcoming about their motive."
+      "text": "[char:Maret Colne] tells the investigator that last season at [loc:cliff_workshop], in her presence, [char:Eredan Volke] told [char:Solvaine Drest] that her approach to the faith was 'a mask worn over ambition' and that he had begun considering whether she was the right successor. Solvaine went pale and left the workshop without speaking.",
+      "red_herring_explanation": "Eredan's public suggestion that Solvaine might not be the right successor implies a personal grudge as motive, but the true motive was Solvaine's doctrinal conviction about the fate of the ancestors, not wounded pride."
     },
     {
       "id": "mot_rh3",
       "checkpoint": "motive",
-      "answer": "obsession",
+      "answer": "To conceal a broken vow",
       "weight": "red_herring",
       "condition": {
-        "type": "n_characters_together",
+        "type": "investigator_with_character",
         "characters": [
-          "investigator",
-          "padre_ernesto"
+          "tauvek_drest"
         ],
-        "location": null
+        "location": null,
+        "item": null
       },
-      "text": "[char:Padre Ernesto] confides to the investigator that Abel Santos had become 'fixated' on the cooperative accounts — 'he spoke of little else in confession, the same numbers, the same suspicions, week after week.' He worried Abel was losing himself in it.",
-      "red_herring_explanation": "The padre's characterisation of Abel as obsessive is partly accurate — Abel was deeply focused on the discrepancy — but it implies the motive was internal, a fixation that provoked his own killing, rather than what it actually was: Domingos acting to silence a man who had proof."
+      "text": "[char:Tauvek Drest] tells the investigator that for several months there had been rumours among the fishing families that his sister [char:Solvaine Drest] had broken the celibacy vow required of an apprentice Bone-Speaker, and that [char:Eredan Volke] had reportedly told a council elder he intended to review her succession on grounds of doctrinal impurity.",
+      "red_herring_explanation": "The rumour of a broken celibacy vow and a threatened succession review implies Solvaine killed to protect her position and conceal a personal scandal, but this is Tauvek's secondhand speculation and the true motive was doctrinal conviction about the ancestors."
     }
   ],
   "relations": [
-    { "from": "domingos_ferreira", "to": "abel_santos", "label": "employs" },
-    { "from": "domingos_ferreira", "to": "tomas_luz", "label": "employs" },
-    { "from": "marta_vaz", "to": "abel_santos", "label": "open enmity with" },
-    { "from": "inês_drummond", "to": "abel_santos", "label": "in open dispute with" }
+    {
+      "from": "solvaine_drest",
+      "to": "eredan_volke",
+      "label": "apprentice of"
+    },
+    {
+      "from": "tauvek_drest",
+      "to": "solvaine_drest",
+      "label": "brother of"
+    },
+    {
+      "from": "maret_colne",
+      "to": "eredan_volke",
+      "label": "acolyte-candidate of"
+    },
+    {
+      "from": "brynn_ossler",
+      "to": "eredan_volke",
+      "label": "elder councillor to"
+    },
+    {
+      "from": "orric_vann",
+      "to": "eredan_volke",
+      "label": "in harbour-dues dispute with"
+    }
   ],
-
   "leads": [
     {
       "id": "lead_1",
-      "text": "[char:Tomás Luz] stands at the top of [loc:harbour_steps] watching the investigator disembark, his hands working the hem of his jacket — he was the one who found the body, and he looks like a man who has not slept.",
-      "character_id": "tomas_luz",
-      "location_id": "harbour_steps"
+      "text": "[char:Maret Colne], the stonecutter who raised the alarm, has returned to [loc:cliff_workshop] after finding [char:Eredan Volke]'s body on the shale below [loc:spire_base] — she is the only person known to have been on the clifftop at dawn.",
+      "character_id": "maret_colne",
+      "location_id": "cliff_workshop"
     },
     {
       "id": "lead_2",
-      "text": "The body lies on [loc:rock_shelf] below the old wall, and the tide path up the cliff face is still wet with morning damp — the only direct route between the shelf and [loc:cliff_wall] above.",
+      "text": "The pre-dawn ancestor observance is performed by the Bone-Speaker and his apprentice on the platform at [loc:spire_top], above the circle of ancestor pillars — it was the last known ritual [char:Eredan Volke] was alive to conduct.",
       "character_id": null,
-      "location_id": "rock_shelf"
+      "location_id": "spire_top"
     },
     {
       "id": "lead_3",
-      "text": "Smoke is rising from the [loc:cooperative_office] chimney despite the summer heat, and [char:Domingos Ferreira] can be seen through the window moving between the shelves — the chairman, the investigator is told, arrived there before anyone else this morning.",
-      "character_id": "domingos_ferreira",
-      "location_id": "cooperative_office"
+      "text": "[char:Orric Vann] the harbour-master keeps irregular hours and was working on the dock before the alarm was raised; he has a direct view of the land bridge that connects the clifftop to [loc:spire_top].",
+      "character_id": "orric_vann",
+      "location_id": "harbour_steps"
     }
   ],
-  "opening_narrative": "The coastal steamer from Porto arrived at [loc:harbour_steps] of Aldeia do Muro two hours after dawn, carrying two crates of salted pork, a cask of lamp oil, and the investigator. The village was already awake — fishers moved on the quay, nets were being carried, and the smell of the drying racks reached the water before the boat touched the steps. Nothing appeared wrong until [char:Tomás Luz] came down at a run.\n\nTomás was night-watchman, and he had been on the tide-line that morning as was his routine. He had found a man on [loc:rock_shelf], below the old wall. He did not say it was a body at first — he said it was [char:Abel Santos], as though the name explained the urgency. He had come straight to the arriving boat, he said, because he didn't know who else to go to.\n\nThe investigator was taken to the shelf by the tide path. The other villagers who had gathered on the cliff-top above were kept back. [char:Domingos Ferreira], the cooperative chairman, arrived at [loc:cooperative_office] while the investigator was still on the path down — he had been told by someone, and by the time the investigator returned from the shelf, smoke was already rising from the office chimney in the flat white morning air."
+  "opening_narrative": "Word reached the mainland in the early hours: [char:Eredan Volke], Bone-Speaker of [loc:spire_base] — the highest religious authority in the Orrish settlement of Greyspine Reach — had been found dead at the foot of the sacred sea-stack at dawn. The Elder Council, unwilling to place the matter in the hands of any local party, sent an urgent summons for an outside investigator. The message was brief and stated only that the Bone-Speaker was dead, that the manner was unclear, and that the community was afraid.\n\nThe investigator arrives [time:by mid-morning] aboard the supply vessel, stepping off the boat onto the salt-rimed harbour steps of Greyspine Reach for the first time. The settlement is a handful of stone buildings clinging to a clifftop above a grey and restless sea. The fog has not fully lifted. No one has come to meet the boat except [char:Orric Vann], who stands on the dock with his arms folded and the look of a man who has already decided the visit will come to nothing good.\n\nThe body has not been moved. The Elder Council has ordered everyone to stay in place and to speak plainly to the investigator. [char:Solvaine Drest], the dead man's apprentice, was the one who reported the death to the council [time:at dawn]; she is in the Ancestor Hall. The stonecutter [char:Maret Colne], who found the body when the morning fog lifted, has returned to the cliff workshop. The community waits.",
+  "epilogue": "[char:Eredan Volke] had watched the sea take the clifftop for forty years. As a young apprentice he had helped carry the outer pillars back from the edge after a winter storm; as a middle-aged Bone-Speaker he had ordered the land bridge reinforced twice. In his final decade he had begun corresponding with a theologian on the mainland — a man with no Orrish blood but a scholar's interest in the faith — who agreed with his assessment: within two or three generations, [loc:spire_top] would be an island, and then it would be nothing. Eredan had not been abandoning the ancestors. He had been trying to save them.\n\n[char:Solvaine Drest] had found the manuscript draft on the lectern in the ancestor hall two months before his death. She had read it over three nights, annotating it not out of rage but out of the deep and patient effort of a person trying to find a flaw in an argument they were horrified to find convincing. She had found none. What she had found instead was a certainty she could not argue away: that the Orrish theology she had given her life to held that the ancestors were not portable — that their essence was bound to the specific stone and salt and cold, and that to move them was not relocation but extinction. She had gone to Eredan and told him this. He had listened, thanked her, and told her he intended to put the proposal to the council at the winter solstice. That conversation had been three weeks before his death.\n\nThe community did not relocate the pillars. The land bridge was reinforced a third time and then a fourth. [char:Brynn Ossler] lived long enough to see the first storm take a piece of the seaward edge of the platform. [char:Orric Vann]'s harbour ledgers, examined after the trial, showed the harbour-dues dispute had been resolved in Eredan's favour two years before his death — the animosity was old habit by then, not live grievance. [char:Maret Colne] was eventually appointed an acolyte by the council that assumed authority after the Bone-Speaker's office went unfilled, though the appointment meant little without anyone to serve. Within a generation, as Eredan had foreseen, the land bridge became impassable at high tide. The ancestors of Greyspine Reach are still there, on their platform above the cold sea, unvisited and unmoved."
 }

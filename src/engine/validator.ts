@@ -125,17 +125,6 @@ export function validateScenario(s: Scenario): ValidationError[] {
       errors.push({ rule: 'red_herring_explanation', message: `Clue ${clue.id} is red_herring but has no red_herring_explanation` })
     }
 
-    if (clue.requires_clue_id) {
-      if (!clueIds.has(clue.requires_clue_id)) {
-        errors.push({ rule: 'requires_clue_id', message: `Clue ${clue.id} requires_clue_id "${clue.requires_clue_id}" is not a valid clue id` })
-      } else {
-        const dep = s.clues.find(c => c.id === clue.requires_clue_id)
-        if (dep?.weight === 'red_herring') {
-          errors.push({ rule: 'requires_clue_id_red_herring', message: `Clue ${clue.id} requires_clue_id "${clue.requires_clue_id}" is a red_herring — red herrings are trimmed on lower difficulties, making this clue permanently unreachable` })
-        }
-      }
-    }
-
     const validConditionTypes = new Set([
       'investigator_at_location',
       'investigator_with_character',

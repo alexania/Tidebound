@@ -117,6 +117,15 @@
   opacity: 0.5;
 }
 
+.map-location--reachable {
+  border-color: #7ab8c4;
+  box-shadow: 0 0 0 1px rgba(122, 184, 196, 0.35);
+}
+
+.map-location--blocked {
+  opacity: 0.25;
+}
+
 .village-map__adj-line {
   stroke: var(--color-border);
   stroke-width: 1.5;

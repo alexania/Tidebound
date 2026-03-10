@@ -3,7 +3,12 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(npx tsx:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(cd D:/Tidebound && npx tsx:*)",
+      "Bash(cd D:/Tidebound && npx tsc:*)",
+      "Bash(cd D:/Tidebound && echo *scripts/play.ts*)",
+      "Bash(cd D:/Tidebound && cat << 'EOF' | npx tsx scripts/play.ts *)",
+      "Bash(cd D:/Tidebound && cat << 'EOF' | npx tsx scripts/play.ts scenario_02 hard 2>&1\nmove fish_shed\nend\nmove ancestor_hall\nend\nEOF)"
     ]
   }
 }

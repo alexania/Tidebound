@@ -1,8 +1,39 @@
 import { useState, useRef, useEffect } from 'react'
-import type { Scenario, LocationId } from '../types/scenario'
+import type { Scenario, LocationId, LocationAdjacency } from '../types/scenario'
 import type { GameState } from '../types/gameState'
 import { INVESTIGATOR_ID } from '../engine/gameEngine'
 import './VillageMap.css'
+
+function getAdjacentLocs(
+  fromLocId: LocationId,
+  locations: Scenario['locations'],
+  adjacencies: LocationAdjacency[]
+): Set<LocationId> {
+  if (adjacencies.length > 0) {
+    const result = new Set<LocationId>()
+    for (const adj of adjacencies) {
+      if (adj.from === fromLocId) result.add(adj.to)
+      if (adj.to === fromLocId) result.add(adj.from)
+    }
+    return result
+  }
+  // Fallback: orthogonal grid adjacency
+  const locIndex = locations.findIndex(l => l.id === fromLocId)
+  if (locIndex === -1) return new Set()
+  const loc = locations[locIndex]
+  const fromCol = loc.col ?? (locIndex % 3)
+  const fromRow = loc.row ?? Math.floor(locIndex / 3)
+  const result = new Set<LocationId>()
+  for (let i = 0; i < locations.length; i++) {
+    const other = locations[i]
+    const otherCol = other.col ?? (i % 3)
+    const otherRow = other.row ?? Math.floor(i / 3)
+    if (Math.abs(otherCol - fromCol) + Math.abs(otherRow - fromRow) === 1) {
+      result.add(other.id)
+    }
+  }
+  return result
+}
 
 // 3×3 grid — positions for left/top in percent
 const COL_X = [4, 37, 70]
@@ -40,6 +71,8 @@ interface Props {
 
 export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, onSelect }: Props) {
   const [dragOver, setDragOver] = useState<LocationId | null>(null)
+  const [investigatorDragging, setInvestigatorDragging] = useState(false)
+  const [reachableLocs, setReachableLocs] = useState<Set<LocationId>>(new Set())
   const inSetup = gameState.phase === 'setup'
   const canMoveItem = inSetup && gameState.actionsRemaining > 0
 
@@ -63,10 +96,16 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
     e.dataTransfer.setData('type', type)
     e.dataTransfer.setData('id', id)
     e.dataTransfer.effectAllowed = 'move'
+    if (type === 'character' && id === INVESTIGATOR_ID) {
+      const currentLoc = gameState.board.characterLocations[INVESTIGATOR_ID] as LocationId
+      setInvestigatorDragging(true)
+      setReachableLocs(getAdjacentLocs(currentLoc, scenario.locations, scenario.location_adjacencies ?? []))
+    }
   }
 
   const handleDragOver = (e: React.DragEvent, locationId: LocationId) => {
     if (!inSetup) return
+    if (investigatorDragging && !reachableLocs.has(locationId)) return
     e.preventDefault()
     e.dataTransfer.dropEffect = 'move'
     setDragOver(locationId)
@@ -74,15 +113,30 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
 
   const handleDrop = (e: React.DragEvent, locationId: LocationId) => {
     e.preventDefault()
-    setDragOver(null)
+    clearDragState()
     const type = e.dataTransfer.getData('type')
     const id = e.dataTransfer.getData('id')
     if (!id) return
-    if (type === 'character' && id === INVESTIGATOR_ID) onMoveCharacter(id, locationId)
-    else if (type === 'item' && canMoveItem) onMoveItem(id, locationId)
+    if (type === 'character' && id === INVESTIGATOR_ID && reachableLocs.has(locationId)) {
+      onMoveCharacter(id, locationId)
+    } else if (type === 'item' && canMoveItem) {
+      onMoveItem(id, locationId)
+    }
+  }
+
+  const clearDragState = () => {
+    setDragOver(null)
+    setInvestigatorDragging(false)
+    setReachableLocs(new Set())
   }
 
   const handleDragLeave = () => setDragOver(null)
+  const handleDragEnd = () => clearDragState()
+
+  useEffect(() => {
+    document.addEventListener('dragend', clearDragState)
+    return () => document.removeEventListener('dragend', clearDragState)
+  }, [])
 
   // Build lookup: location -> found characters there
   const charsByLocation = new Map<LocationId, typeof scenario.characters>()
@@ -154,11 +208,19 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
         const chars = charsByLocation.get(locId) ?? []
         const items = itemsByLocation.get(locId) ?? []
         const isDragOver = dragOver === locId
+        const isReachable = investigatorDragging && reachableLocs.has(locId)
+        const isBlocked = investigatorDragging && !reachableLocs.has(locId)
 
         return (
           <div
             key={locId}
-            className={`map-location ${isDragOver ? 'map-location--drag-over' : ''} ${!inSetup ? 'map-location--disabled' : ''}`}
+            className={[
+              'map-location',
+              isDragOver ? 'map-location--drag-over' : '',
+              !inSetup ? 'map-location--disabled' : '',
+              isReachable ? 'map-location--reachable' : '',
+              isBlocked ? 'map-location--blocked' : '',
+            ].filter(Boolean).join(' ')}
             style={{ left: `${x}%`, top: `${y}%` }}
             onDragOver={e => handleDragOver(e, locId)}
             onDrop={e => handleDrop(e, locId)}
@@ -173,6 +235,7 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
                   className="map-token map-token--investigator"
                   draggable={inSetup}
                   onDragStart={e => handleDragStart(e, 'character', INVESTIGATOR_ID)}
+                  onDragEnd={handleDragEnd}
                   onClick={e => { e.stopPropagation(); onSelect(`char:${INVESTIGATOR_ID}`) }}
                 >
                   Investigator
@@ -194,6 +257,7 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
                   className="map-token map-token--item"
                   draggable={canMoveItem}
                   onDragStart={e => handleDragStart(e, 'item', item.id)}
+                  onDragEnd={handleDragEnd}
                   onClick={e => { e.stopPropagation(); onSelect(`item:${item.id}`) }}
                 >
                   {item.name}

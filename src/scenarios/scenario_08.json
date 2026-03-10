@@ -278,7 +278,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "Asked directly, [char:Dr. Sibyl Marr] draws back the sheet and points to a single puncture wound in the upper left abdomen — narrow, perhaps three inches in depth, with clean margins and almost no bruising around the entry. She says she has seen this type of wound twice before, both times from a narrow-bladed knife.",
       "red_herring_explanation": null
     },
@@ -295,7 +294,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Rowena Patch] tells the investigator that when she found [char:Aldous Fenn], his coat was hanging open and there was a dark, dry stain through his shirt just below the ribs on the left side. She says the shirt fabric was torn — a small, neat tear — and that she knew at once it was not mud.",
       "red_herring_explanation": null
     },
@@ -312,7 +310,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Constable William Hale] tells the investigator that his first thought, arriving at the chapel, was that [char:Aldous Fenn] had suffered a cardiac episode — the man was heavyset, and his face had a bluish pallor that Hale had seen once before in a man who died of heart failure on the quay.",
       "red_herring_explanation": "The bluish pallor was a result of blood loss from the stab wound combined with post-mortem lividity. Hale's initial assumption was incorrect and he did not examine the body closely before sending for the doctor."
     },
@@ -327,7 +324,6 @@
         "location": "st_cuthberts_chapel",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "The body's overcoat is damp throughout, and the hair is flattened against the scalp in the way prolonged sea-fog produces. The boots, visible beneath the pew, are wet up to the ankle, and the trouser cuffs are stiffened with dried salt.",
       "red_herring_explanation": "The dampness is entirely from the coastal fog through which Edgar Crouch wheeled the body on a handcart from the chandlery to the chapel. There is no water in the lungs; the victim was killed indoors by stabbing."
     },
@@ -344,7 +340,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Constance Avery] tells the investigator that [char:Aldous Fenn] had a habit of walking the headland path in all weathers, sometimes for hours after dark. She says she warned him more than once that it was foolhardy in November, and that he had once come to her door shaking with cold after a night walk.",
       "red_herring_explanation": "Aldous's nocturnal walks are unrelated to his death. He was killed indoors at the chandlery that evening and never reached the headland."
     },
@@ -359,7 +354,6 @@
         "location": null,
         "item": "hemp_cord_loop"
       },
-      "requires_clue_id": null,
       "text": "The loop of tarred hemp cord around the victim's ankle is four millimetres in diameter, hand-cut at both ends with a clean diagonal slice. One end bears a chalked numeral '4' in the style used by chandlers to mark retail cut-lengths. The cord itself is a Quayside Grade stock type, sold for bundling and rigging work.",
       "red_herring_explanation": null
     },
@@ -374,7 +368,6 @@
         "location": "edgar_chandlery",
         "item": "paint_mixing_tray"
       },
-      "requires_clue_id": null,
       "text": "The tin tray on the storeroom floor holds a thick dried smear of bright vermilion paint — the same shade and granular texture as the smear on the heel of the victim's right boot. The tray has been pushed toward the wall but not cleaned, and the floor around it shows a broad, irregular stain in the same colour.",
       "red_herring_explanation": null
     },
@@ -389,7 +382,6 @@
         "location": null,
         "item": "boot_heel_paint"
       },
-      "requires_clue_id": null,
       "text": "The heel of the right boot carries a broad smear of bright red paste, still slightly tacky at the centre, running across the full width of the heel as though the boot was dragged through a wet surface. The boot was found on the body in [loc:st_cuthberts_chapel].",
       "red_herring_explanation": "The paint was picked up at the chandlery storeroom, where Edgar Crouch had mixed red lead paint that afternoon. The player may initially connect the paint to the chapel since the boot was found there, but no paint source exists within the chapel itself."
     },
@@ -404,7 +396,6 @@
         "location": "clarion_office",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "A tin mug on the editor's desk holds cold tea scummed over with a dry film. Beside it, a ruled notepad carries the heading 'Tuesday' and three lines of shorthand before breaking off mid-sentence, the pen lying at an angle as though set down in haste.",
       "red_herring_explanation": "Aldous worked at the office on Tuesday afternoon, as was his regular habit, but left before the murder and walked to the chandlery that evening. The abandoned notes show only that he was interrupted mid-thought during the afternoon, not that he was killed there."
     },
@@ -421,7 +412,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Edgar Crouch] tells the investigator that when [char:Aldous Fenn] last came into the chandlery — the week before — he mentioned he intended to call on the harbormaster that Tuesday evening about a matter concerning a charitable fund subscription.",
       "red_herring_explanation": "This is a deliberate misdirection from the perpetrator. Aldous did visit the harbormaster's house that Tuesday afternoon but not that evening. Edgar is deflecting attention toward another location to distance himself from the crime."
     },
@@ -436,7 +426,6 @@
         "location": null,
         "item": "invitation_note"
       },
-      "requires_clue_id": null,
       "text": "The note reads, in a neat copperplate hand: 'Mr. Fenn — I should be glad of your company at the premises on Tuesday evening at nine o'clock to discuss the matter of the Christmas advertising. Yours, E.C.' The paper is dry and uncreased, as though carried in a breast pocket rather than exposed to the outdoor air.",
       "red_herring_explanation": null
     },
@@ -453,7 +442,6 @@
         "location": null,
         "item": "invitation_note"
       },
-      "requires_clue_id": "tod_c1",
       "text": "When shown the note, [char:Dr. Sibyl Marr] says that the body's core temperature, measured at [time:seven o'clock Wednesday morning], places the time of death within a window of [time:eight to eleven o'clock Tuesday evening] — a range that falls squarely around the meeting time the note requests.",
       "red_herring_explanation": null
     },
@@ -468,7 +456,6 @@
         "location": "st_cuthberts_chapel",
         "item": "hemp_cord_loop"
       },
-      "requires_clue_id": null,
       "text": "The squat candle in the iron holder beside the lectern has burned almost entirely away — only a shallow disc of wax remains in the cup, the wick black and cold. A second, untouched candle rests beside it in the supply box.",
       "red_herring_explanation": "The candle was already burning when Edgar Crouch entered the chapel to deposit the body at around ten o'clock Tuesday night. It burned down on its own through the small hours. Its depleted state does not indicate when the body was placed there."
     },
@@ -483,7 +470,6 @@
         "location": "quay_street",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "Two dockworkers coiling rope at the far end of the quay tell the investigator they saw a lantern moving along the waterfront near [loc:st_cuthberts_chapel] in the grey light of [time:early Wednesday morning], well before the church bell rang six.",
       "red_herring_explanation": "The lantern belonged to Edgar Crouch, who returned to retrieve his handcart from beside the chapel after depositing the body there the previous night. The body had been in the chapel for several hours by the time the dockworkers saw the lantern."
     },
@@ -500,7 +486,6 @@
         "location": null,
         "item": "invitation_note"
       },
-      "requires_clue_id": null,
       "text": "Shown the note, [char:Constance Avery] says that [char:Aldous Fenn] left her house at [time:half past two on Tuesday afternoon] in apparent good health, and that she had assumed this was the last time anyone had seen him alive. She seems genuinely surprised that he had an evening appointment.",
       "red_herring_explanation": "Constance's statement establishes only that Aldous was alive in the early afternoon, not that he died then. He left her house, returned to the Clarion office, and later went to the chandlery for the nine o'clock meeting at which he was killed."
     },
@@ -517,7 +502,6 @@
         "location": null,
         "item": "invitation_note"
       },
-      "requires_clue_id": "tl_c1",
       "text": "Shown the note, [char:Edgar Crouch] first says he sent no such letter and cannot account for how [char:Aldous Fenn] came to have it. He then immediately corrects himself — says he did write it, but that Fenn never arrived that evening. His hands remain flat and still on the counter throughout both statements.",
       "red_herring_explanation": null
     },
@@ -532,7 +516,6 @@
         "location": "edgar_chandlery",
         "item": "cord_stock_reel"
       },
-      "requires_clue_id": "perp_c1",
       "text": "The large reel of tarred hemp cord on the chandlery wall ends in a fresh diagonal cut, and a short loose stub beside the wall bracket still bears a chalked numeral '4' in the same hand as the mark on the cord loop recovered from the victim's ankle. The cut end is clean and recent — the fibres have not yet begun to fray.",
       "red_herring_explanation": null
     },
@@ -549,7 +532,6 @@
         "location": null,
         "item": "private_ledger"
       },
-      "requires_clue_id": null,
       "text": "When shown the ledger, [char:Constance Avery] flinches before composing herself. She asks, in a low voice, how much the investigator already knows. She does not deny that her initials appear in it, and she does not explain what the entries mean.",
       "red_herring_explanation": "Constance's visible distress reveals she has something to hide regarding the ledger, but that secret is her embezzlement from the Fishermen's Benevolent Fund and Aldous's blackmail of her — not murder. Her reaction reads as guilt but is fear of financial exposure."
     },
@@ -564,7 +546,6 @@
         "location": "constable_post",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "On the desk beside the incident log sits a folded slip of paper with a name written on the outside in the constable's hand, underlined twice. Inside, a single line reads: 'Where was she Tuesday evening?'",
       "red_herring_explanation": "The constable had begun to suspect Constance Avery based on village rumour about Aldous having some hold over her. The note reflects his private suspicion and has no evidentiary basis; he never acted on it and has no involvement in the murder."
     },
@@ -581,7 +562,6 @@
         "location": null,
         "item": "boot_heel_paint"
       },
-      "requires_clue_id": null,
       "text": "[char:Dr. Sibyl Marr] examines the boot heel closely and says she noticed the red mark when she first examined the body at [loc:st_cuthberts_chapel], but had not seen a substance like it anywhere in the village and could not identify it. She mentions she looked for a matching source on the chapel floor and found nothing, and that she subsequently kept the boot separate from the other effects.",
       "red_herring_explanation": "Dr. Marr's careful handling and separation of the boot appears suspicious but is professionally motivated — she preserved it as potential evidence. Her unfamiliarity with the paint substance is genuine, not evasive."
     },
@@ -596,7 +576,6 @@
         "location": "clarion_office",
         "item": "clarion_archive"
       },
-      "requires_clue_id": "perp_c1",
       "text": "The 1911 volume falls open to a three-part series headlined 'Adulterated Lamp Oil: A Saltmere Reckoning,' which names a local chandler's family across successive weeks — the accusations, the fire, the deaths of two dockworkers, and the inquest. The final instalment records only that the inquest returned an open verdict; there is no subsequent correction or retraction anywhere in the volume.",
       "red_herring_explanation": null
     },
@@ -613,7 +592,6 @@
         "location": null,
         "item": "clarion_archive"
       },
-      "requires_clue_id": "mot_c1",
       "text": "Shown the open volume, [char:Edgar Crouch] looks at it for a long moment without speaking. He says, quietly, that the man named in those pages was his father, that the inquest found no fault with the oil, and that [char:Aldous Fenn] never printed a word of that finding. He does not raise his voice.",
       "red_herring_explanation": null
     },
@@ -628,7 +606,6 @@
         "location": "edgar_chandlery",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "The chandlery's account ledger, lying open on the counter, shows three months of entries in red ink — debits exceeding receipts by a widening margin each week. The most recent page has a column of crossed-out figures and a total underlined three times.",
       "red_herring_explanation": "The chandlery's financial difficulties are real and ongoing, but they played no part in Edgar Crouch's decision to kill Aldous Fenn. The motive was the historical ruination of his father's name, not economic pressure."
     },
@@ -643,7 +620,6 @@
         "location": "harbormaster_house",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "A small wooden box on the parlour shelf holds a folded letter, its seal broken. The paper inside describes a sum of money owed by [time:the end of November] and warns that failure to pay will result in a matter being brought before the appropriate persons.",
       "red_herring_explanation": "The letter is one of Aldous Fenn's blackmail demands to Constance Avery regarding her embezzlement from the Fishermen's Benevolent Fund. Its presence in the house gives Constance a strong apparent motive, but the murder was committed by Edgar Crouch for a wholly different reason."
     },
@@ -660,7 +636,6 @@
         "location": null,
         "item": "clarion_archive"
       },
-      "requires_clue_id": null,
       "text": "Shown the archive volume, [char:Rowena Patch] sets it aside and flips instead to a 'Harbour Notes' column from [time:four years ago], pointing to an item about a broken engagement that she says [char:Aldous Fenn] published without the parties' knowledge. She says there were three or four people in Saltmere who never forgave him for that particular column.",
       "red_herring_explanation": "The romantic gossip printed in the Clarion caused genuine lasting resentment in several villagers, but none of them are connected to the crime. The murderer's motive was specifically the destruction of the Crouch family's reputation, not romantic jealousy."
     },
@@ -675,7 +650,6 @@
         "location": null,
         "item": "private_ledger"
       },
-      "requires_clue_id": null,
       "text": "The ledger's columns record entries over eight months, each bearing a date, a sum in pounds shillings and pence, and the initials 'C.A.' — annotated in a second hand with the single word 'received.' The most recent entry is dated [time:three days before the murder]. No entries have been crossed out or disputed.",
       "red_herring_explanation": null
     },
@@ -692,7 +666,6 @@
         "location": null,
         "item": "private_ledger"
       },
-      "requires_clue_id": "ht_c1",
       "text": "Confronted with the ledger, [char:Constance Avery] sits down without being asked. After a long silence, she says that [char:Aldous Fenn] had learned about certain irregularities in her administration of a charitable fund, and that she had been making payments to him in exchange for his silence — for eight months, to the week.",
       "red_herring_explanation": null
     },
@@ -707,7 +680,6 @@
         "location": "clarion_office",
         "item": "private_ledger"
       },
-      "requires_clue_id": null,
       "text": "At the back of the ledger, behind the columns of figures, is a loose sheet of paper bearing the letterhead of a newspaper company in Newcastle. The letter expresses continued interest in acquiring the Clarion masthead and names a purchase figure, dated [time:six weeks ago].",
       "red_herring_explanation": "The acquisition enquiry was genuine but was filed and ignored by Aldous. He had no serious intention of selling; the letter was tucked into the back of a ledger he used for a wholly different purpose. The two documents have no connection beyond shared storage."
     },
@@ -724,7 +696,6 @@
         "location": null,
         "item": "private_ledger"
       },
-      "requires_clue_id": null,
       "text": "When shown the ledger, [char:Constable William Hale] squints at the columns of initials and figures and says that [char:Aldous Fenn] occasionally passed reports of local disputes and petty infractions to the county constabulary office, and that it would not surprise him if the man kept detailed records of every arrangement he had with anyone.",
       "red_herring_explanation": "Hale is speculating based on his general knowledge of Aldous's habits. He has no direct knowledge of the ledger's actual contents or purpose. The entries record blackmail payments from Constance Avery, not payments or communications from any constabulary."
     },
@@ -739,7 +710,6 @@
         "location": "physicians_cottage",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "On the shelf above the examination table, among the medical volumes, sits a narrow file of papers tied with red ribbon. The top sheet is a deed of conveyance for a commercial property, dated [time:1901], with a second signature that has been heavily crossed out in ink and initialled over in a different hand.",
       "red_herring_explanation": "The file was taken from the deceased's lodgings by Dr. Marr for safekeeping when she recorded the death. The crossed-out signature belongs to a co-founder who sold his stake in the Clarion building in 1901 — a routine commercial transaction, not evidence of forgery."
     }

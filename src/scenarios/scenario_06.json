@@ -264,7 +264,6 @@
         "location": "tidal_flats",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "Examining the body where it lies in the silt, the investigator finds a single small entry wound on the left side of the torso, just below the fourth rib — narrow, clean-edged, no tearing of the surrounding cloth.",
       "red_herring_explanation": null
     },
@@ -279,7 +278,6 @@
         "location": null,
         "item": "gutting_knife"
       },
-      "requires_clue_id": null,
       "text": "The blade is narrow — no wider than a finger — and tapers to a fine point; the stain near the hilt is dry and dark, and the edge shows no nicks or damage.",
       "red_herring_explanation": null
     },
@@ -296,7 +294,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Marte Okkel] tells the investigator: \"The fisherman who found him said Nils was lying right at the water's edge, face down in the wet. The tide had been up past him not two hours before.\"",
       "red_herring_explanation": "Marte is reporting the body's position truthfully, but drowning is not the cause of death; the location of the body reflects it having been moved, not how the victim died."
     },
@@ -313,7 +310,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Per Haas] tells the investigator: \"I heard a bang from below, sometime in the evening — like something heavy falling against the chalk blocks. I didn't go down.\"",
       "red_herring_explanation": "Per heard the lantern being knocked over during the struggle in the barn; the sound was not a blow to the victim's head."
     },
@@ -330,7 +326,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Idunn Vander] tells the investigator: \"His collar was undone when they found him — Father never wore it that way. He was very particular about his appearance.\"",
       "red_herring_explanation": "Idunn correctly observes the undone collar but draws no conclusion; the collar was loosened when the body was dragged, not as part of any struggle around the neck."
     },
@@ -345,7 +340,6 @@
         "location": "chalk_barn",
         "item": "lantern_oil_stain"
       },
-      "requires_clue_id": null,
       "text": "The oil stain and broken glass sit on the earthen floor beside a smear of dark matter that extends several feet toward the barn's rear door; the chalk dust on the floor around it is disturbed in two broad arcs, as if something was dragged.",
       "red_herring_explanation": null
     },
@@ -360,7 +354,6 @@
         "location": "chalk_barn",
         "item": "chalk_dust_boot"
       },
-      "requires_clue_id": null,
       "text": "The boot print at the threshold faces outward — toward the tidal flats path — and the chalk dust on its sole-edge is heavier on the heel than the toe, as if the foot was moving under considerable weight.",
       "red_herring_explanation": null
     },
@@ -377,7 +370,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Marte Okkel] tells the investigator: \"Nils walked the tidal flats most evenings — everyone knew it. If you wanted to find him alone after dark, that's where you'd go.\"",
       "red_herring_explanation": "Marte is describing Nils's known habit accurately, but the murder did not occur on the tidal flats; the body was brought there afterward."
     },
@@ -394,7 +386,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Idunn Vander] tells the investigator: \"Father went to see Sigrid that evening — he told me before supper. He said he needed to go over the accounts with her and that he'd be back by nine.\"",
       "red_herring_explanation": "Nils did visit Arnell House, but he and Sigrid moved to the chalk barn to retrieve the ledger; the murder took place in the barn, not the house."
     },
@@ -409,7 +400,6 @@
         "location": "cliff_path",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "On the chalk path, the investigator finds a small piece of dark wool snagged on a gorse branch at chest height, and below it a partial boot print in the pale soil.",
       "red_herring_explanation": "The wool and print belong to Ebbe Strand, who used the cliff path to visit Sigrid the previous night; they pre-date the murder and are not connected to the crime scene."
     },
@@ -426,7 +416,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Per Haas] tells the investigator: \"I heard the bang and then voices — short and quiet — sometime after the harbour bell struck ten. I fell back asleep before I heard the bell again.\"",
       "red_herring_explanation": null
     },
@@ -443,7 +432,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Marte Okkel] tells the investigator: \"The tide chart shows the flats were fully exposed by [time:half past eleven]. The body was left when the tide was already out — you can see from the silt marks where the water stopped, and it stopped well short of him.\"",
       "red_herring_explanation": null
     },
@@ -460,7 +448,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Idunn Vander] tells the investigator: \"Father left the house just after supper — [time:around eight]. He didn't come home. I waited until ten and then I went to bed.\"",
       "red_herring_explanation": "Idunn establishes when her father left, not when he died; the departure time is earlier than the murder window."
     },
@@ -477,7 +464,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Ebbe Strand] tells the investigator: \"I was watching the water from the lamp room [time:around four in the morning] and I saw nothing on the flats — no shape, no movement. Whatever was down there, I didn't see it until the fog thinned at first light.\"",
       "red_herring_explanation": "Ebbe's testimony concerns visibility and the fog, not the time of death; the body was already there when he claims not to have seen it."
     },
@@ -492,7 +478,6 @@
         "location": "harbourmaster_office",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "On the tide-table scratched into the windowsill, the investigator finds a pencil mark at [time:one in the morning] beside the notation \"full ebb\"; the scratch is recent, the pencil dust still loose.",
       "red_herring_explanation": "The pencil mark was made by Marte working out when to send for the investigator; it refers to tide timing, not to the hour of death."
     },
@@ -507,7 +492,6 @@
         "location": null,
         "item": "gutting_knife"
       },
-      "requires_clue_id": "cod_c2",
       "text": "The bone handle of the knife is worn on the right side in a pattern consistent with years of the same grip; a single dark hair is caught beneath the bolster, pressed flat as if trapped when the knife was last sheathed.",
       "red_herring_explanation": null
     },
@@ -524,7 +508,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "loc_c1",
       "text": "Asked directly, [char:Sigrid Arnell] admits she was at [loc:chalk_barn] that evening, saying she and Nils had gone to retrieve a ledger; her boots, still on her feet, carry a film of white chalk dust on the soles and lower heel.",
       "red_herring_explanation": null
     },
@@ -541,7 +524,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Per Haas] tells the investigator: \"Nils was going to let me go — Sigrid told me last week. Said the business was shrinking and he'd be working the barn himself from winter.\"",
       "red_herring_explanation": "Per has a reason to resent Nils and was present in the barn, but the murder weapon belongs to Sigrid and Per had no access to it."
     },
@@ -556,7 +538,6 @@
         "location": null,
         "item": "wet_coat"
       },
-      "requires_clue_id": null,
       "text": "The coat is damp from hem to mid-sleeve with tidal mud; on the right cuff, there is a faint white powdery residue along the inside edge of the sleeve.",
       "red_herring_explanation": "The coat is damp because Ebbe walked the tidal path the previous evening visiting Sigrid; the chalk residue is from the cliff path, not the chalk barn interior."
     },
@@ -571,7 +552,6 @@
         "location": "harbourmaster_office",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "On the desk, among the charts, there is a folded note in a hand the investigator does not recognise: \"Tonight — after the bell — do not wait up.\" The note has no signature.",
       "red_herring_explanation": "The note was sent to Marte by a fishing captain she was seeing; it has no connection to the murder."
     },
@@ -586,7 +566,6 @@
         "location": null,
         "item": "torn_pages"
       },
-      "requires_clue_id": "perp_c1",
       "text": "The torn pages contain rows of dates, initials, and times; two sets of initials — S.A. and E.S. — recur on the same dates across four months, always late at night, with a location notation that reads \"L.H.\"",
       "red_herring_explanation": null
     },
@@ -603,7 +582,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "mot_c1",
       "text": "Shown the torn pages, [char:Ebbe Strand] goes very still; after a long pause he says: \"Nils came to the lighthouse [time:three weeks ago]. He had the ledger with him. He said nothing — just looked at me and wrote something down.\"",
       "red_herring_explanation": null
     },
@@ -618,7 +596,6 @@
         "location": null,
         "item": "ledger"
       },
-      "requires_clue_id": null,
       "text": "The intact pages of the ledger show a series of shipment entries where the weight recorded at dispatch is consistently higher than the weight recorded at receipt; the discrepancy runs across the last three months.",
       "red_herring_explanation": "The weight discrepancies are a genuine bookkeeping irregularity Nils had noticed, but they are unrelated to why he was killed; the torn pages, not the account columns, were what Sigrid needed to destroy."
     },
@@ -635,7 +612,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Marte Okkel] tells the investigator: \"There have been unlicensed landings on the northern flats twice this autumn — no manifest, no duty paid. Nils logged them both in the harbourmaster's record. Someone knew.\"",
       "red_herring_explanation": "Nils did log the unlicensed landings, but Sigrid killed him to protect the affair, not to stop him reporting smuggling; the landings are a separate matter Marte is handling."
     },
@@ -652,7 +628,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Idunn Vander] tells the investigator: \"Father lent Sigrid money when Captain Arnell died — a considerable sum. She was supposed to repay it from the business profits, but she never did. Father mentioned it [time:last spring], and then he never mentioned it again.\"",
       "red_herring_explanation": "The unpaid debt is a real grievance but it ran in Sigrid's favour, not against her; she had no financial motive to kill the man to whom she owed money."
     },
@@ -667,7 +642,6 @@
         "location": "lighthouse",
         "item": "torn_pages"
       },
-      "requires_clue_id": "perp_c2",
       "text": "Holding the torn pages inside the lighthouse, the investigator can see that the paper's watermark matches exactly the ledger found in the chalk barn; the pages slot back against the torn stubs with a precise fit.",
       "red_herring_explanation": null
     },
@@ -684,7 +658,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "mot_c1",
       "text": "Shown the torn pages, [char:Sigrid Arnell] says nothing for a long moment; then: \"He kept records of everything. That was always his way.\"",
       "red_herring_explanation": null
     },
@@ -699,7 +672,6 @@
         "location": null,
         "item": "ledger"
       },
-      "requires_clue_id": null,
       "text": "A pencilled annotation in the margin of the ledger reads: \"Check Arnell receipts — weight variance consistent, not random,\" followed by a date [time:six weeks ago].",
       "red_herring_explanation": "Nils did notice the weight variance and suspected something; but the torn pages show his primary concern was the affair, not fraud. The annotation reflects a parallel suspicion he never acted on."
     },
@@ -716,7 +688,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Per Haas] tells the investigator: \"I overheard Nils on the road [time:two weeks ago], speaking to a man from the town — something about a sale price and clearing the lease before winter.\"",
       "red_herring_explanation": "Nils was discussing a separate property matter — a storage lot near the harbour — not the chalk barn itself. Per misunderstood what he overheard."
     },
@@ -733,7 +704,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Ebbe Strand] tells the investigator: \"There was a vessel that went on the rocks [time:last spring] — the light was operating correctly. Some people in the village blamed me anyway. Nils was among them.\"",
       "red_herring_explanation": "The shipwreck was an accident and Ebbe is sensitive about the accusation; but Nils's grievance never went beyond village gossip and is unrelated to the ledger entries."
     }

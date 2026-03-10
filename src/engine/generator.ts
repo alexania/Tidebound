@@ -39,6 +39,7 @@ CORRECT CLUES — plan 2, obtainable from different locations. For each:
 - What is the condition? (investigator where, with whom, with what item)
 - What raw observation does the clue text contain? No interpretations — only what was seen, heard, touched, or said.
 - DISCOVERABILITY: What specific information already visible to the player — character descriptions, item descriptions at their starting locations, relations, leads, or text from an already-collectable clue — would cause them to attempt this exact condition? Name it explicitly. If you cannot, the condition is wrong: move a character, relocate an item, or add a lead until a clear path exists.
+  For conditions of type investigator_with_character_and_item or investigator_at_location_with_item: if the item's starting_location differs from the condition's location (or the character's fixed location), a prior clue text, lead, or description visible at game start must explicitly name both the item and the relevant character or location together — giving the player a concrete reason to bring that item to that specific person or place. Logical inference ("an auditor would care about a ledger") is not sufficient; the pairing must be stated in the text. If the item already starts at the condition location, no additional signposting is required.
 
 RED HERRING CLUES — plan 3, each pointing at a DIFFERENT wrong answer_option. For each: which wrong answer does it target, and what makes the evidence misleading?
 
@@ -49,6 +50,7 @@ STEP 5 — CONSISTENCY & VISIBILITY CHECK
 - VISIBILITY: The player sees only clue texts, character descriptions, item descriptions, and relations. For each checkpoint, trace what a player would conclude from those fields alone. Is it sufficient to reach the correct answer? If no, rewrite the relevant clues.
 - AMBIGUITY: For each correct clue, could a player reasonably cite the same observation as evidence for a wrong answer? If yes, add specificity.
 - COVERAGE: Do all 3 red herrings per checkpoint point at different wrong options? Two pointing at the same wrong answer means the player cannot eliminate it.
+- TIMING ELIMINATION: For time_of_death specifically, each wrong answer_option must be made logically impossible by at least one correct clue — not merely less supported, but contradicted. For each wrong option, name the correct clue that rules it out and how. If any wrong option survives both correct clues intact, rewrite until it cannot.
 - CONTRADICTIONS: Resolve everything before writing JSON.
 
 ═══════════════════════════════════════════════════════
@@ -62,7 +64,7 @@ ITEMS: As many as the scenario needs, up to 8. Each must be referenced in at lea
 
 CHECKPOINTS: Exactly these 5: cause_of_death, true_location, time_of_death, perpetrator, motive — each with 4–6 answer options, correct answer present but not marked.
 
-CLUES: Follow the plan from Phase 1. Per checkpoint: exactly 2 "correct" + 3 "red_herring". A clue may have requires_clue_id — the id of a correct clue that must be collected first. Set to null if immediately available. requires_clue_id must always point at a "correct" clue, never a red herring — red herrings are stripped at lower difficulties, making the dependent clue permanently unreachable.
+CLUES: Follow the plan from Phase 1. Per checkpoint: exactly 2 "correct" + 3 "red_herring". Investigative clues (cause_of_death, true_location, time_of_death) fire freely. Perpetrator and motive clues only fire after all three investigative checkpoints have been confirmed — design them assuming the player has already established the basic facts of the crime.
 
 LEADS: Exactly 3. At least 2 pointing toward early-game clue conditions. Each lead must give the player a concrete reason to visit a location or seek out a character — not just name them.
 
@@ -144,7 +146,8 @@ const SCHEMA = `{
   "location_adjacencies": [
     { "from": location_id, "to": location_id }
     // Pairs of locations that are adjacent in the world — paths, shared shorelines, visible from each other.
-    // Purely visual (drawn as lines on the map). Define 3–8 pairs. Each adjacency need only appear once.
+    // These govern investigator movement: the investigator can only move to an adjacent location each turn.
+    // Define 3–8 pairs. Each adjacency need only appear once (treated as bidirectional).
   ],
 
   "checkpoints": [
@@ -168,7 +171,6 @@ const SCHEMA = `{
         "location": location_id | null (for investigator_at_location types; null otherwise),
         "item": item_id | null (for investigator_with_item types; null otherwise)
       },
-      "requires_clue_id": string | null (id of a "correct" clue that must be collected first; null = immediately available; never reference a red herring),
       "text": string (1–3 sentences, [char:Name], [loc:location_id] and [time:phrase] tags, answers something AND implies next step),
       "red_herring_explanation": string | null
     }
@@ -401,12 +403,17 @@ export async function generateScenario(options: GeneratorOptions): Promise<Scena
 const STORAGE_KEY_PREFIX = 'tidebound_scenarios_'
 const PLAYED_KEY = 'tidebound_played'
 
+const MAX_STORED_SCENARIOS = 5
+
 export function saveScenario(scenario: Scenario, difficulty: Difficulty): string {
   const key = `${STORAGE_KEY_PREFIX}${difficulty}`
+  const played = new Set(getPlayedIds())
   const existing = loadScenarios(difficulty)
   const id = `${scenario.location.name.toLowerCase().replace(/\s+/g, '_')}_${Date.now()}`
-  existing.push({ id, scenario })
-  localStorage.setItem(key, JSON.stringify(existing))
+  const updated = [...existing, { id, scenario }]
+    .filter(s => !played.has(s.id))
+    .slice(-MAX_STORED_SCENARIOS)
+  localStorage.setItem(key, JSON.stringify(updated))
   return id
 }
 

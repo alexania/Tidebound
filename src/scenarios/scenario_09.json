@@ -256,7 +256,6 @@
         "location": "salt_store",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "Examining the body at [loc:salt_store], the investigator finds the back of the skull deeply indented, the wound edges irregular and compressed. The limestone wall behind [char:Aldous Crayne]'s head carries a fan-shaped dark smear at approximately seated height.",
       "red_herring_explanation": null
     },
@@ -271,7 +270,6 @@
         "location": null,
         "item": "mooring_pin"
       },
-      "requires_clue_id": "cod_1",
       "text": "The stained end of the iron mooring pin is heavily dented and carries matted dark fibres caught in the metal's rough seams. The pin's weight is considerable — the investigator's wrist dips when lifting it one-handed.",
       "red_herring_explanation": null
     },
@@ -288,7 +286,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Nessa Tallow] tells the investigator: 'When I found him his collar was twisted half-round and the top button had popped clean off. I noticed it because it looked so wrong on a man who dressed so neat.'",
       "red_herring_explanation": "The disturbed collar resulted from the violent fall against the wall, not strangulation. It misleads players toward strangulation."
     },
@@ -303,7 +300,6 @@
         "location": "salt_store",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "The victim's boots and the lower six inches of his trousers are crusted with dried salt and fine grit of the kind deposited by wave-wash on the shingle below the headland. His coat cuffs are similarly damp-stiffened.",
       "red_herring_explanation": "Crayne walked the shingle beach regularly during his research and picked up salt residue on an earlier visit. It misleads players toward drowning."
     },
@@ -320,7 +316,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Reverend Silas Crowe] tells the investigator: 'Mr Crayne came to evening prayers twice last week. On the second occasion he looked quite ill — pale, glassy-eyed. He told me his stomach had been troubling him for days.'",
       "red_herring_explanation": "Crayne had a minor stomach complaint from poor diet during his stay. It misleads players toward poisoning."
     },
@@ -335,7 +330,6 @@
         "location": "salt_store",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "The ground inside the [loc:salt_store] doorway shows two sets of boot-prints in the fine salt-dust on the floor — one set belonging to the body's position, a second set facing them at close range and then retreating toward the door. The marks stop abruptly at the threshold.",
       "red_herring_explanation": null
     },
@@ -352,7 +346,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Nessa Tallow] tells the investigator: 'The door to the salt-store was pulled to but not latched when I arrived — I noticed because we always latch it against the wind. He was right there inside, up against the far wall. I didn't move him or touch a thing.'",
       "red_herring_explanation": null
     },
@@ -367,7 +360,6 @@
         "location": "headland_path",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "On the compacted chalk of the [loc:headland_path], roughly halfway between the lane junction and the salt-store, a dark patch the size of a hand stains the ground. Two boot-scrapes cut through the chalk surface on either side of it.",
       "red_herring_explanation": "The dark patch is tar from a barrel that a fisherman dragged along the path earlier that week; the scrapes are from the barrel's metal band. It misleads players toward the headland path as the murder site."
     },
@@ -382,7 +374,6 @@
         "location": "anchor_inn",
         "item": "empty_notebook_case"
       },
-      "requires_clue_id": null,
       "text": "In room four of [loc:anchor_inn], the writing desk's leather surface shows a fresh scuff running diagonally across it — the kind left by a heavy object dragged at speed — and the ink-well has been knocked sideways and not righted.",
       "red_herring_explanation": "Crayne himself scuffed the desk and knocked the ink-well the previous afternoon in a hurry to leave for his meeting. It misleads players toward the inn as the murder site."
     },
@@ -399,7 +390,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Pasco Tregidden] tells the investigator: 'That Crayne came poking around the [loc:harbour_office] twice in his first week here. Asking about old ledgers, old names. Mr Voss had words with him the second time and he didn't come back.'",
       "red_herring_explanation": "Crayne's visits were genuine antiquarian research into old harbour records. Tregidden's framing of the confrontation exaggerates it. It misleads players toward the harbour office as a site of conflict and possible violence."
     },
@@ -416,7 +406,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Miriam Quist] tells the investigator: 'I was at my window — I couldn't sleep. The church clock had just struck the half-hour after ten. I saw a lantern moving on the path up to the headland, going away from the village. A man carrying it, walking with a catch in his step.'",
       "red_herring_explanation": null
     },
@@ -433,7 +422,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Nessa Tallow] tells the investigator: 'I walk that path every morning before light to check the pots. I went past the salt-store at [time:half five in the morning] — the body was cold and stiffened through. By first light he'd been lying there a good many hours.'",
       "red_herring_explanation": null
     },
@@ -450,7 +438,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Reverend Silas Crowe] tells the investigator: 'I saw Mr Crayne leaving the inn around [time:a quarter to eight in the evening] on Wednesday. He had his coat and hat on — dressed for being outdoors. I assumed he was going for his evening walk.'",
       "red_herring_explanation": "Crayne left early and walked the village for over two hours before going to the salt-store. This sighting misleads players toward an earlier time of death."
     },
@@ -467,7 +454,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Dorothea Penrose] tells the investigator: 'I keep the light turning through the night. Just before [time:one o'clock in the morning] I thought I heard voices carrying on the wind from the direction of the headland — two men, though I couldn't make out words.'",
       "red_herring_explanation": "Dorothea heard fishermen from a night-boat calling to one another near the cove far below — not voices from the salt-store. It misleads players toward a later time of death."
     },
@@ -482,7 +468,6 @@
         "location": "salt_store",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "Inside the [loc:salt_store], a tallow candle stub on the window ledge has burned entirely down to a flat pool of wax; a candle of that size, fully intact, burns for approximately four to five hours.",
       "red_herring_explanation": "The candle was already half-burned when Crayne arrived and lit it. It misleads players toward a much later time of death if they assume it was lit at the start of the encounter."
     },
@@ -497,7 +482,6 @@
         "location": "harbour_office",
         "item": "harbour_stamp_register"
       },
-      "requires_clue_id": null,
       "text": "Cross-referencing the stamp on the mooring pin with the ledger at [loc:harbour_office]: the octagonal-section iron pin pattern with a Spirewick harbour mark is recorded as exclusive to the harbourmaster's personal dock store — twelve issued, twelve listed as held there. The register is signed throughout by [char:Edmund Voss].",
       "red_herring_explanation": null
     },
@@ -514,7 +498,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "perp_1",
       "text": "Asked to describe the figure she saw in more detail, [char:Miriam Quist] tells the investigator: 'He walked with a hitch — not a limp exactly, more like the right leg didn't straighten fully at the knee. I've seen that gait before, on the quay. It's particular.'",
       "red_herring_explanation": null
     },
@@ -531,7 +514,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Pasco Tregidden] tells the investigator: 'That Tallow woman had a blazing row with Crayne not a fortnight ago, right on the quay. She told him she'd see him off the headland herself if he came near her boats again. Half the village heard it.'",
       "red_herring_explanation": "The dispute was a property disagreement that Nessa Tallow resolved by refusing the sale outright. The threatening phrasing was colloquial anger, not literal. It misleads players toward Nessa Tallow."
     },
@@ -548,7 +530,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Pasco Tregidden] tells the investigator: 'I don't know why you'd need to look at those ledgers. They're all in order. Nobody needs to go through those.' He moves to stand between the investigator and the shelf holding the harbour fee records.",
       "red_herring_explanation": "Tregidden is concealing petty theft from the harbour fees, not the murder. His evasiveness and attempt to block access to the ledgers is genuine but unrelated to Crayne's death. It misleads players toward Tregidden."
     },
@@ -563,7 +544,6 @@
         "location": "church",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "In the vestry of [loc:church], a pair of heavy iron candlestick holders are stored upright in an open cupboard; one is missing, the vacant space in the wood still showing the circle of worn polish where it habitually stood.",
       "red_herring_explanation": "The candlestick was lent to a parishioner for a home altar three weeks prior and has not yet been returned — it has no connection to the murder. It misleads players toward Reverend Crowe as the person who used a heavy implement."
     },
@@ -580,7 +560,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Reverend Silas Crowe] tells the investigator: 'Mr Crayne came to me privately three days before he died. He asked me — quite carefully, as a philosophical matter — whether a man who had taken another man's name to survive was bound to confess that sin, or whether silence was its own mercy.'",
       "red_herring_explanation": null
     },
@@ -595,7 +574,6 @@
         "location": "anchor_inn",
         "item": "empty_notebook_case"
       },
-      "requires_clue_id": "mot_1",
       "text": "The landlord of [loc:anchor_inn], present in the room, tells the investigator: 'He carried that notebook everywhere — I never saw him without it. He kept it on his person, not in his room. But it wasn't on him when they brought the news, and it's not here either.'",
       "red_herring_explanation": null
     },
@@ -612,7 +590,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Pasco Tregidden] tells the investigator: 'Crayne was asking questions about the harbour accounts — when fees were collected, who kept the records. I told him that was none of his business and to speak to Mr Voss if he had questions.'",
       "red_herring_explanation": "Crayne asked about the harbour accounts as part of his cover story of researching village history; he had no interest in current fee records. Tregidden's sensitivity is due to his own theft. It misleads players toward theft of harbour funds as the motive."
     },
@@ -629,7 +606,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Nessa Tallow] tells the investigator: 'He offered me money for the boat — good money, more than it's worth. I said no. He came back twice more and each time the offer was a bit lower. I told him the third time that if he came back again I'd report him to the harbourmaster for harassment.'",
       "red_herring_explanation": "Crayne wanted a boat for excursions to collect coastal research specimens — a mundane interest. The persistence was annoying but not sinister. It misleads players toward a property dispute as motive."
     },
@@ -646,7 +622,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Dorothea Penrose] tells the investigator: 'Mr Crayne asked me about the Penrose family twice — specifically about my father's brother, who emigrated before the war. He seemed very interested in whether my uncle had left a will and whether my father had ever challenged it.'",
       "red_herring_explanation": "Crayne was researching local family histories as antiquarian cover for his stay. The Penrose inheritance questions were a dead end he'd already abandoned. It misleads players toward a family inheritance secret as motive."
     }

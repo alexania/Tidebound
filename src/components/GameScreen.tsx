@@ -67,19 +67,18 @@ export function GameScreen({
           />
         </div>
 
-        {showBoard && (
-          <EvidenceBoard
-            scenario={scenario}
-            gameState={gameState}
-            onUpdateImplied={onUpdateImplied}
-            onAssignLane={onAssignLane}
-            onUnpinCard={onUnpinCard}
-            onSubmitCheckpoint={onSubmitCheckpoint}
-            onClose={onToggleBoard}
-            collapsedCards={collapsedCards}
-            onToggleCardCollapsed={onToggleCardCollapsed}
-          />
-        )}
+        <EvidenceBoard
+          scenario={scenario}
+          gameState={gameState}
+          onUpdateImplied={onUpdateImplied}
+          onAssignLane={onAssignLane}
+          onUnpinCard={onUnpinCard}
+          onSubmitCheckpoint={onSubmitCheckpoint}
+          onClose={onToggleBoard}
+          collapsedCards={collapsedCards}
+          onToggleCardCollapsed={onToggleCardCollapsed}
+          hidden={!showBoard}
+        />
       </div>
 
       <InfoPanel

@@ -262,7 +262,6 @@
         "location": "inn_snug",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "The body of [char:Josiah Carne] sits in the chair with lips and fingernails showing a deep bluish tinge, the face locked in a rigid grimace, the jaw clenched. On the table beside the body sits a pewter cup, and the smell that rises from it is rum first and underneath it something sweet-sharp and entirely unlike spirits.",
       "red_herring_explanation": null
     },
@@ -279,7 +278,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Widow Nancarrow] tells the investigator that when she examined the body at [char:Constable Tredrea]'s request, she noted a bitter-sweet smell on the breath quite separate from the rum, and that the hands were clenched in a manner she had seen once before in a man who had eaten hemlock berries by accident.",
       "red_herring_explanation": null
     },
@@ -296,7 +294,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Constable Tredrea] tells the investigator that when he found the body, he noticed a bruise on [char:Josiah Carne]'s right temple — a dark, purplish mark roughly the width of two fingers.",
       "red_herring_explanation": "The bruise is a post-mortem injury sustained when Josiah fell from his chair as he died. It is not evidence of a blow."
     },
@@ -313,7 +310,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Tamsin Veal] tells the investigator that [time:late in the evening], before she went upstairs, she heard sounds from the direction of the snug — a heavy struggling and a wet, rhythmic choking that she says sounded to her like a man fighting the sea.",
       "red_herring_explanation": "Tamsin heard the death throes of Josiah's poisoning and described them in the only maritime terms available to her. The sounds were not caused by water."
     },
@@ -328,7 +324,6 @@
         "location": "inn_snug",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "The window of the snug is unlatched and stands slightly open; frost has formed on the inside of the lower pane in a thick white crust, and the room is cold enough that the investigator's breath is visible throughout.",
       "red_herring_explanation": "The window was left unlatched before the murder and is unrelated to the cause of death. The cold was present but did not kill Josiah."
     },
@@ -345,7 +340,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Merryn Trevithick] tells the investigator that [char:Josiah Carne] came through the main bar and into the snug at [time:half past nine], as he did every night, and that she brought him his drink and left him there; she did not enter the snug again after that and did not hear him leave.",
       "red_herring_explanation": null
     },
@@ -362,7 +356,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Tamsin Veal] tells the investigator that she watched [char:Josiah Carne] walk into the snug himself at around [time:half past nine], carrying nothing, and that she heard the scrape of his chair as he settled — she did not hear that chair move again before she went upstairs.",
       "red_herring_explanation": null
     },
@@ -379,7 +372,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Elias Veal] tells the investigator that he saw [char:Josiah Carne] walking alone toward [loc:harbour_wall] at around [time:eight o'clock] the previous evening, which Elias considered unusual given the frost.",
       "red_herring_explanation": "Josiah did walk to the harbour wall earlier in the evening on unrelated business but returned to the inn well before he was poisoned. The harbour wall was not the murder location."
     },
@@ -394,7 +386,6 @@
         "location": "clifftop_path",
         "item": null
       },
-      "requires_clue_id": null,
       "text": "The frost on the [loc:clifftop_path] is broken by a set of large boot prints — a man's tread, by the size — running along the path toward the cliff edge and back again, the impressions still crisp and relatively fresh.",
       "red_herring_explanation": "The boot prints belong to Constable Tredrea, who walked the clifftop that morning while looking for signs of disturbance. They have no connection to the murder."
     },
@@ -409,7 +400,6 @@
         "location": "wreckers_storehouse",
         "item": "oil_lamp"
       },
-      "requires_clue_id": null,
       "text": "The [loc:wreckers_storehouse] shows a patch of recently disturbed sawdust near the door, and the tin oil lamp, when examined, carries warmth and the smell of burned oil that has not yet fully faded.",
       "red_herring_explanation": "Cador Trevithick visited the storehouse that morning to remove pages from the salvage ledger before investigators arrived. The disturbance has no connection to the murder location."
     },
@@ -426,7 +416,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Cador Trevithick] tells the investigator that the main bar closed at [time:half past nine] and that shortly before [time:a quarter to ten], he heard [char:Josiah Carne] knock the table in the snug — the signal Josiah always used when he wanted another drink brought through.",
       "red_herring_explanation": null
     },
@@ -443,7 +432,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Elias Veal] tells the investigator that he walked the [loc:harbour_wall] until [time:eleven o'clock] last night, as is his habit, and that the snug window of the inn was lit past [time:ten]; when he came back past the inn at [time:eleven], the window was dark.",
       "red_herring_explanation": null
     },
@@ -460,7 +448,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Tamsin Veal] tells the investigator that when she served [char:Josiah Carne] in the main bar at [time:around seven o'clock], his face was pale and there was visible perspiration on his forehead, which she had not seen in him before.",
       "red_herring_explanation": "Josiah was nursing an ordinary winter cold that week and appeared unwell before the murder. The pallor and perspiration at seven o'clock were symptoms of his cold, not of poisoning."
     },
@@ -477,7 +464,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Constable Tredrea] tells the investigator that [time:around two in the morning] he was woken by a dog howling in the lane outside the inn and lay awake for some minutes listening before it stopped.",
       "red_herring_explanation": "The dog was disturbed by a fox in the lane and the howling had no connection to the death. Tredrea's sleeplessness at two o'clock is coincidental."
     },
@@ -494,7 +480,6 @@
         "location": null,
         "item": "pewter_cup"
       },
-      "requires_clue_id": null,
       "text": "[char:Cador Trevithick], when shown the pewter cup, tells the investigator that [char:Merryn Trevithick] always prepared [char:Josiah Carne]'s spiced toddy and brought it through to the snug immediately after bar-close, which was [time:half past nine] without exception.",
       "red_herring_explanation": "The drink was indeed brought to the snug at half past nine, but Josiah did not die until later — the poison required time to act. Delivery of the drink and the moment of death are not the same."
     },
@@ -509,7 +494,6 @@
         "location": "drying_shed",
         "item": "grinding_mortar"
       },
-      "requires_clue_id": null,
       "text": "Set apart from the drying shed's other equipment on a shelf of its own, the copper mortar contains a fine yellowish-green dust packed into the seam at its base; on the shelf beside it lie several dried foxglove seed heads, two of them broken open, their contents partially emptied.",
       "red_herring_explanation": null
     },
@@ -526,7 +510,6 @@
         "location": null,
         "item": "grinding_mortar"
       },
-      "requires_clue_id": "perp_c1",
       "text": "[char:Widow Nancarrow], when shown the copper mortar, identifies it without hesitation: she sold it to [char:Merryn Trevithick] approximately four months ago, and she recalls that on the day of purchase [char:Merryn Trevithick] asked her specifically about the seed heads on the dried foxglove bundles hanging in the workroom.",
       "red_herring_explanation": null
     },
@@ -543,7 +526,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Constable Tredrea] tells the investigator that [char:Cador Trevithick] owed [char:Josiah Carne] a significant sum from an old salvage-share arrangement, and that in the weeks before the death, [char:Josiah Carne] had been making public demands for repayment that caused visible friction between the two men.",
       "red_herring_explanation": "The debt gives Cador an apparent motive, but he did not commit the murder. Merryn acted without his knowledge."
     },
@@ -560,7 +542,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Elias Veal] tells the investigator, after some initial resistance, that he and [char:Josiah Carne] had a public falling-out two months ago over the division of the last salvage take, and that [char:Josiah Carne] had threatened to cut him out of future operations entirely.",
       "red_herring_explanation": "Elias had genuine cause to resent Josiah and was present in the cove that night, but he did not kill him. His falling-out over salvage was real but unconnected to the murder."
     },
@@ -577,7 +558,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Tamsin Veal] admits to the investigator that [time:two days before the death] she argued loudly with [char:Josiah Carne] in the main bar after he told her that her young man Abel Hicks would be run out of the cove if he continued to refuse the wrecking work.",
       "red_herring_explanation": "Tamsin had strong reason to hate Josiah and the argument was real, but she did not poison him. Her hostility was open and recent, making her a plausible suspect who is ultimately innocent."
     },
@@ -594,7 +574,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": "tod_c2",
       "text": "[char:Elias Veal] tells the investigator, after a long silence, that on the night Thomas Polglase drowned in the cove more than twenty years ago, he saw [char:Josiah Carne] take the signal lantern from the post and put it in his coat — the signal that would have told Thomas it was safe to swim back from the wreck — and that Thomas Polglase was [char:Merryn Trevithick]'s younger brother.",
       "red_herring_explanation": null
     },
@@ -611,7 +590,6 @@
         "location": null,
         "item": "carved_token"
       },
-      "requires_clue_id": null,
       "text": "[char:Merryn Trevithick]'s hands close around the carved token when the investigator presents it, and she tells him that it belonged to her brother Thomas, who drowned in the cove more than twenty years ago; her voice, steady through every prior question, becomes for the first time audibly uneven.",
       "red_herring_explanation": null
     },
@@ -628,7 +606,6 @@
         "location": null,
         "item": null
       },
-      "requires_clue_id": null,
       "text": "[char:Cador Trevithick] tells the investigator that [char:Josiah Carne] had come to him [time:the week before the death] and demanded full repayment of the salvage debt within the month, and that he had told [char:Cador Trevithick] plainly that failure to pay would have consequences for the inn.",
       "red_herring_explanation": "The debt and the threat were real, and Cador had strong reason to want Josiah dead, but the motive for the actual murder was Merryn's long-nursed grief over her brother — not any financial calculation."
     },
@@ -643,7 +620,6 @@
         "location": "wreckers_storehouse",
         "item": "wreckers_ledger"
       },
-      "requires_clue_id": null,
       "text": "The salvage ledger found in [loc:wreckers_storehouse] contains columns of coded entries going back more than thirty years, with a mark that repeats on the majority of pages; the final several pages have been torn away at the binding, leaving only short paper stubs.",
       "red_herring_explanation": "Cador tore the pages that morning to conceal his own involvement in recent salvage operations before investigators arrived. The ledger records past wrecking but was not connected to the motive for Josiah's murder."
     },
@@ -658,7 +634,6 @@
         "location": "clifftop_path",
         "item": "love_letter"
       },
-      "requires_clue_id": null,
       "text": "The folded letter found on the [loc:clifftop_path] is written in a close, intimate hand: it opens with 'my darling', speaks of meetings in secret and a fear that they will be discovered, and is signed only with the initial M.",
       "red_herring_explanation": "The letter was written by Merryn to Cador during their courtship before their marriage, and was lost on the clifftop path years ago. The 'fear of discovery' refers to a courtship that Merryn's family disapproved of. It has no connection to the murder."
     }

@@ -14,12 +14,13 @@ interface Props {
   onClose: () => void
   collapsedCards: Set<string>
   onToggleCardCollapsed: (cardId: string) => void
+  hidden?: boolean
 }
 
 export function EvidenceBoard({
   scenario, gameState,
   onUpdateImplied, onAssignLane, onUnpinCard, onSubmitCheckpoint, onClose,
-  collapsedCards, onToggleCardCollapsed,
+  collapsedCards, onToggleCardCollapsed, hidden,
 }: Props) {
   const [showNarrative, setShowNarrative] = useState(false)
   const [showCheckpointTags, setShowCheckpointTags] = useState(true)
@@ -84,7 +85,7 @@ export function EvidenceBoard({
   const activeLanes = scenario.checkpoints
 
   return (
-    <div className="evidence-board">
+    <div className={`evidence-board${hidden ? ' evidence-board--hidden' : ''}`}>
       <div className="evidence-board__toolbar">
         <span className="evidence-board__title">Evidence Board</span>
         <button onClick={() => setShowNarrative(v => !v)}>

@@ -86,7 +86,6 @@ export interface Clue {
   answer: string
   weight: ClueWeight
   condition: ClueCondition
-  requires_clue_id: string | null  // clue that must be collected first; null = available immediately
   text: string
   red_herring_explanation: string | null
 }

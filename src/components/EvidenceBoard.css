@@ -7,6 +7,10 @@
   z-index: 30;
 }
 
+.evidence-board--hidden {
+  display: none;
+}
+
 .evidence-board__toolbar {
   display: flex;
   align-items: center;
