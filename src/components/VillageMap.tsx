@@ -35,15 +35,13 @@ function getAdjacentLocs(
   return result
 }
 
-// 3×3 grid — positions for left/top in percent
-const COL_X = [2, 30, 58]
-const ROW_Y = [4, 36, 68]
-
-const CELL_CX = 112
-const CELL_CY = 60
+const CELL_W = 225
+const CELL_H = 120
+const MAP_PAD = 12
+const MAP_PAD_BOTTOM = 160  // clearance for context menu below bottom row
 
 function formatLocationId(id: string): string {
-  return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+  return id.replace(/_/g, ' ').replace(/(^|\s)\w/g, c => c.toUpperCase())
 }
 
 function getLocationAnnotation(
@@ -132,6 +130,12 @@ export function VillageMap({
     )
   }
 
+  const colGap = Math.max(10, (mapSize.w - MAP_PAD * 2 - CELL_W * 3) / 2)
+  const rowGap = Math.max(10, (mapSize.h - MAP_PAD - MAP_PAD_BOTTOM - CELL_H * 3) / 2)
+
+  function cellLeft(col: number) { return MAP_PAD + col * (CELL_W + colGap) }
+  function cellTop(row: number) { return MAP_PAD + row * (CELL_H + rowGap) }
+
   // Compute pixel center for adjacency SVG lines
   const locationById = new Map(scenario.locations.map((l, i) => [l.id, { loc: l, index: i }]))
   function cellCenter(locId: string): { x: number, y: number } | null {
@@ -140,8 +144,8 @@ export function VillageMap({
     const col = entry.loc.col ?? (entry.index % 3)
     const row = entry.loc.row ?? Math.floor(entry.index / 3)
     return {
-      x: mapSize.w * COL_X[col] / 100 + CELL_CX,
-      y: mapSize.h * ROW_Y[row] / 100 + CELL_CY,
+      x: cellLeft(col) + CELL_W / 2,
+      y: cellTop(row) + CELL_H / 2,
     }
   }
 
@@ -173,11 +177,9 @@ export function VillageMap({
         </svg>
       )}
 
-      {scenario.locations.map((loc, index) => {
+      {mapSize.w > 0 && scenario.locations.map((loc, index) => {
         const col = loc.col ?? (index % 3)
         const row = loc.row ?? Math.floor(index / 3)
-        const x = COL_X[col]
-        const y = ROW_Y[row]
         const locId = loc.id
         const label = loc.name ?? formatLocationId(locId)
         const annotation = getLocationAnnotation(locId, scenario, gameState)
@@ -198,7 +200,7 @@ export function VillageMap({
           <div
             key={locId}
             className={classes}
-            style={{ left: `${x}%`, top: `${y}%` }}
+            style={{ left: cellLeft(col), top: cellTop(row) }}
             onClick={() => {
               if (isCurrent) {
                 setOpenMenu({ type: 'location' })
@@ -241,13 +243,17 @@ export function VillageMap({
             {isCurrent && openMenu?.type === 'location' && (
               <div className="map-context-menu" onClick={e => e.stopPropagation()}>
                 <button onClick={() => { onInspectLocation(); setOpenMenu({ type: 'location' }) }}>
-                  {gameState.inspectedLocationIds.includes(locId) ? 'Reinspect' : 'Inspect'}
+                  {gameState.inspectedLocationIds.includes(locId) ? 'Reinspect location' : 'Inspect location'}
                   {gameState.lockedActionKeys.includes(`inspect:${locId}`) && (
                     <span className="map-menu-locked">more later</span>
                   )}
                 </button>
                 {visible.map(item => (
-                  <button key={item.id} onClick={() => { onInspectItem(item.id); setOpenMenu({ type: 'location' }) }}>
+                  <button
+                    key={item.id}
+                    className={gameState.attemptedActions.includes(`inspect_item:${item.id}:${locId}`) ? 'map-menu-btn--done' : ''}
+                    onClick={() => { onInspectItem(item.id); setOpenMenu({ type: 'location' }) }}
+                  >
                     Take {parseTaggedText(`[item:${item.name}]`)}
                   </button>
                 ))}
@@ -260,14 +266,21 @@ export function VillageMap({
               if (!char) return null
               return (
                 <div className="map-context-menu" onClick={e => e.stopPropagation()}>
-                  <button onClick={() => { onTalk(char.id); setOpenMenu({ type: 'location' }) }}>
+                  <button
+                    className={gameState.attemptedActions.includes(`talk:${char.id}`) ? 'map-menu-btn--done' : ''}
+                    onClick={() => { onTalk(char.id); setOpenMenu({ type: 'location' }) }}
+                  >
                     Talk to {char.name.split(' ')[0]}
                     {gameState.lockedActionKeys.includes(`talk:${char.id}`) && (
                       <span className="map-menu-locked">more later</span>
                     )}
                   </button>
                   {inventoryItems.map(item => (
-                    <button key={item.id} onClick={() => { onAsk(char.id, item.id); setOpenMenu({ type: 'location' }) }}>
+                    <button
+                      key={item.id}
+                      className={gameState.attemptedActions.includes(`ask:${char.id}:${item.id}`) ? 'map-menu-btn--done' : ''}
+                      onClick={() => { onAsk(char.id, item.id); setOpenMenu({ type: 'location' }) }}
+                    >
                       Ask about {parseTaggedText(`[item:${item.name}]`)}
                       {gameState.lockedActionKeys.includes(`ask:${char.id}:${item.id}`) && (
                         <span className="map-menu-locked">more later</span>

@@ -257,7 +257,7 @@
       "answer": "blunt force trauma to the skull",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "tidal_flats",
         "item": null
@@ -271,7 +271,7 @@
       "answer": "blunt force trauma to the skull",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "iron_bung_mallet"
@@ -285,7 +285,7 @@
       "answer": "drowning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "daan_kuyt"
         ],
@@ -301,7 +301,7 @@
       "answer": "strangulation",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "sofie_renders"
         ],
@@ -317,7 +317,7 @@
       "answer": "poisoning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marten_oost"
         ],
@@ -333,7 +333,7 @@
       "answer": "Tannery Barrel Yard",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "barrel_yard",
         "item": "drain_scrape"
@@ -347,7 +347,7 @@
       "answer": "Tannery Barrel Yard",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "barrel_yard",
         "item": "chalk_residue_sack"
@@ -361,7 +361,7 @@
       "answer": "Tidal Flats",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "daan_kuyt"
         ],
@@ -377,7 +377,7 @@
       "answer": "Tannery Floor",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "tannery_floor",
         "item": null
@@ -391,7 +391,7 @@
       "answer": "Quayside Inn",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marten_oost"
         ],
@@ -407,7 +407,7 @@
       "answer": "between ten at night and midnight",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marten_oost"
         ],
@@ -423,7 +423,7 @@
       "answer": "between ten at night and midnight",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "daan_kuyt"
         ],
@@ -439,7 +439,7 @@
       "answer": "between eight and ten at night",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "sofie_renders"
         ],
@@ -455,7 +455,7 @@
       "answer": "after midnight",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "lena_voss"
         ],
@@ -471,7 +471,7 @@
       "answer": "during the afternoon",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "blom_ledger"
@@ -485,7 +485,7 @@
       "answer": "Piet Voss",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "iron_bung_mallet"
@@ -499,7 +499,7 @@
       "answer": "Piet Voss",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "piet_voss"
         ],
@@ -515,7 +515,7 @@
       "answer": "Marten Oost",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "marten_oost"
         ],
@@ -531,7 +531,7 @@
       "answer": "Lena Voss",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "lena_voss"
         ],
@@ -547,7 +547,7 @@
       "answer": "Sofie Renders",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "sofie_renders"
         ],
@@ -563,7 +563,7 @@
       "answer": "Blom discovered Voss was adulterating the exported resin with chalk dust",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "blom_ledger"
@@ -577,7 +577,7 @@
       "answer": "Blom discovered Voss was adulterating the exported resin with chalk dust",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "barrel_yard",
         "item": "chalk_residue_sack"
@@ -591,7 +591,7 @@
       "answer": "Blom was blackmailing Voss over a past debt",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "lena_voss"
         ],
@@ -607,7 +607,7 @@
       "answer": "Blom had informed on Voss to foreign buyers about short weights",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marten_oost"
         ],
@@ -623,7 +623,7 @@
       "answer": "Blom was about to expose an affair between Voss and Sofie Renders",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "sofie_renders"
         ],
@@ -639,7 +639,7 @@
       "answer": "Floated down the tannery sluice channel at low tide",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "sluice_gate_pin"
@@ -653,7 +653,7 @@
       "answer": "Floated down the tannery sluice channel at low tide",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "daan_kuyt"
         ],
@@ -669,7 +669,7 @@
       "answer": "Carried by hand along the sea-wall at night",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "sofie_renders"
         ],
@@ -685,7 +685,7 @@
       "answer": "Transported by boat from the quayside",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marten_oost"
         ],
@@ -701,7 +701,7 @@
       "answer": "Dragged across the tidal flats at low water",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "tidal_flats",
         "item": null

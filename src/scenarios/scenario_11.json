@@ -1,0 +1,651 @@
+{
+  "location": {
+    "name": "Hreiðarvik",
+    "season": "autumn",
+    "weather": "a low iron sky pressing fog into the valley",
+    "arrival_location": "docks"
+  },
+  "crime": {
+    "cause_of_death": "Garrotting with a cord or wire",
+    "murder_location": "salt_warehouse",
+    "body_found_location": "salt_warehouse",
+    "body_was_moved": false,
+    "time_of_death": "In the middle of the night",
+    "perpetrator_ids": [
+      "hallr"
+    ],
+    "motive": "To prevent the marriage and secure a better match"
+  },
+  "characters": [
+    {
+      "id": "ulfi",
+      "name": "Ulfhéðinn Brandsson",
+      "isVictim": true,
+      "local": true,
+      "location": "salt_warehouse",
+      "description": "A compact dark-haired young fisherman spoken of warmly by those with nothing to gain from saying so. He lies face-down near a salt cask in [loc:salt_warehouse], hands curled as though reaching for something that was not there, a deep horizontal furrow pressed into the skin of his neck."
+    },
+    {
+      "id": "hallr",
+      "name": "Hallr Sigurðsson",
+      "isVictim": false,
+      "local": true,
+      "location": "mead_hall",
+      "description": "A broad-shouldered merchant in a fur-trimmed cloak who owns two longships, the salt warehouse, and most of the opinions in Hreiðarvik. He accepts condolences in [loc:mead_hall] with a funerary expression that never quite reaches his eyes, speaking in the measured tones of a man explaining something obvious to a child."
+    },
+    {
+      "id": "astridr",
+      "name": "Astríðr Hallsdóttir",
+      "isVictim": false,
+      "local": true,
+      "location": "family_longhouse",
+      "description": "Hallr's daughter, red-eyed and wrapped in a grey wool shawl. She sits very still in [loc:family_longhouse] in the manner of someone who stopped moving some hours ago and has not decided whether to start again, and she answers questions in short, clipped sentences."
+    },
+    {
+      "id": "brynja",
+      "name": "Brynja Ulfkelsdóttir",
+      "isVictim": false,
+      "local": true,
+      "location": "healer_hut",
+      "description": "A wiry midwife of middle age with ink-stained fingers and a thorough knowledge of everyone's business in Hreiðarvik. She meets the investigator at [loc:healer_hut] with the particular brightness of expression belonging to someone who has been waiting for somebody to ask her something."
+    },
+    {
+      "id": "thormodr",
+      "name": "Þormóðr the Younger",
+      "isVictim": false,
+      "local": true,
+      "location": "docks",
+      "description": "A large young dockworker and Ulfi's closest friend, who found the body. He sits on a coil of rope at [loc:docks] looking as though the universe has punched him in the stomach, and keeps glancing toward the warehouse door."
+    },
+    {
+      "id": "sigridr",
+      "name": "Sigríðr Magnúsdóttir",
+      "isVictim": false,
+      "local": true,
+      "location": "salt_warehouse",
+      "description": "A thin woman in a worn blue dress who works the warehouse for Hallr and was present when the body was found. She stands close to the wall in [loc:salt_warehouse], watching the investigator with the careful attention of someone long practiced at being overlooked."
+    },
+    {
+      "id": "thorvardr",
+      "name": "Þorvarðr Egilsson",
+      "isVictim": false,
+      "local": false,
+      "location": "mead_hall",
+      "description": "A well-dressed young man who arrived from the east two days ago for what he describes as a business visit to Hallr. He keeps straightening his belt buckle in [loc:mead_hall] and smells strongly of horse, with the look of someone who travelled a great distance to be in a deeply uncomfortable situation."
+    }
+  ],
+  "items": [
+    {
+      "id": "the_cord",
+      "name": "Length of Braided Cord",
+      "description": "A short length of tightly braided horsehair cord, roughly an arm's span, frayed at both ends where it was separated from a longer piece.",
+      "location_discovery_text": "A [item:Length of Braided Cord] lies coiled near the base of the salt cask closest to the body.",
+      "starting_location": "salt_warehouse"
+    },
+    {
+      "id": "betrothal_token",
+      "name": "Silver Ring",
+      "description": "A plain silver ring with a small knotwork pattern pressed into the band, slightly tarnished, sized for a man's finger. The knotwork style is not local — it is the kind of finery that comes from the eastern settlements.",
+      "location_discovery_text": "A [item:Silver Ring] rests on the edge of the bench near the door, as though set down and forgotten.",
+      "starting_location": "mead_hall"
+    }
+  ],
+  "locations": [
+    {
+      "id": "docks",
+      "name": "The Docks",
+      "flavour": "Salt-bleached timber and the last of the season's herring nets hang slack in the fog.",
+      "col": 0,
+      "row": 1
+    },
+    {
+      "id": "salt_warehouse",
+      "name": "The Salt Warehouse",
+      "flavour": "The air inside tastes of brine and cold iron, and the floor is dusted pale where sacks have been dragged.",
+      "col": 1,
+      "row": 1
+    },
+    {
+      "id": "mead_hall",
+      "name": "The Mead Hall",
+      "flavour": "Smoke-stained rafters and benches worn smooth by the elbows of men deciding they are more important than they are.",
+      "col": 2,
+      "row": 1
+    },
+    {
+      "id": "family_longhouse",
+      "name": "The Hallr Family Longhouse",
+      "flavour": "A prosperous longhouse with carved doorposts and the particular silence of a household that has stopped pretending everything is fine.",
+      "col": 1,
+      "row": 0
+    },
+    {
+      "id": "healer_hut",
+      "name": "Brynja's Hut",
+      "flavour": "Bundles of dried herbs hang from every beam, and the smell of woodsmoke and something sharper makes the eyes water.",
+      "col": 0,
+      "row": 0
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "docks",
+      "to": "salt_warehouse"
+    },
+    {
+      "from": "docks",
+      "to": "healer_hut"
+    },
+    {
+      "from": "salt_warehouse",
+      "to": "mead_hall"
+    },
+    {
+      "from": "salt_warehouse",
+      "to": "family_longhouse"
+    },
+    {
+      "from": "family_longhouse",
+      "to": "mead_hall"
+    },
+    {
+      "from": "healer_hut",
+      "to": "family_longhouse"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "cause_of_death",
+      "label": "How was Ulfhéðinn Brandsson killed?",
+      "answer_options": [
+        "Stabbing with a fishing knife",
+        "Blunt blow to the skull",
+        "Garrotting with a cord or wire",
+        "Drowning in the fjord",
+        "Poisoning by herb or tincture"
+      ]
+    },
+    {
+      "id": "true_location",
+      "label": "Where did the murder take place?",
+      "answer_options": [
+        "The salt warehouse",
+        "The docks",
+        "The mead hall",
+        "Brynja's hut",
+        "Behind the family longhouse"
+      ]
+    },
+    {
+      "id": "time_of_death",
+      "label": "When was Ulfhéðinn Brandsson killed?",
+      "answer_options": [
+        "Before dusk",
+        "Shortly after dusk",
+        "In the middle of the night",
+        "In the hour before dawn",
+        "After dawn"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Ulfhéðinn Brandsson?",
+      "answer_options": [
+        "Hallr Sigurðsson",
+        "Astríðr Hallsdóttir",
+        "Þormóðr the Younger",
+        "Þorvarðr Egilsson",
+        "Sigríðr Magnúsdóttir",
+        "Brynja Ulfkelsdóttir"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Ulfhéðinn Brandsson killed?",
+      "answer_options": [
+        "To claim Ulfi's fishing boat",
+        "To prevent a debt from being repaid",
+        "To prevent the marriage and secure a better match",
+        "To avenge a family insult",
+        "To silence a witness to a crime",
+        "To inherit property"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cod_correct_1",
+      "checkpoint": "cause_of_death",
+      "answer": "Garrotting with a cord or wire",
+      "weight": "correct",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "salt_warehouse",
+        "item": null
+      },
+      "text": "The furrow across [char:Ulfhéðinn Brandsson]'s neck is deep, horizontal, and continuous — the skin darkened in an unbroken band with no puncture wound and no pooled blood beneath the body. A short length of braided cord lies coiled near the body, frayed at both ends as though torn from a longer piece.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_correct_2",
+      "checkpoint": "cause_of_death",
+      "answer": "Garrotting with a cord or wire",
+      "weight": "correct",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "brynja"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Brynja Ulfkelsdóttir] tells the investigator that she examined the body at [time:first light] before the warehouse was sealed. The bruising across the throat formed a closed band, she says — not the open bruising left by a blow, and not the burst vessels in the face and eyes she has seen in those pulled from the water. She then asks if the investigator has spoken to [char:Sigríðr Magnúsdóttir] yet, who knows [loc:salt_warehouse] better than anyone.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "cod_rh_1",
+      "checkpoint": "cause_of_death",
+      "answer": "Stabbing with a fishing knife",
+      "weight": "red_herring",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "thormodr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Þormóðr the Younger] tells the investigator that [char:Ulfhéðinn Brandsson] had a dispute with a fisherman from the north end of the village [time:last week] over a gutting knife that went missing. The argument was loud enough that people came out of their houses.",
+      "red_herring_explanation": "Points toward stabbing as cause of death by introducing a knife-related conflict, but the dispute is unrelated to the murder."
+    },
+    {
+      "id": "cod_rh_2",
+      "checkpoint": "cause_of_death",
+      "answer": "Blunt blow to the skull",
+      "weight": "red_herring",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "salt_warehouse",
+        "item": null
+      },
+      "text": "Near the body, a heavy salt cask has been knocked onto its side, its rim cracked. A dark stain spreads across the floor where the salt has mixed with moisture.",
+      "red_herring_explanation": "The overturned cask suggests a struggle involving blunt force, but the damage to the cask is from the struggle and not the cause of death."
+    },
+    {
+      "id": "cod_rh_3",
+      "checkpoint": "cause_of_death",
+      "answer": "Drowning in the fjord",
+      "weight": "red_herring",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "astridr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Astríðr Hallsdóttir] says that [char:Ulfhéðinn Brandsson] had been drinking at the hall [time:the evening before he was found] and stumbled when he left. She says he had fallen into the shallows once before when drunk, and had to be pulled out by [char:Þormóðr the Younger].",
+      "red_herring_explanation": "Introduces the possibility of accidental drowning by establishing a precedent, misdirecting from the true cause."
+    },
+    {
+      "id": "loc_correct_1",
+      "checkpoint": "true_location",
+      "answer": "The salt warehouse",
+      "weight": "correct",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "salt_warehouse",
+        "item": null
+      },
+      "text": "The pale salt dust on the floor of [loc:salt_warehouse] shows a single scuffed area around the body — boot scrapes, a dragged heel — but no trail leading away from it. The disturbed dust begins and ends in the same spot.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "loc_correct_2",
+      "checkpoint": "true_location",
+      "answer": "The salt warehouse",
+      "weight": "correct",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "sigridr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Sigríðr Magnúsdóttir] tells the investigator that she left [loc:salt_warehouse] [time:before dusk] with the interior bar raised, as she always does. When she arrived at [time:dawn], the bar was down on the inside, and she had to enter through the side passage. [char:Ulfhéðinn Brandsson]'s body was already there.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "loc_rh_1",
+      "checkpoint": "true_location",
+      "answer": "The docks",
+      "weight": "red_herring",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "thormodr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Þormóðr the Younger] says that [char:Ulfhéðinn Brandsson] told him [time:yesterday afternoon] he was going to [loc:the docks] after supper to check the mooring lines on their shared boat before the weather turned.",
+      "red_herring_explanation": "Ulfi stated his intention to go to the docks, suggesting the murder may have occurred there, but he changed course and went to the warehouse instead."
+    },
+    {
+      "id": "loc_rh_2",
+      "checkpoint": "true_location",
+      "answer": "Behind the family longhouse",
+      "weight": "red_herring",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "family_longhouse",
+        "item": null
+      },
+      "text": "Behind [loc:the Hallr Family Longhouse], two sets of boot prints press into the mud — one larger, one smaller — leading away from the back wall in the direction of [loc:the salt warehouse]. The prints are partially filled with overnight rain.",
+      "red_herring_explanation": "The footprints suggest a clandestine meeting behind the longhouse, but they show two people walking toward the warehouse, not a murder site."
+    },
+    {
+      "id": "loc_rh_3",
+      "checkpoint": "true_location",
+      "answer": "The mead hall",
+      "weight": "red_herring",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "thorvardr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Þorvarðr Egilsson] tells the investigator that he saw [char:Ulfhéðinn Brandsson] walking toward [loc:the mead hall] shortly after [time:dusk], moving quickly and looking over his shoulder.",
+      "red_herring_explanation": "Þorvarðr places Ulfi heading toward the mead hall, suggesting it as a possible murder site, though Ulfi was walking to the warehouse which is en route."
+    },
+    {
+      "id": "tod_correct_1",
+      "checkpoint": "time_of_death",
+      "answer": "In the middle of the night",
+      "weight": "correct",
+      "condition": {
+        "type": "inspect_item",
+        "characters": [],
+        "location": null,
+        "item": "the_cord"
+      },
+      "text": "The braided horsehair cord is stiff — when bent, it resists and holds its curve, the way cordage does after many hours in a frost-cold room. The interior of [loc:the salt warehouse] drops to near-freezing [time:after midnight] when the brazier goes out. The braiding is the dense, flat pattern used for warehouse lashing work, not fishing line — the kind a worker who handles cord daily would recognise immediately.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_correct_2",
+      "checkpoint": "time_of_death",
+      "answer": "In the middle of the night",
+      "weight": "correct",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "brynja"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Brynja Ulfkelsdóttir] tells the investigator that when she examined the body at [time:first light], the flesh had already stiffened fully and the warmth had gone out of the body throughout — not merely at the hands and face, which happens within one hour, but all the way through, which she says takes several hours in cold air.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "tod_rh_1",
+      "checkpoint": "time_of_death",
+      "answer": "Before dusk",
+      "weight": "red_herring",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "docks",
+        "item": null
+      },
+      "text": "One of the net-menders at [loc:the docks] mentions to the investigator, without being asked, that he saw [char:Ulfhéðinn Brandsson] walking the shoreline path [time:in the middle of the afternoon] — he noted it because Ulfi was moving fast and looked distracted.",
+      "red_herring_explanation": "Establishes Ulfi alive in the afternoon, which players might misread as the boundary of the death window rather than merely a sighting well before death."
+    },
+    {
+      "id": "tod_rh_2",
+      "checkpoint": "time_of_death",
+      "answer": "Shortly after dusk",
+      "weight": "red_herring",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "thormodr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Þormóðr the Younger] tells the investigator that [char:Ulfhéðinn Brandsson] came home from the dock, ate supper, and seemed completely himself — [time:as the sun went below the hills]. That was the last time he saw Ulfi alive.",
+      "red_herring_explanation": "Establishes Ulfi alive at dusk, which could suggest death occurred shortly after, but this is merely the last confirmed sighting and not a boundary on time of death."
+    },
+    {
+      "id": "tod_rh_3",
+      "checkpoint": "time_of_death",
+      "answer": "In the hour before dawn",
+      "weight": "red_herring",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "astridr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Astríðr Hallsdóttir] tells the investigator that she heard heavy footsteps outside the longhouse wall [time:in the deep dark before the sky began to lighten], moving in the direction of [loc:the salt warehouse]. She did not look out.",
+      "red_herring_explanation": "The pre-dawn footsteps could suggest the murder happened at that hour, but they were Sigríðr going to open the warehouse and discover the body, not the killer arriving."
+    },
+    {
+      "id": "perp_correct_1",
+      "checkpoint": "perpetrator",
+      "answer": "Hallr Sigurðsson",
+      "weight": "correct",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "sigridr"
+        ],
+        "location": null,
+        "item": "the_cord"
+      },
+      "text": "[char:Sigríðr Magnúsdóttir] examines the cord and says it matches the lashing cord from the large spool kept by the warehouse door — the same braided horsehair used to bundle salt sacks for transport, not standard fishing line. She says the spool was intact when she left [time:the previous evening], and that [time:earlier that same evening] she watched [char:Hallr Sigurðsson] cut a length from it, telling her he needed it to tie something down.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_correct_2",
+      "checkpoint": "perpetrator",
+      "answer": "Hallr Sigurðsson",
+      "weight": "correct",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "thorvardr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Þorvarðr Egilsson] shifts on the bench and says that [char:Hallr Sigurðsson] summoned him [time:two days ago] to confirm their arrangement — that [char:Astríðr Hallsdóttir] would be Þorvarðr's wife and the betrothal to the fisherman would not stand. Hallr told him [time:that evening] that \"the obstacle will be removed before the week is out.\" Þorvarðr says he assumed this was a figure of speech, and repeats this twice.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "perp_rh_1",
+      "checkpoint": "perpetrator",
+      "answer": "Þormóðr the Younger",
+      "weight": "red_herring",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "docks",
+        "item": null
+      },
+      "text": "At [loc:the docks], a fishing knife with a wrapped grip lies beneath the bench where [char:Þormóðr the Younger] is sitting. It is damp, and there is a dark stain along the handle that could be fish blood or could be something else.",
+      "red_herring_explanation": "The suspicious knife near Þormóðr, combined with his proximity to the crime scene and grief-stricken behaviour, implicates him — but the knife is unrelated to the cause of death."
+    },
+    {
+      "id": "perp_rh_2",
+      "checkpoint": "perpetrator",
+      "answer": "Þorvarðr Egilsson",
+      "weight": "red_herring",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "mead_hall",
+        "item": null
+      },
+      "text": "Near the door of [loc:the mead hall], a travelling cloak hangs on a peg — the hem is stiff with dried salt mud consistent with someone who walked the shoreline path [time:at night]. The cloak belongs to [char:Þorvarðr Egilsson], whose boots are visible beneath it, similarly caked.",
+      "red_herring_explanation": "Þorvarðr's muddy cloak and boots suggest he walked the coastal path at night, implicating him in the murder, but he was simply walking to clear his head after the uncomfortable meeting with Hallr."
+    },
+    {
+      "id": "perp_rh_3",
+      "checkpoint": "perpetrator",
+      "answer": "Sigríðr Magnúsdóttir",
+      "weight": "red_herring",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "salt_warehouse",
+        "item": null
+      },
+      "text": "Beside the warehouse side entrance — the passage [char:Sigríðr Magnúsdóttir] says she used to enter — a woman's woollen glove lies in the shadow of the doorframe. It is the kind of coarse-woven glove a working woman wears, and it is not wet from overnight rain.",
+      "red_herring_explanation": "The dry glove near the side entrance implies Sigríðr entered after the rain stopped, potentially placing her at the scene during the murder window, but the glove was dropped when she entered at dawn before the morning rain came."
+    },
+    {
+      "id": "mot_correct_1",
+      "checkpoint": "motive",
+      "answer": "To prevent the marriage and secure a better match",
+      "weight": "correct",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "astridr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Astríðr Hallsdóttir] tells the investigator that her father never smiled at the betrothal announcement and spent the following weeks in the mead hall with a face like a man who has swallowed something disagreeable. Three days before [char:Ulfhéðinn Brandsson] was found, she heard [char:Hallr Sigurðsson] tell someone outside the longhouse that \"a better offer has come from the east\" and that the current arrangement was \"a temporary embarrassment.\"",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_correct_2",
+      "checkpoint": "motive",
+      "answer": "To prevent the marriage and secure a better match",
+      "weight": "correct",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "thorvardr"
+        ],
+        "location": null,
+        "item": "betrothal_token"
+      },
+      "text": "[char:Þorvarðr Egilsson] recognises the ring immediately: he says it is an Egilsson betrothal token, his family's design, sent by his father to [char:Hallr Sigurðsson] [time:two weeks ago] as a formal pledge of the match between himself and [char:Astríðr Hallsdóttir]. He is surprised the investigator has it; he says Hallr told him it had been locked away safely.",
+      "red_herring_explanation": null
+    },
+    {
+      "id": "mot_rh_1",
+      "checkpoint": "motive",
+      "answer": "To silence a witness to a crime",
+      "weight": "red_herring",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "brynja"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Brynja Ulfkelsdóttir] mentions, with the casual precision of someone who has been saving this detail, that [char:Ulfhéðinn Brandsson] came to her [time:four days ago] asking whether a man could survive if his salt cargo had been watered-down before weighing — he had seen something at the docks he did not understand. She told him to stay out of other people's business. He did not specify whose cargo.",
+      "red_herring_explanation": "Suggests Ulfi witnessed something incriminating and was killed to prevent him from speaking, but his question was idle curiosity about cargo he had nothing to do with."
+    },
+    {
+      "id": "mot_rh_2",
+      "checkpoint": "motive",
+      "answer": "To avenge a family insult",
+      "weight": "red_herring",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "thormodr"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Þormóðr the Younger] tells the investigator that [char:Ulfhéðinn Brandsson]'s father once shorted [char:Hallr Sigurðsson] on a salt trade — weighed the sacks light and kept the difference. Hallr had declared the matter settled, but everyone who was there says he did not look like a man who felt it was settled.",
+      "red_herring_explanation": "The historical grievance between Hallr and Ulfi's father suggests the killing was retaliatory, but Hallr's actual motive is the arranged marriage, not the old trade insult."
+    },
+    {
+      "id": "mot_rh_3",
+      "checkpoint": "motive",
+      "answer": "To claim Ulfi's fishing boat",
+      "weight": "red_herring",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "docks",
+        "item": null
+      },
+      "text": "At [loc:the docks], a recently caulked single-mast fishing boat sits moored at the far end, marked with [char:Ulfhéðinn Brandsson]'s ownership rune. A dockworker mentions that Ulfi bought it outright [time:three months ago] — a good boat, worth more than most men here earn in two winters — and that he had no family to inherit it.",
+      "red_herring_explanation": "The valuable boat with no clear heir suggests financial motivation for the killing, but it is a coincidence of circumstance rather than the true motive."
+    }
+  ],
+  "relations": [
+    {
+      "from": "hallr",
+      "to": "astridr",
+      "label": "father of"
+    },
+    {
+      "from": "astridr",
+      "to": "ulfi",
+      "label": "betrothed to"
+    },
+    {
+      "from": "thormodr",
+      "to": "ulfi",
+      "label": "closest friend of"
+    },
+    {
+      "from": "hallr",
+      "to": "sigridr",
+      "label": "employs"
+    },
+    {
+      "from": "hallr",
+      "to": "thorvardr",
+      "label": "negotiating alliance with"
+    },
+    {
+      "from": "thorvardr",
+      "to": "astridr",
+      "label": "proposed match for"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_1",
+      "text": "[char:Brynja Ulfkelsdóttir] from [loc:Brynja's Hut] was summoned to examine the body before dawn and is the only person in the village with knowledge of such things — she left before the warehouse was sealed.",
+      "character_id": "brynja",
+      "location_id": "healer_hut"
+    },
+    {
+      "id": "lead_2",
+      "text": "A visitor arrived from the east [time:two days ago] and has been closeted with [char:Hallr Sigurðsson] in [loc:the mead hall] — locals say the visit had something to do with a marriage arrangement, though nobody will say whose.",
+      "character_id": "thorvardr",
+      "location_id": "mead_hall"
+    },
+    {
+      "id": "lead_3",
+      "text": "[char:Sigríðr Magnúsdóttir] works the salt warehouse daily and keeps a close account of its contents — if anything in [loc:the salt warehouse] was disturbed or taken, she would know it.",
+      "character_id": "sigridr",
+      "location_id": "salt_warehouse"
+    }
+  ],
+  "opening_narrative": "The longship from the south came through the fog [time:before midday], and the official who stepped off it did not look pleased to be in Hreiðarvik. He had been sent because the village had a dead man and, more pressingly, a wedding in three days that now had no groom — and the family of the intended groom's replacement had sent a rider to the regional seat to insist that the matter be handled quietly and correctly, by someone with authority, before the situation became an incident.\n\nThe dead man was [char:Ulfhéðinn Brandsson], a fisherman of no particular standing except that he was to have married [char:Astríðr Hallsdóttir], daughter of [char:Hallr Sigurðsson], the most prosperous man in [loc:Hreiðarvik]. The body had been found [time:at dawn] in [loc:the salt warehouse] by [char:Sigríðr Magnúsdóttir] and [char:Þormóðr the Younger], and the warehouse had been sealed shortly after. A healer named [char:Brynja Ulfkelsdóttir] had briefly examined the body before it was closed off.\n\nThe village had responded to the death with the particular energy of a community that knows exactly what it wants to think happened and is waiting for someone official to confirm it. The investigator was not, in his experience, someone who confirmed things. He had [loc:the docks] at his back, a body in a warehouse, and a village full of people with something to lose. He walked toward [loc:the salt warehouse] as the fog pressed down harder from the hills.",
+  "epilogue": "What nobody told the investigator — because nobody thought it mattered — was that [char:Astríðr Hallsdóttir] had not, in fact, threatened to walk into the fjord when her father resisted the betrothal to [char:Ulfhéðinn Brandsson]. That was a story [char:Hallr Sigurðsson] had told himself to explain why he had agreed to it, because the alternative explanation — that he had been outmanoeuvred by his own daughter, who simply went to the village assembly and announced the betrothal publicly before he could refuse — was not one he could admit. Astríðr had understood her father better than he understood himself, which was why she had moved so fast.\n\n[char:Hallr Sigurðsson] had accepted the Egilsson betrothal token [time:two weeks before the murder], and had told [char:Þorvarðr Egilsson]'s father that the matter was as good as done. He had believed, at that point, that he could pressure [char:Ulfhéðinn Brandsson] into withdrawing voluntarily — a quiet payment, a suggested relocation, the kind of arrangement powerful men make with men who have nothing. Ulfi had declined. He had done so politely, which Hallr found worse than defiance. The cord had been in Hallr's hands [time:before he knew he was going to use it].\n\n[char:Sigríðr Magnúsdóttir] was given her freedom by the regional authority as a condition of her testimony, which Hallr had not anticipated. [char:Þorvarðr Egilsson] returned east [time:before the snow came] and the Egilsson family quietly let the arrangement lapse, having decided that a family whose patriarch was hanged for murder was not the alliance they had been seeking. [char:Astríðr Hallsdóttir] inherited the warehouse, the longships, and her father's salt contracts. She ran them without apparent difficulty, which surprised everyone except [char:Brynja Ulfkelsdóttir], who had always known."
+}

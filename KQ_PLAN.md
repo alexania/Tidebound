@@ -63,26 +63,26 @@ returning new state. Each fires relevant clues immediately.
 - Reveals the location description
 - Returns `location_discovery_text` for any items at this location not yet in inventory
   (shown in log as visible-but-not-held)
-- Fires all matching `investigator_at_location` clues
-- Fires all matching `investigator_at_location_with_item` clues for items currently in `inventory`
+- Fires all matching `inspect_location` clues
+- Fires all matching `inspect_item_in_location` clues for items currently in `inventory`
 - Increments `actionCount`
 
 ### `inspectItem(state, scenario, itemId) → GameState`
 - Validates item is in `inventory` or if in current location, adds item to `inventory` with pick up message.
 - Reveals item description.
-- Fires all matching `investigator_with_item` clues
-- Fires all matching `investigator_at_location_with_item`
+- Fires all matching `inspect_item` clues
+- Fires all matching `inspect_item_in_location`
 - Adds to `foundItemIds` (if not there already)
 - Increments `actionCount`
 
 ### `talkToCharacter(state, scenario, charId) → GameState`
 - Validates character is at current location
-- Fires all matching `investigator_with_character` clues
+- Fires all matching `talk_to_character` clues
 - Increments `actionCount`
 
 ### `askCharacterAboutItem(state, scenario, charId, itemId) → GameState`
 - Validates character at current location, item in inventory
-- Fires all matching `investigator_with_character_and_item` clues
+- Fires all matching `ask_character_about_item` clues
 - Increments `actionCount`
 
 **Clue firing in all handlers**: same logic as current `resolveTurn` — check
@@ -95,10 +95,10 @@ No change to that machinery.
 
 Minimal changes. Redefine what "has item" means:
 
-- `investigator_with_item`: item is in `inventory` (previously: item at same location)
-- `investigator_at_location_with_item`: investigator at location AND item in `inventory`
+- `inspect_item`: item is in `inventory` (previously: item at same location)
+- `inspect_item_in_location`: investigator at location AND item in `inventory`
   (fires via `inspectLocation` or `inspectItem`)
-- `investigator_with_character_and_item`: character at investigator's location AND item
+- `ask_character_about_item`: character at investigator's location AND item
   in `inventory`
 
 The other two condition types are unchanged.
@@ -127,9 +127,9 @@ FEEDBACK = {
 The `locked` variants require knowing a clue exists but is accusation-gated. The engine
 distinguishes: no matching clue vs. matching clue exists but gate is closed.
 
-The `missing` variant (easy only): a `investigator_at_location_with_item` clue exists for this location/item but the
-required item isn't in inventory. Is should be displayed even if the action triggered a `investigator_at_location` 
-or `investigator_with_item` clue.
+The `missing` variant (easy only): a `inspect_item_in_location` clue exists for this location/item but the
+required item isn't in inventory. Is should be displayed even if the action triggered a `inspect_location` 
+or `inspect_item` clue.
 
 ---
 
@@ -182,7 +182,7 @@ near the door."*
 
 **System prompt addition**: short paragraph explaining the new interaction model so the
 LLM understands what each condition type means in player terms — specifically that
-`investigator_with_character_and_item` means the player is holding the item and showing
+`ask_character_about_item` means the player is holding the item and showing
 it to the character, so the clue text should read as a reaction to being shown the item.
 
 No other generation changes.

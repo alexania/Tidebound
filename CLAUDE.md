@@ -59,19 +59,19 @@ failure. Leads are surfaced on arrival pointing toward specific characters and l
 Five actions, each fires relevant clues immediately:
 
 - **Move** to an adjacent location — passive, reveals NPCs present, no clues fire
-- **Inspect location** — fires `investigator_at_location` clues; reveals visible items
-  via `location_discovery_text`; also fires `investigator_at_location_with_item` for
+- **Inspect location** — fires `inspect_location` clues; reveals visible items
+  via `location_discovery_text`; also fires `inspect_item_in_location` for
   items currently in inventory
 - **Inspect item** — picks up item into inventory if not already held; fires
-  `investigator_with_item` clues; fires `investigator_at_location_with_item` clues
-- **Talk to character** — fires `investigator_with_character` clues
+  `inspect_item` clues; fires `inspect_item_in_location` clues
+- **Talk to character** — fires `talk_to_character` clues
 - **Ask character about item** (must be holding item) — fires
-  `investigator_with_character_and_item` clues
+  `ask_character_about_item` clues
 
 ### Clue conditions
 5 condition types — all involve the investigator:
-`investigator_at_location` · `investigator_with_character` · `investigator_with_item` ·
-`investigator_at_location_with_item` · `investigator_with_character_and_item`
+`inspect_location` · `talk_to_character` · `inspect_item` ·
+`inspect_item_in_location` · `ask_character_about_item`
 
 See `src/engine/conditions.ts`.
 

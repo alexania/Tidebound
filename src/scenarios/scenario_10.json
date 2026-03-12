@@ -257,7 +257,7 @@
       "answer": "Poisoning by ingestion",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "inn_snug",
         "item": null
@@ -271,7 +271,7 @@
       "answer": "Poisoning by ingestion",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "widow_nancarrow"
         ],
@@ -287,7 +287,7 @@
       "answer": "Blunt force trauma",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "constable_tredrea"
         ],
@@ -303,7 +303,7 @@
       "answer": "Drowning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "tamsin_veal"
         ],
@@ -319,7 +319,7 @@
       "answer": "Exposure to cold",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "inn_snug",
         "item": null
@@ -333,7 +333,7 @@
       "answer": "The inn snug",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "merryn_trevithick"
         ],
@@ -349,7 +349,7 @@
       "answer": "The inn snug",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "tamsin_veal"
         ],
@@ -365,7 +365,7 @@
       "answer": "The harbour wall",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "elias_veal"
         ],
@@ -381,7 +381,7 @@
       "answer": "The clifftop path",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "clifftop_path",
         "item": null
@@ -395,7 +395,7 @@
       "answer": "The wreckers' storehouse",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "wreckers_storehouse",
         "item": "oil_lamp"
@@ -409,7 +409,7 @@
       "answer": "Between ten and midnight",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "cador_trevithick"
         ],
@@ -425,7 +425,7 @@
       "answer": "Between ten and midnight",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "elias_veal"
         ],
@@ -441,7 +441,7 @@
       "answer": "Before nine o'clock in the evening",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "tamsin_veal"
         ],
@@ -457,7 +457,7 @@
       "answer": "After midnight",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "constable_tredrea"
         ],
@@ -473,7 +473,7 @@
       "answer": "Between nine and ten in the evening",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "cador_trevithick"
         ],
@@ -489,7 +489,7 @@
       "answer": "Merryn Trevithick",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "drying_shed",
         "item": "grinding_mortar"
@@ -503,7 +503,7 @@
       "answer": "Merryn Trevithick",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "widow_nancarrow"
         ],
@@ -519,7 +519,7 @@
       "answer": "Cador Trevithick",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "constable_tredrea"
         ],
@@ -535,7 +535,7 @@
       "answer": "Elias Veal",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "elias_veal"
         ],
@@ -551,7 +551,7 @@
       "answer": "Tamsin Veal",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "tamsin_veal"
         ],
@@ -567,7 +567,7 @@
       "answer": "Revenge for a brother's death",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "elias_veal"
         ],
@@ -583,7 +583,7 @@
       "answer": "Revenge for a brother's death",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "merryn_trevithick"
         ],
@@ -599,7 +599,7 @@
       "answer": "To cancel a salvage debt",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "cador_trevithick"
         ],
@@ -615,7 +615,7 @@
       "answer": "To protect a family secret about past wrecking",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "wreckers_storehouse",
         "item": "wreckers_ledger"
@@ -629,7 +629,7 @@
       "answer": "To prevent exposure of a romantic affair",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "clifftop_path",
         "item": "love_letter"

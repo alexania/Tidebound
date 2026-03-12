@@ -126,11 +126,11 @@ export function validateScenario(s: Scenario): ValidationError[] {
     }
 
     const validConditionTypes = new Set([
-      'investigator_at_location',
-      'investigator_with_character',
-      'investigator_with_item',
-      'investigator_at_location_with_item',
-      'investigator_with_character_and_item',
+      'inspect_location',
+      'talk_to_character',
+      'inspect_item',
+      'inspect_item_in_location',
+      'ask_character_about_item',
     ])
     if (!validConditionTypes.has(clue.condition.type)) {
       errors.push({ rule: 'condition_type', message: `Clue ${clue.id} has unknown condition type: ${clue.condition.type}` })

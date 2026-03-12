@@ -8,6 +8,7 @@ import { validateScenario } from './validator'
 const SYSTEM_PROMPT = `You are generating a complete murder mystery scenario for a single-player deduction game.
 The only hard setting constraint is that it is coastal.
 The culture is provided as a constraint — use it as the primary lens for setting, naming, social structure, and atmosphere. Era, tone, and geography follow from the culture.
+The genre is provided as a tonal lens — let it shape atmosphere, narrative voice, character motivations, and the emotional register of clue texts. The scenario is always a murder mystery; the genre determines how that mystery feels.
 
 THE INVESTIGATOR:
 Every scenario includes a special character with id "investigator" — an official brought in from outside, whose presence is why people are talking at all. Not named or described in the JSON; the engine adds him. He always starts at the arrival_location. All clue conditions involve the investigator — every condition type begins with "investigator_". Do not include him in the characters array.
@@ -27,6 +28,7 @@ Then identify the one or two things the perpetrator could not avoid — traces t
 STEP 3 — CHARACTERS & RELATIONS
 5–7 characters including the victim. Every non-victim character must have a plausible stated motive — even the innocent ones. Set their location — fixed for the whole game. Place them where it makes narrative sense and creates interesting investigator routes.
 No more than 2 characters should share any location. Concentrating characters in one place floods a single turn with clues and removes the need to plan routes. Spread characters so the player has genuine decisions about where to go.
+Include one character who functions as a medical authority — ranging from a trained physician to a midwife, barber-surgeon, or herbalist. They were present at or summoned to the body before the investigation began. Their testimony may be correct, misleading, or limited by their competence — that is a story choice.
 For each non-perpetrator character: note what they know, what they suspect, and what they are concealing — and why.
 Publicly known relationships: employment, family, open romantic interest, open enmity. No secrets, no debts, nothing crime-related. Label each directionally: "employs", "sister of", "rivals with".
 
@@ -39,7 +41,7 @@ CORRECT CLUES — plan 2, obtainable from different locations. For each:
 - What is the condition? (investigator where, with whom, with what item)
 - What raw observation does the clue text contain? No interpretations — only what was seen, heard, touched, or said.
 - DISCOVERABILITY: What specific information already visible to the player — character descriptions, item descriptions at their starting locations, relations, leads, or text from an already-collectable clue — would cause them to attempt this exact condition? Name it explicitly. If you cannot, the condition is wrong: move a character, relocate an item, or add a lead until a clear path exists.
-  For conditions of type investigator_with_character_and_item or investigator_at_location_with_item: if the item's starting_location differs from the condition's location (or the character's fixed location), a prior clue text, lead, or description visible at game start must explicitly name both the item and the relevant character or location together — giving the player a concrete reason to bring that item to that specific person or place. Logical inference ("an auditor would care about a ledger") is not sufficient; the pairing must be stated in the text. If the item already starts at the condition location, no additional signposting is required.
+  For conditions of type ask_character_about_item or inspect_item_in_location: if the item's starting_location differs from the condition's location (or the character's fixed location), a prior clue text, lead, or description visible at game start must explicitly name both the item and the relevant character or location together — giving the player a concrete reason to bring that item to that specific person or place. Logical inference ("an auditor would care about a ledger") is not sufficient; the pairing must be stated in the text. If the item already starts at the condition location, no additional signposting is required.
 
 RED HERRING CLUES — plan 3, each pointing at a DIFFERENT wrong answer_option. For each: which wrong answer does it target, and what makes the evidence misleading?
 
@@ -60,7 +62,7 @@ After </story>, write the JSON object and nothing else. No markdown fences.
 
 LOCATIONS: Up to 9 — as many as the scenario genuinely needs. One must be the arrival_location. Each has id (snake_case), name, flavour (one atmospheric sentence), col (0–2) and row (0–2) in a 3×3 grid. No two locations share the same (col, row). Define 3–8 location_adjacencies. Don't invent locations to fill a grid.
 
-ITEMS: As many as the scenario needs, up to 8. Each must be referenced in at least one clue condition — no orphan items. Item descriptions are plain physical observations only: colour, shape, condition, visible markings. Do not include interpretive detail that reveals what the item is evidence of; that is the clue's job.
+ITEMS: As many as the scenario needs, up to 8. Each must be referenced in at least one clue condition — no orphan items. Item descriptions are plain physical observations only: colour, shape, condition, visible markings. Do not include interpretive detail that reveals what the item is evidence of; that is the clue's job. No ledgers unless the motive is finance related.
 
 CHECKPOINTS: Exactly these 5: cause_of_death, true_location, time_of_death, perpetrator, motive — each with 4–6 answer options, correct answer present but not marked.
 
@@ -77,8 +79,10 @@ CLUE-WRITING RULES:
 - If a clue condition does not include a character, do not name any character in the clue text — unless that character's fixed location matches the condition location.
 - When the condition includes a character, write direct testimony: "[char:Name] tells the investigator...", "Asked directly, [char:Name] admits...", "Overhearing [char:Name]..."
 - Each clue should address one checkpoint only — avoid observations that simultaneously imply answers to multiple checkpoints.
+- For time clues, use standard and precise time descriptions. "Before dawn" is useless as it's not even sure when dawn is. "After one bell..." is useless as no one knows what a "bell" is. Time clues that simply imply "a lot" of time has passed is similarly useless.
 
 GENERAL RULES:
+- Do not use salt as a commodity, trade good, or setting element. No salt warehouses, salt merchants, salt flats, salt trades, or salt-related anything. It has been overused to the point of parody.
 - Characters have a single location field — they do not move. Any character described as greeting the investigator on arrival must have location set to arrival_location.
 - The opening_narrative describes only the events leading to the investigator being summoned. No body description, no evidence.
 - Wrap character names in [char:Name], location names in [loc:location_id], and time references in [time:phrase] tags throughout all prose.
@@ -168,9 +172,9 @@ const SCHEMA = `{
       "weight": "correct" | "red_herring",
       "condition": {
         "type": one of the 5 investigator condition types,
-        "characters": [char_id] (for investigator_with_character types; empty array otherwise),
-        "location": location_id | null (for investigator_at_location types; null otherwise),
-        "item": item_id | null (for investigator_with_item types; null otherwise)
+        "characters": [char_id] (for talk_to_character types; empty array otherwise),
+        "location": location_id | null (for inspect_location types; null otherwise),
+        "item": item_id | null (for inspect_item types; null otherwise)
       },
       "text": string (1–3 sentences, [char:Name], [loc:location_id] and [time:phrase] tags, answers something AND implies next step),
       "red_herring_explanation": string | null
@@ -202,19 +206,42 @@ const SCHEMA = `{
 INTERACTION MODEL:
 The player takes discrete actions. Each action fires relevant clues immediately:
 - Move to a location: reveals NPCs present, fires no clues
-- Inspect location: fires investigator_at_location clues; also fires investigator_at_location_with_item for items in inventory; reveals items via location_discovery_text
-- Inspect item (picks it up): fires investigator_with_item clues; also fires investigator_at_location_with_item for current location
-- Talk to character: fires investigator_with_character clues
-- Ask character about item (must be holding it): fires investigator_with_character_and_item clues
+- Inspect location: fires inspect_location clues; also fires inspect_item_in_location for items in inventory; reveals items via location_discovery_text
+- Inspect item (picks it up): fires inspect_item clues; also fires inspect_item_in_location for current location
+- Talk to character: fires talk_to_character clues
+- Ask character about item (must be holding it): fires ask_character_about_item clues
 
-This means investigator_with_character_and_item clues represent the investigator showing the item to the character. The clue text should read as the character's reaction to being shown that specific item — testimony, recognition, or denial.
+This means ask_character_about_item clues represent the investigator showing the item to the character. The clue text should read as the character's reaction to being shown that specific item — testimony, recognition, or denial.
 
 CONDITION OBJECT — use exactly these 5 type strings:
-  { "type": "investigator_at_location", "characters": [], "location": location_id, "item": null }
-  { "type": "investigator_with_character", "characters": [char_id], "location": null, "item": null }
-  { "type": "investigator_with_item", "characters": [], "location": null, "item": item_id }
-  { "type": "investigator_at_location_with_item", "characters": [], "location": location_id, "item": item_id }
-  { "type": "investigator_with_character_and_item", "characters": [char_id], "location": null, "item": item_id }`
+  { "type": "inspect_location", "characters": [], "location": location_id, "item": null }
+  { "type": "talk_to_character", "characters": [char_id], "location": null, "item": null }
+  { "type": "inspect_item", "characters": [], "location": null, "item": item_id }
+  { "type": "inspect_item_in_location", "characters": [], "location": location_id, "item": item_id }
+  { "type": "ask_character_about_item", "characters": [char_id], "location": null, "item": item_id }`
+
+const GENRES = [
+  'romance',
+  'horror',
+  'comedy',
+  'tragedy',
+  'adventure',
+  'satire',
+  'melodrama',
+  'political drama',
+  'family drama',
+  'coming-of-age',
+  'farce',
+  'epic',
+  'espionage',
+  'revenge tragedy',
+  'folklore',
+  'ghost story',
+  'heist',
+  'social realism',
+  'psychological thriller',
+  'dark comedy',
+]
 
 const CAUSES_OF_DEATH = [
   'drowning',
@@ -296,12 +323,18 @@ function hashSeed(seed: string, offset: number): number {
 function generateSeed(): string {
   const nouns = [
     'tide', 'kelp', 'rope', 'lantern', 'gull', 'chalk', 'slate', 'crab',
-    'anchor', 'marrow', 'peat', 'candle', 'flint', 'salt', 'wren', 'tern',
+    'anchor', 'marrow', 'peat', 'candle', 'flint', 'wren', 'tern',
     'brine', 'mast', 'dusk', 'frost', 'spire', 'vault', 'thorn', 'ash',
+    'ember', 'copper', 'grain', 'loom', 'bell', 'forge', 'bone', 'smoke',
+    'shard', 'drum', 'ring', 'thread', 'amber', 'hook', 'blade', 'resin',
+    'hearth', 'ink', 'mirror', 'coin', 'blood', 'gate', 'lamp', 'seal',
   ]
   const adjectives = [
     'hollow', 'bitter', 'pale', 'narrow', 'crooked', 'quiet', 'sodden',
-    'sunken', 'grey', 'cold', 'salted', 'worn', 'bleak', 'steep', 'still',
+    'sunken', 'grey', 'cold', 'worn', 'bleak', 'steep', 'still',
+    'sharp', 'bright', 'deep', 'heavy', 'raw', 'low', 'dark', 'thick',
+    'lean', 'swift', 'loose', 'coarse', 'dry', 'warm', 'faded', 'broken',
+    'lost', 'gilt', 'burnt', 'scarred', 'mute', 'proud', 'old', 'blind',
   ]
   const n1 = nouns[Math.floor(Math.random() * nouns.length)]
   const n2 = nouns[Math.floor(Math.random() * nouns.length)]
@@ -315,9 +348,11 @@ function buildUserMessage(seed: string): string {
   const motive = MOTIVES[hashSeed(seed, 1) % MOTIVES.length]
   const bodyMoved = BODY_MOVED[hashSeed(seed, 2) % BODY_MOVED.length]
   const culture = CULTURES[hashSeed(seed, 3) % CULTURES.length]
+  const genre = GENRES[hashSeed(seed, 4) % GENRES.length]
 
   return `Scenario seed: ${seed}
 Culture: ${culture}
+Genre: ${genre}
 Cause of death: ${causeOfDeath}
 Motive: ${motive}
 Body moved: ${bodyMoved ? 'yes — the body was moved from the murder location before being found' : 'no — the body was found exactly where the murder occurred'}

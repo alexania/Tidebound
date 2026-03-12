@@ -230,7 +230,7 @@
       "answer": "Stabbing",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "salt_works",
         "item": null
@@ -244,7 +244,7 @@
       "answer": "Stabbing",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "irret_sou"
         ],
@@ -260,7 +260,7 @@
       "answer": "Drowning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "salt_works",
         "item": null
@@ -274,7 +274,7 @@
       "answer": "Blunt blow to the head",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "senne_arak"
         ],
@@ -290,7 +290,7 @@
       "answer": "Poisoning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "dauvek_pol"
         ],
@@ -306,7 +306,7 @@
       "answer": "The Records Room",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "records_room",
         "item": null
@@ -320,7 +320,7 @@
       "answer": "The Records Room",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "nitha_tessek"
         ],
@@ -336,7 +336,7 @@
       "answer": "The Upper Walkway",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "senne_arak"
         ],
@@ -352,7 +352,7 @@
       "answer": "The Covered Market",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "dauvek_pol"
         ],
@@ -368,7 +368,7 @@
       "answer": "The Quayside",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "irret_sou"
         ],
@@ -384,7 +384,7 @@
       "answer": "Between the second bell of night and first light",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "senne_arak"
         ],
@@ -400,7 +400,7 @@
       "answer": "Between the second bell of night and first light",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "records_room",
         "item": "salt_ledger"
@@ -414,7 +414,7 @@
       "answer": "Before the evening meal",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "maret_doun"
         ],
@@ -430,7 +430,7 @@
       "answer": "Between the evening meal and the second bell",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "dauvek_pol"
         ],
@@ -446,7 +446,7 @@
       "answer": "After first light",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "irret_sou"
         ],
@@ -462,7 +462,7 @@
       "answer": "Maret Doun",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "maret_doun"
         ],
@@ -478,7 +478,7 @@
       "answer": "Maret Doun",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "records_room",
         "item": "records_room_key"
@@ -492,7 +492,7 @@
       "answer": "Nitha Tessek",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "nitha_tessek"
         ],
@@ -508,7 +508,7 @@
       "answer": "Dauvek Pol",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "dauvek_pol"
         ],
@@ -524,7 +524,7 @@
       "answer": "Senne Arak",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "senne_arak"
         ],
@@ -540,7 +540,7 @@
       "answer": "Silencing a witness to an old crime",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "records_room",
         "item": "salt_ledger"
@@ -554,7 +554,7 @@
       "answer": "Silencing a witness to an old crime",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "irret_sou"
         ],
@@ -570,7 +570,7 @@
       "answer": "Settling a long-standing personal feud",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "nitha_tessek"
         ],
@@ -586,7 +586,7 @@
       "answer": "Preventing exposure of falsified trade accounts",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "dauvek_pol"
         ],
@@ -602,7 +602,7 @@
       "answer": "Stealing the lineage inheritance records",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "senne_arak"
         ],

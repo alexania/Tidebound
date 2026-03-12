@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import type { Scenario, CheckpointId, LocationId } from '../types/scenario'
 import type { GameState } from '../types/gameState'
 import { VillageMap } from './VillageMap'
@@ -34,6 +35,45 @@ export function GameScreen({
   showBoard, onToggleBoard,
   collapsedCards, onToggleCardCollapsed,
 }: Props) {
+  const [leftPct, setLeftPct] = useState(60)
+  const [notesHeight, setNotesHeight] = useState(330)
+  const mainRef = useRef<HTMLDivElement>(null)
+  const leftRef = useRef<HTMLDivElement>(null)
+
+  const startVerticalResize = (e: React.MouseEvent) => {
+    e.preventDefault()
+    const startX = e.clientX
+    const startWidth = leftRef.current!.offsetWidth
+
+    const onMove = (ev: MouseEvent) => {
+      const mainWidth = mainRef.current!.offsetWidth
+      const newWidth = Math.max(200, Math.min(mainWidth - 200, startWidth + ev.clientX - startX))
+      setLeftPct(newWidth / mainWidth * 100)
+    }
+    const onUp = () => {
+      document.removeEventListener('mousemove', onMove)
+      document.removeEventListener('mouseup', onUp)
+    }
+    document.addEventListener('mousemove', onMove)
+    document.addEventListener('mouseup', onUp)
+  }
+
+  const startHorizontalResize = (e: React.MouseEvent) => {
+    e.preventDefault()
+    const startY = e.clientY
+    const startHeight = notesHeight
+
+    const onMove = (ev: MouseEvent) => {
+      setNotesHeight(Math.max(80, Math.min(600, startHeight + startY - ev.clientY)))
+    }
+    const onUp = () => {
+      document.removeEventListener('mousemove', onMove)
+      document.removeEventListener('mouseup', onUp)
+    }
+    document.addEventListener('mousemove', onMove)
+    document.addEventListener('mouseup', onUp)
+  }
+
   return (
     <div className="game-screen">
       <div className="game-screen__header">
@@ -42,8 +82,8 @@ export function GameScreen({
         <span className="game-screen__turn">Action {gameState.actionCount}</span>
       </div>
 
-      <div className="game-screen__main">
-        <div className="game-screen__left">
+      <div className="game-screen__main" ref={mainRef}>
+        <div className="game-screen__left" ref={leftRef} style={{ width: `${leftPct}%` }}>
           <div className="game-screen__map">
             <VillageMap
               scenario={scenario}
@@ -55,7 +95,8 @@ export function GameScreen({
               onAsk={onAsk}
             />
           </div>
-          <div className="game-screen__notes">
+          <div className="gs-resizer gs-resizer--h" onMouseDown={startHorizontalResize} />
+          <div className="game-screen__notes" style={{ height: notesHeight }}>
             <CaseNotes
               scenario={scenario}
               gameState={gameState}
@@ -63,6 +104,9 @@ export function GameScreen({
             />
           </div>
         </div>
+
+        <div className="gs-resizer gs-resizer--v" onMouseDown={startVerticalResize} />
+
         <div className="game-screen__log">
           <ActionLog
             log={gameState.log}

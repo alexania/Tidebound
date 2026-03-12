@@ -186,8 +186,8 @@ function getFeedbackCategory(
 
     // Easy mode: clue exists but requires an item not in inventory
     if (state.difficulty === 'easy' &&
-        (clue.condition.type === 'investigator_at_location_with_item' ||
-         clue.condition.type === 'investigator_with_character_and_item') &&
+        (clue.condition.type === 'inspect_item_in_location' ||
+         clue.condition.type === 'ask_character_about_item') &&
         clue.condition.item && !state.inventory.includes(clue.condition.item)) {
       hasMissing = true
       continue
@@ -226,8 +226,7 @@ function maybeInvestigativeCompleteEntry(
   }
 }
 
-function updateLockedKeys(existing: string[], key: string, isLocked: boolean, cluesFired: boolean): string[] {
-  if (cluesFired) return existing.filter(k => k !== key)
+function updateLockedKeys(existing: string[], key: string, isLocked: boolean, _cluesFired: boolean): string[] {
   if (isLocked && !existing.includes(key)) return [...existing, key]
   if (!isLocked && existing.includes(key)) return existing.filter(k => k !== key)
   return existing
@@ -350,14 +349,14 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
     })
   }
 
-  // Fire investigator_at_location clues
+  // Fire inspect_location clues
   const atLoc = fireClues(state, scenario, ctx,
-    clue => clue.condition.type === 'investigator_at_location' && clue.condition.location === locId
+    clue => clue.condition.type === 'inspect_location' && clue.condition.location === locId
   )
 
-  // Fire investigator_at_location_with_item clues (items already in inventory)
+  // Fire inspect_item_in_location clues (items already in inventory)
   const atLocWithItem = fireClues(state, scenario, ctx,
-    clue => clue.condition.type === 'investigator_at_location_with_item' && clue.condition.location === locId
+    clue => clue.condition.type === 'inspect_item_in_location' && clue.condition.location === locId
   )
 
   const newClueIds = [...atLoc.ids, ...atLocWithItem.ids]
@@ -370,23 +369,24 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
   // but required item not in inventory — show even if other clues fired
   const missingHint = state.difficulty === 'easy' && scenario.clues.some(clue => {
     if (state.collectedClueIds.includes(clue.id) || newClueIds.includes(clue.id)) return false
-    if (clue.condition.type !== 'investigator_at_location_with_item') return false
+    if (clue.condition.type !== 'inspect_item_in_location') return false
     if (clue.condition.location !== locId) return false
     if (ACCUSATION_CHECKPOINTS.has(clue.checkpoint) && !investigativeAllConfirmed(state)) return false
     return !!clue.condition.item && !state.inventory.includes(clue.condition.item)
   })
 
-  let lockedFeedback = false
+  const locCategory = getFeedbackCategory(state, scenario,
+    clue => (clue.condition.type === 'inspect_location' && clue.condition.location === locId) ||
+            (clue.condition.type === 'inspect_item_in_location' && clue.condition.location === locId)
+  )
+  const lockedFeedback = locCategory === 'locked'
   if (missingHint) {
     newEntries.push(feedbackEntry(`log_${ac}_fb_${locId}`, ac, locId, FEEDBACK.inspect_location_missing))
   } else if (newClueIds.length === 0) {
-    const category = getFeedbackCategory(state, scenario,
-      clue => (clue.condition.type === 'investigator_at_location' && clue.condition.location === locId) ||
-              (clue.condition.type === 'investigator_at_location_with_item' && clue.condition.location === locId)
-    )
-    lockedFeedback = category === 'locked'
     const key = lockedFeedback ? 'inspect_location_locked' : 'inspect_location_empty'
     newEntries.push(feedbackEntry(`log_${ac}_fb_${locId}`, ac, locId, FEEDBACK[key]))
+  } else if (lockedFeedback) {
+    newEntries.push(feedbackEntry(`log_${ac}_fb_${locId}_locked`, ac, locId, FEEDBACK.inspect_location_locked))
   }
 
   const completeEntry = maybeInvestigativeCompleteEntry(state, scenario, newClueIds, ac)
@@ -444,18 +444,18 @@ export function inspectItem(state: GameState, scenario: Scenario, itemId: string
     inventory: newInventory,
   }
 
-  // Fire investigator_with_item clues
+  // Fire inspect_item clues
   const withItem = fireClues(
     { ...state, inventory: newInventory },
     scenario, ctx,
-    clue => clue.condition.type === 'investigator_with_item' && clue.condition.item === itemId
+    clue => clue.condition.type === 'inspect_item' && clue.condition.item === itemId
   )
 
-  // Fire investigator_at_location_with_item clues (current location + this item)
+  // Fire inspect_item_in_location clues (current location + this item)
   const atLocWithItem = fireClues(
     { ...state, inventory: newInventory },
     scenario, ctx,
-    clue => clue.condition.type === 'investigator_at_location_with_item' &&
+    clue => clue.condition.type === 'inspect_item_in_location' &&
              clue.condition.location === locId && clue.condition.item === itemId
   )
 
@@ -470,8 +470,8 @@ export function inspectItem(state: GameState, scenario: Scenario, itemId: string
     // Item was already in inventory, no new clues — show feedback
     const stateForFeedback = { ...state, inventory: newInventory }
     const category = getFeedbackCategory(stateForFeedback, scenario,
-      clue => (clue.condition.type === 'investigator_with_item' && clue.condition.item === itemId) ||
-              (clue.condition.type === 'investigator_at_location_with_item' && clue.condition.item === itemId)
+      clue => (clue.condition.type === 'inspect_item' && clue.condition.item === itemId) ||
+              (clue.condition.type === 'inspect_item_in_location' && clue.condition.item === itemId)
     )
     itemLockedFeedback = category === 'locked'
     const key = itemLockedFeedback ? 'inspect_item_locked'
@@ -508,7 +508,7 @@ export function talkToCharacter(state: GameState, scenario: Scenario, charId: st
   const ctx = makeContext(state, scenario)
 
   const { ids, entries } = fireClues(state, scenario, ctx,
-    clue => clue.condition.type === 'investigator_with_character' &&
+    clue => clue.condition.type === 'talk_to_character' &&
              (clue.condition.characters ?? []).includes(charId)
   )
 
@@ -516,17 +516,21 @@ export function talkToCharacter(state: GameState, scenario: Scenario, charId: st
   const alreadyAttempted = state.attemptedActions.includes(actionKey)
   const newEntries = [...entries]
 
-  let talkLockedFeedback = false
+  const talkCategory = getFeedbackCategory(state, scenario,
+    clue => clue.condition.type === 'talk_to_character' &&
+             (clue.condition.characters ?? []).includes(charId)
+  )
+  const talkLockedFeedback = talkCategory === 'locked'
   if (ids.length === 0) {
-    const category = getFeedbackCategory(state, scenario,
-      clue => clue.condition.type === 'investigator_with_character' &&
-               (clue.condition.characters ?? []).includes(charId)
-    )
-    talkLockedFeedback = category === 'locked'
     const key = talkLockedFeedback ? 'talk_locked' : 'talk_empty'
     newEntries.push(feedbackEntry(
       `log_${ac}_fb_${charId}`, ac, state.investigatorLocation,
       formatFeedback(FEEDBACK[key], { name: char.name })
+    ))
+  } else if (talkLockedFeedback) {
+    newEntries.push(feedbackEntry(
+      `log_${ac}_fb_${charId}_locked`, ac, state.investigatorLocation,
+      formatFeedback(FEEDBACK.talk_locked, { name: char.name })
     ))
   }
 
@@ -561,7 +565,7 @@ export function askCharacterAboutItem(
   const ctx = makeContext(state, scenario)
 
   const { ids, entries } = fireClues(state, scenario, ctx,
-    clue => clue.condition.type === 'investigator_with_character_and_item' &&
+    clue => clue.condition.type === 'ask_character_about_item' &&
              (clue.condition.characters ?? []).includes(charId) && clue.condition.item === itemId
   )
 
@@ -569,17 +573,21 @@ export function askCharacterAboutItem(
   const alreadyAttempted = state.attemptedActions.includes(actionKey)
   const newEntries = [...entries]
 
-  let askLockedFeedback = false
+  const askCategory = getFeedbackCategory(state, scenario,
+    clue => clue.condition.type === 'ask_character_about_item' &&
+             (clue.condition.characters ?? []).includes(charId) && clue.condition.item === itemId
+  )
+  const askLockedFeedback = askCategory === 'locked'
   if (ids.length === 0) {
-    const category = getFeedbackCategory(state, scenario,
-      clue => clue.condition.type === 'investigator_with_character_and_item' &&
-               (clue.condition.characters ?? []).includes(charId) && clue.condition.item === itemId
-    )
-    askLockedFeedback = category === 'locked'
     const key = askLockedFeedback ? 'ask_locked' : 'ask_empty'
     newEntries.push(feedbackEntry(
       `log_${ac}_fb_${charId}_${itemId}`, ac, state.investigatorLocation,
       formatFeedback(FEEDBACK[key], { name: char.name })
+    ))
+  } else if (askLockedFeedback) {
+    newEntries.push(feedbackEntry(
+      `log_${ac}_fb_${charId}_${itemId}_locked`, ac, state.investigatorLocation,
+      formatFeedback(FEEDBACK.ask_locked, { name: char.name })
     ))
   }
 

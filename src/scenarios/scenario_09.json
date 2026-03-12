@@ -251,7 +251,7 @@
       "answer": "blunt force trauma",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "salt_store",
         "item": null
@@ -265,7 +265,7 @@
       "answer": "blunt force trauma",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "mooring_pin"
@@ -279,7 +279,7 @@
       "answer": "strangulation",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "nessa_tallow"
         ],
@@ -295,7 +295,7 @@
       "answer": "drowning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "salt_store",
         "item": null
@@ -309,7 +309,7 @@
       "answer": "poisoning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "reverend_crowe"
         ],
@@ -325,7 +325,7 @@
       "answer": "Headland Salt-Store",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "salt_store",
         "item": null
@@ -339,7 +339,7 @@
       "answer": "Headland Salt-Store",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "nessa_tallow"
         ],
@@ -355,7 +355,7 @@
       "answer": "Headland Path",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "headland_path",
         "item": null
@@ -369,7 +369,7 @@
       "answer": "The Anchor Inn",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "anchor_inn",
         "item": "empty_notebook_case"
@@ -383,7 +383,7 @@
       "answer": "Harbour Office",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "pasco_tregidden"
         ],
@@ -399,7 +399,7 @@
       "answer": "between ten and eleven o'clock at night",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "miriam_quist"
         ],
@@ -415,7 +415,7 @@
       "answer": "between ten and eleven o'clock at night",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "nessa_tallow"
         ],
@@ -431,7 +431,7 @@
       "answer": "between eight and nine o'clock at night",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "reverend_crowe"
         ],
@@ -447,7 +447,7 @@
       "answer": "between midnight and one o'clock in the morning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "dorothea_penrose"
         ],
@@ -463,7 +463,7 @@
       "answer": "between two and three o'clock in the morning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "salt_store",
         "item": null
@@ -477,7 +477,7 @@
       "answer": "Edmund Voss",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "harbour_office",
         "item": "harbour_stamp_register"
@@ -491,7 +491,7 @@
       "answer": "Edmund Voss",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "miriam_quist"
         ],
@@ -507,7 +507,7 @@
       "answer": "Nessa Tallow",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "pasco_tregidden"
         ],
@@ -523,7 +523,7 @@
       "answer": "Pasco Tregidden",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "pasco_tregidden"
         ],
@@ -539,7 +539,7 @@
       "answer": "Reverend Silas Crowe",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "church",
         "item": null
@@ -553,7 +553,7 @@
       "answer": "preventing exposure of a false identity",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "reverend_crowe"
         ],
@@ -569,7 +569,7 @@
       "answer": "preventing exposure of a false identity",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "anchor_inn",
         "item": "empty_notebook_case"
@@ -583,7 +583,7 @@
       "answer": "concealing theft of harbour funds",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "pasco_tregidden"
         ],
@@ -599,7 +599,7 @@
       "answer": "revenge for a property dispute",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "nessa_tallow"
         ],
@@ -615,7 +615,7 @@
       "answer": "protecting a family secret about inheritance",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "dorothea_penrose"
         ],

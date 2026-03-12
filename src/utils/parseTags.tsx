@@ -1,7 +1,7 @@
 import React from 'react'
 
 function formatLocationId(id: string): string {
-  return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+  return id.replace(/_/g, ' ').replace(/(^|\s)\w/g, c => c.toUpperCase())
 }
 
 export function buildLocationNames(locations: { id: string; name?: string }[]): Record<string, string> {

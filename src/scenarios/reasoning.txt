@@ -1,415 +1,196 @@
-<story>
 STEP 1 — SETTING
-Seed: bitter-marrow-tern-102 — "bitter" evokes cold, resentment, something gnawed down to bone; "marrow" suggests depths, ancestry, something vital extracted; "tern" is a seabird of coastal cliffs; "102" is just a number.
-The Orrish: A cold-water culture with strict ancestor veneration. I imagine them as a northern-Atlantic-analog society — think Norse/Faroese/Gaelic edge. They live on sea-cliff settlements, venerate carved bone ancestor-pillars, and have a caste of Bone-Speakers (priests who interpret ancestor will through carved marrow-tokens). Their society is deeply conservative; defiance of ancestral decree is the gravest sin.
-Location: Greyspine Reach — a jagged coastal promontory in late autumn. A small Orrish settlement clings to the clifftops above a cold sea. The dominant feature: the Spire of Moored Voices, a tall natural sea-stack connected to the clifftop by a narrow land bridge, where the community's ancestor pillars stand. Fog rolls in from the sea every morning.
-Season: Autumn
-Weather: Sea-fog and iron sleet
-Arrival location: The harbour steps — the investigator arrives by boat
+Location: Hreiðarvik — a small Norse fishing village clinging to a rocky fjord inlet on the western coast of Norway, late autumn. The sea is iron-grey, the hills stripped bare, and salted wind tears through the smoke-holes of longhouses. The village smells of fish guts, wet wool, and ambition. The seed "quiet-shard-anchor" suggests something precious and sharp, something that holds fast — a reputation, perhaps, or a betrothal contract nobody wanted to honour.
+Season: Autumn. The herring run is ending. Men are hauling nets for the last time before winter locks the fjord.
+Weather: A low iron sky pressing fog into the valley.
+Arrival location: The dock — the only sensible place a visiting official arrives by sea.
+Tone (Satire): Everyone in this village is absurdly invested in social hierarchy, matrimonial alliances, and the appearance of piety. The murder is the most consequential thing that has ever happened here, and half the village is furious about it mainly because it disrupted the wedding feast preparations. Characters talk around the point. Witnesses remember things only when it suits them. The powerful insist on their dignity even while obviously lying.
 
 STEP 2 — CRIME
-Victim: Eredan Volke, the community's Bone-Speaker (high priest of ancestor veneration). Male, 60s, gaunt, revered. Found dead at the base of the Spire of Moored Voices — fallen from the top of the sea-stack where the ancestor pillars stand.
-Perpetrator: Solvaine Drest, Eredan's apprentice and designated successor. Female, 30s. Deeply committed to the old faith.
-Why: Eredan had been secretly composing a theological text arguing that the ancestor pillars should be moved inland — that the sea's encroachment was a sign the ancestors wished to relocate, and that the community should follow. To Solvaine, this was not just wrong but a cosmic betrayal — the Orrish believe the ancestors are literally anchored to the place where their bones rest. Moving the pillars would "unmoor" the ancestors, condemning them and all living descendants. Solvaine killed Eredan out of genuine religious conviction: she could not allow him to enact this heresy.
-Method: During the pre-dawn ancestor observance — a ritual only Solvaine and Eredan perform together — Solvaine pushed Eredan from the top of the Spire. The fall killed him. Body not moved.
-Time window: Between [time:second bell and dawn] (roughly 2–4 hours before sunrise).
-Unavoidable traces:
+Victim: Ulfhéðinn "Ulfi" Brandsson — a young fisherman of good reputation, recently betrothed to Astríðr Hallsdóttir, daughter of the wealthiest man in the village, Hallr Sigurðsson. Ulfi was handsome, charming, and deeply unsuitable by any objective measure of property or bloodline. He had no land. He was beloved by Astríðr and nobody else of importance.
+Perpetrator: Hallr Sigurðsson — Astríðr's father, the wealthiest merchant in Hreiðarvik, owner of two longships and a salt warehouse. He had been pressured by his wife into accepting the betrothal — Astríðr threatened to "walk into the fjord" if denied — but Hallr never accepted it. He had secretly arranged a far more advantageous match: Astríðr to Þorvarðr Egilsson, son of a powerful chieftain two fjords over. The wedding with Ulfi was set for three days' time. Hallr panicked.
+Method: Garrotting with a length of braided horsehair cord — the kind used to lash cargo in Hallr's warehouse.
+Murder location: The salt warehouse (by the dock).
+Body found location: The salt warehouse — body was NOT moved.
+Time window: Between [time:late evening] and [time:before dawn] — the night two days before the planned wedding.
+The two things the perpetrator could not avoid:
 
-The ancestor observance is a two-person ritual — only Solvaine could have been present. But she claims Eredan sent her away early, saying he wished to commune alone. This is her innocent explanation. The investigator must find a witness who saw the two of them ascending together and no one descending alone before the body was found.
-Eredan's satchel, left at the top of the Spire, contains his heretical manuscript. Solvaine claims she knew nothing of it. But the manuscript has a page with notes in two handwritings — Eredan's and Solvaine's own — showing she had read and annotated it. This is the ideological motive, and disproves her claim of ignorance.
-
-What the perpetrator could not avoid:
-
-Being the only one who could have been on the Spire with Eredan at that hour
-Her own handwriting in the manuscript she claims not to know about
+The cord. Braided horsehair lashing cord is specific to Hallr's warehouse — it's used to bundle salt sacks. It is not standard fishing cordage. The perpetrator's innocent explanation: "anyone in the village could have taken a length from the warehouse, the door is never locked." The investigator must demonstrate that a specific length was recently cut from a spool still in the warehouse.
+Hallr was seen by one character near the warehouse that night. His innocent explanation: "I heard a noise and went to check." The investigator must establish the noise story is impossible — because the only witness to Hallr's presence was returning from the opposite direction and would have seen Hallr leaving the warehouse, not arriving.
 
 
 STEP 3 — CHARACTERS & RELATIONS
 
-Eredan Volke (victim) — Bone-Speaker, age ~65, found at base of the Spire. Body at the Spire.
-Solvaine Drest (perpetrator) — Eredan's apprentice, stationed at the Ancestor Hall where she has retreated after "finding" the body. Claims she left the Spire early at Eredan's request. Concealing: that she was present at time of death, that she knew about the manuscript, that she killed him.
-Orric Vann — Harbour-master, male, 50s. Fixed at the harbour. He was awake before dawn tending to a moored vessel. He saw Solvaine and Eredan ascending the land bridge to the Spire together at second bell. Knows: what he saw. Concealing: nothing directly. Suspects: foul play but doesn't know by whom. His stated motive for suspicion: he and Eredan had a long-running dispute over harbour dues the temple claimed exemption from. He has reason to want Eredan gone, making him a suspect.
-Brynn Ossler — Elder widow, female, 70s, the community's genealogy-keeper. Fixed at the Records House. She knows about the manuscript — Eredan discussed his ideas with her months ago, seeking her blessing. She didn't give it. She conceals: how strongly she opposed the relocation idea, making her a suspect for motive. Knows: the contents of Eredan's plans, and that he had an annotated draft.
-Tauvek Drest — Solvaine's younger brother, male, 20s. A fisher. Fixed at the fish-smoking shed near the harbour. Provides a false alibi for Solvaine (says he saw her at the Ancestor Hall during the time of death). Concealing: the alibi is a lie to protect his sister, but he doesn't know she's guilty — he just assumes she's being unfairly suspected. Motive appearance: none, but his sister is accused.
-Maret Colne — A young stonecutter, female, late 20s. Fixed at the Cliff Workshop (where the ancestor pillars are carved and stored before placement). She found the body at dawn and raised the alarm. She had been secretly in love with Eredan's position — not him personally, but she'd hoped to be named an acolyte. Concealing: that she had rifled through the Spire's ceremonial box before raising the alarm (looking for the acolyte appointment she'd been promised — she found nothing). Motive appearance: could have wanted Eredan dead if he'd revoked a promise.
+Ulfhéðinn "Ulfi" Brandsson — victim, young fisherman, isVictim: true. Location: salt_warehouse (body found here). Description: Compact, dark-haired, lying face-down near a salt cask with a deep furrow across his neck. His hands are curled as though reaching for something he did not find.
+Hallr Sigurðsson — perpetrator, merchant, wealthy, self-important. Location: mead_hall (his hall, centre of the village — he is holding court, visibly unconcerned, which is itself suspicious). Description: A broad man in a fur-trimmed cloak, accepting condolences with a funerary expression that never quite reaches his eyes. He speaks in the measured tones of a man explaining something obvious to a child.
+Astríðr Hallsdóttir — victim's betrothed, Hallr's daughter, devastated. Location: family_longhouse (the Hallr family home). Description: Red-eyed, wrapped in a grey wool shawl, sitting very still in a way that suggests she stopped moving some hours ago and hasn't decided whether to start again. She speaks in short, clipped sentences.
+Brynja Ulfkelsdóttir — midwife and village gossip, knows everything about everyone, slightly enjoys crises. Location: healer_hut (near the edge of the village). Description: A wiry woman of middle age with ink-stained fingers from her herb lists. She has the particular brightness of expression belonging to someone who has been waiting for someone to ask her something.
+Þormóðr the Younger — dockworker, Ulfi's closest friend, found the body. Location: docks. Description: A large young man sitting on a coil of rope, looking like he has been punched in the stomach by the universe itself. He keeps glancing at the warehouse door.
+Sigríðr Magnúsdóttir — Hallr's thrall, works in the warehouse, sees everything, says very little — until offered the right question. Location: salt_warehouse (she was the one who found the body alongside Þormóðr, and cannot bring herself to leave yet). Description: A thin woman in a worn blue dress, standing very close to the wall, watching the investigator with the careful attention of someone used to being overlooked.
+Þorvarðr Egilsson — the rival suitor from out of town, recently arrived, visibly awkward about the timing. Location: mead_hall (he came for the wedding negotiation; now he's trapped here until the investigation concludes). Description: A well-dressed young man who keeps straightening his belt buckle and not meeting anyone's eyes. He smells of horse and has the look of someone who travelled a very long way to be in a very uncomfortable situation.
 
-Relations (public):
+Relations:
 
-Solvaine Drest → Eredan Volke: "apprentice of"
-Tauvek Drest → Solvaine Drest: "brother of"
-Maret Colne → Eredan Volke: "acolyte-candidate of"
-Brynn Ossler → Eredan Volke: "elder councillor to"
-Orric Vann → Eredan Volke: "in dispute with"
+Hallr → Astríðr: "father of"
+Astríðr → Ulfi: "betrothed to"
+Þormóðr → Ulfi: "closest friend of"
+Hallr → Sigríðr: "owns" (thrall)
+Hallr → Þorvarðr: "negotiating alliance with"
+Þorvarðr → Astríðr: "proposed match for"
 
-Locations:
-
-harbour_steps (arrival) — col:1, row:2 — where Orric Vann is
-ancestor_hall — col:0, row:1 — where Solvaine Drest is
-spire_base — col:2, row:0 — body found here (bottom of sea-stack, Maret Colne is here)
-spire_top — col:2, row:1 — top of sea-stack, murder location, where satchel/manuscript is
-records_house — col:0, row:0 — Brynn Ossler
-fish_shed — col:1, row:1 — Tauvek Drest
-cliff_workshop — col:1, row:0 — stonecutter workshop, no character (Maret was here at dawn but is now at spire_base)
-
-Actually, I want Maret at the cliff_workshop — she's returned there after raising the alarm. Let me redistribute.
-Characters and fixed locations:
-
-Solvaine Drest → ancestor_hall (col:0, row:1)
-Brynn Ossler → records_house (col:0, row:0)
-Orric Vann → harbour_steps (col:1, row:2)
-Tauvek Drest → fish_shed (col:1, row:1)
-Maret Colne → cliff_workshop (col:1, row:0)
-Eredan Volke (victim) → spire_base (col:2, row:0) [body found here]
-
-Spire_top is a location without a character — that's fine, the satchel/manuscript is there.
-7 locations total:
-
-records_house (0,0)
-ancestor_hall (0,1)
-harbour_steps (1,2) ← arrival
-fish_shed (1,1)
-cliff_workshop (1,0)
-spire_base (2,0)
-spire_top (2,1)
-
-Adjacencies:
-
-records_house ↔ ancestor_hall
-ancestor_hall ↔ fish_shed
-harbour_steps ↔ fish_shed
-fish_shed ↔ cliff_workshop
-cliff_workshop ↔ spire_base
-spire_base ↔ spire_top
-records_house ↔ cliff_workshop
-
-That's 7 adjacencies — within range.
 
 STEP 4 — CLUE PLAN
-CHECKPOINT: cause_of_death
-True answer: Fall from height
-Correct Clue 1 (COD-C1): investigator_at_location, spire_base
+CAUSE OF DEATH: Garrotting with a cord or wire
+Answer options: Stabbing with a fishing knife | Blunt blow to the skull | Garrotting with a cord or wire | Drowning in the fjord | Poisoning by herb or tincture
+Correct Clue 1 — inspect_location (salt_warehouse)
+Condition: Investigator inspects the salt warehouse.
+Observation: The furrow across the victim's neck is deep and horizontal, with dark bruising in a continuous line — no puncture, no blood pooling. Near the body, a short length of braided cord lies coiled, frayed at both ends where it was separated from something longer.
+Discoverability: The body is in the warehouse. Players will inspect the crime scene.
+Correct Clue 2 — talk_to_character (Brynja)
+Condition: Investigator talks to Brynja at the healer_hut.
+Observation: Brynja examined the body briefly at dawn before it was sealed away. She says the bruising pattern across Ulfi's throat was a closed-band mark, not the open bruising of a blow or the petechiae of drowning — she has seen drowning before, she says, and it leaves different signs in the face.
+Discoverability: Lead #1 directs the player to Brynja as the person who examined the body.
+Red Herring 1 — stabbing
+Þormóðr, when talked to, says Ulfi had an argument with a fisherman over a knife the week before. Someone's been spreading this around. (Points at Stabbing.)
+Red Herring 2 — blunt blow
+Inspect the warehouse: a heavy salt cask has been knocked over near the body. (Points at Blunt blow.)
+Red Herring 3 — drowning
+Astríðr, when talked to, mentions that Ulfi was drunk the night before and stumbled near the dock. Someone could mistake a drowned man for a strangled one. (Points at Drowning.)
 
-Observation: The body is at the base of the sea-stack. The investigator examines it and observes injuries — severe fractures to the back of the skull and both legs consistent with vertical impact, no wounds to the front of the body, hands undamaged (no defensive marks, no scratch marks from grasping). The stone directly below the Spire's upper platform is directly above.
-Discoverability: The investigator arrives at harbour_steps. Lead 1 points to the body at spire_base. The investigator moves there and examines the scene.
+TRUE LOCATION: Where the murder actually took place
+Answer options: The salt warehouse | The docks | The mead hall | The healer's hut | Behind the family longhouse
+Correct Clue 1 — inspect_location (salt_warehouse)
+Condition: Investigator inspects the salt warehouse.
+Observation: Drag marks in the salt dust on the floor would be present if someone had been moved — but the floor shows only a single scuffed area near the body, with no trail. The body's position is compact, facing the wall.
+Discoverability: Body is here; players will inspect.
+Correct Clue 2 — talk_to_character (Sigríðr)
+Condition: Investigator talks to Sigríðr at the salt warehouse.
+Observation: Sigríðr says she found the body when she came to open the warehouse at dawn. The bar was down on the inside — she had to go around and come through the side entrance. She had left the bar up the previous evening.
+Discoverability: Sigríðr is in the warehouse at game start. Players will talk to her.
+Red Herring 1 — docks
+Þormóðr mentions Ulfi told him he was going to the docks that evening to check the nets. (Points at Docks.)
+Red Herring 2 — behind the family longhouse
+Inspect the area behind the longhouse: footprints in the mud lead toward the warehouse, suggesting a meeting was planned there. (Points at Family longhouse.)
+Red Herring 3 — mead hall
+Þorvarðr says he saw Ulfi heading toward the mead hall shortly after dusk. (Points at Mead Hall.)
 
-Correct Clue 2 (COD-C2): investigator_at_location, spire_top
+TIME OF DEATH: When Ulfi was killed
+Answer options: Before dusk | Shortly after dusk | In the middle of the night | Before dawn | After dawn
+Correct Clue 1 — inspect_item (the_cord)
+Condition: Investigator inspects the braided cord item.
+Observation: The cord is stiff and the braiding has begun to set in the cold — when bent, it resists at a particular angle, the way cordage does after several hours in a frost-cold room. The salt warehouse drops to near-freezing after [time:midnight].
+Discoverability: Cord is found at salt_warehouse on inspection.
+Correct Clue 2 — talk_to_character (Brynja)
+Observation: Brynja tells the investigator that when she examined the body at first light, the flesh around the wound had already begun to stiffen, and the body had lost warmth throughout — not merely at the extremities. She says this takes several hours in cold air.
+(Together: these establish death several hours before dawn — placing it in the middle of the night, ruling out before dawn and after dawn as too late, ruling out before/shortly after dusk because the cord rigidity requires hours at near-freezing temperature which only occurs after midnight.)
+Discoverability: Lead #1 sends players to Brynja.
+Wrong option eliminations:
 
-requires_clue_id: COD-C1 (need to know about the body first to think about going to the top)
-Observation: The investigator finds, at the top of the Spire, the stone platform. The outer railing — a rope-and-post arrangement — is intact with no damage. The stone lip at the edge shows a scrape of dark fabric fibre. Below this point is directly where the body lies.
-Discoverability: COD-C1's text references "the stone directly above" and the Spire's top, prompting the investigator to ascend.
+"Before dusk" — eliminated by Sigríðr's testimony: she was in the warehouse at dusk and the body was not there.
+"Shortly after dusk" — eliminated by cord stiffness: insufficient time in cold air.
+"Before dawn" — eliminated by Brynja: body warmth lost throughout, requiring several hours, not just one.
+"After dawn" — eliminated by Sigríðr: she found the body at dawn, so it cannot postdate her discovery.
 
-Red Herring 1 (COD-RH1): Wrong answer: Drowned — investigator_at_location, harbour_steps
+Red Herring 1 — before dusk
+Inspect the dock: someone reports seeing Ulfi alive "in the afternoon." (Points at Before dusk.)
+Red Herring 2 — shortly after dusk
+Þormóðr says Ulfi came home from the dock and seemed fine at supper, "as the sun went down." (Points at Shortly after dusk.)
+Red Herring 3 — before dawn
+Astríðr says she heard footsteps outside her longhouse "in the deep dark before dawn." (Points at Before dawn.)
 
-Orric Vann mentions that when bodies go into the sea near here, they wash up at the base of the Reach with waterlogged lungs. He says the tides were particularly strong that night. Misleading: implies the body might have come from the water.
-red_herring_explanation: Orric's observation about tides and sea-deaths near the Reach implies the victim may have drowned, but the body's injuries and dry condition are inconsistent with drowning.
+PERPETRATOR: Who killed Ulfi
+Answer options: Hallr Sigurðsson | Astríðr Hallsdóttir | Þormóðr the Younger | Þorvarðr Egilsson | Sigríðr Magnúsdóttir | Brynja Ulfkelsdóttir
+Correct Clue 1 — ask_character_about_item (Sigríðr, the_cord)
+Condition: Investigator shows the cord to Sigríðr.
+Observation: Sigríðr examines the cord and says this length matches the lashing cord from the large spool by the door — and that the previous morning, the spool was intact. She watched Hallr take a length from it [time:the evening before the body was found], "to tie something down," he said.
+Discoverability: Brynja's clue (in true_location discovery) mentions that the cord type is warehouse cord. Sigríðr is in the warehouse. Natural action is to show her the cord.
+Actually — I need to restructure this. The cord starts in the warehouse. The player picks it up. Sigríðr is also in the warehouse. Lead #3 should hint that Sigríðr knows the warehouse inventory.
+Correct Clue 2 — inspect_item_in_location (the_cord, healer_hut → actually I need this at a different location)
+Let me re-plan:
+Correct Clue 2 — talk_to_character (Þorvarðr)
+Condition: Investigator talks to Þorvarðr at the mead hall.
+Observation: Þorvarðr, visibly uncomfortable, admits that Hallr summoned him [time:two days ago] to confirm their arrangement — that Astríðr would be his wife, and that Hallr had said "the obstacle will be removed." Þorvarðr assumed this was metaphor. He now appears to be revising this assumption in real time.
+Discoverability: Lead #2 points the player toward the mead hall and mentions Þorvarðr arrived recently for "negotiations." Players investigating the arranged marriage angle will talk to him.
+Red Herrings:
 
-Red Herring 2 (COD-RH2): Wrong answer: Struck by a blunt instrument — investigator_with_character, Brynn Ossler
+Points at Þormóðr: he found the body and had access; Þormóðr acts nervous (actually grief)
+Points at Þorvarðr: he had motive (wanting the match secured) and was seen near the dock area
+Points at Sigríðr: she had access to the warehouse and was first at the scene
 
-Brynn tells the investigator that the Bone-Speakers carry a ceremonial maul for driving pillar stakes. She says Eredan always carried his maul on Spire observances. Misleading: implies the maul (a blunt instrument) may have been the weapon.
-red_herring_explanation: Brynn's description of the ceremonial maul implies it could have been used as a weapon, but the actual cause of death is a fall.
 
-Red Herring 3 (COD-RH3): Wrong answer: Exposure/cold — investigator_with_item, the_maul (item found at spire_top, which has no blood on it, but it's very cold/frosty — player might think exposure)
+MOTIVE: Why Ulfi was killed
+Answer options: To claim Ulfi's fishing catch | To prevent a debt from being repaid | To prevent the marriage and secure a better match | To avenge a family insult | To silence a witness to a crime | To inherit property
+Correct Clue 1 — talk_to_character (Astríðr)
+Condition: Investigator talks to Astríðr at the family longhouse.
+Observation: Astríðr tells the investigator that her father never once smiled at her betrothal announcement, and that three days ago she overheard him telling someone that "a better offer has come from the east." She does not name who the offer came from.
+Discoverability: Astríðr is in the family longhouse. She is the victim's betrothed. Any player investigating the murder will want to speak to her.
+Correct Clue 2 — ask_character_about_item (Þorvarðr, betrothal_token)
+Condition: Investigator shows betrothal token to Þorvarðr.
+Observation: Þorvarðr identifies the silver ring as an Egilsson betrothal token — his family's design, given by his father to Hallr two weeks ago as a formal pledge of the match between Þorvarðr and Astríðr. He is surprised the investigator has it; he assumed Hallr kept it locked away.
+Discoverability: The betrothal token is found at Hallr's location (mead hall) on inspection. Þorvarðr is also in the mead hall. Natural sequence: inspect mead hall, find token, show to Þorvarðr.
+Red Herrings:
 
-Actually let me use: investigator_at_location_with_item where the item is the frost_cloak (Eredan's ceremonial cloak found near the body, soaking wet from the sea spray — player might think he died of cold or was in the water)
-Hmm, I need to be careful about conditions being meaningful. Let me keep this simpler: investigator_with_character, Maret Colne — she says when she found him, his lips were blue and his skin was like ice. Misleading: implies exposure/cold.
-red_herring_explanation: Maret's observation about Eredan's blue lips and cold skin could suggest death by exposure, but is a natural result of the cold weather and time elapsed since death.
+Points at "to silence a witness": Brynja mentions Ulfi saw something at the dock recently (misdirection)
+Points at "to avenge a family insult": rumour that Ulfi's father once cheated Hallr in a salt trade
+Points at "to claim property": Ulfi had recently acquired a small boat, which passes to Hallr as next-of-kin if Astríðr inherits nothing
 
-Answer options: Fall from height / Drowned / Struck by a blunt instrument / Exposure to cold / Stabbed
-
-CHECKPOINT: true_location
-True answer: Spire top (the murder happened at the top of the Spire)
-Correct Clue 1 (TL-C1): investigator_at_location, spire_top
-
-Observation: At the very edge of the platform, a piece of dark wool fabric is caught on a splintered post. The fabric matches the colour and weave of Eredan's outer robe. Directly below this post is the stone apron where the body was found.
-Discoverability: COD-C1 establishes the body at the base and prompts going up. Lead 2 explicitly mentions the Spire platform as where the ritual was performed.
-
-Correct Clue 2 (TL-C2): investigator_with_character_and_item (Solvaine Drest + the_satchel)
-
-The satchel is found at spire_top. After collecting it (investigator_with_item / investigator_at_location), bring it to Solvaine.
-requires_clue_id: TL-C1 (satchel found while examining the spire_top)
-Actually, let me make TL-C2 a separate condition. The satchel starts at spire_top. investigator_at_location_with_item condition would require the investigator to be at spire_top with the satchel — but the satchel is already there, so this is just "pick up satchel while at spire_top."
-Better: TL-C2 condition = investigator_at_location_with_item, spire_top, the_satchel. Player is already at spire_top (having gone there for TL-C1), the satchel is there. Observation: inside the satchel is a manuscript in Eredan's hand, along with his personal bone-token — items he would never have left behind willingly, and which confirm he was present on the platform.
-requires_clue_id: TL-C1
-
-Red Herring 1 (TL-RH1): Wrong answer: The ancestor hall — Tauvek Drest tells the investigator he heard raised voices from the direction of the Ancestor Hall at second bell. Misleading: implies a confrontation at the Ancestor Hall.
-Red Herring 2 (TL-RH2): Wrong answer: The cliff workshop — investigator_at_location, cliff_workshop — the investigator finds Eredan's walking staff leaning against the workshop wall, suggesting he may have been here. Misleading: the staff was left there days earlier; Maret can't explain it, making it seem suspicious.
-Red Herring 3 (TL-RH3): Wrong answer: The harbour steps — Orric Vann says he saw Eredan pause at the harbour steps briefly at first bell. Misleading: could imply a confrontation or something at the harbour.
-Answer options: The top of the Spire of Moored Voices / The ancestor hall / The cliff workshop / The harbour steps / The fish-smoking shed
-
-CHECKPOINT: time_of_death
-True answer: Between second bell and dawn
-Correct Clue 1 (TOD-C1): investigator_with_character, Orric Vann
-
-Orric tells the investigator he saw both Eredan and Solvaine crossing the land bridge toward the Spire together at second bell, both walking, Eredan carrying his satchel. He did not see either of them return before he went inside.
-Discoverability: Lead 3 says the harbour-master was on the dock before dawn and may have seen something.
-
-Correct Clue 2 (TOD-C2): investigator_with_character, Maret Colne
-
-Maret says she came to begin work at the cliff workshop at first light and heard nothing from the Spire. At dawn, she saw the body when the mist lifted. She had passed the base of the Spire at first bell (before second bell) and the area was empty.
-Discoverability: She found the body — this is mentioned in the opening narrative.
-
-Red Herring 1 (TOD-RH1): Wrong answer: After dawn — Brynn Ossler says she heard the alarm bell rung at dawn, and that the body could have been put there any time before she looked out.
-
-red_herring_explanation: Brynn's speculation implies the death could have occurred after dawn, but this is her own guess and contradicted by witness testimony.
-
-Red Herring 2 (TOD-RH2): Wrong answer: Before first bell — investigator_at_location, spire_base — the investigator notes frost on the body and that the fog has been present since before first bell.
-
-red_herring_explanation: The frost on the body could suggest death occurred very early (before first bell), but the frost accumulated after death during the cold night.
-
-Red Herring 3 (TOD-RH3): Wrong answer: Between first bell and second bell — Tauvek Drest says he heard footsteps on the cliff path between first and second bell — could imply the death occurred then.
-
-red_herring_explanation: Tauvek's claim about footsteps between first and second bell implies a different time window, but Maret confirmed the area was empty at first bell, and Orric saw both victims walking together at second bell.
-
-Answer options: Before first bell / Between first bell and second bell / Between second bell and dawn / After dawn / At midnight
-Timing elimination check:
-
-"Before first bell": Maret passed the base at first bell and area was empty (contradicts death before first bell? No — if body was already there at first bell, area wouldn't be empty... actually "empty" could mean no body. Let me restate: Maret passed the base of the Spire at first bell and saw no one and nothing on the ground. So the death occurred after first bell. ✓
-"Between first bell and second bell": Orric saw both walking alive at second bell — contradicts death between first and second bell. ✓
-"After dawn": Maret saw the body at dawn (it was already there) — contradicts death after dawn. ✓
-"At midnight": Orric saw them walking at second bell (after midnight) — if midnight is before second bell, this contradicts. I'll define second bell as roughly 2am, first bell as roughly midnight. So: midnight = first bell. Let me reframe: first bell = midnight, second bell = ~2am, dawn = ~7am. Then "At midnight" = at first bell. Maret was at the base at first bell and nothing was there. ✓ Also Orric saw them going up at second bell, contradicts death at midnight.
-
-All wrong options are contradicted. ✓
-
-CHECKPOINT: perpetrator
-True answer: Solvaine Drest
-Correct Clue 1 (PERP-C1): investigator_with_character, Orric Vann
-
-Wait, I'm already using Orric for TOD-C1. Can a character be used in multiple clues? Yes, different clues can have the same character. But I need to be careful not to conflate them.
-Actually, TOD-C1 with Orric establishes both the time window AND that both Solvaine and Eredan went up together. The clue text for TOD-C1 can address time of death, but separately I need a clue that establishes Solvaine as perpetrator.
-Let me think: PERP-C1 should address that Solvaine was the last person with Eredan. But if TOD-C1 already establishes that they went up together... I need to be careful. The clue texts address different checkpoints. TOD-C1's text is filed under time_of_death. A separate perpetrator clue with Orric is fine if the text specifically points at Solvaine.
-
-Actually, using the same character twice is legitimate. But let me consider another approach for PERP-C1.
-PERP-C1: investigator_with_character_and_item (Brynn Ossler + the_manuscript)
-
-The manuscript is in the satchel at spire_top. After collecting the satchel and reading the manuscript (TL-C2 already fires at spire_top_with_satchel), bring the manuscript to Brynn.
-Wait, the satchel IS the item for TL-C2. The manuscript could be a separate item inside the satchel... Let me make the manuscript a separate item with starting_location spire_top, and the satchel also at spire_top.
-PERP-C1: investigator_with_character_and_item, Brynn Ossler, the_manuscript
-requires_clue_id: (needs player to have gotten to spire_top first, so requires TL-C1)
-Observation: Brynn, looking at the manuscript, tells the investigator that the annotations in the margin are in Solvaine Drest's handwriting — she recognises it from years of reading Solvaine's records submissions. She points out three margin notes in a different hand from the body text.
-Discoverability: TL-C1 text mentions the satchel and manuscript on the platform. TL-C2 (spire_top_with_satchel) notes the manuscript has annotations in a second handwriting. Lead / clue text prompts bringing it to Brynn who keeps records and would know handwriting. The records_house description or Brynn's description can mention she verifies official documents.
-
-PERP-C2: investigator_with_character, Orric Vann (different from TOD-C1 because that clue addresses time, this one addresses perpetrator)
-
-Wait, Orric for TOD-C1 already establishes "I saw them go up together." A separate perpetrator clue from Orric would be: "I saw Solvaine come down alone shortly before dawn, without Eredan." This is suspicious because she claimed she left early alone at Eredan's request, but going down alone shortly before dawn contradicts her timeline (she should have left hours earlier).
-Actually this is good and distinct from TOD-C1. TOD-C1 establishes they went up at second bell. PERP-C2 establishes Solvaine came down alone just before dawn (5+ hours later), contradicting her story of leaving early.
-requires_clue_id: null (immediately available)
-
-Wait — but I said PERP-C1 uses Orric for perpetrator too. Let me reorganise:
-PERP-C1: investigator_with_character, Orric Vann — "I saw Solvaine come down from the Spire alone, just before the alarm was raised at dawn. She was moving quickly and her outer robe had a dark stain on the sleeve." This is the suspicious observation; alone doesn't prove guilt, but combined with PERP-C2 it does.
-PERP-C2: investigator_with_character_and_item (Brynn Ossler + the_manuscript) — Brynn recognises the margin annotations as Solvaine's handwriting.
-
-requires_clue_id: TL-C1 (because the manuscript is found at the top of the Spire, player needs to have been there)
-Discoverability: TL-C1's text mentions the satchel and notes inside it. TL-C2 clue text (satchel at spire_top) explicitly says "annotations in a second hand." Brynn's description mentions she authenticates written records. This gives reason to bring the manuscript to Brynn.
-
-Red Herring 1 (PERP-RH1): Wrong answer: Orric Vann — investigator_at_location, harbour_steps — the investigator finds a bone-carving knife near the dock bollards with the Vann family mark scratched into the handle. Combined with Orric's dispute with Eredan, this looks suspicious. But it's Orric's work knife, not a murder weapon.
-
-red_herring_explanation: The presence of Orric's knife near the dock, combined with his known dispute with Eredan, implicates him — but the knife is unrelated to the cause of death and is simply a dropped work tool.
-
-Red Herring 2 (PERP-RH2): Wrong answer: Maret Colne — investigator_with_character, Maret Colne
-
-Maret admits she had been passed over for the acolyte appointment despite Eredan's repeated promises, and that she was angry about it. She also admits she touched the ceremonial box at the Spire before raising the alarm. Misleading: anger + being on scene first looks suspicious.
-red_herring_explanation: Maret's anger over the broken acolyte promise and her presence at the scene (she found the body) creates false suspicion, but she was at the cliff workshop during the critical window.
-
-Red Herring 3 (PERP-RH3): Wrong answer: Brynn Ossler — investigator_with_character, Brynn Ossler (no item, just talking to her)
-
-Brynn tells the investigator she argued strenuously with Eredan about his relocation plan months ago and told him she would "not permit it while she drew breath." She looks shaken and refuses to say more about their final conversation.
-red_herring_explanation: Brynn's fierce opposition to Eredan's plans and her cryptic statement about not permitting it create suspicion, but she was at home and had no access to the Spire at the time of death.
-
-Perpetrator answer options: Solvaine Drest / Orric Vann / Maret Colne / Brynn Ossler / Tauvek Drest
-
-CHECKPOINT: motive
-True answer: Religious conviction — Solvaine killed Eredan to prevent him from "unmooring" the ancestors by relocating the pillars
-Correct Clue 1 (MOT-C1): investigator_with_item, the_manuscript
-
-The investigator reads the manuscript directly. The text describes Eredan's theological argument that the ancestor pillars must be moved inland to escape the encroaching sea. The manuscript's title page reads: "On the Necessary Relocation of the Moored Voices."
-Discoverability: The satchel is at spire_top. Lead 2 points the investigator to the Spire. TL-C1 explicitly mentions the satchel.
-
-Correct Clue 2 (MOT-C2): investigator_with_character, Solvaine Drest
-
-requires_clue_id: MOT-C1 (player must have read the manuscript first — the clue is Solvaine's reaction when confronted)
-Observation: When the investigator asks Solvaine about the relocation of the pillars, she says, "The ancestors cannot be moved. They are not stones — they are tethered. To move them is to murder them, and all who carry their blood. I told him this. I told him." Her voice does not waver.
-Discoverability: MOT-C1 surfaces the relocation plan. The player naturally wants to ask Solvaine (his apprentice) about it. Solvaine's description mentions she's in the Ancestor Hall, a location the player would visit.
-
-Red Herring 1 (MOT-RH1): Wrong answer: Personal gain / inheritance — investigator_at_location, ancestor_hall
-
-The investigator finds on the hall's notice-board a formal declaration naming Solvaine as Eredan's successor, signed and sealed, to take effect at his retirement. Misleading: this suggests Solvaine had something to gain from his death (faster succession).
-red_herring_explanation: The succession document implies Solvaine had personal gain motive, but the true motive was doctrinal — she had already been named successor and would have assumed the role naturally.
-
-Red Herring 2 (MOT-RH2): Wrong answer: Revenge for betrayal — investigator_with_character, Maret Colne
-
-Maret says Eredan had once told her publicly that Solvaine was "a poor student who mistakes stubbornness for faith." She heard this herself. Misleading: implies Solvaine killed him out of wounded pride/personal revenge.
-red_herring_explanation: Maret's account of Eredan's public criticism of Solvaine suggests a personal grudge, but this is not the true motive — Solvaine killed to protect what she believed was the souls of the ancestors.
-
-Red Herring 3 (MOT-RH3): Wrong answer: To conceal a personal secret — investigator_at_location_with_item (records_house + the_manuscript)...
-
-Hmm, the manuscript starts at spire_top. Having the player bring it to records_house: the records_house is adjacent to cliff_workshop and ancestor_hall. Bringing the manuscript to the records_house (without Brynn condition) — what fires here?
-Alternative: investigator_with_character_and_item (Tauvek Drest + something else)
-Let me use: investigator_with_character, Tauvek Drest — Tauvek says Solvaine had been distraught for months over rumours that she had broken the celibacy vow of an apprentice Bone-Speaker. He hints that Eredan had threatened to expose her and revoke her succession. Misleading: implies she killed to conceal a personal scandal.
-red_herring_explanation: Tauvek's account of his sister's alleged broken vow and Eredan's supposed threat creates the impression of a personal secret worth killing for, but Tauvek is speculating and the true motive was religious.
-
-Motive answer options: To prevent the relocation of the ancestor pillars / To inherit the Bone-Speaker position sooner / Revenge for public humiliation / To conceal a broken vow / To silence Eredan's knowledge of a harbour conspiracy
 
 STEP 5 — CONSISTENCY & VISIBILITY CHECK
 VISIBILITY:
 
-cause_of_death: COD-C1 (body at spire_base, fractures from vertical fall) + COD-C2 (fabric on post at top, position above body) → player concludes "fall from height." ✓
-true_location: TL-C1 (fabric at top of Spire) + TL-C2 (satchel with manuscript left there, Eredan's bone-token) → player concludes crime happened at the top of the Spire. ✓
-time_of_death: TOD-C1 (Orric sees them at second bell) + TOD-C2 (Maret: empty at first bell, body at dawn) → player concludes between second bell and dawn. ✓
-perpetrator: PERP-C1 (Orric sees Solvaine come down alone before dawn) + PERP-C2 (Brynn recognises Solvaine's handwriting in manuscript) → player concludes Solvaine. ✓
-motive: MOT-C1 (manuscript contents: relocation plan) + MOT-C2 (Solvaine's statement about ancestors being "tethered") → player concludes religious/ideological conviction. ✓
+Cause of death: visible via body inspection and Brynja. ✓
+True location: visible via body inspection and Sigríðr. ✓
+Time of death: cord stiffness + Brynja body examination. ✓
+Perpetrator: Sigríðr testimony on cord + Þorvarðr "obstacle will be removed." ✓
+Motive: Astríðr "better offer from the east" + betrothal token identified by Þorvarðr. ✓
 
-AMBIGUITY:
+AMBIGUITY CHECK:
 
-PERP-C1 (Solvaine came down alone) could be explained away alone, but combined with PERP-C2 (her handwriting in the manuscript she denied knowing) → conclusive. ✓
-Each COD clue is specific to fall injuries and edge-position evidence. ✓
+Cord clue: specifies braided horsehair, warehouse origin, cut from spool — not easily attributed to another character without the Sigríðr testimony.
+Þorvarðr "obstacle will be removed" clue: suspicious but not conclusive — Þorvarðr could have said it himself. Only combined with cord testimony does it close on Hallr.
 
-COVERAGE:
+COVERAGE: Red herrings per checkpoint target different wrong options. ✓
+TIMING ELIMINATION:
 
-COD red herrings: drowned, struck by blunt instrument, exposure to cold — all different. ✓
-TL red herrings: ancestor hall, cliff workshop, harbour steps — all different. ✓
-TOD red herrings: after dawn, before first bell, between first and second bell — all different. ✓
-PERP red herrings: Orric, Maret, Brynn — all different. ✓
-MOT red herrings: inherit position, revenge for humiliation, conceal broken vow — all different. ✓
+"Before dusk" — Sigríðr was in warehouse at dusk, no body. Sigríðr's true_location clue handles this.
+"Shortly after dusk" — cord not stiff enough in cold air. Cord inspection clue handles this.
+"Before dawn" — Brynja: body warmth lost throughout (several hours). Brynja's clue handles this.
+"After dawn" — Sigríðr found body at dawn. Sigríðr's clue handles this.
+✓ All wrong options eliminated.
 
-TIMING ELIMINATION: (verified above) ✓
-DISCOVERABILITY:
+ITEM SIGNPOSTING:
 
-The satchel at spire_top: Lead 2 points to the Spire as the ritual site. COD-C1 (spire_base) prompts going up. TL-C1 (spire_top) fires. TL-C2 (spire_top + satchel) fires. ✓
-The manuscript: found via TL-C2. Text of TL-C2 says "annotations in a second hand." Brynn's description says she validates official documents. → PERP-C2 and MOT-C1 are reachable. ✓
-PERP-C2 requires TL-C1 first (requires_clue_id). TL-C1 fires when investigator is at spire_top. spire_top is accessible from spire_base. ✓
-MOT-C2 requires MOT-C1 (requires_clue_id). MOT-C1 fires when investigator_with_item the_manuscript. MOT-C2 brings manuscript to Solvaine at ancestor_hall. ✓
+The cord starts in the salt warehouse. Sigríðr is in the salt warehouse. No additional lead needed for that pairing. ✓
+The betrothal token starts in the mead hall. Þorvarðr is in the mead hall. No additional lead needed. ✓
 
-Let me now also think about the items needed:
-Items:
-
-the_satchel — Eredan's dark leather satchel, stained with sea salt, the strap frayed at one end. Starting_location: spire_top. Used in TL-C2.
-the_manuscript — A sheaf of vellum pages bound with gut twine, covered in dense script in two distinct hands, with ink smears near the margins. Starting_location: spire_top. Used in PERP-C2 and MOT-C1.
-the_bone_token — A small carved disc of yellowed bone bearing a spiral motif, worn smooth on one face. Starting_location: spire_top. Used in... hmm, I mentioned it for TL-C2 but don't need a separate clue condition. Actually let me fold the bone-token into TL-C2's text (the satchel contains both the manuscript and the bone-token, confirming Eredan was on the platform). The bone_token doesn't need to be a separate item if the manuscript is already there. Let me drop the bone_token as a separate item and just reference it in TL-C2's text (the satchel contains it alongside the manuscript).
-the_carving_knife — Orric's work knife, used in PERP-RH1.
-the_walking_staff — Used in TL-RH2 (found at cliff_workshop). Starting_location: cliff_workshop.
-
-Wait, let me check: "Each must be referenced in at least one clue condition." The carving_knife is referenced in PERP-RH1 (investigator_at_location, harbour_steps — but the condition doesn't include an item!). I need to restructure.
-Let me make PERP-RH1 use an item condition: investigator_at_location_with_item (harbour_steps + the_carving_knife). But that requires the knife to START at harbour_steps and the player to pick it up. Actually condition type investigator_at_location_with_item means the investigator IS at harbour_steps AND HAS the knife. The knife starts at harbour_steps, so the player picks it up while there, then... examines it while there? Or the condition fires when the player is at harbour_steps with the knife in their inventory.
-Actually I think this works: the knife starts at harbour_steps. The player picks it up (or it can be examined on-site via investigator_at_location_with_item where the item is present at that location). ✓
-The walking_staff at cliff_workshop: TL-RH2 condition is investigator_at_location, cliff_workshop — this doesn't use an item. So the walking_staff as an item would be unreferenced in any condition. I need to make TL-RH2 use the staff: investigator_at_location_with_item (cliff_workshop + the_walking_staff). The staff starts at cliff_workshop. ✓
-Let me also check the manuscript: it's used in PERP-C2 (investigator_with_character_and_item, Brynn + manuscript) and MOT-C1 (investigator_with_item, manuscript). The satchel: TL-C2 (investigator_at_location_with_item, spire_top + satchel). ✓
-Items summary:
-
-the_satchel — spire_top — used in TL-C2
-the_manuscript — spire_top — used in PERP-C2, MOT-C1
-the_carving_knife — harbour_steps — used in PERP-RH1
-the_walking_staff — cliff_workshop — used in TL-RH2
-
-4 items. Clean. But TL-C1 mentions "fabric on a post at the top" — should that be an item? The fabric swatch could be an item. Let me add it:
-
-the_fabric_swatch — spire_top — used in TL-C1 (investigator_at_location_with_item, spire_top + fabric_swatch? or just investigator_at_location, spire_top?)
-
-Actually TL-C1 was going to be investigator_at_location, spire_top. The fabric observation is just part of being at that location, not requiring an item. But then the fabric swatch isn't an item. That's fine. COD-C2 is also investigator_at_location, spire_top but addresses a different checkpoint.
-Wait — I have TL-C1 as investigator_at_location (spire_top) and COD-C2 also as investigator_at_location (spire_top). These are two different clues with the same condition. Is that allowed? The schema doesn't prohibit it. However in game terms, visiting spire_top might fire both in the same turn. That could be intentional — being at the top yields observations about both cause of death AND true location. That seems fine actually.
-Let me also reconsider COD-C1 and PERP-RH2. COD-C1 is investigator_at_location (spire_base). PERP-RH2 is investigator_with_character (Maret Colne) — Maret is at cliff_workshop, not spire_base. Good.
-Let me now also check: the condition for MOT-RH1 is investigator_at_location (ancestor_hall). That fires when the player visits the ancestor_hall, before or after meeting Solvaine. The succession document is there. Good.
 LEADS:
 
-Lead 1 → spire_base — "The stonecutter [char:Maret Colne] who found the body is reported to be near [loc:spire_base], where [char:Eredan Volke] lies." Points toward COD-C1 (early game).
-Lead 2 → spire_top — "The pre-dawn ancestor observance is performed atop [loc:spire_top], on the platform above the sea — the last known site of the ritual." Points toward TL-C1 and COD-C2 (early-mid game).
-Lead 3 → Orric Vann / harbour_steps — "The harbour-master [char:Orric Vann] was on the dock before dawn and may have seen who was moving on the clifftop paths." Points toward TOD-C1 and PERP-C1 (early game).
+Points toward Brynja (healer_hut) — she examined the body before the warehouse was closed off.
+Points toward the mead hall — a visitor arrived recently for business with Hallr; locals are talking.
+Points toward Sigríðr — she was first at the scene and knows the warehouse contents better than anyone.
 
-At least 2 point toward early-game clue conditions. ✓ (Leads 1 and 3 are both early-game.)
 
-Now let me finalize all clue IDs and structure clearly:
-cause_of_death:
+GRID LAYOUT
+col 0col 1col 2row 0healer_hutfamily_longhouse—row 1dockssalt_warehousemead_hallrow 2———
+Adjacencies:
 
-cod_c1: correct, investigator_at_location (spire_base), requires null
-cod_c2: correct, investigator_at_location (spire_top), requires cod_c1
-cod_rh1: red_herring (Drowned), investigator_with_character (Orric Vann), requires null
-cod_rh2: red_herring (Struck by blunt instrument), investigator_with_character (Brynn Ossler), requires null
-cod_rh3: red_herring (Exposure to cold), investigator_with_character (Maret Colne), requires null
+docks ↔ salt_warehouse
+docks ↔ healer_hut (coastal path)
+salt_warehouse ↔ mead_hall
+salt_warehouse ↔ family_longhouse
+family_longhouse ↔ mead_hall
+healer_hut ↔ family_longhouse
 
-true_location:
+Arrival location: docks
 
-tl_c1: correct, investigator_at_location (spire_top), requires null
-tl_c2: correct, investigator_at_location_with_item (spire_top, the_satchel), requires tl_c1
-tl_rh1: red_herring (ancestor_hall), investigator_with_character (Tauvek Drest), requires null
-tl_rh2: red_herring (cliff_workshop), investigator_at_location_with_item (cliff_workshop, the_walking_staff), requires null
-tl_rh3: red_herring (harbour_steps), investigator_with_character (Orric Vann), requires null
-
-Wait — I'm using Orric for cod_rh1 AND tl_rh3 AND perp_c1 AND tod_c1. That's 4 clues from one character. That seems a lot. Let me redistribute.
-tl_rh3: let me use investigator_at_location (harbour_steps) instead of with Orric. "The investigator, examining the harbour steps, notices recent marks in the soft mud at the base — boot prints in a style typical of Bone-Speakers, leading toward the water's edge." → implies Eredan was at harbour, not the Spire.
-Actually I'd rather not have too many investigator_at_location conditions without items at harbour_steps. Let me just keep tl_rh3 as investigator_at_location at harbour_steps. The boot-print observation.
-But then the boot print observation doesn't need Orric. Fine. And cod_rh1 (drowned) can stay with Orric. So Orric appears in: cod_rh1, tod_c1, perp_c1. Three clues. Better.
-Brynn appears in: cod_rh2, perp_c2, perp_rh3, mot_c2 (wait, mot_c2 is Solvaine). Let me recheck:
-
-Brynn: cod_rh2 (blunt instrument), perp_c2 (manuscript + handwriting), perp_rh3 (Brynn as suspect). Three clues from Brynn. Fine.
-
-Maret: cod_rh3, perp_rh2, tod_c2. Three. Fine.
-Solvaine: mot_c2, perp_rh... wait, let me check — Solvaine doesn't appear in any red herrings as a condition-character, only as a perpetrator answer option. Good.
-Tauvek: tl_rh1, tod_rh3, mot_rh3. Three. Fine.
-Also: PERP-RH1 is investigator_at_location_with_item (harbour_steps + carving_knife). No character. Fine.
-MOT-RH1 is investigator_at_location (ancestor_hall). No character. Fine.
-MOT-RH2 is investigator_with_character (Maret Colne). That's a 4th Maret clue (cod_rh3, tod_c2, perp_rh2, mot_rh2). That's quite a lot. Let me swap one.
-MOT-RH2 (revenge for humiliation) — instead of Maret, use investigator_with_character (Tauvek Drest). Tauvek says he overheard Eredan once call Solvaine a "stubborn fool" in the ancestor hall. That gives motive-revenge suggestion. Tauvek already has tl_rh1, tod_rh3, mot_rh3. Now also mot_rh2. Four clues from Tauvek. Still high.
-Actually let me use investigator_at_location (ancestor_hall) for mot_rh2 since the insult may have been written somewhere or recorded. The investigator finds a formal reprimand notice on the hall's records wall saying Eredan had issued Solvaine a rebuke in writing for "defiance of elder instruction." Condition: investigator_at_location (ancestor_hall). But MOT-RH1 is also investigator_at_location (ancestor_hall). Two clues from the same location condition — that would fire in the same turn... Actually I think that's allowed but not ideal. Two clues firing simultaneously at one location means the player gets both misleading clues at once.
-Let me instead make MOT-RH2 an item condition at the ancestor hall. Or better: keep MOT-RH2 as investigator_at_location (ancestor_hall) and MOT-RH1 also at ancestor_hall — they'd both fire on the same visit. The player gets two red herrings in one turn. That's a lot, but it's a red herring — not necessarily bad. Actually let me differentiate them by putting MOT-RH2 at a different location.
-MOT-RH2: investigator_with_character (Tauvek) — "Tauvek tells the investigator that Eredan once publicly called Solvaine's faith 'a mask for ambition' at a council meeting. The remark was never retracted." → implies personal grudge. This is mot_rh2 pointing at "Revenge for public humiliation." Tauvek has tl_rh1, tod_rh3, mot_rh3, mot_rh2 — four clues.
-You know what, let me just allow it. The schema doesn't cap per-character clues.
-Actually I realize there's a collision: tod_rh3 (Tauvek says he heard footsteps between first and second bell) and tl_rh1 (Tauvek says he heard voices from the direction of ancestor hall at second bell). Both are with_character (Tauvek) and neither requires a prior clue. Both would fire on the first visit to Tauvek. The player gets two clues from Tauvek in one visit. That's fine — it can read as Tauvek providing multiple bits of information.
-But wait: can two clues have the exact same condition? tl_rh1 = investigator_with_character (Tauvek), tod_rh3 = investigator_with_character (Tauvek). Yes, these are different clues that can fire from the same condition — the game engine handles this as multiple clues firing on one visit. That's fine.
-Same issue: cod_rh1 = investigator_with_character (Orric) and tod_c1 = investigator_with_character (Orric) and perp_c1 = investigator_with_character (Orric). All three would fire on one visit to Orric (unless requires_clue_id gates some). That's a lot of information at once. Let me gate PERP-C1 behind TOD-C1.
-PERP-C1 (Orric sees Solvaine come down alone before dawn): requires_clue_id = tod_c1. So on first visit to Orric, tod_c1 and cod_rh1 fire. On second visit (after collecting tod_c1), perp_c1 fires. That works narratively: first conversation Orric tells about seeing them go up and tides; second conversation (after the investigator knows more) Orric reveals he saw Solvaine come down alone.
-Actually that's great narratively. Let me lock that in.
-Similarly: perp_rh3 (Brynn as suspect) and cod_rh2 (Brynn, blunt instrument) both fire on first Brynn visit. Perp_c2 (Brynn + manuscript) fires later when the player brings the manuscript. Fine — two clues from Brynn on first visit, one on return with manuscript.
-Let me now write all this up cleanly.
-
-FINAL CLUE LIST:
-cause_of_death:
-
-cod_c1: correct, at spire_base, no req — body examination reveals injuries consistent with vertical impact (shattered back of skull, both legs broken, no wounds on front, undamaged hands)
-cod_c2: correct, at spire_top, requires cod_c1 — stone lip above body shows scrape of dark wool fibre; position directly above body
-cod_rh1: red_herring (Drowned), with_character Orric, no req — Orric notes strong tides, says sea-death bodies wash up right where Eredan lies
-cod_rh2: red_herring (Struck by blunt instrument), with_character Brynn, no req — Brynn describes the ceremonial maul Eredan always carried on Spire observances
-cod_rh3: red_herring (Exposure to cold), with_character Maret, no req — Maret describes Eredan's blue lips and ice-cold skin when she found him
-
-true_location:
-6. tl_c1: correct, at spire_top, no req — torn dark wool fragment on splintered post at outer edge; position above where body lies
-7. tl_c2: correct, at_location_with_item (spire_top + satchel), requires tl_c1 — satchel open on the platform, manuscript inside with bone-token tucked beneath, Eredan's personal effects confirming he was on this platform
-8. tl_rh1: red_herring (ancestor hall), with_character Tauvek, no req — Tauvek says he heard raised voices from the direction of the Ancestor Hall at second bell
-9. tl_rh2: red_herring (cliff workshop), at_location_with_item (cliff_workshop + walking_staff), no req — Eredan's distinctive pilgrim staff propped against the workshop wall, with fresh mud on its base
-10. tl_rh3: red_herring (harbour steps), at_location (harbour_steps), no req — boot prints in priest-style soft shoes leading toward the water's edge at the base of the steps
-time_of_death:
-11. tod_c1: correct, with_character Orric, no req — Orric says he saw both Eredan and Solvaine crossing the land bridge toward the Spire together at second bell, Eredan carrying his satchel; he did not see either return before going inside
-12. tod_c2: correct, with_character Maret, no req — Maret says she was at the cliff workshop from first bell onward, that the base of the Spire was empty when she passed it at first bell, and that she saw the body at dawn when the mist lifted
-13. tod_rh1: red_herring (after dawn), with_character Brynn, no req — Brynn says she heard the alarm at dawn and thinks the body could have been placed there beforehand at any hour
-14. tod_rh2: red_herring (before first bell), at_location (spire_base), no req — frost on Eredan's outer robe and the stone beneath him; the sea-fog settles before first bell every night
-15. tod_rh3: red_herring (between first bell and second bell), with_character Tauvek, no req — Tauvek says he heard footsteps on the cliff path between first and second bell
-perpetrator:
-16. perp_c1: correct, with_character Orric, requires tod_c1 — Orric says he saw Solvaine come down from the Spire alone just before the alarm bell sounded at dawn; she was moving quickly and her outer robe had a dark wet stain at the sleeve
-17. perp_c2: correct, with_character_and_item (Brynn + manuscript), requires tl_c1 — Brynn examines the manuscript, points to three marginal annotations in a different hand, and states without hesitation that the handwriting is Solvaine Drest's, identical to records submissions she has verified for years
-18. perp_rh1: red_herring (Orric Vann), at_location_with_item (harbour_steps + carving_knife), no req — a bone-handled carving knife with the Vann family mark scratched into the grip lies among the dock ropes near the harbour capstan
-19. perp_rh2: red_herring (Maret Colne), with_character Maret, no req — Maret admits she was promised an acolyte appointment by Eredan three times over two years, that no appointment ever came, and that she had searched the Spire's ceremonial box before raising the alarm
-20. perp_rh3: red_herring (Brynn Ossler), with_character Brynn, no req — Brynn says she argued with Eredan about his relocation plan and told him she would not permit it while she drew breath; she refuses to say whether they met in the days before his death
-motive:
-21. mot_c1: correct, with_item (manuscript), no req — the manuscript's title page reads "On the Necessary Relocation of the Moored Voices"; the text argues that the rising sea threatens the ancestor pillars and proposes moving them to the inland meadow
-22. mot_c2: correct, with_character Solvaine, requires mot_c1 — Solvaine, when the investigator asks about the relocation plan, says "The ancestors cannot be moved — they are tethered here. To move them is to murder them, and everyone who carries their blood. I told him this. I told him." Her voice does not waver
-23. mot_rh1: red_herring (inheritance of position), at_location (ancestor_hall), no req — a sealed succession parchment on the hall's notice-board formally names Solvaine as Eredan's successor, to take effect upon his retirement or death
-24. mot_rh2: red_herring (revenge for humiliation), with_character Tauvek, no req — Tauvek says that at last season's council meeting, Eredan called Solvaine's approach to the faith "a mask for ambition" in front of the full council, and the remark was never retracted
-25. mot_rh3: red_herring (conceal a broken vow), with_character Tauvek, no req — Tauvek tells the investigator that Solvaine had been rumoured for months to have broken her apprentice's celibacy vow, and that Eredan had reportedly threatened to revoke her succession on grounds of impurity
-Wait — I now have Tauvek appearing in: tl_rh1, tod_rh3, mot_rh2, mot_rh3. Four clues. And the first three (tl_rh1, tod_rh3, mot_rh2 — wait no, tl_rh1 and tod_rh3 both have no requires, so they both fire on first visit; mot_rh2 and mot_rh3 also no requires, so all four fire on first visit to Tauvek. That's 4 clues from one visit. That's too much — it floods the player with information and feels unrealistic.
-Let me gate some:
-
-mot_rh3 (broken vow): requires tl_rh1 (after hearing about the voices, Tauvek elaborates)... but requires_clue_id must point to a correct clue. I can't gate a red herring behind another red herring.
-mot_rh3 requires null (immediately available)
-mot_rh2 requires null
-
-I can't fix this with requires_clue_id since all of Tauvek's clues are red herrings. Let me redistribute mot_rh2 to a different character/condition.
-MOT-RH2 (revenge for humiliation): investigator_at_location (ancestor_hall) — the investigator finds a notice on the wall with Eredan's name and Solvaine's, dated two months prior, bearing the formal language of a public rebuke: Solvaine had "defied elder instruction in matters of doctrine and shown disrespect before the council." But wait, MOT-RH1 is also at ancestor_hall. Two red herrings at same condition again.
-Let me use investigator_at_location_with_item for one and plain at_location for the other, differentiating conditions. MOT-RH1 = investigator_at_location (ancestor_hall), MOT-RH2 = investigator_with_item (something specific at ancestor_hall). But what item?
-Or: MOT-RH2 uses investigator_with_character (Maret Colne). But Maret already has three clues (cod_rh3, tod_c2, perp_rh2). Four total if we add mot_rh2. Maret's condition fires always (no requires), so all four clues fire at once on first visit to Maret. Still flooded.
-Honestly, having 3 clues fire at once from a character isn't catastrophic in a deduction game — it simulates a character giving multiple bits of information. The game can display them sequentially. Let me allow it and move on.
-MOT-RH2 = investigator_with_character (Maret Colne): "Maret says that last season she heard Eredan tell Solvaine, in her presence at the cliff workshop, that he was considering replacing her as apprentice with a younger and more obedient candidate. Solvaine had gone pale and left without speaking."
-Maret's clues: cod_rh3 (blue lips/cold), tod_c2 (body found at dawn), perp_rh2 (acolyte grievance), mot_rh2 (replacement threat). Four clues on first visit. Manageable.
-Now Tauvek: tl_rh1 (voices from ancestor hall at second bell), tod_rh3 (footsteps between first and second bell), mot_rh3 (broken vow rumour). Three clues on first visit. That's fine.
-
-Let me now write the actual JSON. I'll construct it carefully.
-Opening narrative: The investigator is summoned from the mainland by the community's Elder Council. A Bone-Speaker has been found dead at the base of the sacred Spire of Moored Voices. The Council fears both violence and sacrilege.
-Epilogue: Reveals Eredan's full story — he'd spent a decade watching the sea eat the clifftop inch by inch, genuinely believed the ancestors needed to be moved to survive, had been in quiet correspondence with a mainland theologian who agreed with him. He had drafted the manuscript over three years. He had planned to announce it at the winter solstice ceremony. Solvaine had found and read the manuscript two months before his death and had argued passionately against it privately. Her annotations were her attempt to find counterarguments, not a conspiracy. The community ultimately chose not to relocate the pillars and they remain on the Spire today. Solvaine was the last Bone-Speaker of the old tradition — within a generation, the sea took the land bridge entirely.
-</story>
+PHASE 3 — AUDIT
+Cause of death correct clue 1 (inspect salt_warehouse): Player arrives at docks → moves to salt_warehouse (adjacent) → inspects salt_warehouse → fires. ✓
+Cause of death correct clue 2 (talk to Brynja): Lead #1 says Brynja examined the body → player moves docks → healer_hut (adjacent) → talks to Brynja → fires. ✓
+True location correct clue 1 (inspect salt_warehouse): Same as above. ✓
+True location correct clue 2 (talk to Sigríðr at salt_warehouse): Sigríðr is in warehouse at game start; player moves there → talks to her. Lead #3 mentions her. ✓
+Time of death correct clue 1 (inspect cord): Player inspects warehouse → location_discovery_text reveals cord → player picks it up → inspect_item fires. ✓
+Time of death correct clue 2 (talk to Brynja): Lead #1 → healer_hut → talk Brynja. ✓
+Perpetrator correct clue 1 (ask Sigríðr about cord): Player has cord from warehouse inspection. Sigríðr is in warehouse. Player asks her about it. ✓
+Perpetrator correct clue 2 (talk to Þorvarðr): Lead #2 → mead_hall → talk to Þorvarðr. ✓
+Motive correct clue 1 (talk to Astríðr): Player moves to family_longhouse (adjacent to salt_warehouse) → talks to Astríðr. ✓
+Motive correct clue 2 (ask Þorvarðr about betrothal token): Player inspects mead_hall → finds betrothal token → picks it up → Þorvarðr is in mead_hall → asks him about it. ✓
+All clues reachable. All checkpoints solvable from text alone.

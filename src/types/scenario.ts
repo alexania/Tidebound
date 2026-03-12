@@ -15,11 +15,11 @@ export type ClueWeight = 'correct' | 'red_herring'
 export type Difficulty = 'easy' | 'medium' | 'hard'
 
 export type ConditionType =
-  | 'investigator_at_location'
-  | 'investigator_with_character'
-  | 'investigator_with_item'
-  | 'investigator_at_location_with_item'
-  | 'investigator_with_character_and_item'
+  | 'inspect_location'
+  | 'talk_to_character'
+  | 'inspect_item'
+  | 'inspect_item_in_location'
+  | 'ask_character_about_item'
 
 export interface Village {
   name: string

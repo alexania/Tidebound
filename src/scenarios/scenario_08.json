@@ -271,7 +271,7 @@
       "answer": "Stabbing",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "dr_sibyl_marr"
         ],
@@ -287,7 +287,7 @@
       "answer": "Stabbing",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "rowena_patch"
         ],
@@ -303,7 +303,7 @@
       "answer": "Heart failure",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "constable_hale"
         ],
@@ -319,7 +319,7 @@
       "answer": "Drowning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "st_cuthberts_chapel",
         "item": null
@@ -333,7 +333,7 @@
       "answer": "Exposure",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "constance_avery"
         ],
@@ -349,7 +349,7 @@
       "answer": "The chandlery",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "hemp_cord_loop"
@@ -363,7 +363,7 @@
       "answer": "The chandlery",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "edgar_chandlery",
         "item": "paint_mixing_tray"
@@ -377,7 +377,7 @@
       "answer": "The chapel",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "boot_heel_paint"
@@ -391,7 +391,7 @@
       "answer": "The Clarion office",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "clarion_office",
         "item": null
@@ -405,7 +405,7 @@
       "answer": "The harbormaster's house",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "edgar_crouch"
         ],
@@ -421,7 +421,7 @@
       "answer": "Between 8 PM and 11 PM Tuesday",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "invitation_note"
@@ -435,7 +435,7 @@
       "answer": "Between 8 PM and 11 PM Tuesday",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "dr_sibyl_marr"
         ],
@@ -451,7 +451,7 @@
       "answer": "Between midnight and 3 AM Wednesday",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "st_cuthberts_chapel",
         "item": "hemp_cord_loop"
@@ -465,7 +465,7 @@
       "answer": "Between 5 AM and 7 AM Wednesday",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "quay_street",
         "item": null
@@ -479,7 +479,7 @@
       "answer": "Between noon and 4 PM Tuesday",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "constance_avery"
         ],
@@ -495,7 +495,7 @@
       "answer": "Edgar Crouch",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "edgar_crouch"
         ],
@@ -511,7 +511,7 @@
       "answer": "Edgar Crouch",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "edgar_chandlery",
         "item": "cord_stock_reel"
@@ -525,7 +525,7 @@
       "answer": "Constance Avery",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "constance_avery"
         ],
@@ -541,7 +541,7 @@
       "answer": "Constable William Hale",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "constable_post",
         "item": null
@@ -555,7 +555,7 @@
       "answer": "Dr. Sibyl Marr",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "dr_sibyl_marr"
         ],
@@ -571,7 +571,7 @@
       "answer": "Resentment over the ruination of his family's name",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "clarion_office",
         "item": "clarion_archive"
@@ -585,7 +585,7 @@
       "answer": "Resentment over the ruination of his family's name",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "edgar_crouch"
         ],
@@ -601,7 +601,7 @@
       "answer": "Financial desperation",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "edgar_chandlery",
         "item": null
@@ -615,7 +615,7 @@
       "answer": "Fear of exposure",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "harbormaster_house",
         "item": null
@@ -629,7 +629,7 @@
       "answer": "Jealousy over a romantic rival",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "rowena_patch"
         ],
@@ -645,7 +645,7 @@
       "answer": "Aldous was blackmailing Constance Avery",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "private_ledger"
@@ -659,7 +659,7 @@
       "answer": "Aldous was blackmailing Constance Avery",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "constance_avery"
         ],
@@ -675,7 +675,7 @@
       "answer": "Aldous was planning to sell the Clarion and leave Saltmere",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "clarion_office",
         "item": "private_ledger"
@@ -689,7 +689,7 @@
       "answer": "Aldous was an informant for the county constabulary",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "constable_hale"
         ],
@@ -705,7 +705,7 @@
       "answer": "Aldous had forged his ownership of the Clarion",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "physicians_cottage",
         "item": null

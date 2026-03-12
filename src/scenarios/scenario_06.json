@@ -259,7 +259,7 @@
       "answer": "a thin blade between the ribs",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "tidal_flats",
         "item": null
@@ -273,7 +273,7 @@
       "answer": "a thin blade between the ribs",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "gutting_knife"
@@ -287,7 +287,7 @@
       "answer": "drowning in tidal water",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marte_okkel"
         ],
@@ -303,7 +303,7 @@
       "answer": "blunt force to the skull",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "per_haas"
         ],
@@ -319,7 +319,7 @@
       "answer": "strangulation",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "idunn_vander"
         ],
@@ -335,7 +335,7 @@
       "answer": "the chalk barn",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "chalk_barn",
         "item": "lantern_oil_stain"
@@ -349,7 +349,7 @@
       "answer": "the chalk barn",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "chalk_barn",
         "item": "chalk_dust_boot"
@@ -363,7 +363,7 @@
       "answer": "the tidal flats",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marte_okkel"
         ],
@@ -379,7 +379,7 @@
       "answer": "Arnell House",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "idunn_vander"
         ],
@@ -395,7 +395,7 @@
       "answer": "the cliff path",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "cliff_path",
         "item": null
@@ -409,7 +409,7 @@
       "answer": "between ten at night and midnight",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "per_haas"
         ],
@@ -425,7 +425,7 @@
       "answer": "between ten at night and midnight",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marte_okkel"
         ],
@@ -441,7 +441,7 @@
       "answer": "between eight and ten at night",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "idunn_vander"
         ],
@@ -457,7 +457,7 @@
       "answer": "shortly before dawn",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "ebbe_strand"
         ],
@@ -473,7 +473,7 @@
       "answer": "between midnight and two in the morning",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "harbourmaster_office",
         "item": null
@@ -487,7 +487,7 @@
       "answer": "Sigrid Arnell",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "gutting_knife"
@@ -501,7 +501,7 @@
       "answer": "Sigrid Arnell",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "sigrid_arnell"
         ],
@@ -517,7 +517,7 @@
       "answer": "Per Haas",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "per_haas"
         ],
@@ -533,7 +533,7 @@
       "answer": "Ebbe Strand",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "wet_coat"
@@ -547,7 +547,7 @@
       "answer": "Marte Okkel",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "harbourmaster_office",
         "item": null
@@ -561,7 +561,7 @@
       "answer": "concealing an ongoing affair",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "torn_pages"
@@ -575,7 +575,7 @@
       "answer": "concealing an ongoing affair",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "ebbe_strand"
         ],
@@ -591,7 +591,7 @@
       "answer": "a dispute over the chalk business accounts",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "ledger"
@@ -605,7 +605,7 @@
       "answer": "silencing a witness to smuggling",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "marte_okkel"
         ],
@@ -621,7 +621,7 @@
       "answer": "a debt that could not be repaid",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "idunn_vander"
         ],
@@ -637,7 +637,7 @@
       "answer": "The victim had discovered Sigrid and the lighthouse keeper meeting secretly and had written it down in a ledger before he was killed.",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "lighthouse",
         "item": "torn_pages"
@@ -651,7 +651,7 @@
       "answer": "The victim had discovered Sigrid and the lighthouse keeper meeting secretly and had written it down in a ledger before he was killed.",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "sigrid_arnell"
         ],
@@ -667,7 +667,7 @@
       "answer": "The victim had uncovered evidence of fraud in the chalk export records.",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "ledger"
@@ -681,7 +681,7 @@
       "answer": "The victim was planning to sell the chalk barn without Sigrid's consent.",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "per_haas"
         ],
@@ -697,7 +697,7 @@
       "answer": "The victim had witnessed a shipwreck being deliberately caused.",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "ebbe_strand"
         ],

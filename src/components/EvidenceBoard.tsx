@@ -290,7 +290,7 @@ function stripTags(text: string): string {
 }
 
 function formatLocation(locationId: string): string {
-  return locationId.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+  return locationId.replace(/_/g, ' ').replace(/(^|\s)\w/g, c => c.toUpperCase())
 }
 
 function EvidenceCard({ card, collapsed, locationNames, checkpointTag, answerOptions, onDragStart, onUpdateImplied, onUnpin, onToggleCollapse }: CardProps) {

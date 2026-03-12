@@ -23,28 +23,28 @@ export function evaluateCondition(condition: ClueCondition, ctx: EvalContext): b
   switch (condition.type) {
 
     // Investigator is at a specific location
-    case 'investigator_at_location':
+    case 'inspect_location':
       return !!condition.location && investigatorLocation === condition.location
 
     // Investigator is at the same location as a specific character
-    case 'investigator_with_character': {
+    case 'talk_to_character': {
       if (chars.length === 0) return false
       const charLoc = characterLocations[chars[0]]
       return !!charLoc && investigatorLocation === charLoc
     }
 
     // Item is in the investigator's inventory
-    case 'investigator_with_item':
+    case 'inspect_item':
       return !!condition.item && inventory.includes(condition.item)
 
     // Investigator at a specific location AND item in inventory
-    case 'investigator_at_location_with_item':
+    case 'inspect_item_in_location':
       return !!condition.location && !!condition.item &&
         investigatorLocation === condition.location &&
         inventory.includes(condition.item)
 
     // Investigator at a character's location AND item in inventory
-    case 'investigator_with_character_and_item': {
+    case 'ask_character_about_item': {
       if (chars.length === 0 || !condition.item) return false
       const charLoc = characterLocations[chars[0]]
       return !!charLoc && investigatorLocation === charLoc && inventory.includes(condition.item)

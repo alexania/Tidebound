@@ -11,15 +11,16 @@ import type { Scenario, LocationId, LocationAdjacency } from '../src/types/scena
 import type { GameState } from '../src/types/gameState'
 import {
   initGameState,
-  moveInvestigator,
-  moveItem,
-  resolveTurn,
-  submitCheckpoint,
   filterCluesToDifficulty,
-  INVESTIGATOR_ID,
+  moveToLocation,
+  inspectLocation,
+  inspectItem,
+  talkToCharacter,
+  askCharacterAboutItem,
+  submitCheckpoint,
 } from '../src/engine/gameEngine'
 
-// ── Minimal ANSI (errors, success, clues only) ────────────────────────────────
+// ── Minimal ANSI ──────────────────────────────────────────────────────────────
 const gr = (s: string) => `\x1b[32m${s}\x1b[0m`
 const rd = (s: string) => `\x1b[31m${s}\x1b[0m`
 const yw = (s: string) => `\x1b[33m${s}\x1b[0m`
@@ -51,56 +52,59 @@ function clearState(scenarioPath: string, difficulty: string): void {
 // ── Adjacency ─────────────────────────────────────────────────────────────────
 function getAdjacentLocs(fromId: string, scenario: Scenario): Set<string> {
   const adjs: LocationAdjacency[] = scenario.location_adjacencies ?? []
-  if (adjs.length > 0) {
-    const r = new Set<string>()
-    for (const a of adjs) {
-      if (a.from === fromId) r.add(a.to)
-      if (a.to   === fromId) r.add(a.from)
-    }
-    return r
-  }
-  const idx = scenario.locations.findIndex(l => l.id === fromId)
-  if (idx === -1) return new Set()
-  const loc = scenario.locations[idx]
-  const fc = loc.col ?? (idx % 3), fr = loc.row ?? Math.floor(idx / 3)
   const r = new Set<string>()
-  for (let i = 0; i < scenario.locations.length; i++) {
-    const o = scenario.locations[i]
-    const oc = o.col ?? (i % 3), or_ = o.row ?? Math.floor(i / 3)
-    if (Math.abs(oc - fc) + Math.abs(or_ - fr) === 1) r.add(o.id)
+  for (const a of adjs) {
+    if (a.from === fromId) r.add(a.to)
+    if (a.to   === fromId) r.add(a.from)
   }
   return r
 }
 
-// ── Compact state block (shown after end, on startup, via status) ─────────────
+// ── Print new log entries ─────────────────────────────────────────────────────
+function printNewEntries(state: GameState): void {
+  for (const e of state.log) {
+    if (!e.isNew) continue
+    if (e.clueId) {
+      console.log(yw(`[CLUE] ${stripTags(e.text)}`))
+    } else if (e.isLead) {
+      console.log(`[LEAD] ${stripTags(e.text)}`)
+    } else {
+      console.log(stripTags(e.text))
+    }
+  }
+}
+
+// ── Compact state block ───────────────────────────────────────────────────────
 function renderState(scenario: Scenario, state: GameState): string {
-  const invLoc  = state.board.characterLocations[INVESTIGATOR_ID]
-  const reachable = getAdjacentLocs(invLoc, scenario)
+  const loc = state.investigatorLocation
+  const reachable = getAdjacentLocs(loc, scenario)
   const lines: string[] = []
 
-  lines.push(`--- Turn ${state.turn} | ${invLoc} | ${state.actionsRemaining} item action(s) ---`)
+  lines.push(`--- Action ${state.actionCount} | ${loc} ---`)
 
   const reachNames = [...reachable].map(id => {
-    const loc = scenario.locations.find(l => l.id === id)
-    return loc?.name ? `${id} (${loc.name})` : id
+    const l = scenario.locations.find(l => l.id === id)
+    return l?.name ? `${id} (${l.name})` : id
   })
   lines.push(`Reachable: ${reachNames.join(', ') || 'none'}`)
 
   const charsHere = scenario.characters.filter(ch =>
-    state.board.characterLocations[ch.id] === invLoc && state.foundCharacterIds.includes(ch.id)
+    state.foundCharacterIds.includes(ch.id) && ch.location === loc
   )
   if (charsHere.length) {
     lines.push(`Here: ${charsHere.map(ch => `${ch.name} (${ch.id})${ch.isVictim ? ' [VICTIM]' : ''}`).join(', ')}`)
   }
 
-  if (state.foundItemIds.length) {
-    const itemList = state.foundItemIds.map(id => `${id} @ ${state.board.itemLocations[id]}`)
-    lines.push(`Items: ${itemList.join(' | ')}`)
+  if (state.inventory.length) {
+    const items = state.inventory.map(id => {
+      const it = scenario.items.find(i => i.id === id)
+      return it ? `${it.name} (${id})` : id
+    })
+    lines.push(`Inventory: ${items.join(', ')}`)
   }
 
-  // Checkpoints: investigative first, then accusatory (locked until investigative confirmed)
   const investigative = ['cause_of_death', 'true_location', 'time_of_death']
-  const accusatory    = ['perpetrator', 'motive', 'hidden_truth']
+  const accusatory    = ['perpetrator', 'motive']
   const fmt = (id: string) => {
     const cp = state.checkpoints[id as any]
     if (!cp) return null
@@ -133,18 +137,20 @@ function findScenarios(root: string): string[] {
 // ── Help ──────────────────────────────────────────────────────────────────────
 const HELP = `
 Commands:
-  move [loc_id]            Move to an adjacent location. No arg: show reachable.
-  item <item_id> <loc_id>  Move a found item to any location (1 action/turn).
-  end                      Resolve turn — fires clues, advances turn counter.
-  status                   Current state: location, reachable, items, checkpoints.
-  locs                     All locations (* = you, > = reachable) with contents.
-  chars                    Found characters and their fixed locations.
-  items                    Found items, their IDs, and current locations.
-  clues                    All collected clues in turn order.
-  cp                       Checkpoints with status and numbered answer options.
-  submit <cp_id> <n>       Submit answer n for checkpoint (see 'cp' for options).
-  reset                    Restart this scenario from scratch.
-  quit                     Exit.
+  move <loc_id>              Move to an adjacent location.
+  inspect                    Inspect current location — reveals items, fires clues.
+  inspect <item_id>          Pick up item and inspect it — fires clues.
+  talk <char_id>             Talk to a character at current location — fires clues.
+  ask <char_id> <item_id>    Ask character about an inventory item — fires clues.
+  submit <cp_id> <n> <clue_id> [clue_id ...]  Submit answer n citing supporting clues.
+  status                     Current state: location, reachable, inventory, checkpoints.
+  locs                       All locations (* = you, > = reachable) with found characters.
+  chars                      Found characters and their fixed locations.
+  items                      Inventory items with IDs.
+  clues                      All collected clues in action order.
+  cp                         Checkpoints with status and numbered answer options.
+  reset                      Restart this scenario from scratch.
+  quit                       Exit.
 `.trim()
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -152,8 +158,6 @@ async function main() {
   const isInteractive = process.stdin.isTTY
   const rl = createInterface({ input: process.stdin, output: process.stdout, terminal: isInteractive })
 
-  // Buffer all lines ourselves — readline emits queued 'line' events in one burst
-  // before rl.question can re-register a listener, so this avoids dropped commands.
   const lineQueue: string[] = []
   let waitingForLine: ((s: string) => void) | null = null
   let stdinDone = false
@@ -215,7 +219,7 @@ async function main() {
   // ── Load or init state ─────────────────────────────────────────────────────
   const savedState = loadState(rawPath, difficulty)
   const isNewGame  = !savedState
-  let state = savedState ?? resolveTurn(initGameState(scenario, difficulty), scenario)
+  let state = savedState ?? initGameState(scenario, difficulty)
   if (isNewGame) saveState(rawPath, difficulty, state)
 
   // ── Opening ────────────────────────────────────────────────────────────────
@@ -236,11 +240,11 @@ async function main() {
 
   // ── Command loop ───────────────────────────────────────────────────────────
   while (true) {
-    const invLoc  = state.board.characterLocations[INVESTIGATOR_ID]
-    const reachable = getAdjacentLocs(invLoc, scenario)
+    const loc = state.investigatorLocation
+    const reachable = getAdjacentLocs(loc, scenario)
 
     let raw: string
-    try { raw = (await ask(`[T${state.turn} | ${invLoc}] > `)).trim() } catch { break }
+    try { raw = (await ask(`[A${state.actionCount} | ${loc}] > `)).trim() } catch { break }
     if (!raw) continue
     const [cmd, ...args] = raw.split(/\s+/)
 
@@ -253,7 +257,7 @@ async function main() {
       case 'reset': {
         clearState(rawPath, difficulty)
         scenario = filterCluesToDifficulty(JSON.parse(readFileSync(rawPath, 'utf8')) as Scenario, difficulty)
-        state    = resolveTurn(initGameState(scenario, difficulty), scenario)
+        state    = initGameState(scenario, difficulty)
         saveState(rawPath, difficulty, state)
         console.log('Game reset.')
         console.log(renderState(scenario, state))
@@ -270,17 +274,14 @@ async function main() {
         break
 
       case 'locs': {
-        for (const loc of scenario.locations) {
-          const marker = loc.id === invLoc ? '*' : reachable.has(loc.id) ? '>' : ' '
-          const name   = loc.name ? ` (${loc.name})` : ''
-          const chars  = scenario.characters
-            .filter(ch => state.foundCharacterIds.includes(ch.id) && state.board.characterLocations[ch.id] === loc.id)
+        for (const l of scenario.locations) {
+          const marker   = l.id === loc ? '*' : reachable.has(l.id) ? '>' : ' '
+          const name     = l.name ? ` (${l.name})` : ''
+          const inspected = state.inspectedLocationIds.includes(l.id) ? ' [inspected]' : ''
+          const chars    = scenario.characters
+            .filter(ch => state.foundCharacterIds.includes(ch.id) && ch.location === l.id)
             .map(ch => ch.name)
-          const items  = state.foundItemIds
-            .filter(id => state.board.itemLocations[id] === loc.id)
-            .map(id => scenario.items.find(i => i.id === id)!.name)
-          const contents = [...chars, ...items].join(', ')
-          console.log(`  ${marker} ${loc.id}${name}${contents ? '  — ' + contents : ''}`)
+          console.log(`  ${marker} ${l.id}${name}${inspected}${chars.length ? '  — ' + chars.join(', ') : ''}`)
         }
         break
       }
@@ -288,19 +289,17 @@ async function main() {
       case 'chars': {
         if (!state.foundCharacterIds.length) { console.log('None found yet.'); break }
         for (const id of state.foundCharacterIds) {
-          const ch  = scenario.characters.find(c => c.id === id)!
-          const loc = state.board.characterLocations[id]
-          console.log(`  ${ch.name} (${id})${ch.isVictim ? ' [VICTIM]' : ''}  at: ${loc}`)
+          const ch = scenario.characters.find(c => c.id === id)!
+          console.log(`  ${ch.name} (${id})${ch.isVictim ? ' [VICTIM]' : ''}  at: ${ch.location}`)
         }
         break
       }
 
       case 'items': {
-        if (!state.foundItemIds.length) { console.log('None found yet.'); break }
-        for (const id of state.foundItemIds) {
-          const it  = scenario.items.find(i => i.id === id)!
-          const loc = state.board.itemLocations[id]
-          console.log(`  ${it.name} (${id})  at: ${loc}`)
+        if (!state.inventory.length) { console.log('Inventory empty.'); break }
+        for (const id of state.inventory) {
+          const it = scenario.items.find(i => i.id === id)!
+          console.log(`  ${it.name} (${id})`)
         }
         break
       }
@@ -310,91 +309,85 @@ async function main() {
         const target = args[0]
         if (!target) {
           const locs = [...reachable].map(id => {
-            const loc = scenario.locations.find(l => l.id === id)
-            return loc?.name ? `${id} (${loc.name})` : id
+            const l = scenario.locations.find(l => l.id === id)
+            return l?.name ? `${id} (${l.name})` : id
           })
-          console.log(`Reachable from ${invLoc}: ${locs.join(', ') || 'none'}`)
+          console.log(`Reachable from ${loc}: ${locs.join(', ') || 'none'}`)
           break
         }
         if (!scenario.locations.find(l => l.id === target)) {
           console.log(rd(`Unknown location: ${target}. Use 'locs' to see valid IDs.`)); break
         }
-        if (target === invLoc) { console.log('Already there.'); break }
+        if (target === loc) { console.log('Already there.'); break }
         if (!reachable.has(target)) {
-          console.log(rd(`${target} is not reachable from ${invLoc}.`))
+          console.log(rd(`${target} is not reachable from ${loc}.`))
           console.log(`Reachable: ${[...reachable].join(', ') || 'none'}`)
           break
         }
-        state = moveInvestigator(state, target as LocationId)
+        state = moveToLocation(state, scenario, target as LocationId)
         saveState(rawPath, difficulty, state)
-        const newReachable = getAdjacentLocs(target, scenario)
-        console.log(`Moved to ${target}.  Reachable next: ${[...newReachable].join(', ')}`)
-        break
-      }
-
-      case 'item': {
-        const [itemId, targetLoc] = args
-        if (!itemId || !targetLoc) { console.log(rd('Usage: item <item_id> <location_id>')); break }
-        if (!state.foundItemIds.includes(itemId)) {
-          console.log(rd(`Item not found: ${itemId}`))
-          console.log(`Found item IDs: ${state.foundItemIds.join(', ') || 'none'}`)
-          break
-        }
-        if (!scenario.locations.find(l => l.id === targetLoc)) {
-          console.log(rd(`Unknown location: ${targetLoc}`)); break
-        }
-        if (state.actionsRemaining <= 0) {
-          console.log(rd('No item actions remaining this turn. Use "end" to advance.')); break
-        }
-        const prevLoc = state.board.itemLocations[itemId]
-        state = moveItem(state, itemId, targetLoc as LocationId)
-        saveState(rawPath, difficulty, state)
-        const it = scenario.items.find(i => i.id === itemId)!
-        console.log(`Moved ${it.name} (${itemId}) from ${prevLoc} to ${targetLoc}.  ${state.actionsRemaining} item action(s) remaining.`)
-        break
-      }
-
-      case 'end':
-      case 'e': {
-        const prevCount   = state.collectedClueIds.length
-        const prevItemIds = [...state.foundItemIds]
-        const prevCharIds = [...state.foundCharacterIds]
-        const lastTurn    = state.turn
-        state = resolveTurn(state, scenario)
-
-        const newClues = state.collectedClueIds.length - prevCount
-        const newItems = state.foundItemIds.filter(id => !prevItemIds.includes(id))
-        const newChars = state.foundCharacterIds.filter(id => !prevCharIds.includes(id))
-        const clueEntries = state.log.filter(e => e.turn === lastTurn && e.clueId && !e.isLead)
-
-        console.log(`\n--- Turn ${lastTurn} | ${newClues} new clue(s) ---`)
-
-        for (const e of clueEntries) {
-          console.log(yw(`[CLUE] ${stripTags(e.text)}`))
-        }
-        for (const id of newChars) {
-          const ch = scenario.characters.find(c => c.id === id)!
-          console.log(`[FOUND CHAR] ${ch.name} (${id})${ch.isVictim ? ' [VICTIM]' : ''} at ${state.board.characterLocations[id]}`)
-          console.log(`  ${ch.description}`)
-        }
-        for (const id of newItems) {
-          const it = scenario.items.find(i => i.id === id)!
-          console.log(`[FOUND ITEM] ${it.name} (${id}) at ${state.board.itemLocations[id]}`)
-          console.log(`  ${it.description}`)
-        }
-        if (clueEntries.length === 0 && newItems.length === 0 && newChars.length === 0) {
-          console.log('(nothing new — try a different position or move an item)')
-        }
-
-        saveState(rawPath, difficulty, state)
-        console.log()
+        printNewEntries(state)
         console.log(renderState(scenario, state))
+        break
+      }
 
-        if (state.solved) {
-          clearState(rawPath, difficulty)
-          console.log(gr(`\nCASE SOLVED — Score: ${state.finalScore}`))
-          rl.close(); return
+      case 'inspect': {
+        const itemId = args[0]
+        if (itemId) {
+          const prev = state.actionCount
+          state = inspectItem(state, scenario, itemId)
+          if (state.actionCount === prev) {
+            const item = scenario.items.find(i => i.id === itemId)
+            if (!item) {
+              console.log(rd(`Unknown item: ${itemId}`))
+            } else if (!state.inventory.includes(itemId) && !state.inspectedLocationIds.includes(loc)) {
+              console.log(rd(`Inspect this location first before picking up items.`))
+            } else if (!state.inventory.includes(itemId) && item.starting_location !== loc) {
+              console.log(rd(`${itemId} is not at this location.`))
+            } else {
+              console.log(rd(`Cannot inspect item: ${itemId}`))
+            }
+            break
+          }
+        } else {
+          state = inspectLocation(state, scenario)
         }
+        saveState(rawPath, difficulty, state)
+        printNewEntries(state)
+        break
+      }
+
+      case 'talk': {
+        const charId = args[0]
+        if (!charId) { console.log(rd('Usage: talk <char_id>')); break }
+        const char = scenario.characters.find(c => c.id === charId)
+        if (!char) { console.log(rd(`Unknown character: ${charId}. Use 'chars' to see found characters.`)); break }
+        if (!state.foundCharacterIds.includes(charId)) {
+          console.log(rd(`Character not yet encountered: ${charId}. Move to their location first.`)); break
+        }
+        if (char.location !== loc) {
+          console.log(rd(`${char.name} is not here (they are at ${char.location}).`)); break
+        }
+        state = talkToCharacter(state, scenario, charId)
+        saveState(rawPath, difficulty, state)
+        printNewEntries(state)
+        break
+      }
+
+      case 'ask': {
+        const [charId, itemId] = args
+        if (!charId || !itemId) { console.log(rd('Usage: ask <char_id> <item_id>')); break }
+        const char = scenario.characters.find(c => c.id === charId)
+        if (!char) { console.log(rd(`Unknown character: ${charId}`)); break }
+        if (!state.foundCharacterIds.includes(charId) || char.location !== loc) {
+          console.log(rd(`${char?.name ?? charId} is not here.`)); break
+        }
+        if (!state.inventory.includes(itemId)) {
+          console.log(rd(`${itemId} is not in inventory. Use 'items' to see what you're holding.`)); break
+        }
+        state = askCharacterAboutItem(state, scenario, charId, itemId)
+        saveState(rawPath, difficulty, state)
+        printNewEntries(state)
         break
       }
 
@@ -403,7 +396,7 @@ async function main() {
         if (!entries.length) { console.log('No clues collected yet.'); break }
         console.log(`Clues (${entries.length}):`)
         for (const e of entries) {
-          console.log(`  [T${e.turn}] ${stripTags(e.text)}`)
+          console.log(`  [A${e.turn}] ${stripTags(e.text)}`)
         }
         break
       }
@@ -428,11 +421,12 @@ async function main() {
       }
 
       case 'submit': {
-        const cpId = args[0]
-        const nArg = args[1]
+        const cpId    = args[0]
+        const nArg    = args[1]
+        const clueIds = args.slice(2)
 
-        if (!cpId || !nArg) {
-          console.log(rd('Usage: submit <checkpoint_id> <option_number>  — use "cp" to see options'))
+        if (!cpId || !nArg || clueIds.length === 0) {
+          console.log(rd('Usage: submit <checkpoint_id> <option_number> <clue_id> [clue_id ...]  — use "cp" for options, "clues" for IDs'))
           break
         }
 
@@ -452,8 +446,14 @@ async function main() {
           break
         }
 
+        const invalidClues = clueIds.filter(id => !state.collectedClueIds.includes(id))
+        if (invalidClues.length) {
+          console.log(rd(`Clue(s) not collected: ${invalidClues.join(', ')}. Use "clues" to see collected clue IDs.`))
+          break
+        }
+
         const answer = scenCp.answer_options[idx]
-        state = submitCheckpoint(state, scenario, cpId as any, answer, state.collectedClueIds)
+        state = submitCheckpoint(state, scenario, cpId as any, answer, clueIds)
         saveState(rawPath, difficulty, state)
         const result = state.checkpoints[cpId as any]
 

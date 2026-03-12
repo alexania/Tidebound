@@ -40,14 +40,14 @@
 
 .game-screen__main {
   flex: 1;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
+  display: flex;
+  flex-direction: row;
   overflow: hidden;
   position: relative;
 }
 
 .game-screen__left {
-  border-right: 1px solid var(--color-border);
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -60,15 +60,42 @@
 }
 
 .game-screen__notes {
-  flex: 0 0 330px;
+  flex-shrink: 0;
   border-top: 1px solid var(--color-border);
   overflow: hidden;
 }
 
 .game-screen__log {
+  flex: 1;
+  min-width: 200px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+/* Resize handles */
+
+.gs-resizer {
+  flex-shrink: 0;
+  background: var(--color-border);
+  transition: background 0.15s;
+  z-index: 10;
+}
+
+.gs-resizer:hover,
+.gs-resizer:active {
+  background: var(--color-accent);
+}
+
+.gs-resizer--v {
+  width: 4px;
+  cursor: col-resize;
+  align-self: stretch;
+}
+
+.gs-resizer--h {
+  height: 4px;
+  cursor: row-resize;
 }
 
 .game-screen__log-pane {

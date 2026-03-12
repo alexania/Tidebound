@@ -241,7 +241,7 @@
       "answer": "Fall from height",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "spire_base",
         "item": null
@@ -255,7 +255,7 @@
       "answer": "Fall from height",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "spire_top",
         "item": null
@@ -269,7 +269,7 @@
       "answer": "Drowned",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "orric_vann"
         ],
@@ -285,7 +285,7 @@
       "answer": "Struck by a blunt instrument",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "brynn_ossler"
         ],
@@ -301,7 +301,7 @@
       "answer": "Exposure to cold",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "maret_colne"
         ],
@@ -317,7 +317,7 @@
       "answer": "The top of the Spire of Moored Voices",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "spire_top",
         "item": null
@@ -331,7 +331,7 @@
       "answer": "The top of the Spire of Moored Voices",
       "weight": "correct",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "spire_top",
         "item": "the_satchel"
@@ -345,7 +345,7 @@
       "answer": "The ancestor hall",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "tauvek_drest"
         ],
@@ -361,7 +361,7 @@
       "answer": "The cliff workshop",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "cliff_workshop",
         "item": "the_walking_staff"
@@ -375,7 +375,7 @@
       "answer": "The harbour steps",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "harbour_steps",
         "item": null
@@ -389,7 +389,7 @@
       "answer": "Between second bell and dawn",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "orric_vann"
         ],
@@ -405,7 +405,7 @@
       "answer": "Between second bell and dawn",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "maret_colne"
         ],
@@ -421,7 +421,7 @@
       "answer": "After dawn",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "brynn_ossler"
         ],
@@ -437,7 +437,7 @@
       "answer": "Before first bell",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "spire_base",
         "item": null
@@ -451,7 +451,7 @@
       "answer": "Between first bell and second bell",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "tauvek_drest"
         ],
@@ -467,7 +467,7 @@
       "answer": "Solvaine Drest",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "orric_vann"
         ],
@@ -483,7 +483,7 @@
       "answer": "Solvaine Drest",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character_and_item",
+        "type": "ask_character_about_item",
         "characters": [
           "brynn_ossler"
         ],
@@ -499,7 +499,7 @@
       "answer": "Orric Vann",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location_with_item",
+        "type": "inspect_item_in_location",
         "characters": [],
         "location": "harbour_steps",
         "item": "the_carving_knife"
@@ -513,7 +513,7 @@
       "answer": "Maret Colne",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "maret_colne"
         ],
@@ -529,7 +529,7 @@
       "answer": "Brynn Ossler",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "brynn_ossler"
         ],
@@ -545,7 +545,7 @@
       "answer": "To prevent the relocation of the ancestor pillars",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_item",
+        "type": "inspect_item",
         "characters": [],
         "location": null,
         "item": "the_manuscript"
@@ -559,7 +559,7 @@
       "answer": "To prevent the relocation of the ancestor pillars",
       "weight": "correct",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "solvaine_drest"
         ],
@@ -575,7 +575,7 @@
       "answer": "To inherit the Bone-Speaker position sooner",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_at_location",
+        "type": "inspect_location",
         "characters": [],
         "location": "ancestor_hall",
         "item": null
@@ -589,7 +589,7 @@
       "answer": "Revenge for public humiliation",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "maret_colne"
         ],
@@ -605,7 +605,7 @@
       "answer": "To conceal a broken vow",
       "weight": "red_herring",
       "condition": {
-        "type": "investigator_with_character",
+        "type": "talk_to_character",
         "characters": [
           "tauvek_drest"
         ],
