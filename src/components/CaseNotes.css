@@ -1,0 +1,116 @@
+.case-notes {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.case-notes__section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.case-notes__heading {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 2px;
+}
+
+/* Inventory chips — wrapping inline blocks */
+.case-notes__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.case-notes__item-chip {
+  padding: 2px 8px;
+  font-size: 11px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  background: rgba(196, 168, 130, 0.06);
+  cursor: pointer;
+}
+
+.case-notes__item-chip:hover {
+  background: rgba(196, 168, 130, 0.14);
+}
+
+/* Character entries — single line */
+.case-notes__person {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.case-notes__person-name {
+  color: var(--color-text);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.case-notes__tag {
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+
+.case-notes__tag--victim {
+  border-color: var(--color-error);
+  color: #c47070;
+}
+
+.case-notes__person-bio {
+  font-size: 10px;
+  color: var(--color-text-dim);
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Confirmed checkpoints */
+.case-notes__finding {
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.case-notes__finding:last-child {
+  border-bottom: none;
+}
+
+.case-notes__finding-label {
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+.case-notes__finding-answer {
+  color: var(--color-text);
+}
+
+/* Locked action reminders */
+.case-notes__reminder {
+  font-size: 11px;
+  color: #7ab8c4;
+  padding: 2px 0;
+  border-left: 2px solid rgba(122, 184, 196, 0.3);
+  padding-left: 7px;
+}

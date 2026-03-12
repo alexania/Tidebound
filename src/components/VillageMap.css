@@ -18,11 +18,6 @@
   transition: border-color 0.15s;
 }
 
-.map-location--drag-over {
-  border-color: var(--color-accent);
-  background: var(--color-surface2);
-}
-
 .map-location__name {
   font-size: 10px;
   letter-spacing: 1.5px;
@@ -46,7 +41,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  pointer-events: none;
 }
 
 .map-token {
@@ -54,28 +48,18 @@
   padding: 2px 6px;
   font-size: 11px;
   border: 1px solid;
-  cursor: grab;
-  pointer-events: all;
+  cursor: default;
   white-space: nowrap;
   max-width: 130px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.map-token:active {
-  cursor: grabbing;
-}
-
 .map-token--character {
   border-color: var(--color-accent);
   color: var(--color-accent);
   background: rgba(196, 168, 130, 0.06);
-}
-
-.map-token--item {
-  border-color: var(--color-border);
-  color: var(--color-text-dim);
-  background: rgba(74, 55, 40, 0.15);
+  cursor: pointer;
 }
 
 .map-token--victim {
@@ -92,38 +76,27 @@
   font-style: italic;
 }
 
-.map-location__flavour {
-  display: none;
-  position: absolute;
-  bottom: calc(100% + 6px);
-  left: 0;
-  width: 220px;
+/* Current location — investigator is here */
+.map-location--current {
+  border-color: rgba(122, 184, 196, 0.45);
+  cursor: pointer;
+}
+
+/* Adjacent — clickable to move */
+.map-location--adjacent {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px rgba(196, 168, 130, 0.2);
+  cursor: pointer;
+}
+
+.map-location--adjacent:hover {
   background: var(--color-surface2);
-  border: 1px solid var(--color-border);
-  padding: 8px 10px;
-  font-size: 12px;
-  color: var(--color-text-dim);
-  font-style: italic;
-  line-height: 1.5;
-  z-index: 10;
-  pointer-events: none;
+  box-shadow: 0 0 0 1px rgba(196, 168, 130, 0.4);
 }
 
-.map-location:hover .map-location__flavour {
-  display: block;
-}
-
-.map-location--disabled {
-  opacity: 0.5;
-}
-
-.map-location--reachable {
+.map-location--menu-open {
   border-color: #7ab8c4;
-  box-shadow: 0 0 0 1px rgba(122, 184, 196, 0.35);
-}
-
-.map-location--blocked {
-  opacity: 0.25;
+  background: var(--color-surface2);
 }
 
 .village-map__adj-line {
@@ -131,4 +104,60 @@
   stroke-width: 1.5;
   stroke-dasharray: 4 4;
   opacity: 0.5;
+}
+
+/* Context menu */
+.map-context-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 20;
+  background: var(--color-surface2);
+  border: 1px solid var(--color-accent);
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.map-context-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 6px 10px;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.map-context-menu button:last-child {
+  border-bottom: none;
+}
+
+.map-context-menu button:hover {
+  background: rgba(196, 168, 130, 0.08);
+  color: var(--color-accent);
+}
+
+/* Locked indicator — shown when this action returned locked feedback */
+.map-menu-locked {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #7ab8c4;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* Tag spans inside menu buttons keep their styling and aren't uppercased */
+.map-context-menu .tag-item,
+.map-context-menu .tag-char,
+.map-context-menu .tag-loc {
+  text-transform: none;
 }

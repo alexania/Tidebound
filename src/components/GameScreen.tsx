@@ -1,25 +1,25 @@
 import type { Scenario, CheckpointId, LocationId } from '../types/scenario'
 import type { GameState } from '../types/gameState'
 import { VillageMap } from './VillageMap'
-import { RelationshipGraph } from './RelationshipGraph'
+import { CaseNotes } from './CaseNotes'
 import { ActionLog } from './ActionLog'
 import { ActionBar } from './ActionBar'
-import { InfoPanel } from './InfoPanel'
 import { EvidenceBoard } from './EvidenceBoard'
 import './GameScreen.css'
 
 interface Props {
   scenario: Scenario
   gameState: GameState
-  onMoveCharacter: (charId: string, location: LocationId) => void
-  onMoveItem: (itemId: string, location: LocationId) => void
-  onEndTurn: () => void
+  onMove: (locationId: LocationId) => void
+  onInspectLocation: () => void
+  onInspectItem: (itemId: string) => void
+  onTalk: (charId: string) => void
+  onAsk: (charId: string, itemId: string) => void
   onSubmitCheckpoint: (cpId: CheckpointId, answer: string, citedClueIds: string[]) => void
   onPinCard: (clueId: string) => void
   onUpdateImplied: (cardId: string, answer: string) => void
   onAssignLane: (cardId: string, checkpointId: CheckpointId | null) => void
   onUnpinCard: (cardId: string) => void
-  onSelect: (sel: string | null) => void
   showBoard: boolean
   onToggleBoard: () => void
   collapsedCards: Set<string>
@@ -28,11 +28,9 @@ interface Props {
 
 export function GameScreen({
   scenario, gameState,
-  onMoveCharacter, onMoveItem,
-  onEndTurn,
+  onMove, onInspectLocation, onInspectItem, onTalk, onAsk,
   onSubmitCheckpoint,
   onPinCard, onUpdateImplied, onAssignLane, onUnpinCard,
-  onSelect,
   showBoard, onToggleBoard,
   collapsedCards, onToggleCardCollapsed,
 }: Props) {
@@ -41,7 +39,7 @@ export function GameScreen({
       <div className="game-screen__header">
         <span className="game-screen__village">{scenario.location.name}</span>
         <span className="game-screen__weather">{scenario.location.weather}</span>
-        <span className="game-screen__turn">Turn {gameState.turn}</span>
+        <span className="game-screen__turn">Action {gameState.actionCount}</span>
       </div>
 
       <div className="game-screen__main">
@@ -50,13 +48,19 @@ export function GameScreen({
             <VillageMap
               scenario={scenario}
               gameState={gameState}
-              onMoveCharacter={onMoveCharacter}
-              onMoveItem={onMoveItem}
-              onSelect={onSelect}
+              onMove={onMove}
+              onInspectLocation={onInspectLocation}
+              onInspectItem={onInspectItem}
+              onTalk={onTalk}
+              onAsk={onAsk}
             />
           </div>
-          <div className="game-screen__relations">
-            <RelationshipGraph scenario={scenario} gameState={gameState} />
+          <div className="game-screen__notes">
+            <CaseNotes
+              scenario={scenario}
+              gameState={gameState}
+              onInspectItem={onInspectItem}
+            />
           </div>
         </div>
         <div className="game-screen__log">
@@ -81,16 +85,9 @@ export function GameScreen({
         />
       </div>
 
-      <InfoPanel
-        scenario={scenario}
-        gameState={gameState}
-        onSelect={onSelect}
-      />
-
       <ActionBar
         gameState={gameState}
         scenario={scenario}
-        onEndTurn={onEndTurn}
         onToggleBoard={onToggleBoard}
         showBoard={showBoard}
       />

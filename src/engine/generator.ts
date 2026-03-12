@@ -132,6 +132,7 @@ const SCHEMA = `{
       "id": string (unique, snake_case),
       "name": string,
       "description": string (one sentence — direct observation only, no deductions),
+      "location_discovery_text": string (one sentence, present tense, physical only — what the investigator notices when scanning the location before picking it up. Wrap the item name in an [item:Name] tag. e.g. "[item:Brass Flask] rests on its side near the door."),
       "starting_location": location_id
     }
   ],
@@ -197,6 +198,16 @@ const SCHEMA = `{
 
   "epilogue": string (2–3 paragraphs revealed after the case is solved. Its primary purpose is to surface the story bible details the player never needed to solve the crime: the victim's full history and secrets, what the perpetrator was truly concealing beyond the immediate crime, relationships and events the investigator never directly uncovered, the texture of the world before it broke. Written in past tense. May briefly note what became of key characters, but only where it illuminates something about the story — not as an accounting of outcomes. Uses [char:Name], [loc:location_id] and [time:phrase] tags. No new plot twists — revelation only.)
 }
+
+INTERACTION MODEL:
+The player takes discrete actions. Each action fires relevant clues immediately:
+- Move to a location: reveals NPCs present, fires no clues
+- Inspect location: fires investigator_at_location clues; also fires investigator_at_location_with_item for items in inventory; reveals items via location_discovery_text
+- Inspect item (picks it up): fires investigator_with_item clues; also fires investigator_at_location_with_item for current location
+- Talk to character: fires investigator_with_character clues
+- Ask character about item (must be holding it): fires investigator_with_character_and_item clues
+
+This means investigator_with_character_and_item clues represent the investigator showing the item to the character. The clue text should read as the character's reaction to being shown that specific item — testimony, recognition, or denial.
 
 CONDITION OBJECT — use exactly these 5 type strings:
   { "type": "investigator_at_location", "characters": [], "location": location_id, "item": null }

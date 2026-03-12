@@ -3,7 +3,7 @@
 import scenario from '../scenarios/easy/hallow_cove_02.json' assert { type: 'json' }
 import type { Scenario } from '../types/scenario'
 import { validateScenario } from './validator'
-import { initGameState, moveInvestigator, resolveTurn, submitCheckpoint } from './gameEngine'
+import { initGameState, moveToLocation, inspectLocation, talkToCharacter, submitCheckpoint } from './gameEngine'
 
 const s = scenario as unknown as Scenario
 
@@ -20,32 +20,53 @@ if (errors.length === 0) {
 // ── 2. Init ────────────────────────────────────────────────────
 console.log('\n═══ INIT ═══')
 let state = initGameState(s, 'easy')
-console.log(`Turn: ${state.turn}, Phase: ${state.phase}, Actions: ${state.actionsRemaining}`)
-console.log('Checkpoints available from turn 1:',
+console.log(`ActionCount: ${state.actionCount}`)
+console.log('Investigator at:', state.investigatorLocation)
+console.log('Checkpoints available:',
   Object.entries(state.checkpoints).filter(([,v]) => v.status === 'available').map(([k]) => k))
 console.log('Items:', s.items.length)
-console.log('Character starting locations:')
-for (const [id, loc] of Object.entries(state.board.characterLocations)) {
-  const char = s.characters.find(c => c.id === id)
-  console.log(`  ${char?.name ?? id} → ${loc}`)
+console.log('Character locations:')
+for (const char of s.characters) {
+  console.log(`  ${char.name} → ${char.location}`)
 }
 
-// ── 3. Turn 1: move investigator to trigger early clues ──
-console.log('\n═══ TURN 1 — Setup ═══')
-const firstNonVictim = s.characters.find(c => !c.isVictim)
-if (firstNonVictim) {
-  state = moveInvestigator(state, firstNonVictim.location)
-  console.log(`Investigator moved to ${firstNonVictim.location}. Actions remaining: ${state.actionsRemaining}`)
-}
-
-console.log('\n═══ TURN 1 — Resolve ═══')
-state = resolveTurn(state, s)
-console.log(`Phase: ${state.phase}`)
+// ── 3. Inspect arrival location ──────────────────────────────
+console.log('\n═══ ACTION 1 — Inspect Arrival Location ═══')
+state = inspectLocation(state, s)
+console.log(`ActionCount: ${state.actionCount}`)
 console.log(`Clues collected: ${state.collectedClueIds.length}`)
-console.log('Log entries:')
-state.log.forEach(e => console.log(`  [${e.locationId}] ${e.text.slice(0, 80)}...`))
+console.log('New log entries:')
+state.log.filter(e => e.isNew).forEach(e => console.log(`  [${e.locationId}] ${e.text.slice(0, 80)}...`))
 
-// ── 4. Submit cause_of_death ───────────────────────────────────
+// ── 4. Move to another location ──────────────────────────────
+const firstNonVictim = s.characters.find(c => !c.isVictim)
+if (firstNonVictim && firstNonVictim.location !== state.investigatorLocation) {
+  // Try to find an adjacent location toward the character
+  const adjacencies = s.location_adjacencies ?? []
+  const nextLoc = adjacencies.find(
+    adj => adj.from === state.investigatorLocation || adj.to === state.investigatorLocation
+  )
+  if (nextLoc) {
+    const targetLoc = nextLoc.from === state.investigatorLocation ? nextLoc.to : nextLoc.from
+    console.log(`\n═══ ACTION 2 — Move to ${targetLoc} ═══`)
+    state = moveToLocation(state, s, targetLoc)
+    console.log(`ActionCount: ${state.actionCount}, At: ${state.investigatorLocation}`)
+    console.log('New NPCs found:', state.foundCharacterIds.length)
+  }
+}
+
+// ── 5. Talk to a character ───────────────────────────────────
+const charAtLocation = s.characters.find(c =>
+  c.location === state.investigatorLocation && !c.isVictim
+)
+if (charAtLocation) {
+  console.log(`\n═══ ACTION 3 — Talk to ${charAtLocation.name} ═══`)
+  state = talkToCharacter(state, s, charAtLocation.id)
+  console.log(`ActionCount: ${state.actionCount}`)
+  console.log(`Clues collected: ${state.collectedClueIds.length}`)
+}
+
+// ── 6. Submit cause_of_death ──────────────────────────────────
 console.log('\n═══ CHECKPOINT SUBMISSION ═══')
 console.log('Available:', Object.entries(state.checkpoints)
   .filter(([,v]) => v.status === 'available').map(([k]) => k))
@@ -55,10 +76,4 @@ const correctAnswer = causeOfDeathCp?.answer_options[0] ?? 'unknown'
 state = submitCheckpoint(state, s, 'cause_of_death', correctAnswer, state.collectedClueIds)
 const codState = state.checkpoints['cause_of_death']
 console.log(`cause_of_death: ${codState.status} (submitted: ${correctAnswer})`)
-
-console.log('Still locked:', Object.entries(state.checkpoints)
-  .filter(([,v]) => v.status === 'locked').map(([k]) => k))
-
-console.log(`\n═══ AFTER RESOLVE ═══`)
-console.log(`Turn: ${state.turn}, Phase: ${state.phase}, Actions: ${state.actionsRemaining}`)
 console.log(`Solved: ${state.solved}`)

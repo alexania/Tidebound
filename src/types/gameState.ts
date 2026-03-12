@@ -4,11 +4,6 @@
 
 import type { CheckpointId, LocationId, Difficulty, ClueWeight } from './scenario'
 
-export interface BoardState {
-  characterLocations: Record<string, LocationId>
-  itemLocations: Record<string, LocationId>
-}
-
 export interface CollectedClue {
   clueId: string
   turn: number
@@ -35,8 +30,8 @@ export interface CheckpointSubmission {
   citedClueIds: string[]
 }
 
-// All 5 investigative checkpoints are available from turn 1.
-// perpetrator, motive, hidden_truth unlock only when all 5 are confirmed.
+// All 5 investigative checkpoints are available from action 1.
+// perpetrator, motive unlock only when all 3 investigative are confirmed.
 export type CheckpointStatus = 'available' | 'confirmed' | 'locked'
 
 export interface CheckpointState {
@@ -48,40 +43,35 @@ export interface CheckpointState {
 
 export interface LogEntry {
   id: string
-  turn: number
+  turn: number         // maps to actionCount at time of entry
   locationId: LocationId
   text: string
   clueId: string | null
   isNew: boolean
   isLead?: boolean
+  isMilestone?: boolean
   weight?: ClueWeight
 }
 
 export interface GameState {
   scenarioId: string
   difficulty: Difficulty
-  turn: number
-  phase: 'setup' | 'resolve'
-  actionsRemaining: number
+  actionCount: number
 
-  board: BoardState
+  investigatorLocation: LocationId
+  inventory: string[]              // item IDs currently carried
+  visitedLocationIds: string[]     // locations entered (reveals NPCs)
+  inspectedLocationIds: string[]   // locations explicitly inspected (reveals items)
+  attemptedActions: string[]       // e.g. "inspect:harbour", "talk:martha", "ask:martha:flask"
+  lockedActionKeys: string[]       // action keys that returned locked feedback — shown as indicators
 
-  // Locations, characters, and items discovered by the investigator
-  foundLocationIds: string[]
   foundCharacterIds: string[]
-  foundItemIds: string[]
-
-  // Item locations at the start of the current turn — used to detect moves that are undone
-  turnStartItemLocations: Record<string, LocationId>
+  foundItemIds: string[]           // items picked up into inventory
 
   collectedClueIds: string[]
   log: LogEntry[]
 
-  // Evidence board
   pinnedCards: PinnedCard[]
-
-  // Currently selected entity in the info panel
-  // Format: "char:id" | "item:id" | "loc:id" | null
   selected: string | null
 
   checkpoints: Record<CheckpointId, CheckpointState>

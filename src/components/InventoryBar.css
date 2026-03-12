@@ -1,0 +1,38 @@
+.inventory-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  min-height: 36px;
+}
+
+.inventory-bar__label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+.inventory-bar--empty .inventory-bar__label {
+  font-style: italic;
+}
+
+.inventory-chip {
+  padding: 3px 8px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--color-border);
+  background: rgba(74, 55, 40, 0.15);
+  color: var(--color-text-dim);
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s;
+}
+
+.inventory-chip:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}

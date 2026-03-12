@@ -58,8 +58,8 @@
   position: relative;
 }
 
-.game-screen__relations {
-  flex: 0 0 300px;
+.game-screen__notes {
+  flex: 0 0 220px;
   border-top: 1px solid var(--color-border);
   overflow: hidden;
 }

@@ -1,7 +1,6 @@
 import type { Scenario } from '../types/scenario'
 import type { GameState } from '../types/gameState'
 import { parseTaggedText, buildLocationNames } from '../utils/parseTags'
-import { INVESTIGATOR_ID } from '../engine/gameEngine'
 import './InfoPanel.css'
 
 interface Props {
@@ -17,7 +16,7 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
   if (!selected) {
     return (
       <div className="info-panel">
-        <div className="info-panel__empty">Click a character, item, or location for details.</div>
+        <div className="info-panel__empty">Click a character or location for details.</div>
       </div>
     )
   }
@@ -26,29 +25,16 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
   const type = selected.slice(0, colonIdx)
   const id = selected.slice(colonIdx + 1)
 
-  if (type === 'char' && id === INVESTIGATOR_ID) {
-    const loc = gameState.board.characterLocations[INVESTIGATOR_ID]
-    return (
-      <div className="info-panel" onClick={() => onSelect(null)} style={{ cursor: 'pointer' }}>
-        <div className="info-panel__col">
-          <div className="info-panel__name">Investigator</div>
-          <div className="info-panel__meta">you · at {loc ? (locationNames[loc] ?? loc) : ''}</div>
-          <div className="info-panel__desc">Move to locations to surface clues. Your presence satisfies conditions just as any other character's would.</div>
-        </div>
-      </div>
-    )
-  }
-
   if (type === 'char') {
     const char = scenario.characters.find(c => c.id === id)
     if (!char) return null
-    const loc = gameState.board.characterLocations[char.id]
+    const locName = locationNames[char.location] ?? char.location
     return (
       <div className="info-panel" onClick={() => onSelect(null)} style={{ cursor: 'pointer' }}>
         <div className="info-panel__col">
           <div className="info-panel__name">{char.name}</div>
           <div className="info-panel__meta">
-            {char.isVictim ? 'victim · ' : ''}{char.local ? 'local' : 'outsider'} · at {loc ? (locationNames[loc] ?? loc) : ''}
+            {char.isVictim ? 'victim · ' : ''}{char.local ? 'local' : 'outsider'} · at {locName}
           </div>
           <div className="info-panel__desc">{parseTaggedText(char.description, locationNames)}</div>
         </div>
@@ -59,14 +45,14 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
   if (type === 'item') {
     const item = scenario.items.find(i => i.id === id)
     if (!item) return null
-    const loc = gameState.board.itemLocations[item.id]
-    const found = gameState.foundItemIds.includes(item.id)
+    const inInventory = gameState.inventory.includes(item.id)
+    const locName = locationNames[item.starting_location] ?? item.starting_location
     return (
       <div className="info-panel" onClick={() => onSelect(null)} style={{ cursor: 'pointer' }}>
         <div className="info-panel__col">
           <div className="info-panel__name">{item.name}</div>
           <div className="info-panel__meta">
-            {found ? `at ${locationNames[loc] ?? loc}` : 'not yet found'}
+            {inInventory ? 'carrying' : `at ${locName}`}
           </div>
           <div className="info-panel__desc">{parseTaggedText(item.description, locationNames)}</div>
         </div>
@@ -77,12 +63,8 @@ export function InfoPanel({ scenario, gameState, onSelect }: Props) {
   if (type === 'loc') {
     const loc = scenario.locations.find(l => l.id === id)
     if (!loc) return null
-    const chars = scenario.characters.filter(
-      c => gameState.board.characterLocations[c.id] === id
-    )
-    const items = scenario.items.filter(
-      i => gameState.foundItemIds.includes(i.id) && gameState.board.itemLocations[i.id] === id
-    )
+    const chars = scenario.characters.filter(c => gameState.foundCharacterIds.includes(c.id) && c.location === id)
+    const items = scenario.items.filter(i => gameState.foundItemIds.includes(i.id) && i.starting_location === id)
     const occupants = [
       ...chars.map(c => c.name),
       ...items.map(i => i.name),

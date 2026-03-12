@@ -86,6 +86,18 @@
   background: rgba(90, 138, 90, 0.06);
 }
 
+.log-entry--milestone {
+  border-color: #7ab8c4;
+  border-left-width: 2px;
+  background: rgba(122, 184, 196, 0.06);
+}
+
+.log-entry--milestone .log-entry__text {
+  color: #7ab8c4;
+  font-style: italic;
+  font-weight: 600;
+}
+
 .action-log__turn-label--leads {
   color: var(--color-text-dim);
   font-style: italic;

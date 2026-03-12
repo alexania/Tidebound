@@ -51,6 +51,7 @@ export interface Item {
   id: string
   name: string
   description: string
+  location_discovery_text?: string  // shown when player inspects the location; reveals item is there
   starting_location: LocationId
 }
 

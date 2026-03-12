@@ -3,9 +3,9 @@ import type { Scenario, Difficulty, CheckpointId, LocationId } from './types/sce
 import type { GameState } from './types/gameState'
 import {
   initGameState, filterCluesToDifficulty,
-  moveInvestigator, moveItem,
-  resolveTurn, submitCheckpoint,
-  pinClue, updateCardImplied, assignCardToLane, unpinCard, setSelected,
+  moveToLocation, inspectLocation, inspectItem, talkToCharacter, askCharacterAboutItem,
+  submitCheckpoint,
+  pinClue, updateCardImplied, assignCardToLane, unpinCard,
 } from './engine/gameEngine'
 import {
   generateScenario, generatePromptForClipboard, saveScenario,
@@ -102,8 +102,7 @@ export default function App() {
     if (!activeScenario) return
     const scenario = filterCluesToDifficulty(activeScenario.scenario, difficulty)
     setActiveFilteredScenario(scenario)
-    const initial = initGameState(scenario, difficulty)
-    setGameState(resolveTurn(initial, scenario))
+    setGameState(initGameState(scenario, difficulty))
     setShowBoard(false)
     setScreen('game')
   }
@@ -113,19 +112,29 @@ export default function App() {
   const gs = gameState
   const sc = activeFilteredScenario
 
-  const handleMoveCharacter = (_charId: string, location: LocationId) => {
-    if (!gs) return
-    setGameState(moveInvestigator(gs, location))
-  }
-
-  const handleMoveItem = (itemId: string, location: LocationId) => {
-    if (!gs) return
-    setGameState(moveItem(gs, itemId, location))
-  }
-
-  const handleEndTurn = () => {
+  const handleMove = (location: LocationId) => {
     if (!gs || !sc) return
-    setGameState(resolveTurn(gs, sc))
+    setGameState(moveToLocation(gs, sc, location))
+  }
+
+  const handleInspectLocation = () => {
+    if (!gs || !sc) return
+    setGameState(inspectLocation(gs, sc))
+  }
+
+  const handleInspectItem = (itemId: string) => {
+    if (!gs || !sc) return
+    setGameState(inspectItem(gs, sc, itemId))
+  }
+
+  const handleTalk = (charId: string) => {
+    if (!gs || !sc) return
+    setGameState(talkToCharacter(gs, sc, charId))
+  }
+
+  const handleAsk = (charId: string, itemId: string) => {
+    if (!gs || !sc) return
+    setGameState(askCharacterAboutItem(gs, sc, charId, itemId))
   }
 
   const handleSubmitCheckpoint = (cpId: CheckpointId, answer: string, citedClueIds: string[]) => {
@@ -160,11 +169,6 @@ export default function App() {
   const handleUnpinCard = (cardId: string) => {
     if (!gs) return
     setGameState(unpinCard(gs, cardId))
-  }
-
-  const handleSelect = (sel: string | null) => {
-    if (!gs) return
-    setGameState(setSelected(gs, sel))
   }
 
   // ── Render ────────────────────────────────────────────────────
@@ -240,15 +244,16 @@ export default function App() {
       <GameScreen
         scenario={sc}
         gameState={gs}
-        onMoveCharacter={handleMoveCharacter}
-        onMoveItem={handleMoveItem}
-        onEndTurn={handleEndTurn}
+        onMove={handleMove}
+        onInspectLocation={handleInspectLocation}
+        onInspectItem={handleInspectItem}
+        onTalk={handleTalk}
+        onAsk={handleAsk}
         onSubmitCheckpoint={handleSubmitCheckpoint}
         onPinCard={handlePinCard}
         onUpdateImplied={handleUpdateImplied}
         onAssignLane={handleAssignLane}
         onUnpinCard={handleUnpinCard}
-        onSelect={handleSelect}
         showBoard={showBoard}
         onToggleBoard={() => setShowBoard(b => !b)}
         collapsedCards={collapsedCards}
@@ -267,7 +272,7 @@ export default function App() {
       <div className="solved-screen">
         <h2>Case Closed</h2>
         <div className="score">{gs.finalScore}</div>
-        <p className="solved-screen__meta">points — {gs.difficulty} difficulty — {gs.turn} turns</p>
+        <p className="solved-screen__meta">points — {gs.difficulty} difficulty — {gs.actionCount} actions</p>
         {epilogueParagraphs.length > 0 && (
           <div className="solved-screen__epilogue">
             <h3>Epilogue</h3>

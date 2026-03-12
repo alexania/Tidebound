@@ -4,20 +4,14 @@ import './ActionBar.css'
 interface Props {
   gameState: GameState
   scenario: unknown
-  onEndTurn: () => void
   onToggleBoard: () => void
   showBoard: boolean
 }
 
-export function ActionBar({ gameState, scenario, onEndTurn, onToggleBoard, showBoard }: Props) {
-  const { actionsRemaining } = gameState
-
+export function ActionBar({ gameState, scenario, onToggleBoard, showBoard }: Props) {
   return (
     <div className="action-bar">
-      <div className="action-bar__pips">
-        <div className={`action-bar__pip ${actionsRemaining > 0 ? 'action-bar__pip--full' : ''}`} />
-      </div>
-      <span className="action-bar__label">item move</span>
+      <span className="action-bar__label">Action {gameState.actionCount}</span>
 
       <div className="action-bar__spacer" />
 
@@ -30,10 +24,6 @@ export function ActionBar({ gameState, scenario, onEndTurn, onToggleBoard, showB
 
       <button onClick={onToggleBoard} style={{ borderColor: showBoard ? 'var(--color-accent)' : undefined }}>
         Evidence Board
-      </button>
-
-      <button className="action-bar__primary" onClick={onEndTurn}>
-        End Turn
       </button>
     </div>
   )

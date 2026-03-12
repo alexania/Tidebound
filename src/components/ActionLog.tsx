@@ -42,11 +42,12 @@ export function ActionLog({ log, pinnedCards, onPinCard }: Props) {
         )}
         {Array.from(grouped.entries()).map(([turn, entries]) => (
           <div key={turn} className="action-log__turn-group">
-            <div className="action-log__turn-label">Turn {turn}</div>
+            <div className="action-log__turn-label">Action {turn}</div>
             {entries.map(entry => (
               <div key={entry.id} className={[
                 'log-entry',
                 entry.isNew ? 'log-entry--new' : '',
+                entry.isMilestone ? 'log-entry--milestone' : '',
                 entry.clueId && pinnedIds.has(entry.clueId) ? 'log-entry--pinned' : '',
               ].join(' ').trim()}>
                 <div className="log-entry__location">{entry.locationId.replace('_', ' ')}</div>

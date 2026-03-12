@@ -311,7 +311,7 @@ function EvidenceCard({ card, collapsed, locationNames, checkpointTag, answerOpt
             {collapsed
               ? (card.locationId ? formatLocation(card.locationId) : 'Unknown')
               : [
-                  card.turn !== null ? `Turn ${card.turn}` : 'Auto',
+                  card.turn !== null ? `Action ${card.turn}` : 'Auto',
                   card.locationId ? formatLocation(card.locationId) : null,
                 ].filter(Boolean).join(' — ')
             }

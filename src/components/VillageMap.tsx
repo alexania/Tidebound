@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import type { Scenario, LocationId, LocationAdjacency } from '../types/scenario'
 import type { GameState } from '../types/gameState'
-import { INVESTIGATOR_ID } from '../engine/gameEngine'
+import { parseTaggedText } from '../utils/parseTags'
 import './VillageMap.css'
 
 function getAdjacentLocs(
@@ -39,9 +39,8 @@ function getAdjacentLocs(
 const COL_X = [4, 37, 70]
 const ROW_Y = [4, 36, 68]
 
-// Approximate cell center offsets (px) from top-left of cell
-const CELL_CX = 75  // half of 150px width
-const CELL_CY = 40  // approx midpoint of cell vertically
+const CELL_CX = 75
+const CELL_CY = 40
 
 function formatLocationId(id: string): string {
   return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
@@ -61,20 +60,26 @@ function getLocationAnnotation(
   return null
 }
 
+type OpenMenu =
+  | { type: 'location' }
+  | { type: 'npc', charId: string }
+  | null
+
 interface Props {
   scenario: Scenario
   gameState: GameState
-  onMoveCharacter: (charId: string, location: LocationId) => void
-  onMoveItem: (itemId: string, location: LocationId) => void
-  onSelect: (sel: string | null) => void
+  onMove: (locationId: LocationId) => void
+  onInspectLocation: () => void
+  onInspectItem: (itemId: string) => void
+  onTalk: (charId: string) => void
+  onAsk: (charId: string, itemId: string) => void
 }
 
-export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, onSelect }: Props) {
-  const [dragOver, setDragOver] = useState<LocationId | null>(null)
-  const [investigatorDragging, setInvestigatorDragging] = useState(false)
-  const [reachableLocs, setReachableLocs] = useState<Set<LocationId>>(new Set())
-  const inSetup = gameState.phase === 'setup'
-  const canMoveItem = inSetup && gameState.actionsRemaining > 0
+export function VillageMap({
+  scenario, gameState,
+  onMove, onInspectLocation, onInspectItem, onTalk, onAsk,
+}: Props) {
+  const [openMenu, setOpenMenu] = useState<OpenMenu>({ type: 'location' })
 
   const mapRef = useRef<HTMLDivElement>(null)
   const [mapSize, setMapSize] = useState({ w: 0, h: 0 })
@@ -90,73 +95,44 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
     return () => ro.disconnect()
   }, [])
 
-  const handleDragStart = (e: React.DragEvent, type: 'character' | 'item', id: string) => {
-    if (type === 'item' && !canMoveItem) { e.preventDefault(); return }
-    if (type === 'character' && !inSetup) { e.preventDefault(); return }
-    e.dataTransfer.setData('type', type)
-    e.dataTransfer.setData('id', id)
-    e.dataTransfer.effectAllowed = 'move'
-    if (type === 'character' && id === INVESTIGATOR_ID) {
-      const currentLoc = gameState.board.characterLocations[INVESTIGATOR_ID] as LocationId
-      setInvestigatorDragging(true)
-      setReachableLocs(getAdjacentLocs(currentLoc, scenario.locations, scenario.location_adjacencies ?? []))
-    }
-  }
-
-  const handleDragOver = (e: React.DragEvent, locationId: LocationId) => {
-    if (!inSetup) return
-    if (investigatorDragging && !reachableLocs.has(locationId)) return
-    e.preventDefault()
-    e.dataTransfer.dropEffect = 'move'
-    setDragOver(locationId)
-  }
-
-  const handleDrop = (e: React.DragEvent, locationId: LocationId) => {
-    e.preventDefault()
-    clearDragState()
-    const type = e.dataTransfer.getData('type')
-    const id = e.dataTransfer.getData('id')
-    if (!id) return
-    if (type === 'character' && id === INVESTIGATOR_ID && reachableLocs.has(locationId)) {
-      onMoveCharacter(id, locationId)
-    } else if (type === 'item' && canMoveItem) {
-      onMoveItem(id, locationId)
-    }
-  }
-
-  const clearDragState = () => {
-    setDragOver(null)
-    setInvestigatorDragging(false)
-    setReachableLocs(new Set())
-  }
-
-  const handleDragLeave = () => setDragOver(null)
-  const handleDragEnd = () => clearDragState()
-
+  // Reset to location menu on move
   useEffect(() => {
-    document.addEventListener('dragend', clearDragState)
-    return () => document.removeEventListener('dragend', clearDragState)
+    setOpenMenu({ type: 'location' })
+  }, [gameState.investigatorLocation])
+
+  // Click outside NPC menu reverts to location menu
+  useEffect(() => {
+    const revert = (e: MouseEvent) => {
+      const target = e.target as Element
+      if (!target.closest('.map-context-menu') && !target.closest('.map-token--character')) {
+        setOpenMenu({ type: 'location' })
+      }
+    }
+    document.addEventListener('mousedown', revert)
+    return () => document.removeEventListener('mousedown', revert)
   }, [])
 
-  // Build lookup: location -> found characters there
+  const currentLoc = gameState.investigatorLocation
+  const adjacencies = scenario.location_adjacencies ?? []
+  const adjacentLocs = getAdjacentLocs(currentLoc, scenario.locations, adjacencies)
+
+  // Characters at each location (discovered)
   const charsByLocation = new Map<LocationId, typeof scenario.characters>()
   for (const char of scenario.characters) {
     if (!gameState.foundCharacterIds.includes(char.id)) continue
-    const loc = gameState.board.characterLocations[char.id] as LocationId
-    if (!charsByLocation.has(loc)) charsByLocation.set(loc, [])
-    charsByLocation.get(loc)!.push(char)
+    if (!charsByLocation.has(char.location)) charsByLocation.set(char.location, [])
+    charsByLocation.get(char.location)!.push(char)
   }
 
-  // Build lookup: location -> found items there
-  const itemsByLocation = new Map<LocationId, typeof scenario.items>()
-  for (const item of scenario.items) {
-    if (!gameState.foundItemIds.includes(item.id)) continue
-    const loc = gameState.board.itemLocations[item.id] as LocationId
-    if (!itemsByLocation.has(loc)) itemsByLocation.set(loc, [])
-    itemsByLocation.get(loc)!.push(item)
+  // Visible items at a location: starting_location matches and location has been inspected
+  function visibleItemsAt(locId: LocationId) {
+    if (!gameState.inspectedLocationIds.includes(locId)) return []
+    return scenario.items.filter(
+      i => i.starting_location === locId && !gameState.inventory.includes(i.id)
+    )
   }
 
-  // Compute pixel center for a location's grid cell
+  // Compute pixel center for adjacency SVG lines
   const locationById = new Map(scenario.locations.map((l, i) => [l.id, { loc: l, index: i }]))
   function cellCenter(locId: string): { x: number, y: number } | null {
     const entry = locationById.get(locId)
@@ -169,11 +145,11 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
     }
   }
 
-  const adjacencies = scenario.location_adjacencies ?? []
+  const inventoryItems = scenario.items.filter(i => gameState.inventory.includes(i.id))
 
   return (
     <div className="village-map" ref={mapRef}>
-      {/* SVG adjacency lines — rendered behind the location cards */}
+      {/* SVG adjacency lines */}
       {mapSize.w > 0 && adjacencies.length > 0 && (
         <svg
           className="village-map__adjacency"
@@ -206,38 +182,38 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
         const label = loc.name ?? formatLocationId(locId)
         const annotation = getLocationAnnotation(locId, scenario, gameState)
         const chars = charsByLocation.get(locId) ?? []
-        const items = itemsByLocation.get(locId) ?? []
-        const isDragOver = dragOver === locId
-        const isReachable = investigatorDragging && reachableLocs.has(locId)
-        const isBlocked = investigatorDragging && !reachableLocs.has(locId)
+        const visible = visibleItemsAt(locId)
+        const isCurrent = locId === currentLoc
+        const isAdjacent = adjacentLocs.has(locId)
+        const hasContextOpen = openMenu !== null && isCurrent
+
+        const classes = [
+          'map-location',
+          isCurrent ? 'map-location--current' : '',
+          isAdjacent ? 'map-location--adjacent' : '',
+          hasContextOpen ? 'map-location--menu-open' : '',
+        ].filter(Boolean).join(' ')
 
         return (
           <div
             key={locId}
-            className={[
-              'map-location',
-              isDragOver ? 'map-location--drag-over' : '',
-              !inSetup ? 'map-location--disabled' : '',
-              isReachable ? 'map-location--reachable' : '',
-              isBlocked ? 'map-location--blocked' : '',
-            ].filter(Boolean).join(' ')}
+            className={classes}
             style={{ left: `${x}%`, top: `${y}%` }}
-            onDragOver={e => handleDragOver(e, locId)}
-            onDrop={e => handleDrop(e, locId)}
-            onDragLeave={handleDragLeave}
-            onClick={() => onSelect(`loc:${locId}`)}
+            onClick={() => {
+              if (isCurrent) {
+                setOpenMenu({ type: 'location' })
+              } else if (isAdjacent) {
+                setOpenMenu(null)
+                onMove(locId)
+              }
+            }}
           >
             <div className="map-location__name">{label}</div>
             {annotation && <div className="map-location__annotation">{annotation}</div>}
+
             <div className="map-location__tokens">
-              {gameState.board.characterLocations[INVESTIGATOR_ID] === locId && (
-                <div
-                  className="map-token map-token--investigator"
-                  draggable={inSetup}
-                  onDragStart={e => handleDragStart(e, 'character', INVESTIGATOR_ID)}
-                  onDragEnd={handleDragEnd}
-                  onClick={e => { e.stopPropagation(); onSelect(`char:${INVESTIGATOR_ID}`) }}
-                >
+              {isCurrent && (
+                <div className="map-token map-token--investigator">
                   Investigator
                 </div>
               )}
@@ -245,25 +221,62 @@ export function VillageMap({ scenario, gameState, onMoveCharacter, onMoveItem, o
                 <div
                   key={char.id}
                   className={`map-token ${char.isVictim ? 'map-token--victim' : 'map-token--character'}`}
-                  draggable={false}
-                  onClick={e => { e.stopPropagation(); onSelect(`char:${char.id}`) }}
+                  onClick={e => {
+                    e.stopPropagation()
+                    if (isCurrent && !char.isVictim) {
+                      setOpenMenu(prev =>
+                        prev?.type === 'npc' && prev.charId === char.id
+                          ? { type: 'location' }
+                          : { type: 'npc', charId: char.id }
+                      )
+                    }
+                  }}
                 >
                   {char.name.split(' ')[0]}
                 </div>
               ))}
-              {items.map(item => (
-                <div
-                  key={item.id}
-                  className="map-token map-token--item"
-                  draggable={canMoveItem}
-                  onDragStart={e => handleDragStart(e, 'item', item.id)}
-                  onDragEnd={handleDragEnd}
-                  onClick={e => { e.stopPropagation(); onSelect(`item:${item.id}`) }}
-                >
-                  {item.name}
-                </div>
-              ))}
             </div>
+
+            {/* Location context menu */}
+            {isCurrent && openMenu?.type === 'location' && (
+              <div className="map-context-menu" onClick={e => e.stopPropagation()}>
+                <button onClick={() => { onInspectLocation(); setOpenMenu({ type: 'location' }) }}>
+                  {gameState.inspectedLocationIds.includes(locId) ? 'Reinspect' : 'Inspect'}
+                  {gameState.lockedActionKeys.includes(`inspect:${locId}`) && (
+                    <span className="map-menu-locked">more later</span>
+                  )}
+                </button>
+                {visible.map(item => (
+                  <button key={item.id} onClick={() => { onInspectItem(item.id); setOpenMenu({ type: 'location' }) }}>
+                    Take {parseTaggedText(`[item:${item.name}]`)}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* NPC context menu */}
+            {isCurrent && openMenu?.type === 'npc' && (() => {
+              const char = scenario.characters.find(c => c.id === openMenu.charId)
+              if (!char) return null
+              return (
+                <div className="map-context-menu" onClick={e => e.stopPropagation()}>
+                  <button onClick={() => { onTalk(char.id); setOpenMenu({ type: 'location' }) }}>
+                    Talk to {char.name.split(' ')[0]}
+                    {gameState.lockedActionKeys.includes(`talk:${char.id}`) && (
+                      <span className="map-menu-locked">more later</span>
+                    )}
+                  </button>
+                  {inventoryItems.map(item => (
+                    <button key={item.id} onClick={() => { onAsk(char.id, item.id); setOpenMenu({ type: 'location' }) }}>
+                      Ask about {parseTaggedText(`[item:${item.name}]`)}
+                      {gameState.lockedActionKeys.includes(`ask:${char.id}:${item.id}`) && (
+                        <span className="map-menu-locked">more later</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )
+            })()}
           </div>
         )
       })}

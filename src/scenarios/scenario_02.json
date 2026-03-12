@@ -71,24 +71,28 @@
       "id": "the_satchel",
       "name": "Eredan's Satchel",
       "description": "A dark leather satchel, stiff with dried sea-salt, its shoulder strap frayed almost through at the buckle end, lying open on the stone platform.",
+      "location_discovery_text": "[item:Eredan's Satchel] lies open near the rope-posts.",
       "starting_location": "spire_top"
     },
     {
       "id": "the_manuscript",
       "name": "Vellum Manuscript",
       "description": "A sheaf of vellum pages bound with gut twine, covered in dense script; the margins of several pages bear notes in a second, smaller hand, written in darker ink.",
+      "location_discovery_text": "[item:Vellum Manuscript], a sheaf of vellum pages bound with gut twine, rests inside the open satchel.",
       "starting_location": "spire_top"
     },
     {
       "id": "the_carving_knife",
       "name": "Bone-Handled Carving Knife",
       "description": "A short knife with a yellowed bone handle, its blade nicked along one edge; the family mark of three horizontal notches is scratched into the base of the grip.",
+      "location_discovery_text": "[item:Bone-Handled Carving Knife] rests on the top step near the mooring post.",
       "starting_location": "harbour_steps"
     },
     {
       "id": "the_walking_staff",
       "name": "Pilgrim's Walking Staff",
       "description": "A tall staff of driftwood-grey ash, its tip wrapped in worn leather, the lower third darkened with fresh mud; a small ancestor-spiral is carved into the wood just below the grip.",
+      "location_discovery_text": "[item:Pilgrim's Walking Staff] leans against the workshop wall, its lower third dark with mud.",
       "starting_location": "cliff_workshop"
     }
   ],
