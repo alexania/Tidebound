@@ -33,11 +33,21 @@ export function ActionLog({ log, pinnedCards, onPinCard }: Props) {
         {leadEntries.length > 0 && (
           <div className="action-log__turn-group">
             <div className="action-log__turn-label action-log__turn-label--leads">Before the investigation</div>
-            {leadEntries.map(entry => (
-              <div key={entry.id} className="log-entry log-entry--lead">
-                <div className="log-entry__text">{parseTaggedText(entry.text)}</div>
-              </div>
-            ))}
+            {leadEntries.map((entry, i) => {
+              const isNpcEntry = entry.id.startsWith('log_pre_met_')
+              const isLast = i === leadEntries.length - 1 && grouped.size === 0
+              const locationLabel = entry.id.startsWith('log_pre_lead_')
+                ? 'LEAD'
+                : entry.locationId.replace(/_/g, ' ')
+              return (
+                <div key={entry.id} className={['log-entry', isNpcEntry ? '' : 'log-entry--lead', isLast ? 'log-entry--new' : ''].filter(Boolean).join(' ')}>
+                  <div className="log-entry__location">{locationLabel}</div>
+                  <div className="log-entry__body">
+                    <div className="log-entry__text">{parseTaggedText(entry.text)}</div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         )}
         {Array.from(grouped.entries()).map(([turn, entries]) => (
@@ -50,7 +60,7 @@ export function ActionLog({ log, pinnedCards, onPinCard }: Props) {
                 entry.isMilestone ? 'log-entry--milestone' : '',
                 entry.clueId && pinnedIds.has(entry.clueId) ? 'log-entry--pinned' : '',
               ].join(' ').trim()}>
-                <div className="log-entry__location">{entry.locationId.replace('_', ' ')}</div>
+                <div className="log-entry__location">{entry.locationId.replace(/_/g, ' ')}</div>
                 <div className="log-entry__body">
                   <div className="log-entry__text">{parseTaggedText(entry.text)}</div>
                 </div>

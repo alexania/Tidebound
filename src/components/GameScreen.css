@@ -7,6 +7,7 @@
 }
 
 .game-screen__header {
+  font-family: var(--font-sans);
   display: flex;
   align-items: center;
   gap: 20px;
@@ -17,21 +18,21 @@
 }
 
 .game-screen__village {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-accent);
 }
 
 .game-screen__weather {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-dim);
-  font-style: italic;
 }
 
 .game-screen__turn {
   margin-left: auto;
-  font-size: 11px;
+  font-size: 14px;
   color: var(--color-text-dim);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -59,7 +60,7 @@
 }
 
 .game-screen__notes {
-  flex: 0 0 220px;
+  flex: 0 0 330px;
   border-top: 1px solid var(--color-border);
   overflow: hidden;
 }
@@ -76,7 +77,7 @@
 }
 
 .game-screen__log-header {
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-text-dim);
@@ -95,7 +96,7 @@
 }
 
 .lead-entry {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-dim);
   line-height: 1.5;
   padding-left: 10px;

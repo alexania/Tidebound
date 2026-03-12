@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 :root {
-  --color-bg:        #0e0e12;
-  --color-surface:   #1a1a2e;
-  --color-surface2:  #22223a;
-  --color-border:    #4a3728;
-  --color-accent:    #c4a882;
-  --color-text:      #e8ddd0;
-  --color-text-dim:  #a8916d;
-  --color-confirmed: #5a8a5a;
-  --color-locked:    #3a3a4a;
-  --color-error:     #8a3a3a;
-  --font-body:       'Georgia', serif;
-  --font-mono:       'Courier New', monospace;
+  /* Surfaces */
+  --color-bg:        #111114;
+  --color-surface:   #1b1b1f;
+  --color-surface2:  #242428;
+  --color-border:    #36363c;
+
+  /* Semantic colours */
+  --color-accent:    #d4933a;
+  --color-text:      #f0efe8;
+  --color-text-dim:  #90909a;
+  --color-confirmed: #52b87a;
+  --color-info:      #4fb3d0;
+  --color-error:     #d95c5c;
+
+  /* Typography */
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-mono:  'Courier New', monospace;
 }
 
 *, *::before, *::after {
@@ -23,14 +30,14 @@ html, body, #root {
   height: 100%;
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.5;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 button {
-  font-family: var(--font-body);
-  font-size: 13px;
+  font-family: var(--font-sans);
+  font-size: 14px;
   cursor: pointer;
   background: none;
   border: 1px solid var(--color-border);
@@ -45,13 +52,13 @@ button:hover:not(:disabled) {
 }
 
 button:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
 input, textarea, select {
-  font-family: var(--font-body);
-  font-size: 13px;
+  font-family: var(--font-sans);
+  font-size: 14px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   color: var(--color-text);
@@ -72,8 +79,8 @@ select option {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Tag styles used by parseTaggedText — must be global */
-.tag-char { color: #d4a96a; font-style: italic; }
-.tag-loc  { color: #7ab8c4; text-decoration: underline dotted; text-underline-offset: 2px; }
-.tag-item { color: #b8c47a; font-style: italic; }
-.tag-time { color: #a89cc8; font-style: italic; }
+/* Tag styles — inline within prose, italic to signal proper nouns */
+.tag-char { color: #f09850; font-style: italic; }
+.tag-loc  { color: #4db8d4; text-decoration: underline dotted; text-underline-offset: 3px; }
+.tag-item { color: #7cc97c; font-style: italic; }
+.tag-time { color: #b890e0; font-style: italic; }

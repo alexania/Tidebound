@@ -36,11 +36,11 @@ function getAdjacentLocs(
 }
 
 // 3×3 grid — positions for left/top in percent
-const COL_X = [4, 37, 70]
+const COL_X = [2, 30, 58]
 const ROW_Y = [4, 36, 68]
 
-const CELL_CX = 75
-const CELL_CY = 40
+const CELL_CX = 112
+const CELL_CY = 60
 
 function formatLocationId(id: string): string {
   return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())

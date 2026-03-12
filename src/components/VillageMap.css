@@ -9,48 +9,52 @@
 
 .map-location {
   position: absolute;
-  width: 150px;
-  min-height: 80px;
+  width: 225px;
+  min-height: 120px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  padding: 8px;
+  padding: 10px;
   cursor: default;
   transition: border-color 0.15s;
 }
 
 .map-location__name {
-  font-size: 10px;
-  letter-spacing: 1.5px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-text-dim);
-  margin-bottom: 6px;
+  margin-bottom: 7px;
   pointer-events: none;
 }
 
 .map-location__annotation {
-  font-size: 9px;
-  letter-spacing: 0.8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   color: var(--color-error);
-  opacity: 0.7;
-  margin-bottom: 5px;
+  opacity: 0.8;
+  margin-bottom: 6px;
   pointer-events: none;
 }
 
 .map-location__tokens {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 5px;
 }
 
 .map-token {
+  font-family: var(--font-sans);
   display: inline-block;
-  padding: 2px 6px;
-  font-size: 11px;
+  padding: 3px 8px;
+  font-size: 14px;
   border: 1px solid;
   cursor: default;
   white-space: nowrap;
-  max-width: 130px;
+  max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -58,44 +62,45 @@
 .map-token--character {
   border-color: var(--color-accent);
   color: var(--color-accent);
-  background: rgba(196, 168, 130, 0.06);
+  background: rgba(212, 147, 58, 0.06);
   cursor: pointer;
 }
 
 .map-token--victim {
   border-color: var(--color-error);
-  color: #c47070;
-  background: rgba(138, 58, 58, 0.1);
+  color: var(--color-error);
+  background: rgba(217, 92, 92, 0.08);
   cursor: default;
+  opacity: 0.75;
 }
 
 .map-token--investigator {
-  border-color: #7ab8c4;
-  color: #7ab8c4;
-  background: rgba(122, 184, 196, 0.08);
+  border-color: var(--color-info);
+  color: var(--color-info);
+  background: rgba(79, 179, 208, 0.07);
   font-style: italic;
 }
 
 /* Current location — investigator is here */
 .map-location--current {
-  border-color: rgba(122, 184, 196, 0.45);
+  border-color: rgba(79, 179, 208, 0.4);
   cursor: pointer;
 }
 
 /* Adjacent — clickable to move */
 .map-location--adjacent {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 1px rgba(196, 168, 130, 0.2);
+  box-shadow: 0 0 0 1px rgba(212, 147, 58, 0.2);
   cursor: pointer;
 }
 
 .map-location--adjacent:hover {
   background: var(--color-surface2);
-  box-shadow: 0 0 0 1px rgba(196, 168, 130, 0.4);
+  box-shadow: 0 0 0 1px rgba(212, 147, 58, 0.4);
 }
 
 .map-location--menu-open {
-  border-color: #7ab8c4;
+  border-color: var(--color-info);
   background: var(--color-surface2);
 }
 
@@ -103,7 +108,7 @@
   stroke: var(--color-border);
   stroke-width: 1.5;
   stroke-dasharray: 4 4;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 /* Context menu */
@@ -114,19 +119,19 @@
   z-index: 20;
   background: var(--color-surface2);
   border: 1px solid var(--color-accent);
-  min-width: 150px;
+  width: 225px;
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .map-context-menu button {
+  font-family: var(--font-sans);
   display: block;
   width: 100%;
   text-align: left;
-  padding: 6px 10px;
-  font-size: 11px;
-  letter-spacing: 0.8px;
+  padding: 7px 10px;
+  font-size: 14px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   background: transparent;
   border: none;
@@ -140,22 +145,23 @@
 }
 
 .map-context-menu button:hover {
-  background: rgba(196, 168, 130, 0.08);
+  background: rgba(212, 147, 58, 0.08);
   color: var(--color-accent);
 }
 
-/* Locked indicator — shown when this action returned locked feedback */
+/* Locked indicator */
 .map-menu-locked {
   display: block;
-  font-size: 9px;
+  font-family: var(--font-sans);
+  font-size: 10px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: #7ab8c4;
+  color: var(--color-info);
   opacity: 0.7;
   margin-top: 2px;
 }
 
-/* Tag spans inside menu buttons keep their styling and aren't uppercased */
+/* Tag spans inside menu buttons preserve their casing */
 .map-context-menu .tag-item,
 .map-context-menu .tag-char,
 .map-context-menu .tag-loc {

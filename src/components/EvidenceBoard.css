@@ -22,7 +22,8 @@
 }
 
 .evidence-board__title {
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--color-text-dim);
@@ -30,7 +31,7 @@
 }
 
 .evidence-board__toolbar button {
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -40,12 +41,11 @@
 }
 
 .evidence-board__narrative {
-  padding: 16px 20px;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--color-border);
   background: var(--color-surface);
-  font-style: italic;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.75;
   color: var(--color-text-dim);
   flex-shrink: 0;
   max-height: 200px;
@@ -62,7 +62,6 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-  gap: 0;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 12px;
@@ -85,12 +84,12 @@
 }
 
 .eb-lane--locked {
-  opacity: 0.45;
+  opacity: 0.4;
 }
 
 .eb-lane--drag-over {
   border-color: var(--color-accent);
-  background: rgba(196, 168, 130, 0.05);
+  background: rgba(212, 147, 58, 0.04);
 }
 
 .eb-lane__header {
@@ -106,14 +105,15 @@
 
 .eb-lane__label {
   display: block;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   color: var(--color-text);
 }
 
 .eb-lane__answer {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-confirmed);
   margin-top: 3px;
 }
@@ -132,12 +132,12 @@
 .eb-lane__select {
   flex: 1;
   min-width: 0;
-  font-size: 11px;
+  font-size: 14px;
   padding: 4px 6px;
 }
 
 .eb-lane__submit-btn {
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 4px 10px;
@@ -146,8 +146,9 @@
 
 .eb-lane__insufficient {
   width: 100%;
-  font-size: 10px;
-  color: #e07070;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-error);
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -162,9 +163,8 @@
 }
 
 .eb-lane__empty {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--color-text-dim);
-  font-style: italic;
   text-align: center;
   padding: 16px 8px;
   opacity: 0.6;
@@ -207,8 +207,7 @@
 
 .pinned-card__preview {
   padding: 6px 8px;
-  font-size: 12px;
-  font-style: italic;
+  font-size: 14px;
   color: var(--color-text);
   opacity: 0.8;
   line-height: 1.5;
@@ -222,21 +221,21 @@
 }
 
 .pinned-card__collapse {
-  font-size: 8px;
+  font-size: 14px;
   color: var(--color-text-dim);
   opacity: 0.6;
 }
 
 .pinned-card__checkpoint-tag {
   display: block;
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--color-accent, #8a9);
+  color: var(--color-accent);
   opacity: 0.7;
-  background: color-mix(in srgb, var(--color-accent, #8a9) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-accent, #8a9) 30%, transparent);
-  border-radius: 2px;
+  background: rgba(212, 147, 58, 0.10);
+  border: 1px solid rgba(212, 147, 58, 0.28);
   padding: 1px 4px;
   white-space: nowrap;
   align-self: flex-start;
@@ -244,20 +243,20 @@
 }
 
 .pinned-card__turn {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--color-text-dim);
   letter-spacing: 1px;
 }
 
 .pinned-card__unpin {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1;
   padding: 0 4px;
   border: none;
   color: var(--color-text-dim);
   background: none;
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .pinned-card__unpin:hover {
@@ -268,15 +267,14 @@
 
 .pinned-card__text {
   padding: 8px;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.6;
   color: var(--color-text);
 }
 
 .pinned-card__implied {
   width: 100%;
-  font-size: 11px;
-  font-style: italic;
+  font-size: 14px;
   padding: 4px 6px;
   background: rgba(0,0,0,0.2);
   border: none;
