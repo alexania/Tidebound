@@ -101,6 +101,11 @@ export function EvidenceBoard({ scenario, gameState, onAssignProof, onClose, hid
         <button onClick={onClose}>Close Board</button>
       </div>
 
+      <div className="evidence-board__facts">
+        <span className="eb-fact"><span className="eb-fact__label">Cause of death</span>{scenario.crime.cause_of_death}</span>
+        <span className="eb-fact"><span className="eb-fact__label">Time of death</span>{scenario.crime.time_of_death}</span>
+      </div>
+
       {showNarrative && (
         <div className="evidence-board__narrative">
           {scenario.opening_narrative.split('\n\n').map((para, i) => (

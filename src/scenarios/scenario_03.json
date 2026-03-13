@@ -1,0 +1,510 @@
+{
+  "location": {
+    "name": "Linhai Wan",
+    "season": "summer",
+    "weather": "haze on the water, monsoon swell building offshore",
+    "arrival_location": "sorting_house"
+  },
+  "crime": {
+    "cause_of_death": "garrotting with a silk cord",
+    "murder_location": "sorting_house",
+    "body_found_location": "sorting_house",
+    "body_was_moved": false,
+    "time_of_death": "between ten o'clock and midnight",
+    "perpetrator_ids": [
+      "zhao_wenqi"
+    ],
+    "motive": "Zhao Wenqi killed Peng Liusha to prevent him from testifying that Zhao bribed Registrar Feng Bao to falsify the boat registry fifteen years ago, causing four divers to drown."
+  },
+  "characters": [
+    {
+      "id": "peng_liusha",
+      "name": "Peng Liusha",
+      "isVictim": true,
+      "location": "sorting_house",
+      "description": "A veteran pearl-diver of fifty-odd years, lean and sun-darkened, his hands webbed at the knuckles from a lifetime in the water. The body lies face-down across the sorting bench amid scattered grading bowls, the purple silk cord still wound tight around his neck."
+    },
+    {
+      "id": "zhao_wenqi",
+      "name": "Zhao Wenqi",
+      "isVictim": false,
+      "location": "guest_pavilion",
+      "description": "A prosperous pearl broker from Guangzhou, perhaps forty-five, dressed in travel silk gone wrinkled from the coastal voyage. He greets the investigator with practised composure, his merchant's hands folded before him and a string of amber worry-beads clicking softly at his wrist."
+    },
+    {
+      "id": "shen_cuihua",
+      "name": "Madame Shen Cuihua",
+      "isVictim": false,
+      "location": "drying_terrace",
+      "description": "Head of the women divers, a broad-shouldered woman in her forties with close-cropped hair and arms roped with muscle. She is overseeing the season's last net repairs when the investigator arrives, her expression tight with grief she has not permitted herself to show."
+    },
+    {
+      "id": "tao_bojun",
+      "name": "Tao Bojun",
+      "isVictim": false,
+      "location": "boat_shed",
+      "description": "A retired boat-builder of seventy, stooped but sharp-eyed, his beard stained with pine resin. He is planing a rudder bearing when the investigator finds him, and does not look up for a long moment before setting down his adze."
+    },
+    {
+      "id": "wei_anling",
+      "name": "Wei Anling",
+      "isVictim": false,
+      "location": "shore_altar",
+      "description": "Peng Liusha's apprentice diver, a young man of perhaps twenty with eyes reddened from a sleepless night of prayer. He keeps his hands folded against his chest as if still in an attitude of mourning when the investigator approaches."
+    },
+    {
+      "id": "hu_mingzhu",
+      "name": "Physician Hu Mingzhu",
+      "isVictim": false,
+      "location": "sorting_house",
+      "description": "The village herbalist-healer, a small and precise woman in her fifties carrying a medicine case of split bamboo. She was summoned to the Sorting House at dawn and has not left, kneeling beside the body with the detached concentration of a woman who has seen death before."
+    },
+    {
+      "id": "feng_bao",
+      "name": "Registrar Feng Bao",
+      "isVictim": false,
+      "location": "registry_hall",
+      "description": "The local imperial registrar, a thin man of fifty with ink-stained fingers and the careful diction of a minor official. He receives the investigator at the door of the Registry Hall, his welcome a shade too correct to be natural."
+    }
+  ],
+  "items": [
+    {
+      "id": "silk_measuring_cord",
+      "name": "Silk Measuring Cord",
+      "description": "A two-chi length of dyed purple silk cord with a brass tag affixed at one end, stamped with the character for 'Zhao'; the far end is tied in a large double-loop knot, and the interior of the loop shows faint abrasion marks.",
+      "location_discovery_text": "A length of purple [item:Silk Measuring Cord] lies coiled at the edge of the sorting bench, still knotted in a double loop.",
+      "starting_location": "sorting_house"
+    },
+    {
+      "id": "old_boat_registry",
+      "name": "Old Boat Registry",
+      "description": "A yellowed ledger page with columns for vessel name, owner, inspection date, and inspector's mark; the entry for a vessel named 'Blessed Lotus' bears an inspection mark in ink slightly darker than the surrounding entries.",
+      "location_discovery_text": "An [item:Old Boat Registry] page lies open on the document desk, its edges brown with age and its columns faded to grey.",
+      "starting_location": "registry_hall"
+    },
+    {
+      "id": "cargo_manifest",
+      "name": "Cargo Manifest",
+      "description": "A folded paper listing this season's pearl consignment weights, consignment numbers, and crate seal impressions; at the bottom, a red stamp from the Linhai garrison commander certifies that all goods were inspected at point of departure.",
+      "location_discovery_text": "A folded [item:Cargo Manifest] rests on the writing-table beside Zhao Wenqi's travelling case.",
+      "starting_location": "guest_pavilion"
+    }
+  ],
+  "locations": [
+    {
+      "id": "sorting_house",
+      "name": "Sorting House",
+      "flavour": "The low stone building smells of brine and lamp-oil; pearl-grading bowls line the central bench like shallow moons, and the walls are hung with measuring cords and oyster hooks.",
+      "col": 1,
+      "row": 1
+    },
+    {
+      "id": "guest_pavilion",
+      "name": "Guest Pavilion",
+      "flavour": "A two-room merchant's lodging at the landward edge of the village, its courtyard gate painted red and hung with a faded prosperity banner that snaps in the offshore wind.",
+      "col": 2,
+      "row": 0
+    },
+    {
+      "id": "drying_terrace",
+      "name": "Drying Terrace",
+      "flavour": "A broad stone platform open to the sea-wind, strung with drying lines from which the last of the season's oyster-bags hang like pale lanterns in the summer haze.",
+      "col": 0,
+      "row": 0
+    },
+    {
+      "id": "boat_shed",
+      "name": "Boat Shed",
+      "flavour": "A long open-fronted shed at the waterline, fragrant with pine resin and sawdust, where two shallow-keeled diving boats rest on wooden cradles beside racks of rope and cork floats.",
+      "col": 0,
+      "row": 1
+    },
+    {
+      "id": "shore_altar",
+      "name": "Shore Altar",
+      "flavour": "A salt-pitted stone plinth at the water's edge, draped with red cloth faded by years of sea-wind, bearing a ceramic Sea Dragon figurine and a shallow bowl for burnt offerings.",
+      "col": 0,
+      "row": 2
+    },
+    {
+      "id": "registry_hall",
+      "name": "Registry Hall",
+      "flavour": "A single-storey official building with whitewashed walls and a heavy iron-bound door, its interior smelling of dry ink and old paper, shelves of ledgers rising to the ceiling on every side.",
+      "col": 2,
+      "row": 1
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "sorting_house",
+      "to": "drying_terrace"
+    },
+    {
+      "from": "sorting_house",
+      "to": "guest_pavilion"
+    },
+    {
+      "from": "sorting_house",
+      "to": "boat_shed"
+    },
+    {
+      "from": "sorting_house",
+      "to": "registry_hall"
+    },
+    {
+      "from": "boat_shed",
+      "to": "shore_altar"
+    },
+    {
+      "from": "registry_hall",
+      "to": "guest_pavilion"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "true_location",
+      "label": "Where was Peng Liusha murdered?",
+      "answer_options": [
+        "Sorting House",
+        "Guest Pavilion",
+        "Drying Terrace",
+        "Boat Shed",
+        "Shore Altar",
+        "Registry Hall"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Peng Liusha?",
+      "answer_options": [
+        "Zhao Wenqi",
+        "Madame Shen Cuihua",
+        "Tao Bojun",
+        "Wei Anling",
+        "Feng Bao",
+        "Physician Hu Mingzhu"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Peng Liusha killed?",
+      "answer_options": [
+        "Zhao Wenqi killed Peng Liusha to prevent him from testifying that Zhao bribed Registrar Feng Bao to falsify the boat registry fifteen years ago, causing four divers to drown.",
+        "Zhao Wenqi killed Peng Liusha to stop him from revealing that Zhao had been underweighting pearl measurements to cheat the divers of their payment.",
+        "Zhao Wenqi killed Peng Liusha to prevent him from exposing that Zhao was smuggling contraband inside sealed pearl consignments to the capital.",
+        "Zhao Wenqi killed Peng Liusha over a personal debt of forty silver taels that Peng had demanded be repaid before the season's end.",
+        "Zhao Wenqi killed Peng Liusha to prevent Peng from revealing that Zhao had stolen the sacred pearl from the Shore Altar's Sea Dragon shrine."
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue_hu_examination",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "hu_mingzhu"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Physician Hu Mingzhu] tells the investigator that [char:Peng Liusha] was garroted from behind with the silk cord still wound about his neck. The double-loop knot, she notes, is the type used by merchants to seal bundles — it tightens under pressure and does not slip. She found the body in this position when she arrived at dawn and has not disturbed it.",
+      "contradicts": []
+    },
+    {
+      "id": "clue_hu_alibi_feng",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "hu_mingzhu"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Physician Hu Mingzhu] tells the investigator that she went to the [loc:registry_hall] at [time:ten o'clock at night] to collect willow-bark and sleeping herbs from [char:Registrar Feng Bao]'s medicine cabinet — a standing arrangement they have kept for years. She remained there until [time:half past eleven], when she departed to attend a patient in the fisher quarter. [char:Registrar Feng Bao] was at his desk throughout and did not leave the building while she was present.",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Feng Bao",
+          "reason": "The clue states Physician Hu was with Registrar Feng Bao in the Registry Hall from ten o'clock until half past eleven; if Feng Bao had committed the murder at the Sorting House during the murder window, he could not simultaneously have been at his desk in the Registry Hall throughout that same period."
+        }
+      ]
+    },
+    {
+      "id": "clue_cord_inspect",
+      "condition": {
+        "type": "inspect_item",
+        "characters": [],
+        "location": null,
+        "item": "silk_measuring_cord"
+      },
+      "text": "The cord is dyed purple and approximately two chi in length. A brass tag is affixed at one end, stamped with the character for 'Zhao.' The far end carries a large double-loop knot; the interior of the loop shows faint abrasion marks where something has been pulled tight against it.",
+      "contradicts": []
+    },
+    {
+      "id": "clue_cord_zhao",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "zhao_wenqi"
+        ],
+        "location": null,
+        "item": "silk_measuring_cord"
+      },
+      "text": "[char:Zhao Wenqi] examines the cord and confirms it is his standard measuring cord, marked with his merchant's character. He says he used it during the afternoon grading session in the [loc:sorting_house] and believes he left it on the bench when he finished. His tone is measured, his hands still.",
+      "contradicts": []
+    },
+    {
+      "id": "clue_cord_shen",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "shen_cuihua"
+        ],
+        "location": null,
+        "item": "silk_measuring_cord"
+      },
+      "text": "[char:Madame Shen Cuihua] recognises the cord immediately. She says [char:Zhao Wenqi] had it in his hand when he left the [loc:drying_terrace] at [time:ten o'clock at night] — she noticed it because he had been twirling it around his fingers while they spoke, and she remarked to one of her women afterward that the merchant seemed restless.",
+      "contradicts": []
+    },
+    {
+      "id": "clue_wei_vigil",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "wei_anling"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Wei Anling] tells the investigator he spent the whole of the previous night at the [loc:shore_altar], burning offerings from dusk until past [time:midnight] — no one else came to the altar during that time. When he walked past the [loc:boat_shed] on his way there at [time:ten o'clock at night] and again when he returned at [time:midnight], [char:Tao Bojun]'s oil lamp was burning inside and he could hear the steady rhythm of an adze on wood both times.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Shore Altar",
+          "reason": "The clue states Wei Anling was at the Shore Altar alone from ten o'clock to past midnight with no one else present; if the murder had occurred there during the window, at least one other person would have been required, which his uninterrupted presence makes impossible."
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Tao Bojun",
+          "reason": "The clue states Wei Anling heard adze-work and saw Tao Bojun's lamp burning in the Boat Shed at both ten o'clock and midnight; if Tao Bojun had committed the murder at the Sorting House during that window, he could not have been present and actively working in the Boat Shed at both ends of it."
+        }
+      ]
+    },
+    {
+      "id": "clue_wei_zhao_path",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "wei_anling"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Wei Anling] says that from the [loc:shore_altar] he has a clear sightline to the path leading to the [loc:guest_pavilion]'s courtyard gate. He watched [char:Zhao Wenqi] leave the Guest Pavilion at approximately [time:a quarter past ten at night] and return alone at [time:eleven o'clock at night]. No other person used that path between dusk and dawn, and [char:Peng Liusha] was not among those who passed in either direction.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Guest Pavilion",
+          "reason": "The clue states Wei Anling watched the Guest Pavilion path continuously and confirms the victim never passed toward or entered the Guest Pavilion during the murder window; if the murder had occurred there, the victim would have had to enter, which Wei Anling's continuous watch makes impossible."
+        }
+      ]
+    },
+    {
+      "id": "clue_wei_pearl",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "wei_anling"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Wei Anling] says it is his daily practice to check the sacred pearl set into the Sea Dragon figurine at the [loc:shore_altar] each morning before the first dive. He checked it yesterday morning and again this morning; on both occasions the pearl was seated undisturbed in its setting. He has maintained this practice without exception for three years.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "Zhao Wenqi killed Peng Liusha to prevent Peng from revealing that Zhao had stolen the sacred pearl from the Shore Altar's Sea Dragon shrine.",
+          "reason": "The clue states Wei Anling confirmed the sacred pearl was present and undisturbed both yesterday morning and this morning; if the sacred pearl had been stolen, it would not have been in its setting this morning, making the theft-of-sacred-pearl motive impossible."
+        }
+      ]
+    },
+    {
+      "id": "clue_shen_terrace",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "shen_cuihua"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Madame Shen Cuihua] tells the investigator she and two of her women were repairing drying-nets on the [loc:drying_terrace] from dusk until close to [time:midnight]. She could hear [char:Wei Anling]'s prayers drifting across the water from the [loc:shore_altar] the whole evening without any pause — she found it a comfort in the hours after she heard the news.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Drying Terrace",
+          "reason": "The clue states Madame Shen and two women were present on the Drying Terrace from dusk until midnight; if the murder had occurred there during the window, they would have been direct witnesses, making an unwitnessed murder on the terrace impossible."
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Wei Anling",
+          "reason": "The clue states Shen Cuihua heard Wei Anling's prayers drifting from the Shore Altar continuously throughout the entire evening without pause; if Wei Anling had left the Shore Altar to commit murder at the Sorting House, his prayers would have ceased, which Shen Cuihua confirms they did not."
+        }
+      ]
+    },
+    {
+      "id": "clue_shen_noweights",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "shen_cuihua"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Madame Shen Cuihua] tells the investigator that [char:Peng Liusha] never once raised a complaint about pearl measurements or grading weights in twenty years working beside her. She says that if Peng had suspected any under-counting, he would have come to her first — it is the divers' custom — and he said nothing of the kind this season or any season before it.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "Zhao Wenqi killed Peng Liusha to stop him from revealing that Zhao had been underweighting pearl measurements to cheat the divers of their payment.",
+          "reason": "The clue states Peng never complained about weights in twenty years and that by the divers' own custom he would have confided in Shen first; if the motive were underweighting, Peng would have spoken to Shen as he built his case, which she confirms he never did."
+        }
+      ]
+    },
+    {
+      "id": "clue_tao_boatshed",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "tao_bojun"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Tao Bojun] tells the investigator he did not leave the [loc:boat_shed] from dusk until the dawn watch passed — he was fitting a new bearing to a rudder-stock by lamplight and does not like to work such jobs by day. When he stepped out briefly to fetch water at [time:eleven o'clock at night], he could see [char:Madame Shen Cuihua] and her women still bent over their nets on the [loc:drying_terrace].",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Boat Shed",
+          "reason": "The clue states Tao Bojun was present in the Boat Shed the entire night without leaving until dawn; if the murder had occurred in the Boat Shed during that window, Tao Bojun would have been a direct witness, making an unwitnessed murder there impossible."
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Madame Shen Cuihua",
+          "reason": "The clue states Tao Bojun saw Madame Shen and her women working on the Drying Terrace at eleven o'clock at night; if Shen Cuihua had committed the murder at the Sorting House at that hour, she could not simultaneously have been present on the Drying Terrace."
+        }
+      ]
+    },
+    {
+      "id": "clue_tao_oldcrime",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "tao_bojun"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Tao Bojun] says that fifteen years ago the diving boat he built — the Blessed Lotus — was passed as seaworthy in the official registry inspection and then sank on its first dive of the season, drowning four men. A few weeks ago [char:Peng Liusha] came to the [loc:boat_shed] and asked him directly: was the hull sound when it left his hands? Tao told him yes — the timbers were solid and the caulking was fresh. Peng went quiet for three days after that.",
+      "contradicts": []
+    },
+    {
+      "id": "clue_tao_manifest",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "tao_bojun"
+        ],
+        "location": null,
+        "item": "cargo_manifest"
+      },
+      "text": "[char:Tao Bojun] looks over the manifest and shakes his head. He says [char:Peng Liusha]'s name does not appear on any consignment document and never has — Peng's work ended the moment the pearls were graded and bagged. The sealed consignment crates were inventoried and closed by [char:Zhao Wenqi] alone, after all the divers had left the [loc:sorting_house] for the evening.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "Zhao Wenqi killed Peng Liusha to prevent him from exposing that Zhao was smuggling contraband inside sealed pearl consignments to the capital.",
+          "reason": "The clue states Peng's work ended at grading and he was never present when crates were sealed; if Zhao were smuggling contraband inside the sealed crates, Peng had no access to observe it, making it impossible for Peng to possess knowledge of the contraband that would need to be silenced."
+        }
+      ]
+    },
+    {
+      "id": "clue_feng_locked",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "feng_bao"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Registrar Feng Bao] tells the investigator that the [loc:registry_hall] is sealed at the Hour of the Dog each evening — [time:approximately seven o'clock at night] — and the iron key is kept on his person at all times. He did not open the hall for anyone last night except [char:Physician Hu Mingzhu], who arrived at [time:ten o'clock] to collect medicines and remained until [time:half past eleven at night].",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Registry Hall",
+          "reason": "The clue states the Registry Hall is locked each evening and only Feng Bao holds the key; if the murder had occurred inside the Registry Hall, the victim and murderer would have needed to enter through a locked door to which only Feng Bao had the key, which he confirms did not happen."
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Physician Hu Mingzhu",
+          "reason": "The clue states Physician Hu Mingzhu was inside the Registry Hall from ten o'clock until half past eleven at night; if Hu Mingzhu had committed the murder at the Sorting House during the murder window, she could not simultaneously have been present inside the Registry Hall throughout that period."
+        }
+      ]
+    },
+    {
+      "id": "clue_feng_nodebt",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "feng_bao"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Registrar Feng Bao] states that all personal debts above one tael of silver must be entered in the village debt ledger by imperial statute, and that no such agreement between [char:Peng Liusha] and any merchant appears in that ledger. He confirms that [char:Peng Liusha] had no debts of record of any kind.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "Zhao Wenqi killed Peng Liusha over a personal debt of forty silver taels that Peng had demanded be repaid before the season's end.",
+          "reason": "The clue states imperial statute requires all debts above one tael to be recorded in the village ledger and no debt between Peng and any merchant appears there; a forty-tael debt would by law be registered, and its absence makes this theory impossible."
+        }
+      ]
+    },
+    {
+      "id": "clue_feng_registry",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "feng_bao"
+        ],
+        "location": null,
+        "item": "old_boat_registry"
+      },
+      "text": "Shown the ledger page, [char:Registrar Feng Bao] is quiet for a long moment. He then admits that the inspection mark on the Blessed Lotus entry was not made by his own hand — it was already present on the document when it reached him. A man he knew to be [char:Zhao Wenqi]'s factor came to him with a pouch of silver and asked him to countersign the page without arranging a re-inspection of the vessel. He complied. Fifteen years of silence end in the lamplight of the [loc:registry_hall].",
+      "contradicts": []
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_sorting_house",
+      "text": "The body of [char:Peng Liusha] was discovered by the night-watchman at the [loc:sorting_house] just before dawn. [char:Physician Hu Mingzhu] is already present and has been examining the body since first light.",
+      "character_id": null,
+      "location_id": "sorting_house"
+    },
+    {
+      "id": "lead_tao_bojun",
+      "text": "[char:Tao Bojun], the village boat-builder, has known [char:Peng Liusha] since childhood and worked these waters for forty years. He keeps to the [loc:boat_shed] at the water's edge and is said to know things about the village's past that he has never volunteered to an outsider.",
+      "character_id": "tao_bojun",
+      "location_id": null
+    },
+    {
+      "id": "lead_zhao_wenqi",
+      "text": "The pearl broker [char:Zhao Wenqi] is lodged at the [loc:guest_pavilion] at the landward edge of the village. He was the last person known to have spoken with [char:Peng Liusha] the previous afternoon, when the two were seen in argument near the [loc:sorting_house].",
+      "character_id": "zhao_wenqi",
+      "location_id": null
+    }
+  ],
+  "opening_narrative": "The coastal junk carrying the investigator rounds the headland into Linhai Wan on a morning thick with sea-haze, the water the colour of old jade and the air sharp with brine and burned ghost-paper. The cultivator dispatched by the Prefectural Magistrate — bearing the bronze seal of lawful inquiry — steps onto a dock where red-eyed divers stand in knots and say nothing. The summons came before dawn: [char:Peng Liusha], veteran pearl-diver of forty years, has been found dead at the [loc:sorting_house], where the season's harvest is weighed and graded.\n\nThe facts have already been established. The village physician examined the body at first light and confirmed that [char:Peng Liusha] was killed by garrotting with a silk cord wound tight from behind. Death occurred [time:between ten o'clock and midnight] the previous night. The body was found where it fell and has not been moved — face-down across the sorting bench, the cord still in place.\n\nLinhai Wan is a small village built on the memory of the sea's abundance and the knowledge of its indifference. The pearl season is nearly done; the last of the oyster-bags hang drying on the terrace, and the monsoon swell is building on the horizon. Somewhere in this village, among people who have lived their lives with the sound of deep water in their ears, is the person who decided that [char:Peng Liusha] had lived too long.",
+  "epilogue": "The truth that ended [char:Peng Liusha]'s life was fifteen years old. In a previous season, [char:Zhao Wenqi] had paid a factor to carry a pouch of silver to [char:Registrar Feng Bao] and secure a countersignature on the registry entry for a diving boat called the Blessed Lotus. The hull had been sound — [char:Tao Bojun] had built it well — but the inspection had been falsified so the paperwork could be processed quickly, before the season opened. The Blessed Lotus sank on its first dive, four men drowned, and the village buried its dead and moved on. [char:Peng Liusha] had been in the courtyard when the factor handed over the silver and had kept his silence for fifteen years, perhaps out of fear, perhaps out of exhaustion.\n\nWhen his apprentice's young relative drowned on a dive earlier that summer, something in [char:Peng Liusha] broke loose. He went to [char:Tao Bojun] in the [loc:boat_shed] and confirmed what he had always suspected: the hull had been sound. The registry was a lie. He confronted [char:Zhao Wenqi] the afternoon before his death and told him he intended to present himself to the Prefectural court when it next convened. That evening [char:Zhao Wenqi] visited the [loc:drying_terrace] and then the [loc:sorting_house], carrying his measuring cord. He called [char:Peng Liusha] back to the grading bench on a pretext and killed him. He walked back to the [loc:guest_pavilion] at [time:eleven o'clock at night], passing the [loc:shore_altar] without noticing [char:Wei Anling] watching from the shadows.\n\n[char:Registrar Feng Bao], confronted with the ledger page and [char:Zhao Wenqi]'s eventual admission, confirmed everything. Both men were bound and transported by junk to the Prefectural Court under the investigator's seal. [char:Madame Shen Cuihua] led the remaining divers in a dawn offering at the [loc:shore_altar] for [char:Peng Liusha] and the four men of the Blessed Lotus, their names spoken aloud for the first time in fifteen years while [char:Wei Anling] tended the incense and the Sea Dragon's pearl gleamed in the early light."
+}

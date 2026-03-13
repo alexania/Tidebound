@@ -10,7 +10,9 @@ import {
 import {
   generateScenario, generatePromptForClipboard, saveScenario,
   getUnplayedScenario, markPlayed, getPlayedIds,
+  CULTURES, GENRES, CAUSES_OF_DEATH, MOTIVES,
 } from './engine/generator'
+import type { PromptOverrides } from './engine/generator'
 import { getBundledScenarios } from './scenarios/index'
 import { OpeningNarrative } from './components/OpeningNarrative'
 import { parseTaggedText, buildLocationNames } from './utils/parseTags'
@@ -55,6 +57,7 @@ export default function App() {
   const [apiKey, setApiKey] = useState('')
   const [genError, setGenError] = useState('')
   const [clipboardMsg, setClipboardMsg] = useState('')
+  const [promptOverrides, setPromptOverrides] = useState<PromptOverrides>({})
 
   // ── Scenario loading ──────────────────────────────────────────
 
@@ -174,10 +177,22 @@ export default function App() {
   // ── Render ────────────────────────────────────────────────────
 
   const handleCopyPrompt = async () => {
-    const prompt = generatePromptForClipboard()
+    const prompt = generatePromptForClipboard(promptOverrides)
     await navigator.clipboard.writeText(prompt)
     setClipboardMsg('Copied!')
     setTimeout(() => setClipboardMsg(''), 2000)
+  }
+
+  const setOverride = (key: keyof PromptOverrides, value: string) => {
+    setPromptOverrides(prev => {
+      if (value === '') {
+        const next = { ...prev }
+        delete next[key]
+        return next
+      }
+      if (key === 'bodyMoved') return { ...prev, bodyMoved: value === 'true' }
+      return { ...prev, [key]: value }
+    })
   }
 
   if (screen === 'menu') {
@@ -193,6 +208,36 @@ export default function App() {
           ))}
         </div>
         <div className="menu__manual-gen">
+          <div className="menu__prompt-overrides">
+            {([
+              ['culture',      'Culture',       CULTURES],
+              ['genre',        'Genre',         GENRES],
+              ['causeOfDeath', 'Cause of death', CAUSES_OF_DEATH],
+              ['motive',       'Motive',        MOTIVES],
+            ] as [keyof PromptOverrides, string, string[]][]).map(([key, label, options]) => (
+              <label key={key} className="menu__override-field">
+                <span>{label}</span>
+                <select
+                  value={(promptOverrides[key] as string | undefined) ?? ''}
+                  onChange={e => setOverride(key, e.target.value)}
+                >
+                  <option value="">Random</option>
+                  {options.map(o => <option key={o} value={o}>{o}</option>)}
+                </select>
+              </label>
+            ))}
+            <label className="menu__override-field">
+              <span>Body moved</span>
+              <select
+                value={promptOverrides.bodyMoved === undefined ? '' : String(promptOverrides.bodyMoved)}
+                onChange={e => setOverride('bodyMoved', e.target.value)}
+              >
+                <option value="">Random</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </label>
+          </div>
           <button className="menu__copy-prompt" onClick={handleCopyPrompt}>
             {clipboardMsg || 'Copy prompt for claude.ai'}
           </button>

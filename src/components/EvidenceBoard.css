@@ -40,6 +40,31 @@
   flex: 1;
 }
 
+.evidence-board__facts {
+  display: flex;
+  gap: 24px;
+  padding: 6px 14px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.eb-fact {
+  font-size: 13px;
+  color: var(--color-text);
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.eb-fact__label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  font-weight: 500;
+}
+
 .evidence-board__narrative {
   padding: 14px 20px;
   border-bottom: 1px solid var(--color-border);

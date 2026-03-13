@@ -92,6 +92,13 @@ export function validateScenario(s: Scenario): ValidationError[] {
   }
 
   // ── Checkpoints ────────────────────────────
+  const EXPECTED_CHECKPOINTS = ['true_location', 'perpetrator', 'motive']
+  const foundCpIds = s.checkpoints.map(c => c.id).sort()
+  const expectedSorted = [...EXPECTED_CHECKPOINTS].sort()
+  if (JSON.stringify(foundCpIds) !== JSON.stringify(expectedSorted)) {
+    errors.push({ rule: 'checkpoint_ids', message: `Expected exactly checkpoints: ${EXPECTED_CHECKPOINTS.join(', ')}. Found: ${s.checkpoints.map(c => c.id).join(', ')}` })
+  }
+
   // Verify each checkpoint has the correct answer in its answer_options
   for (const cp of s.checkpoints) {
     const correct = getCorrectAnswer(cp.id as any, s)
@@ -135,8 +142,8 @@ export function validateScenario(s: Scenario): ValidationError[] {
     }
 
     // contradicts array validation
-    if (!Array.isArray(clue.contradicts) || clue.contradicts.length === 0) {
-      errors.push({ rule: 'clue_contradicts_empty', message: `Clue ${clue.id} has no contradicts entries` })
+    if (!Array.isArray(clue.contradicts)) {
+      errors.push({ rule: 'clue_contradicts_missing', message: `Clue ${clue.id} is missing a contradicts array` })
       continue
     }
 
@@ -185,8 +192,8 @@ export function validateScenario(s: Scenario): ValidationError[] {
   }
 
   // ── Clue count ─────────────────────────────
-  if (s.clues.length < 20 || s.clues.length > 28) {
-    errors.push({ rule: 'clue_count', message: `Expected 20–28 clues, found ${s.clues.length}` })
+  if (s.clues.length < 12 || s.clues.length > 16) {
+    errors.push({ rule: 'clue_count', message: `Expected 12–16 clues, found ${s.clues.length}` })
   }
 
   // ── Relations ──────────────────────────────

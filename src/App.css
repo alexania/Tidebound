@@ -40,6 +40,41 @@
 
 .menu__manual-gen {
   margin-top: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu__prompt-overrides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+}
+
+.menu__override-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.menu__override-field span {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  opacity: 0.6;
+}
+
+.menu__override-field select {
+  background: none;
+  border: 1px solid var(--color-border, #444);
+  color: var(--color-text-dim);
+  font-size: 12px;
+  padding: 3px 6px;
+  font-family: inherit;
+  cursor: pointer;
+  max-width: 220px;
 }
 
 .menu__copy-prompt {

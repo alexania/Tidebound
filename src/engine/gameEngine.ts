@@ -55,12 +55,10 @@ export function filterOptionsToDifficulty(scenario: Scenario, difficulty: Diffic
 export function getCorrectAnswer(checkpointId: CheckpointId, scenario: Scenario): string {
   const crime = scenario.crime
   switch (checkpointId) {
-    case 'cause_of_death': return crime.cause_of_death
     case 'true_location': {
       const loc = scenario.locations.find(l => l.id === crime.murder_location)
       return loc?.name ?? crime.murder_location
     }
-    case 'time_of_death':  return crime.time_of_death
     case 'perpetrator': {
       const perpId = crime.perpetrator_ids[0]
       return scenario.characters.find(c => c.id === perpId)?.name ?? perpId
@@ -100,18 +98,6 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
     isLead: true,
   }
 
-  const npcEntries: LogEntry[] = charsAtArrival.map(char => ({
-    id: `log_pre_met_${char.id}`,
-    turn: 0,
-    locationId: arrival,
-    text: char.isVictim
-      ? `The investigator examines the body of [char:${char.name}]. ${char.description}`
-      : `The investigator encounters [char:${char.name}] at [loc:${arrival}]. ${char.description}`,
-    clueId: null,
-    isNew: false,
-    isLead: true,
-  }))
-
   return {
     scenarioId: scenario.location.name,
     difficulty,
@@ -123,9 +109,10 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
     attemptedActions: [],
     lockedActionKeys: [],
     foundCharacterIds: charsAtArrival.map(c => c.id),
+    describedCharacterIds: [],
     foundItemIds: [],
     collectedClueIds: [],
-    log: [...leadEntries, arrivalEntry, ...npcEntries],
+    log: [...leadEntries, arrivalEntry],
     pinnedCards: [],
     selected: null,
     checkpoints: initCheckpointStates(scenario.checkpoints.map(cp => cp.id)),
@@ -138,8 +125,6 @@ export function initGameState(scenario: Scenario, difficulty: Difficulty): GameS
 // Internal helpers
 // ─────────────────────────────────────────────
 
-const ACCUSATION_CHECKPOINTS = new Set(['perpetrator', 'motive'])
-
 function makeContext(state: GameState, scenario: Scenario): EvalContext {
   const characterLocations: Record<string, LocationId> = {}
   for (const char of scenario.characters) {
@@ -150,12 +135,6 @@ function makeContext(state: GameState, scenario: Scenario): EvalContext {
     inventory: state.inventory,
     characterLocations,
   }
-}
-
-function investigativeAllConfirmed(state: GameState): boolean {
-  return Object.entries(state.checkpoints)
-    .filter(([id]) => !ACCUSATION_CHECKPOINTS.has(id))
-    .every(([, cp]) => cp.status === 'confirmed')
 }
 
 interface FireResult {
@@ -268,20 +247,6 @@ export function moveToLocation(
     .filter(c => !state.foundCharacterIds.includes(c.id) && c.location === locationId)
     .map(c => c.id)
 
-  for (const charId of newlyFoundCharIds) {
-    const char = scenario.characters.find(c => c.id === charId)!
-    newEntries.push({
-      id: `log_${ac}_met_${charId}`,
-      turn: ac,
-      locationId,
-      text: char.isVictim
-        ? `The investigator examines the body of [char:${char.name}]. ${char.description}`
-        : `The investigator encounters [char:${char.name}] at [loc:${locationId}]. ${char.description}`,
-      clueId: null,
-      isNew: true,
-    })
-  }
-
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
 
   return {
@@ -314,6 +279,22 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
         isNew: true,
       })
     }
+  }
+
+  const undescribedChars = scenario.characters.filter(
+    c => c.location === locId && !state.describedCharacterIds.includes(c.id)
+  )
+  for (const char of undescribedChars) {
+    newEntries.push({
+      id: `log_${ac}_desc_${char.id}`,
+      turn: ac,
+      locationId: locId,
+      text: char.isVictim
+        ? `The investigator examines the body of [char:${char.name}]. ${char.description}`
+        : `The investigator observes [char:${char.name}]. ${char.description}`,
+      clueId: null,
+      isNew: true,
+    })
   }
 
   const visibleItems = scenario.items.filter(
@@ -361,12 +342,15 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
   const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac)
 
+  const newlyDescribedIds = undescribedChars.map(c => c.id)
+
   return {
     ...state,
     actionCount: ac,
     inspectedLocationIds: state.inspectedLocationIds.includes(locId)
       ? state.inspectedLocationIds
       : [...state.inspectedLocationIds, locId],
+    describedCharacterIds: [...state.describedCharacterIds, ...newlyDescribedIds],
     collectedClueIds: [...state.collectedClueIds, ...newClueIds],
     pinnedCards: [...state.pinnedCards, ...autoPinned],
     log: [...updatedLog, ...newEntries],
@@ -581,9 +565,6 @@ export function submitCheckpoint(
 ): GameState {
   const checkpoint = state.checkpoints[checkpointId]
   if (!checkpoint || checkpoint.status !== 'available') return state
-
-  // Accusation gate
-  if (ACCUSATION_CHECKPOINTS.has(checkpointId) && !investigativeAllConfirmed(state)) return state
 
   const scenarioCp = scenario.checkpoints.find(c => c.id === checkpointId)!
   const correctAnswer = getCorrectAnswer(checkpointId, scenario)

@@ -1,40 +1,34 @@
 // ─────────────────────────────────────────────
 // TIDEBOUND — Checkpoint Tree
 //
-// Investigative checkpoints (cause_of_death, true_location, time_of_death)
-// are available from turn 1.
-// Accusation phase unlocks in sequence once all investigative are confirmed:
-//   perpetrator → motive → hidden_truth (if present)
+// Sequential gating:
+//   true_location  — always available
+//   perpetrator    — unlocks when true_location confirmed
+//   motive         — unlocks when perpetrator confirmed
 // ─────────────────────────────────────────────
 
 import type { CheckpointId } from '../types/scenario'
 import type { CheckpointState } from '../types/gameState'
 
-const ACCUSATION_CHECKPOINTS = new Set<string>(['perpetrator', 'motive'])
-
-function allInvestigativeConfirmed(states: Record<string, CheckpointState>): boolean {
-  return Object.entries(states)
-    .filter(([id]) => !ACCUSATION_CHECKPOINTS.has(id))
-    .every(([, state]) => state.status === 'confirmed')
-}
-
 export function recomputeCheckpointStatuses(
   states: Record<CheckpointId, CheckpointState>
 ): Record<CheckpointId, CheckpointState> {
   const updated = { ...states }
-  const investigativeDone = allInvestigativeConfirmed(updated)
+
+  const locationConfirmed = updated['true_location']?.status === 'confirmed'
+  const perpetratorConfirmed = updated['perpetrator']?.status === 'confirmed'
 
   for (const id of Object.keys(updated) as CheckpointId[]) {
     if (updated[id].status === 'confirmed') continue
 
     let status: 'available' | 'locked'
 
-    if (!ACCUSATION_CHECKPOINTS.has(id)) {
+    if (id === 'true_location') {
       status = 'available'
     } else if (id === 'perpetrator') {
-      status = investigativeDone ? 'available' : 'locked'
+      status = locationConfirmed ? 'available' : 'locked'
     } else if (id === 'motive') {
-      status = investigativeDone ? 'available' : 'locked'
+      status = perpetratorConfirmed ? 'available' : 'locked'
     } else {
       status = 'locked'
     }
@@ -53,7 +47,7 @@ export function initCheckpointStates(
   for (const id of checkpointIds) {
     states[id] = {
       id,
-      status: ACCUSATION_CHECKPOINTS.has(id) ? 'locked' : 'available',
+      status: id === 'true_location' ? 'available' : 'locked',
       confirmedAnswer: null,
       submissions: [],
       proofs: {},

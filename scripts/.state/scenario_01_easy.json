@@ -1,271 +1,107 @@
 {
-  "scenarioPath": "D:\\Tidebound\\src\\scenarios\\scenario_01.json",
+  "scenarioPath": "D:\\Tidebound\\src\\scenarios\\archived\\scenario_01.json",
   "difficulty": "easy",
   "state": {
-    "scenarioId": "Vaur Tessek",
+    "scenarioId": "Vel-Drassik",
     "difficulty": "easy",
-    "turn": 3,
-    "phase": "setup",
-    "actionsRemaining": 1,
-    "board": {
-      "characterLocations": {
-        "tessek_oravi": "salt_works",
-        "maret_doun": "salt_works",
-        "nitha_tessek": "matrons_house",
-        "senne_arak": "upper_walkway",
-        "dauvek_pol": "covered_market",
-        "irret_sou": "quayside",
-        "investigator": "salt_works"
-      },
-      "itemLocations": {
-        "salt_scraper": "salt_works",
-        "records_room_key": "salt_works",
-        "salt_ledger": "records_room",
-        "watch_log_tablet": "upper_walkway"
-      }
-    },
-    "foundLocationIds": [
-      "quayside",
-      "salt_works"
+    "actionCount": 0,
+    "investigatorLocation": "harbour_dock",
+    "inventory": [],
+    "visitedLocationIds": [
+      "harbour_dock"
     ],
+    "inspectedLocationIds": [],
+    "attemptedActions": [],
+    "lockedActionKeys": [],
     "foundCharacterIds": [
-      "irret_sou",
-      "tessek_oravi",
-      "maret_doun"
+      "davan_reach"
     ],
-    "foundItemIds": [
-      "salt_scraper",
-      "records_room_key"
-    ],
-    "turnStartItemLocations": {
-      "salt_scraper": "salt_works",
-      "records_room_key": "salt_works",
-      "salt_ledger": "records_room",
-      "watch_log_tablet": "upper_walkway"
-    },
-    "collectedClueIds": [
-      "cod_b",
-      "cod_a",
-      "cod_rh1",
-      "time_rh1",
-      "perp_a"
-    ],
+    "foundItemIds": [],
+    "collectedClueIds": [],
     "log": [
       {
-        "id": "log_0_lead_0",
+        "id": "log_pre_lead_0",
         "turn": 0,
-        "locationId": "quayside",
-        "text": "A traveling salt-auditor named [char:Irret Sou] was berthed at [loc:quayside] when the body was found — she reached it before anyone else did, and she mentioned to the runner who summoned help that something about how the body lay had struck her as wrong.",
+        "locationId": "dye_works",
+        "text": "[char:Brek Ossun], the night tender, found the body on the [loc:dye_works] floor at first light and has not left the building since. He was working the vats all night and may have seen or heard something.",
         "clueId": null,
         "isNew": false,
         "isLead": true
       },
       {
-        "id": "log_0_lead_1",
+        "id": "log_pre_lead_1",
         "turn": 0,
-        "locationId": "records_room",
-        "text": "The victim [char:Tessek Oravi] had been sent by the Matron to review ledgers at [loc:records_room] that same evening — the room was found unlocked the following morning, in violation of standing orders that [char:Nitha Tessek] herself enforces.",
+        "locationId": "elder_hall",
+        "text": "[char:Thessa Vel] summoned the investigator herself. She says she may have been the last person to speak with [char:Sura Vel-Mak] before she died, and that Sura left the [loc:elder_hall] heading toward the [loc:archive_chamber] shortly before the trouble began.",
         "clueId": null,
         "isNew": false,
         "isLead": true
       },
       {
-        "id": "log_0_lead_2",
+        "id": "log_pre_lead_2",
         "turn": 0,
-        "locationId": "upper_walkway",
-        "text": "The night-watcher [char:Senne Arak] holds her post at [loc:upper_walkway], which overlooks the passage between the Matron's House and the salt-works — she would have been on watch during the hours in question.",
+        "locationId": "assay_room",
+        "text": "[char:Pira Eddan], the mineral assayer, was called to examine the body before dawn and has been in the [loc:assay_room] ever since, recording her observations. She has already made notes that she has not yet shared with anyone.",
         "clueId": null,
         "isNew": false,
         "isLead": true
       },
       {
-        "id": "log_1_arrival",
-        "turn": 1,
-        "locationId": "quayside",
-        "text": "Word has reached the investigator at [loc:quayside] — [char:Tessek Oravi] has been found at [loc:salt_works]. The investigation begins.",
+        "id": "log_pre_arrival",
+        "turn": 0,
+        "locationId": "harbour_dock",
+        "text": "Word has reached the investigator at [loc:harbour_dock] — [char:Sura Vel-Mak] has been found at [loc:dye_works]. The investigation begins.",
         "clueId": null,
-        "isNew": false
-      },
-      {
-        "id": "log_1_loc_quayside",
-        "turn": 1,
-        "locationId": "quayside",
-        "text": "Flat-bottomed trade boats rock against salt-bleached pilings as the morning fog lifts in slow ribbons off the estuary water.",
-        "clueId": null,
-        "isNew": false
-      },
-      {
-        "id": "log_1_met_irret_sou",
-        "turn": 1,
-        "locationId": "quayside",
-        "text": "The investigator encounters [char:Irret Sou] at [loc:quayside]. A traveling salt-auditor from an inland trade council, a composed woman of thirty who has been berthed at the quayside for three days conducting a routine cargo review. She was on deck before dawn for the morning muster and was the first outsider to reach the body; she is forthcoming with what she observed and speaks with the precision of someone accustomed to recording exactly what she sees.",
-        "clueId": null,
-        "isNew": false
-      },
-      {
-        "id": "log_1_cod_b",
-        "turn": 1,
-        "locationId": "quayside",
-        "text": "[char:Irret Sou] tells the investigator that when she first knelt beside the body, she noticed a thin dark line running along the left side of Tessek Oravi's robe — too straight and too narrow to be a fold or a shadow — which she noted before anyone else disturbed the scene.",
-        "clueId": "cod_b",
         "isNew": false,
-        "weight": "correct"
+        "isLead": true
       },
       {
-        "id": "log_2_loc_salt_works",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "Wide shallow pans stretch toward the estuary's edge, their surfaces crusted and still; the harvest is over and the flat-boats are beached, hull-up, along the near bank.",
+        "id": "log_pre_met_davan_reach",
+        "turn": 0,
+        "locationId": "harbour_dock",
+        "text": "The investigator encounters [char:Davan Reach] at [loc:harbour_dock]. The harbour master of Vel-Drassik, weathered and deliberate, with the calm manner of a man accustomed to managing other people's panic. He is the first to meet the investigator's boat, a lantern in one hand and a cold-log tucked under his arm.",
         "clueId": null,
-        "isNew": true
-      },
-      {
-        "id": "log_2_met_tessek_oravi",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "The investigator examines the body of [char:Tessek Oravi]. A meticulous woman of about fifty, lineage bookkeeper for the Tessek family and a respected salt-merchant in her own right. She is found slumped against the railing of the salt-pan platform, her posture too composed for a fall — and her outer robe, despite the heavy pre-dawn fog, is dry.",
-        "clueId": null,
-        "isNew": true
-      },
-      {
-        "id": "log_2_met_maret_doun",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "The investigator encounters [char:Maret Doun] at [loc:salt_works]. The Tessek salt-works overseer, a sturdy woman of about forty who speaks in the measured tones of someone used to giving direction. She is the one who found the body and sent the overnight runner for help, and she answers questions about it with a steadiness that sits just at the edge of composure.",
-        "clueId": null,
-        "isNew": true
-      },
-      {
-        "id": "log_2_found_salt_scraper",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "The investigator finds [item:Salt-Scraper]. A narrow iron-bladed tool, roughly palm-length, used to lift caked salt from the harvest pans; the blade is clean and the handle wood is pale and unweathered, showing none of the grey salt-staining common to tools in regular use.",
-        "clueId": null,
-        "isNew": true
-      },
-      {
-        "id": "log_2_found_records_room_key",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "The investigator finds [item:Records Room Key]. A heavy iron key with a Tessek lineage mark filed into the bow; the shank shows no tarnish, and a faint damp smell clings to the metal.",
-        "clueId": null,
-        "isNew": true
-      },
-      {
-        "id": "log_2_cod_a",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "Examining the body at [loc:salt_works], the investigator shifts the outer robe aside and finds a narrow puncture wound on the left side of Tessek Oravi's torso; the robe itself has a corresponding slit in the fabric, its edges stiff with dried dark brown residue.",
-        "clueId": "cod_a",
-        "isNew": true,
-        "weight": "correct"
-      },
-      {
-        "id": "log_2_cod_rh1",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "At the edge of the salt-pan platform where the body was found, Tessek Oravi's hands carry a visible coating of wet salt residue, and the railing she is slumped against faces directly onto the nearest brine channel.",
-        "clueId": "cod_rh1",
-        "isNew": true,
-        "weight": "red_herring"
-      },
-      {
-        "id": "log_2_time_rh1",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "[char:Maret Doun] tells the investigator that she saw [char:Tessek Oravi] at [loc:salt_works] [time:in the late afternoon], and that Oravi had seemed agitated and distracted, speaking in clipped sentences and leaving before their conversation was finished.",
-        "clueId": "time_rh1",
-        "isNew": true,
-        "weight": "red_herring"
-      },
-      {
-        "id": "log_2_perp_a",
-        "turn": 2,
-        "locationId": "salt_works",
-        "text": "When shown the key, [char:Maret Doun] states that she found it lying on the floor inside the [loc:records_room] doorway the morning after the death and had kept it intending to return it to the Matron; when the investigator asks when she entered the Records Room to find it, Maret pauses and then says she found it from the doorway, without going in.",
-        "clueId": "perp_a",
-        "isNew": true,
-        "weight": "correct"
+        "isNew": false,
+        "isLead": true
       }
     ],
-    "pinnedCards": [
-      {
-        "id": "card_cod_b",
-        "clueId": "cod_b",
-        "text": "[char:Irret Sou] tells the investigator that when she first knelt beside the body, she noticed a thin dark line running along the left side of Tessek Oravi's robe — too straight and too narrow to be a fold or a shadow — which she noted before anyone else disturbed the scene.",
-        "turn": 1,
-        "impliedAnswer": "",
-        "locationId": "quayside",
-        "checkpointId": null
-      },
-      {
-        "id": "card_cod_a",
-        "clueId": "cod_a",
-        "text": "Examining the body at [loc:salt_works], the investigator shifts the outer robe aside and finds a narrow puncture wound on the left side of Tessek Oravi's torso; the robe itself has a corresponding slit in the fabric, its edges stiff with dried dark brown residue.",
-        "turn": 2,
-        "impliedAnswer": "",
-        "locationId": "salt_works",
-        "checkpointId": null
-      },
-      {
-        "id": "card_cod_rh1",
-        "clueId": "cod_rh1",
-        "text": "At the edge of the salt-pan platform where the body was found, Tessek Oravi's hands carry a visible coating of wet salt residue, and the railing she is slumped against faces directly onto the nearest brine channel.",
-        "turn": 2,
-        "impliedAnswer": "",
-        "locationId": "salt_works",
-        "checkpointId": null
-      },
-      {
-        "id": "card_time_rh1",
-        "clueId": "time_rh1",
-        "text": "[char:Maret Doun] tells the investigator that she saw [char:Tessek Oravi] at [loc:salt_works] [time:in the late afternoon], and that Oravi had seemed agitated and distracted, speaking in clipped sentences and leaving before their conversation was finished.",
-        "turn": 2,
-        "impliedAnswer": "",
-        "locationId": "salt_works",
-        "checkpointId": null
-      },
-      {
-        "id": "card_perp_a",
-        "clueId": "perp_a",
-        "text": "When shown the key, [char:Maret Doun] states that she found it lying on the floor inside the [loc:records_room] doorway the morning after the death and had kept it intending to return it to the Matron; when the investigator asks when she entered the Records Room to find it, Maret pauses and then says she found it from the doorway, without going in.",
-        "turn": 2,
-        "impliedAnswer": "",
-        "locationId": "salt_works",
-        "checkpointId": null
-      }
-    ],
+    "pinnedCards": [],
     "selected": null,
     "checkpoints": {
       "cause_of_death": {
         "id": "cause_of_death",
-        "status": "available",
+        "status": "locked",
         "confirmedAnswer": null,
-        "submissions": []
+        "submissions": [],
+        "proofs": {}
       },
       "true_location": {
         "id": "true_location",
         "status": "available",
         "confirmedAnswer": null,
-        "submissions": []
+        "submissions": [],
+        "proofs": {}
       },
       "time_of_death": {
         "id": "time_of_death",
-        "status": "available",
+        "status": "locked",
         "confirmedAnswer": null,
-        "submissions": []
+        "submissions": [],
+        "proofs": {}
       },
       "perpetrator": {
         "id": "perpetrator",
         "status": "locked",
         "confirmedAnswer": null,
-        "submissions": []
+        "submissions": [],
+        "proofs": {}
       },
       "motive": {
         "id": "motive",
         "status": "locked",
         "confirmedAnswer": null,
-        "submissions": []
+        "submissions": [],
+        "proofs": {}
       }
     },
     "solved": false,

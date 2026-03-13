@@ -5,9 +5,7 @@
 export type LocationId = string
 
 export type CheckpointId =
-  | 'cause_of_death'
   | 'true_location'
-  | 'time_of_death'
   | 'perpetrator'
   | 'motive'
 
@@ -84,7 +82,7 @@ export interface Clue {
   id: string
   condition: ClueCondition
   text: string
-  contradicts: Array<{ checkpoint: string; answer: string }>
+  contradicts: Array<{ checkpoint: string; answer: string; reason?: string }>
 }
 
 // 2-3 starting leads shown to the player on turn 1 before any clues have fired.

@@ -104,8 +104,7 @@ function renderState(scenario: Scenario, state: GameState): string {
     lines.push(`Inventory: ${items.join(', ')}`)
   }
 
-  const investigative = ['cause_of_death', 'true_location', 'time_of_death']
-  const accusatory    = ['perpetrator', 'motive']
+  const cpOrder = ['true_location', 'perpetrator', 'motive']
   const fmt = (id: string) => {
     const cp = state.checkpoints[id as any]
     if (!cp) return null
@@ -117,9 +116,7 @@ function renderState(scenario: Scenario, state: GameState): string {
     const proved = wrong.filter(w => cp.proofs[w]).length
     return `${id}[${proved}/${wrong.length}]`
   }
-  const invPart = investigative.map(fmt).filter(Boolean).join(' ')
-  const accPart = accusatory.map(fmt).filter(Boolean).join(' ')
-  lines.push(`Checkpoints: ${invPart}${accPart ? ' | ' + accPart : ''}`)
+  lines.push(`Checkpoints: ${cpOrder.map(fmt).filter(Boolean).join(' | ')}`)
   lines.push(`Clues: ${state.collectedClueIds.length}/${scenario.clues.length}`)
 
   return lines.join('\n')
@@ -148,7 +145,6 @@ Commands:
   talk <char_id>                     Talk to a character at current location — fires clues.
   ask <char_id> <item_id>            Ask character about an inventory item — fires clues.
   prove <cp_id> "<wrong_answer>" with <clue_id>  Assign a clue to disprove a wrong answer.
-  auto <cp_id>                       Auto-assign collected clues to all wrong answers and submit.
   status                             Current state: location, reachable, inventory, checkpoints.
   locs                               All locations (* = you, > = reachable) with found characters.
   chars                              Found characters and their fixed locations.
@@ -228,6 +224,11 @@ async function main() {
   let state = savedState ?? initGameState(scenario, difficulty)
   if (isNewGame) saveState(rawPath, difficulty, state)
 
+  // Tracks failed prove attempts per "cpId:wrongAnswer" — in-memory only, not persisted.
+  // Caps at 2 failed attempts per option so the reviewer can't brute-force by trying every clue.
+  const PROVE_ATTEMPT_LIMIT = 2
+  const proveFailCounts: Record<string, number> = {}
+
   // ── Opening ────────────────────────────────────────────────────────────────
   console.log(`\n=== ${scenario.location.name.toUpperCase()} | ${difficulty} | ${scenario.location.season} ===\n`)
 
@@ -265,6 +266,7 @@ async function main() {
         scenario = filterOptionsToDifficulty(JSON.parse(readFileSync(rawPath, 'utf8')) as Scenario, difficulty)
         state    = initGameState(scenario, difficulty)
         saveState(rawPath, difficulty, state)
+        for (const k of Object.keys(proveFailCounts)) delete proveFailCounts[k]
         console.log('Game reset.')
         console.log(renderState(scenario, state))
         break
@@ -360,6 +362,16 @@ async function main() {
         }
         saveState(rawPath, difficulty, state)
         printNewEntries(state)
+        // After a location inspect, list visible-but-not-carried items with IDs
+        if (!itemId) {
+          const visibleHere = scenario.items.filter(i =>
+            i.starting_location === state.investigatorLocation &&
+            !state.inventory.includes(i.id)
+          )
+          if (visibleHere.length) {
+            console.log(`Visible items: ${visibleHere.map(i => `${i.name} (${i.id})`).join(', ')}`)
+          }
+        }
         break
       }
 
@@ -403,21 +415,27 @@ async function main() {
         console.log(`Clues (${entries.length}):`)
         for (const e of entries) {
           const clue = scenario.clues.find(c => c.id === e.clueId)
-          const contradicts = clue?.contradicts.map(c => `${c.checkpoint}:"${c.answer}"`).join(', ') ?? ''
           console.log(`  [A${e.turn}] (${e.clueId}) ${stripTags(e.text)}`)
-          if (contradicts) console.log(`         contradicts: ${contradicts}`)
         }
         break
       }
 
       case 'cp':
       case 'checkpoints': {
-        for (const [id, cp] of Object.entries(state.checkpoints)) {
+        const GATE_MESSAGES: Record<string, string> = {
+          perpetrator: 'Confirm true_location first',
+          motive: 'Confirm perpetrator first',
+        }
+        const cpOrder = ['true_location', 'perpetrator', 'motive']
+        for (const id of cpOrder) {
+          const cp = state.checkpoints[id as any]
+          if (!cp) continue
           const scenCp = scenario.checkpoints.find(c => c.id === id)!
           if (cp.status === 'confirmed') {
             console.log(`${id} [${gr('confirmed')}]  ${scenCp.label}  => ${cp.confirmedAnswer}`)
           } else if (cp.status === 'locked') {
-            console.log(`${id} [locked]  ${scenCp.label}`)
+            const gate = GATE_MESSAGES[id] ?? 'locked'
+            console.log(`${id} [locked]  ${scenCp.label}  (${gate})`)
           } else {
             const correct = getCorrectAnswer(id as any, scenario)
             const wrong = scenCp.answer_options.filter(o => o !== correct)
@@ -448,7 +466,10 @@ async function main() {
 
         const cp = state.checkpoints[cpId as any]
         if (!cp) { console.log(rd(`Unknown checkpoint: ${cpId}`)); break }
-        if (cp.status === 'locked') { console.log(rd('Locked — confirm all investigative checkpoints first.')); break }
+        if (cp.status === 'locked') {
+          const gateMsg = cpId === 'perpetrator' ? 'Confirm true_location first.' : cpId === 'motive' ? 'Confirm perpetrator first.' : 'Locked.'
+          console.log(rd(`Locked — ${gateMsg}`)); break
+        }
         if (cp.status === 'confirmed') { console.log(`Already confirmed: ${cp.confirmedAnswer}`); break }
 
         const scenCp = scenario.checkpoints.find(c => c.id === cpId)!
@@ -463,10 +484,19 @@ async function main() {
           console.log(rd(`Clue ${clueId} not collected. Use 'clues' to see collected clue IDs.`)); break
         }
 
+        const proveKey = `${cpId}:${wrongAnswer}`
+        const failsSoFar = proveFailCounts[proveKey] ?? 0
+        if (failsSoFar >= PROVE_ATTEMPT_LIMIT) {
+          console.log(rd(`No more attempts for "${wrongAnswer}" on ${cpId} — used all ${PROVE_ATTEMPT_LIMIT}. This option cannot be disproved.`))
+          break
+        }
+
         const clue = scenario.clues.find(c => c.id === clueId)
         if (!clue?.contradicts.some(c => c.checkpoint === cpId && c.answer === wrongAnswer)) {
+          proveFailCounts[proveKey] = failsSoFar + 1
+          const remaining = PROVE_ATTEMPT_LIMIT - proveFailCounts[proveKey]
           console.log(rd(`Clue ${clueId} does not contradict "${wrongAnswer}" for checkpoint ${cpId}.`))
-          console.log(`Its contradicts: ${clue?.contradicts.map(c => `${c.checkpoint}:"${c.answer}"`).join(', ') ?? 'none'}`)
+          console.log(remaining > 0 ? `${remaining} attempt(s) remaining for this option.` : rd(`No more attempts for this option.`))
           break
         }
 
@@ -490,59 +520,6 @@ async function main() {
           const newCp = state.checkpoints[cpId as any]
           const remaining = scenCp.answer_options.filter(o => o !== correct && !newCp.proofs[o])
           console.log(`Still to disprove: ${remaining.join(', ')}`)
-        }
-        break
-      }
-
-      case 'auto': {
-        // auto <cp_id> — auto-assign collected clues to all wrong answers and submit
-        const cpId = args[0]
-        if (!cpId) { console.log(rd('Usage: auto <cp_id>')); break }
-
-        const cp = state.checkpoints[cpId as any]
-        if (!cp) { console.log(rd(`Unknown checkpoint: ${cpId}`)); break }
-        if (cp.status === 'locked') { console.log(rd('Locked — confirm all investigative checkpoints first.')); break }
-        if (cp.status === 'confirmed') { console.log(`Already confirmed: ${cp.confirmedAnswer}`); break }
-
-        const scenCp = scenario.checkpoints.find(c => c.id === cpId)!
-        const correct = getCorrectAnswer(cpId as any, scenario)
-        const wrong = scenCp.answer_options.filter(o => o !== correct)
-
-        let assigned = 0
-        for (const w of wrong) {
-          if (cp.proofs[w]) continue  // already proved
-          // Find a collected clue that contradicts this
-          const clue = scenario.clues.find(c =>
-            state.collectedClueIds.includes(c.id) &&
-            c.contradicts.some(x => x.checkpoint === cpId && x.answer === w)
-          )
-          if (!clue) {
-            console.log(rd(`No collected clue contradicts "${w}" — cannot auto-assign.`))
-            console.log(`Collect more clues before running auto.`)
-            break
-          }
-          state = assignProof(state, scenario, cpId as any, w, clue.id)
-          assigned++
-        }
-
-        saveState(rawPath, difficulty, state)
-
-        if (state.checkpoints[cpId as any].status === 'confirmed') {
-          console.log(gr(`CONFIRMED: ${state.checkpoints[cpId as any].confirmedAnswer}`))
-          if (state.solved) {
-            clearState(rawPath, difficulty)
-            console.log(gr(`\nCASE SOLVED. Final score: ${state.finalScore}`))
-            rl.close(); return
-          }
-          const unlocked = Object.entries(state.checkpoints)
-            .filter(([, v]) => v.status === 'available' && !v.confirmedAnswer)
-            .map(([id]) => id)
-          if (unlocked.length) console.log(`Unlocked: ${unlocked.join(', ')}`)
-        } else {
-          console.log(`Assigned ${assigned} proof(s).`)
-          const newCp = state.checkpoints[cpId as any]
-          const remaining = wrong.filter(o => !newCp.proofs[o])
-          if (remaining.length) console.log(`Still to disprove: ${remaining.join(', ')}`)
         }
         break
       }

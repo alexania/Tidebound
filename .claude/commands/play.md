@@ -32,10 +32,9 @@ State persists between runs — each invocation picks up where the last left off
 | `locs` | All locations (`*` = you, `>` = reachable, `[inspected]`) with found characters |
 | `chars` | Found characters and their fixed locations |
 | `items` | Inventory (carried items with IDs) |
-| `clues` | All collected clues in action order, with their `contradicts` arrays |
+| `clues` | All collected clues in action order |
 | `cp` | Checkpoints with status — shows which wrong answers are disproved and which remain |
 | `prove <cp_id> "<wrong_answer>" with <clue_id>` | Assign a clue to disprove a specific wrong answer for a checkpoint |
-| `auto <cp_id>` | Auto-assign collected clues to all wrong answers; submits if coverage is complete |
 | `reset` | Wipe saved state and restart |
 
 ## Elimination model
@@ -46,14 +45,35 @@ To confirm a checkpoint, you must collect clues that contradict every wrong answ
 
 Use `cp` to see which wrong answers still need to be disproved. Use `clues` to see each clue's `contradicts` array — this shows which wrong answers each clue makes impossible.
 
+## Checkpoints
+
+There are exactly **3 checkpoints**, unlocking sequentially:
+
+1. **`true_location`** — available immediately. Where was the murder committed?
+2. **`perpetrator`** — **locked** until `true_location` is confirmed. Who committed the murder?
+3. **`motive`** — **locked** until `perpetrator` is confirmed. Why did they do it?
+
+## IDs
+
+All commands take IDs, not display names. IDs are surfaced in output:
+- **Location IDs**: shown in `Reachable:` line and via `locs`
+- **Character IDs**: shown in `Here:` line when encountered, and via `chars`
+- **Item IDs**: shown in `Visible items:` line after inspecting a location, and via `items` once carried
+
+Use `locs`, `chars`, and `items` freely — they don't cost actions.
+
 ## Agent strategy
 
-- On arrival, `inspect` the starting location before moving anywhere.
+- Start fresh: run `reset` if there is any saved state from a prior session.
+- On arrival, `inspect` the starting location. Note the `Visible items:` line for item IDs.
 - After each action, read all output carefully before deciding the next step — clues fire immediately.
+- Use `locs` to see all location IDs. Use `chars` to see all encountered character IDs.
 - Visit every location and `talk` to every character.
 - Items must be picked up (`inspect <item_id>`) before they can be shown to characters.
-- Use `clues` to review what you have collected and what each clue contradicts.
-- Use `cp` before every `prove` or `auto` to see the elimination state for each checkpoint.
-- After collecting clues, try `auto <cp_id>` for each available checkpoint. If it succeeds, all wrong answers were covered. If not, the output tells you which wrong answer has no contradicting clue yet.
-- Perpetrator and motive checkpoints are **locked until all three investigative checkpoints** (`cause_of_death`, `true_location`, `time_of_death`) are confirmed — but their clues fire freely. Collect them throughout the investigation.
+- Use `clues` to review what you have collected.
+- Use `cp` before every `prove` to see the elimination state for each checkpoint.
+- To confirm a checkpoint: read each collected clue, decide which wrong answer it makes impossible, then use `prove <cp_id> "<wrong_answer>" with <clue_id>`. Once all wrong answers are disproved, the correct answer is confirmed automatically.
+- **`true_location`** is available immediately — start elimination here.
+- **`perpetrator`** unlocks once `true_location` is confirmed. Each wrong suspect is eliminated by placing them elsewhere during the confirmed murder window.
+- **`motive`** unlocks once `perpetrator` is confirmed. Each wrong motive is a specific falsifiable theory contradicted by a clue.
 - After each action, reason aloud: what you now know, which wrong answers are eliminated, what's still uncertain, and why you're making your next move.

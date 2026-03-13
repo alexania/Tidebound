@@ -66,6 +66,7 @@ export interface GameState {
   lockedActionKeys: string[]       // action keys that returned locked feedback — shown as indicators
 
   foundCharacterIds: string[]
+  describedCharacterIds: string[]  // characters whose description has been shown in the log
   foundItemIds: string[]           // items picked up into inventory
 
   collectedClueIds: string[]

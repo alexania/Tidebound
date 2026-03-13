@@ -1,0 +1,502 @@
+{
+  "location": {
+    "name": "The Mercato Sospeso",
+    "season": "summer",
+    "weather": "salt-haze and flat heat",
+    "arrival_location": "albretti_cafe"
+  },
+  "crime": {
+    "cause_of_death": "a single stab wound to the left abdomen, inflicted with a narrow-bladed stiletto",
+    "murder_location": "dye_works",
+    "body_found_location": "albretti_cafe",
+    "body_was_moved": true,
+    "time_of_death": "between nine o'clock and eleven o'clock in the evening",
+    "perpetrator_ids": [
+      "ottavia_renfi"
+    ],
+    "motive": "Ottavia Renfi had discovered that Isadora Valli was the illegitimate daughter of Dario Albretti, not a true Valli heir, and killed her son Cosimo to prevent a marriage she believed would bring lasting shame upon the Renfi name"
+  },
+  "characters": [
+    {
+      "id": "cosimo_renfi",
+      "name": "Cosimo Renfi",
+      "isVictim": true,
+      "location": "albretti_cafe",
+      "description": "A cloth merchant of thirty-four years, known in the Mercato for his easy charm and fine taste in colour. He lies on his back at the café landing, one hand open at his side, his blue merchant's coat darkened with blood at the left flank — the investigator notes a single entry wound, no exit."
+    },
+    {
+      "id": "ottavia_renfi",
+      "name": "Ottavia Renfi",
+      "isVictim": false,
+      "location": "chapel",
+      "description": "Cosimo's widowed mother, forty-eight years of age, always dressed in the widow's grey that has become her signature across the Mercato. She sits rigid in the chapel's front pew when the investigator arrives, her hands folded tight in her lap, a coat of darker grey draped over the bench beside her."
+    },
+    {
+      "id": "isadora_valli",
+      "name": "Isadora Valli",
+      "isVictim": false,
+      "location": "valli_residence",
+      "description": "Cosimo's bride-to-be, twenty-two years old, with a pale complexion made paler still by grief and a sleepless night. She rises from her chair when the investigator enters, clutching a handkerchief, her eyes red from weeping."
+    },
+    {
+      "id": "dario_albretti",
+      "name": "Dario Albretti",
+      "isVictim": false,
+      "location": "albretti_cafe",
+      "description": "The café owner, fifty-two years old, heavyset and watchful, with the unhurried manner of a man who has seen much and learned to wait. He meets the investigator at the café landing with a lantern still burning in his hand, his expression unreadable."
+    },
+    {
+      "id": "matrona_belverde",
+      "name": "Matrona Belverde",
+      "isVictim": false,
+      "location": "bridge_of_needles",
+      "description": "The district's licensed wound-reader and midwife, sixty years old, with close-cropped grey hair and hands that move with practiced economy. She was summoned to examine the body before dawn and speaks with the flat certainty of someone who has spent decades reading what bodies say."
+    },
+    {
+      "id": "ferdo_quint",
+      "name": "Ferdo Quint",
+      "isVictim": false,
+      "location": "dye_works",
+      "description": "The night-watchman at the Dye-Works, thirty-eight years old, lean and weathered from years on open platforms. He stands at his post with the resigned air of a man waiting to be asked something he would rather not answer."
+    },
+    {
+      "id": "lucia_maris",
+      "name": "Lucia Maris",
+      "isVictim": false,
+      "location": "chapel",
+      "description": "Ottavia Renfi's personal maid, twenty-nine years old, slight and careful in her movements, with the practised stillness of a woman who has learned to make herself invisible. She hovers near the chapel doorway when the investigator arrives, watching Ottavia's back."
+    }
+  ],
+  "items": [
+    {
+      "id": "cosimo_letter",
+      "name": "Folded Letter",
+      "description": "A sheet of cream paper folded in thirds, covered in a small, controlled feminine hand, the ink slightly smudged at the final line as though the writer stopped abruptly.",
+      "location_discovery_text": "A [item:Folded Letter] protrudes from the inner breast pocket of the dead man's coat, its cream paper stained at one corner.",
+      "starting_location": "albretti_cafe"
+    },
+    {
+      "id": "stiletto_blade",
+      "name": "Bone-Handled Stiletto",
+      "description": "A narrow triangular blade, no wider than a finger at its base, set in a handle of yellowed bone worn smooth from long handling; a leather sheath lies alongside it.",
+      "location_discovery_text": "A [item:Bone-Handled Stiletto] rests in the shadow beneath the rear pew, its leather sheath beside it, half-buried in the dust.",
+      "starting_location": "chapel"
+    },
+    {
+      "id": "cosimo_ledger",
+      "name": "Cloth Merchant's Ledger",
+      "description": "A compact ledger bound in brown calfskin, its pages filled with columns of figures, dates, and supplier names in a careful mercantile hand.",
+      "location_discovery_text": "A [item:Cloth Merchant's Ledger] lies at the bottom of a leather satchel left beside the dead man's feet.",
+      "starting_location": "albretti_cafe"
+    },
+    {
+      "id": "wedding_note",
+      "name": "Wedding Confirmation Note",
+      "description": "A small folded note in a neat masculine hand on plain paper, undated save for the day of the week written at the top.",
+      "location_discovery_text": "A [item:Wedding Confirmation Note] is tucked into the front pocket of the leather satchel near the dead man's feet.",
+      "starting_location": "albretti_cafe"
+    },
+    {
+      "id": "ottavia_coat",
+      "name": "Grey Wool Coat",
+      "description": "A heavy grey wool coat of good quality, cut for a woman, with a pattern of dark rust-coloured drops dried stiff along the right cuff and a smear of the same colour along the inner wrist lining.",
+      "location_discovery_text": "A [item:Grey Wool Coat] is draped over the end of the chapel bench, one sleeve hanging toward the floor.",
+      "starting_location": "chapel"
+    }
+  ],
+  "locations": [
+    {
+      "id": "albretti_cafe",
+      "name": "The Albretti Café",
+      "flavour": "A broad platform of salt-bleached timber jutting over the lagoon, strung with coloured lamps that sway in the haze, smelling of bitter coffee and something heavier that the morning cannot clear.",
+      "col": 1,
+      "row": 0
+    },
+    {
+      "id": "chapel",
+      "name": "The Chapel Platform",
+      "flavour": "A small whitewashed chapel raised on doubled stilts, its single bell silent in the heat, the interior cool and dim with the smell of old tallow and dried flowers.",
+      "col": 2,
+      "row": 0
+    },
+    {
+      "id": "mercato_walk",
+      "name": "The Mercato Walk",
+      "flavour": "The long central walkway of the Mercato Sospeso, its planking worn smooth by a generation of feet, open stalls folded shut in the early morning, the whole structure swaying almost imperceptibly with the tide.",
+      "col": 0,
+      "row": 0
+    },
+    {
+      "id": "valli_residence",
+      "name": "The Valli Residence",
+      "flavour": "A respectable family platform of three connected rooms, its shutters closed against the heat, a potted jasmine wilting on the outer rail.",
+      "col": 0,
+      "row": 1
+    },
+    {
+      "id": "dye_works",
+      "name": "The Dye-Works",
+      "flavour": "A wide industrial platform hung with dripping skeins of cloth in deep reds and purples, the air sharp with mordant and the planking permanently stained in overlapping rings of colour.",
+      "col": 1,
+      "row": 1
+    },
+    {
+      "id": "bridge_of_needles",
+      "name": "The Bridge of Needles",
+      "flavour": "A long residential footbridge lined with the small workshops of tailors and cobblers, their shutters closed at this hour, the canal below it dark and slow.",
+      "col": 2,
+      "row": 1
+    }
+  ],
+  "location_adjacencies": [
+    {
+      "from": "mercato_walk",
+      "to": "albretti_cafe"
+    },
+    {
+      "from": "mercato_walk",
+      "to": "valli_residence"
+    },
+    {
+      "from": "mercato_walk",
+      "to": "dye_works"
+    },
+    {
+      "from": "albretti_cafe",
+      "to": "chapel"
+    },
+    {
+      "from": "albretti_cafe",
+      "to": "dye_works"
+    },
+    {
+      "from": "dye_works",
+      "to": "bridge_of_needles"
+    },
+    {
+      "from": "chapel",
+      "to": "bridge_of_needles"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "true_location",
+      "label": "Where was Cosimo Renfi murdered?",
+      "answer_options": [
+        "The Dye-Works",
+        "The Albretti Café",
+        "The Chapel Platform",
+        "The Valli Residence",
+        "The Bridge of Needles"
+      ]
+    },
+    {
+      "id": "perpetrator",
+      "label": "Who killed Cosimo Renfi?",
+      "answer_options": [
+        "Ottavia Renfi",
+        "Dario Albretti",
+        "Isadora Valli",
+        "Ferdo Quint",
+        "Lucia Maris"
+      ]
+    },
+    {
+      "id": "motive",
+      "label": "Why was Cosimo Renfi killed?",
+      "answer_options": [
+        "Ottavia Renfi had discovered that Isadora Valli was the illegitimate daughter of Dario Albretti, not a true Valli heir, and killed her son Cosimo to prevent a marriage she believed would bring lasting shame upon the Renfi name",
+        "Cosimo Renfi had discovered that Dario Albretti was skimming profits from a trade partnership and threatened to expose him publicly",
+        "Isadora Valli killed Cosimo when he announced he was breaking off their engagement the evening of his death",
+        "Ferdo Quint was owed a substantial gambling debt by Cosimo Renfi and killed him before Cosimo could expose the debt to the Tribunal",
+        "Lucia Maris killed Cosimo to prevent him from abandoning the family cloth business and leaving Ottavia Renfi destitute"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "cl01",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "albretti_cafe",
+        "item": null
+      },
+      "text": "The planking near where [char:Cosimo Renfi]'s body lies shows a smeared trail of rust-coloured marks that leads from the direction of the bridge — the trail enters the café platform from outside rather than originating within it.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "The Albretti Café",
+          "reason": "The trail enters the platform from outside rather than originating within it; if the murder had occurred at the café, the blood trail would begin on the platform itself."
+        }
+      ]
+    },
+    {
+      "id": "cl02",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "dye_works",
+        "item": null
+      },
+      "text": "Near the eastern vat, a wide stain has soaked deep into the planking — brown-black, the colour of old blood. A length of sacking has been laid over it, but the edges bleed through on three sides.",
+      "contradicts": []
+    },
+    {
+      "id": "cl03",
+      "condition": {
+        "type": "inspect_item",
+        "characters": [],
+        "location": null,
+        "item": "cosimo_letter"
+      },
+      "text": "The letter reads: \"You marry a bastard — [char:Dario Albretti]'s bastard — not a Valli daughter at all. Break the engagement before this shame destroys us both, or I will do what must be done.\" The final line is underscored twice.",
+      "contradicts": []
+    },
+    {
+      "id": "cl04",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "isadora_valli"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Isadora Valli] tells the investigator she did not leave [loc:valli_residence] after [time:eight o'clock in the evening] and that the woman in the rooms above heard her weeping continuously from [time:nine o'clock] until well past midnight. She says [char:Cosimo Renfi] sent a messenger that very morning to confirm the wedding would proceed as planned.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "The Valli Residence",
+          "reason": "Isadora did not leave after eight o'clock and a neighbour heard her weeping continuously from nine o'clock; if the murder had occurred at the residence, both would have witnessed it."
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Isadora Valli",
+          "reason": "The woman in the rooms above heard Isadora weeping continuously from nine o'clock until past midnight, placing her at the residence throughout the entire murder window."
+        }
+      ]
+    },
+    {
+      "id": "cl05",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "matrona_belverde"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Matrona Belverde] tells the investigator she remained in her rooms on [loc:bridge_of_needles] the whole evening until summoned at dawn. Her window faces the café platform directly — she could see [char:Dario Albretti]'s lamp burning in the kitchen from [time:nine o'clock in the evening] without interruption until well past [time:eleven o'clock], and Dario himself visible within each time she looked. She adds that [char:Ferdo Quint], the Dye-Works watchman, passed beneath her walkway on foot at around [time:half past nine in the evening], heading toward the market-side platform — she noticed him because he rarely strays from his post.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "The Bridge of Needles",
+          "reason": "Matrona remained in her rooms on the bridge all evening; if the murder had occurred there, she would have witnessed it."
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Dario Albretti",
+          "reason": "Matrona saw Dario's lamp burning without interruption from nine o'clock until past eleven with Dario himself visible, making it impossible for him to have been at the dye-works during the murder window."
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Ferdo Quint",
+          "reason": "Matrona saw Ferdo pass beneath her walkway heading toward the market-side platform at half past nine, placing him away from the dye-works for the remainder of the murder window."
+        }
+      ]
+    },
+    {
+      "id": "cl06",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "ferdo_quint"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Ferdo Quint] tells the investigator that [char:Cosimo Renfi] entered [loc:dye_works] at around [time:nine o'clock in the evening] in the company of a woman in widow's mourning dress. He left his post at [time:half past nine] to run an errand and did not return until [time:eleven o'clock]. He recognised Cosimo's face from the Mercato banners but says he had no personal acquaintance with him.",
+      "contradicts": []
+    },
+    {
+      "id": "cl07",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "lucia_maris"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Lucia Maris] says she was in Signora [char:Ottavia Renfi]'s rooms at [loc:chapel] all evening, preparing supper and laying out linens. At [time:half past ten in the evening], Signora Renfi returned alone — she set her coat down without a word and went directly to the altar.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "The Chapel Platform",
+          "reason": "Lucia was present in the chapel rooms all evening preparing supper; if the murder had occurred there, she would have witnessed it."
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Lucia Maris",
+          "reason": "Lucia was in the chapel all evening and did not leave, placing her away from the dye-works throughout the murder window."
+        }
+      ]
+    },
+    {
+      "id": "cl08",
+      "condition": {
+        "type": "inspect_item_in_location",
+        "characters": [],
+        "location": "chapel",
+        "item": "stiletto_blade"
+      },
+      "text": "The blade is thin and triangular, the lower third stained a deep rust-brown. The leather sheath found beside it is stamped with a small interlocking-R mark — a Renfi family device. The sheath was made for this blade specifically.",
+      "contradicts": []
+    },
+    {
+      "id": "cl09",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "lucia_maris"
+        ],
+        "location": null,
+        "item": "stiletto_blade"
+      },
+      "text": "[char:Lucia Maris] recognises the blade immediately, her face going still. She says it belongs to Signora [char:Ottavia Renfi] — Ottavia has carried it at her belt for as long as Lucia has served her. She last saw it on Ottavia's belt [time:three days ago].",
+      "contradicts": []
+    },
+    {
+      "id": "cl10",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "matrona_belverde"
+        ],
+        "location": null,
+        "item": "cosimo_letter"
+      },
+      "text": "[char:Matrona Belverde] reads the letter in silence, then sets it down. She says she attended a private birth [time:twenty-two years ago] — a daughter born to [char:Dario Albretti] and a woman since deceased, placed with the Valli family and raised as their own. She believed the secret died with the Valli parents.",
+      "contradicts": []
+    },
+    {
+      "id": "cl11",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "dario_albretti"
+        ],
+        "location": null,
+        "item": "cosimo_letter"
+      },
+      "text": "[char:Dario Albretti] reads the letter and sets it on the counter. He tells the investigator that [char:Isadora Valli] is his natural daughter — that he confided this to [char:Cosimo Renfi] a month ago, at Cosimo's request, after Cosimo had heard a rumour. Cosimo told him it changed nothing.",
+      "contradicts": []
+    },
+    {
+      "id": "cl12",
+      "condition": {
+        "type": "inspect_item",
+        "characters": [],
+        "location": null,
+        "item": "cosimo_ledger"
+      },
+      "text": "The ledger records cloth purchases, dye commissions, and family accounts in careful columns. The final entries, dated this month, describe plans to open a new warehouse on the outer island of Cassia. No entry names [char:Dario Albretti] or any café enterprise, and there are no gambling notations of any kind.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "Cosimo Renfi had discovered that Dario Albretti was skimming profits from a trade partnership and threatened to expose him publicly",
+          "reason": "The ledger names no entry for Dario Albretti or any café enterprise; if a trade partnership existed and was being skimmed, a meticulous merchant would have recorded it."
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "Ferdo Quint was owed a substantial gambling debt by Cosimo Renfi and killed him before Cosimo could expose the debt to the Tribunal",
+          "reason": "The ledger contains no gambling notations of any kind; a substantial debt owed to Ferdo would appear in a careful merchant's accounts."
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "Lucia Maris killed Cosimo to prevent him from abandoning the family cloth business and leaving Ottavia Renfi destitute",
+          "reason": "The final entries describe plans to open a new warehouse on the outer island of Cassia; a merchant actively expanding his operation was not abandoning the family business."
+        }
+      ]
+    },
+    {
+      "id": "cl13",
+      "condition": {
+        "type": "inspect_item",
+        "characters": [],
+        "location": null,
+        "item": "wedding_note"
+      },
+      "text": "The note reads: \"Confirm with the chapel authority that the date stands — I have spoken with my mother and the matter is settled. We marry as planned.\" It is dated the day of the murder.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "Isadora Valli killed Cosimo when he announced he was breaking off their engagement the evening of his death",
+          "reason": "The note, dated the day of the murder, confirms the wedding date stands and states the matter was settled with his mother; Cosimo was not breaking off the engagement."
+        }
+      ]
+    },
+    {
+      "id": "cl14",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "lucia_maris"
+        ],
+        "location": null,
+        "item": "cosimo_letter"
+      },
+      "text": "[char:Lucia Maris] studies the letter carefully. She says the handwriting is Signora [char:Ottavia Renfi]'s — she has copied Ottavia's correspondence at dictation for six years and would know it among a hundred hands.",
+      "contradicts": []
+    },
+    {
+      "id": "cl15",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "dario_albretti"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Dario Albretti] tells the investigator he found the body at first light, before anyone else had come to the platform. The café had been quiet all night — he had closed up before dark and gone to his kitchen, heard nothing until he stepped out at dawn and nearly walked into [char:Cosimo Renfi]'s body on the landing. He says the young man had no quarrel with him that he knew of.",
+      "contradicts": []
+    },
+    {
+      "id": "cl16",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "ottavia_renfi"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Ottavia Renfi] keeps her eyes forward as the investigator approaches. She says she spent the whole evening in the chapel, alone with her prayers, and did not leave until summoned at dawn. She does not know what became of her son after midday. Her voice does not waver.",
+      "contradicts": []
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_01",
+      "text": "The body was clearly dragged to [loc:albretti_cafe] from somewhere nearby — the night-watchman at [loc:dye_works] is said to have seen [char:Cosimo Renfi] enter there the previous evening and never come back out.",
+      "character_id": null,
+      "location_id": "dye_works"
+    },
+    {
+      "id": "lead_02",
+      "text": "[char:Matrona Belverde], the district wound-reader who examined the body before dawn, lives and works on [loc:bridge_of_needles] — she will have more to say about what she found.",
+      "character_id": "matrona_belverde",
+      "location_id": "bridge_of_needles"
+    },
+    {
+      "id": "lead_03",
+      "text": "[char:Isadora Valli], the dead man's bride-to-be, was not present when the body was discovered — she is said to be at [loc:valli_residence], across the [loc:mercato_walk].",
+      "character_id": "isadora_valli",
+      "location_id": "valli_residence"
+    }
+  ],
+  "opening_narrative": "The pole-boat carrying the investigator slides into [loc:albretti_cafe] in the flat heat of a summer morning, the lagoon below the colour of old copper. Word reached the Valdessi Tribunal before sunrise: [char:Cosimo Renfi], cloth merchant and soon-to-be husband of [char:Isadora Valli], has been found dead on the café landing of [char:Dario Albretti], his body cold and his coat dark with blood.\n\nThe Mercato Sospeso is already talking. By the time the investigator steps off the boat, the story has grown three versions: a robbery gone wrong, a jealous suitor, a debt called in by the wrong hands at the wrong hour. [char:Dario Albretti] stands at the landing with a lantern still in his grip, his face giving nothing away. The body lies as it was found, face up on the salt-bleached planks, the morning haze sitting low over everything.\n\nThe Tribunal has sent one investigator, with the authority to question any resident of the Mercato Sospeso and access to all platform districts. The wound-reader summoned before dawn has established what she could: a single stab wound to the left abdomen, a narrow blade, and a time of death placed [time:between nine o'clock and eleven o'clock in the evening]. Everything else remains to be proved.",
+  "epilogue": "[char:Cosimo Renfi] had known the truth about [char:Isadora Valli]'s parentage for a month before he died. [char:Dario Albretti] had told him himself, quietly and without condition, trusting the young man to do as he wished with the knowledge. Cosimo had thanked him and said it changed nothing — he wrote to confirm the wedding date on the morning of the day he was killed.\n\n[char:Ottavia Renfi] had received the same information from a different source: a letter from an old associate of the Valli family, passed to her in malice. She confronted Cosimo privately, asking him to meet her that evening at [loc:dye_works], away from the family rooms. He went, still believing the conversation could be resolved. She brought her bone-handled stiletto. After the murder she spent the small hours moving the body across the bridge to [loc:albretti_cafe], placing it at [char:Dario Albretti]'s door — an act of spite against the man she held responsible. She hid the stiletto beneath the rear pew in [loc:chapel] and told [char:Lucia Maris] only that she had gone to pray.\n\nThe letter found on Cosimo's body — the one Ottavia herself had written and sent him days before, demanding he break the engagement — was the thread that unravelled her account. [char:Lucia Maris] recognised the handwriting. [char:Matrona Belverde] confirmed the secret it described. [char:Dario Albretti] admitted his paternity without being asked twice. The stiletto, stamped with the Renfi device and hidden in Ottavia's own chapel, was the last piece. Ottavia confessed before the Valdessi Tribunal, citing the dishonour she believed the marriage would bring upon the Renfi name. The Tribunal cited her for murder. [char:Isadora Valli] was recognised publicly as Dario Albretti's natural daughter and received into his household. The wedding never took place. The wound had been dealt, as such wounds always are, long before the blade was drawn."
+}

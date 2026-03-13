@@ -1,5 +1,5 @@
 import type { Scenario } from '../types/scenario'
-import scenario01 from './scenario_01.json'
+import scenario01 from './scenario_03.json'
 
 type BundledScenario = { id: string; scenario: Scenario }
 

@@ -7,7 +7,14 @@ import { validateScenario } from './validator'
 
 const SYSTEM_PROMPT = `You are generating a complete murder mystery scenario for a single-player deduction game.
 The culture is provided as a constraint — use it as the primary lens for setting, naming, social structure, and atmosphere. Era, tone, and geography follow from the culture.
-The genre is provided as a tonal lens — let it shape atmosphere, narrative voice, character motivations, and the emotional register of clue texts. The scenario is always a murder mystery; the genre determines how that mystery feels.
+The genre is provided as a tonal lens — it is mandatory, not optional. The scenario is always a murder mystery; the genre determines how that mystery feels, how it is told, and what kind of people inhabit it. Genre must be actively visible in every major text field. A scenario that could have been written without the genre label has failed.
+
+GENRE INTEGRATION — required in every field:
+- opening_narrative: The genre must be set in the first sentence.
+- location flavours: Each must carry the genre's emotional register.
+- character descriptions: Characters embody genre archetypes while remaining specific.
+- clue texts: The narrative voice shifts by genre.
+- epilogue: The resolution is genre-appropriate.
 
 THE INVESTIGATOR:
 Every scenario includes a special character with id "investigator" — an official brought in from outside, whose presence is why people are talking at all. Not named or described in the JSON; the engine adds him. He always starts at the arrival_location. All clue conditions involve the investigator — every condition type begins with "investigator_". Do not include him in the characters array.
@@ -15,6 +22,12 @@ Every scenario includes a special character with id "investigator" — an offici
 THE ELIMINATION MODEL:
 This game uses pure elimination. All clues are true observations. The correct answer for each checkpoint is the one not contradicted by any clue. Players must prove each wrong answer impossible before the correct answer is accepted.
 Each clue has a "contradicts" array listing which (checkpoint, answer) pairs it makes logically impossible. No weights, no red herrings — every clue is a genuine fact.
+
+GIVEN FACTS (not player-deduced):
+Cause of death and time of death are not checkpoints — the player does not need to prove them. They are stated as established facts in the opening_narrative — the investigator is briefed before arrival. The medical authority character's clues are for elaboration and alibi only, not for delivering cause/time.
+
+ELIMINATION DIRECTION RULE:
+Every contradiction must pass: "if the wrong answer were true, this clue would be impossible" — without assuming any other checkpoint's answer. Evidence of what happened is not evidence of what didn't happen.
 
 ═══════════════════════════════════════════════════════
 PHASE 1 — STORY BIBLE
@@ -31,24 +44,47 @@ Then identify the one or two things the perpetrator could not avoid — traces t
 STEP 3 — CHARACTERS & RELATIONS
 5–7 characters including the victim. Every non-victim character must have a plausible stated motive — even the innocent ones. Set their location — fixed for the whole game. Place them where it makes narrative sense and creates interesting investigator routes.
 No more than 2 characters should share any location. Concentrating characters in one place floods a single turn with clues and removes the need to plan routes. Spread characters so the player has genuine decisions about where to go.
-Include one character who functions as a medical authority — ranging from a trained physician to a midwife, barber-surgeon, or herbalist. They were present at or summoned to the body before the investigation began. Their testimony may be correct, misleading, or limited by their competence — that is a story choice.
+Include one character who functions as a medical authority — ranging from a trained physician to a midwife, barber-surgeon, or herbalist. They were present at or summoned to the body before the investigation began. Their clues may elaborate on cause of death or provide alibi information, but carry no primary contradiction responsibility.
 For each non-perpetrator character: note what they know, what they suspect, and what they are concealing — and why.
+Every non-victim character must have at least one talk_to_character clue in which they account for their own whereabouts during the murder window — where they were, from when to when. This is the investigator asking directly; the character answers. This clue must have an empty contradicts array: a character's self-reported alibi cannot eliminate them as a suspect. A separate third-party clue may corroborate their account — that is the clue that does the elimination work.
 
 STEP 4 — CLUE PLAN
-Plan the full clue structure before writing any JSON. This is the most critical step.
+Plan the full clue structure before writing any JSON. This is the most critical step. Complete 4a entirely before starting 4b.
 
-First, list every wrong answer option for every checkpoint. The correct answers come from the crime block — every other option is a wrong answer that must be eliminated.
+There are exactly 3 checkpoints: true_location, perpetrator, motive.
 
-For each wrong answer, plan at least one clue that makes it logically impossible. A clue may contradict wrong answers across multiple checkpoints, but no single clue should appear in more than 3 contradicts entries — if a clue seems to eliminate everything, it is too vague; make it more specific.
+─── STEP 4a — ELIMINATION MECHANISMS (no clue text yet) ───────────────────
+Before designing any clue, lock in the mechanism that makes each wrong answer impossible. One row per wrong answer. Do not write clue text yet — just name the mechanism.
 
-For each planned clue:
-- What is the condition? (investigator where, with whom, with what item)
+Format for each row:
+  [checkpoint] | [wrong answer] | [mechanism type] | [the specific fact that makes it impossible]
+
+Mechanism types:
+  - ALIBI: a named third-party witness places the suspect away from the murder location for the entire window. State: witness name, where they were, time coverage.
+  - ALIBI-LOCATION: a named non-perpetrator character was demonstrably present at the wrong location during the window. State: character name, location, time coverage.
+  - VICTIM-TRAJECTORY: a witness places the victim alive leaving the wrong location during the window.
+  - INACCESSIBLE: the location was physically closed, locked, or blocked during the murder window. State: what made it inaccessible and what clue establishes this.
+  - DOCUMENT: a specific physical document contains a fact that makes the theory impossible. State: document name, the specific field/entry that is absent or contradictory.
+  - TESTIMONY: a specific character's direct statement makes the theory impossible. State: character, what they say, why it is impossible if the wrong answer were true.
+
+Rules:
+  - ALIBI alibis must come from a third-party witness — not the suspect. "Ferdo says he left" is not an alibi for Ferdo. "Matrona saw Ferdo on the bridge" is.
+  - ALIBI time coverage must span the full murder window. "Seen at 10pm" does not cover a 9-11pm window.
+  - Physical evidence at the correct location (blood stain, weapon, etc.) is NOT a valid mechanism for any wrong answer — it is positive evidence for the correct answer, not elimination of others.
+  - Establishing the correct motive is NOT a mechanism for eliminating wrong motives — multiple motives could coexist unless a specific fact makes the wrong one impossible.
+
+If you cannot find a valid mechanism for a wrong answer, redesign now — move a character, add a document, adjust the time window — before writing any clue text.
+
+─── STEP 4b — CLUE DESIGN ───────────────────────────────────────────────────
+Now design clues that surface the mechanisms from 4a. For each mechanism, identify:
+- What condition makes the player encounter it? (inspect_location, talk_to_character, inspect_item, inspect_item_in_location, ask_character_about_item)
 - What raw observation does the clue text contain? No interpretations — only what was seen, heard, touched, or said.
-- Which wrong answers does it contradict, and why is the contradiction logically valid from the clue text alone?
-- DISCOVERABILITY: What specific information already visible to the player — character descriptions, item descriptions, relations, leads, or text from an already-collectable clue — would cause them to attempt this exact condition? Name it explicitly.
-  For conditions of type ask_character_about_item or inspect_item_in_location: if the item's starting_location differs from the condition's location (or the character's fixed location) a prior clue text, lead, or description must explicitly name both the item and the relevant character or location together. Logical inference is not sufficient; the pairing must be stated in text.
+- DISCOVERABILITY: What specific information already visible to the player — character descriptions, item descriptions, leads, or prior clue text — causes them to attempt this condition? Name it explicitly.
+  For ask_character_about_item or inspect_item_in_location: a prior clue text, lead, or description must explicitly name both the item and the relevant character or location together. Logical inference is not sufficient; the pairing must be stated in text.
 
-Aim for 20–28 clues total.
+After designing elimination clues for every mechanism in 4a, add narrative clues to fill routing gaps and tell the story. These may have empty contradicts arrays.
+
+Aim for 12–16 clues total. Every non-victim character must have at least one talk_to_character clue. Every wrong answer must be covered by at least one clue — that is the structural requirement. Clues may have empty contradicts arrays; not every clue needs to eliminate anything.
 
 STORY DETAIL → PLAYER VISIBILITY:
 Every key fact that a player needs to eliminate a wrong answer must be visible in a clue text. If it exists only in the story bible, it does not exist for the player. Before finalising, check each wrong answer: is there a clue whose text, taken alone, makes this wrong answer logically impossible? Pay particular attention to motive — the specific reason the perpetrator killed must be reconstructable from clue texts alone.
@@ -58,7 +94,7 @@ Build a coverage table: checkpoint × wrong answer → which clue(s) contradict 
 Every cell must be filled. If any wrong answer has no contradicting clue, write one.
 Check that no clue has more than 3 contradicts entries — if so, split it or make it more specific.
 Check that no clue could be construed to contradict a correct answer.
-- TIMING ELIMINATION: For time_of_death specifically, each wrong answer_option must be made logically impossible by at least one clue — not merely less supported, but contradicted. For each wrong option, name which clue rules it out and how.
+Apply the ELIMINATION DIRECTION TEST to every (clue → contradiction) pair.
 - ROUTING: Clues that contradict perpetrator and motive wrong answers should require deliberate routing (item-chains, specific character visits) so they are naturally discovered after the investigative facts are established. Do not gate them — they fire freely — but design their conditions to require effort.
 - CONTRADICTIONS: Resolve everything before writing JSON.
 
@@ -71,32 +107,35 @@ LOCATIONS: Up to 9 — as many as the scenario genuinely needs. One must be the 
 
 ITEMS: As many as the scenario needs, up to 8. Each must be referenced in at least one clue condition — no orphan items. Item descriptions are plain physical observations only: colour, shape, condition, visible markings. Do not include interpretive detail that reveals what the item is evidence of; that is the clue's job. No ledgers unless the motive is finance related.
 
-CHECKPOINTS: Exactly these 5: cause_of_death, true_location, time_of_death, perpetrator, motive — each with 5–6 answer options. The correct answer must exactly match the corresponding value in the crime block:
-- cause_of_death: exact string from crime.cause_of_death
+CHECKPOINTS: Exactly these 3: true_location, perpetrator, motive — each with 5–6 answer options. The correct answer must exactly match the corresponding value in the crime block:
 - true_location: the name field of the location whose id matches crime.murder_location
-- time_of_death: exact string from crime.time_of_death
 - perpetrator: exact name of the character whose id is in crime.perpetrator_ids[0]
-- motive: exact string from crime.motive
+- motive: exact string from crime.motive (generate a specific, falsifiable motive — not a generic category. The motive input is a guide; produce a concrete version of it)
 Wrong answers must be plausible given the setting — not obviously wrong from the opening narrative alone.
+For motive: every wrong answer must be a specific falsifiable theory, not a generic label.
 
-CLUES: Follow the plan from Phase 1. 20–28 clues total. All clues are true observations. No weights, no red_herring_explanation. Each clue has a "contradicts" array. Clues for perpetrator and motive fire freely — design their conditions to require deliberate routing (item-chains, specific character visits) so they are naturally discovered after investigative facts are established.
+CLUES: Follow the plan from Phase 1. 12–16 clues total. All clues are true observations. Each clue has a "contradicts" array. Clues for perpetrator and motive fire freely — design their conditions to require deliberate routing (item-chains, specific character visits) so they are naturally discovered after investigative facts are established.
 
 LEADS: Exactly 3. At least 2 pointing toward early-game clue conditions. Each lead must give the player a concrete reason to visit a location or seek out a character — not just name them.
 
 CLUE-WRITING RULES:
 - All clue texts are true observations. No clue text may state or imply which answer is correct — only what was seen, heard, touched, or said. The player deduces which wrong answers the clue rules out.
-- A clue that contradicts a wrong answer must do so with logical necessity from the clue text alone. "No puncture wound found" validly contradicts "stabbing." "Witness seemed nervous" contradicts nothing specific. Flag weak contradictions and rewrite them.
+- A clue that contradicts a wrong answer must do so with logical necessity from the clue text alone, passing the elimination direction test: "if wrong answer X were true, this clue would be impossible." The required reason field in each contradicts entry forces this test — write the reason before deciding whether to include the contradiction. If you cannot write a clear one-sentence reason that quotes the clue text and explains why the wrong answer makes it impossible, the contradiction is invalid and must be removed.
+- For location wrong answers: the clue must show the location was inaccessible during the window, place a non-perpetrator character there as an alibi witness, or place the victim alive leaving there during the window. These are the ONLY valid methods. Finding physical evidence at the correct location does NOT eliminate wrong locations — "blood found at X" makes X look likely but does not make Y impossible. A player cannot logically conclude the murder didn't happen at Y just because they found evidence at X.
+- For perpetrator wrong answers: the clue must place the wrong suspect elsewhere during the confirmed murder window at the confirmed location — alibi only. The alibi must (a) come from a third-party witness, not the suspect's own testimony, and (b) cover the full murder time window without gaps. A witness seeing someone at one point in the window is not sufficient — the alibi must make it impossible for the suspect to have been at the murder location at any point during the window.
+- For motive wrong answers: the clue must contain a specific fact (testimony, document, relationship) that directly contradicts the theory. Evidence that establishes the correct motive does NOT eliminate wrong motives — "a letter exists about X" shows X is a motive but does not prove Y is impossible. Multiple motives could coexist. The clue must make the specific wrong theory impossible on its own.
+- A character's talk clue in which they account for their own whereabouts must have an empty contradicts array. Self-reported alibis are not evidence. Only a separate clue in which a third party places that character elsewhere can contradict them as a suspect.
 - A clue that contradicts a perpetrator wrong answer must be suspicious but deniable on its own — only in combination with other clues should the perpetrator be obvious.
 - Clue text must be self-contained. Do not reference what another character "said" unless that character is in this clue's own condition.
 - All clue conditions involve the investigator. Use only the 5 condition types defined in the schema.
 - If a clue condition does not include a character, do not name any character in the clue text — unless that character's fixed location matches the condition location.
 - When the condition includes a character, write direct testimony: "[char:Name] tells the investigator...", "Asked directly, [char:Name] admits...", "Overhearing [char:Name]..."
-- For time clues, use standard and precise time descriptions. "Before dawn" is useless. "After one bell" is useless. Use clock-style references ("between 10 and 11 at night", "two hours before the tide turned at midnight") that definitively rule out specific time windows.
+- Time references in clue texts must be clock-style only: "eleven o'clock at night", "between midnight and two in the morning". No "bell of night" or "before dawn" constructions.
 
 GENERAL RULES:
 - Do not use salt as a commodity, trade good, or setting element. No salt warehouses, salt merchants, salt flats, salt trades, or salt-related anything. It has been overused to the point of parody.
 - Characters have a single location field — they do not move. Any character described as greeting the investigator on arrival must have location set to arrival_location.
-- The opening_narrative describes only the events leading to the investigator being summoned. No body description, no evidence.
+- The opening_narrative describes the events leading to the investigator being summoned. It must explicitly state the cause of death and the time window as established facts — the investigator is briefed before arrival. No other evidence or body description beyond cause and time.
 - Wrap character names in [char:Name], location names in [loc:location_id], and time references in [time:phrase] tags throughout all prose.
 - Every character id in any condition must exist in characters (except "investigator"). Every item id must exist in items. Every location id must exist in locations.
 - Exactly one character must have isVictim: true.
@@ -111,9 +150,13 @@ DISCOVERY CHECK: For each clue, write the complete chain: what does the player s
 
 COVERAGE CHECK: For every checkpoint, for every wrong answer, confirm at least one clue's contradicts array covers it. Build the full table. Any uncovered wrong answer is a structural failure.
 
+ELIMINATION DIRECTION CHECK: For each (clue → wrong answer) pair, apply the test: "If [wrong answer] were true, this clue would be impossible — without assuming any other checkpoint's answer." If it fails, rewrite the clue or replace it.
+
 CLARITY CHECK: For each clue, confirm the clue text does NOT appear to contradict the correct answer for any checkpoint. A clue that seems to rule out the correct answer will mislead the player.
 
-ANTI-CLUSTERING CHECK: Confirm no clue has more than 3 contradicts entries. If one does, split it into more specific clues.`
+ANTI-CLUSTERING CHECK: Confirm no clue has more than 3 contradicts entries. If one does, split it into more specific clues.
+
+OPENING NARRATIVE CHECK: Confirm the opening_narrative explicitly states the cause of death and the time window as established facts, in plain terms. MEDICAL AUTHORITY CHECK: Confirm the medical authority character's clues serve elaboration and alibi only — not cause/time delivery. Confirm time references are clock-style only throughout.`
 
 
 const SCHEMA = `{
@@ -129,9 +172,9 @@ const SCHEMA = `{
     "murder_location": location_id,
     "body_found_location": location_id,
     "body_was_moved": boolean,
-    "time_of_death": string (human-readable window),
+    "time_of_death": string (human-readable window, clock-style only),
     "perpetrator_ids": [char_id],
-    "motive": string
+    "motive": string (specific and falsifiable — not a generic category)
   },
 
   "characters": [
@@ -171,11 +214,12 @@ const SCHEMA = `{
 
   "checkpoints": [
     {
-      "id": "cause_of_death" | "true_location" | "time_of_death" | "perpetrator" | "motive",
+      "id": "true_location" | "perpetrator" | "motive",
       "label": string,
       "answer_options": [string] (5–6 options, correct answer included, must exactly match crime block values — see CHECKPOINTS section)
     }
-    // Exactly these 5, no more: cause_of_death, true_location, time_of_death, perpetrator, motive.
+    // Exactly these 3, no more: true_location, perpetrator, motive.
+    // cause_of_death and time_of_death are NOT checkpoints — they are given in the opening_narrative.
   ],
 
   "clues": [
@@ -189,14 +233,20 @@ const SCHEMA = `{
       },
       "text": string (1–3 sentences, [char:Name], [loc:location_id] and [time:phrase] tags, raw observation only — no interpretations),
       "contradicts": [
-        { "checkpoint": checkpoint_id, "answer": string }
+        {
+          "checkpoint": checkpoint_id,
+          "answer": string,
+          "reason": string  // required — one sentence: quote the specific part of the clue text that makes this answer impossible, then state why it is impossible if that answer were true. e.g. "The clue states X; if the answer were Y, X could not exist because Z."
+        }
         // answer must exactly match an entry in that checkpoint's answer_options
         // answer must NOT be the correct answer for that checkpoint
         // max 3 entries per clue
+        // empty array is valid — not every clue needs to eliminate a wrong answer
       ]
     }
-    // 20–28 clues total. All clues are true observations.
+    // 12–16 clues total. All clues are true observations.
     // Every wrong answer for every checkpoint must be covered by at least one clue's contradicts array.
+    // Every non-victim character must have at least one talk_to_character clue (contradicts may be empty).
   ],
 
   "leads": [
@@ -209,7 +259,7 @@ const SCHEMA = `{
     // Exactly 3. At least 2 point toward early clue conditions.
   ],
 
-  "opening_narrative": string (2–3 paragraphs, [char:Name], [loc:location_id] and [time:phrase] tags, events up to summoning only),
+  "opening_narrative": string (2–3 paragraphs, [char:Name], [loc:location_id] and [time:phrase] tags, events up to summoning — must explicitly state cause of death and clock-style time window as established facts),
 
   "epilogue": string (2–3 paragraphs revealed after the case is solved. Summarise the story from beginning to end, don't be too flowery. Uses [char:Name], [loc:location_id] and [time:phrase] tags.)
 }
@@ -231,7 +281,7 @@ CONDITION OBJECT — use exactly these 5 type strings:
   { "type": "inspect_item_in_location", "characters": [], "location": location_id, "item": item_id }
   { "type": "ask_character_about_item", "characters": [char_id], "location": null, "item": item_id }`
 
-const GENRES = [
+export const GENRES = [
   'romance',
   'horror',
   'comedy',
@@ -255,7 +305,7 @@ const GENRES = [
   'vampires'
 ]
 
-const CAUSES_OF_DEATH = [
+export const CAUSES_OF_DEATH = [
   'drowning',
   'poisoning by ingestion',
   'poisoning by contact or inhalation',
@@ -280,7 +330,7 @@ const CAUSES_OF_DEATH = [
   'genre appropriate'
 ]
 
-const MOTIVES = [
+export const MOTIVES = [
   'jealousy over a romantic rival',
   'silencing a witness to an old crime',
   'revenge for a past wrong, long nursed',
@@ -306,27 +356,39 @@ const MOTIVES = [
 
 const BODY_MOVED = [true, false]
 
-const CULTURES = [
-  'Norse fishing communities of the 10th century',
-  'Ottoman coastal traders of the 16th century',
-  'Celtic-influenced Atlantic island clans',
-  'Edo-period Japanese fishing villages',
+export const CULTURES = [
+  'Norse highland clans of the 10th century',
+  'Ottoman court households of the 16th century',
+  'Andean highland communities of the late Inca period',
+  'Edo-period Japanese mountain villages',
   'Caribbean free settlements of the 17th century',
-  'Hanseatic trading port cultures of medieval Germany',
-  'Polynesian outrigger seafarers',
-  'Venetian lagoon dwellers of the Renaissance',
-  'Victorian-era Cornish wrecker communities',
-  'Ancient Phoenician merchant colonies',
-  'The Drenathi — a fictional theocratic archipelago nation',
-  'The Kauvari — a fictional matrilineal salt-trading culture',
-  'Ming dynasty pearl-diving communities',
-  'West African Ijaw delta fishermen of the 18th century',
-  'The Orrish — a fictional cold-water culture with strict ancestor veneration',
-  'Colonial New England whalers',
-  'Basque deep-sea fishing communities of the 16th century',
-  'The Valdessi — a fictional Mediterranean city-state built on stilts',
-  'Meiji-era Japanese modernising coastal towns',
-  'The Greymarch Confederacy — a fictional northern archipelago with a mercantile senate',
+  'Hanseatic trading city cultures of medieval Germany',
+  'Mongolian steppe nomads of the 13th century',
+  'Venetian Renaissance merchant families',
+  'Victorian-era English country house society',
+  'Ancient Greek city-state citizens of the classical period',
+  'The Drenathi — a fictional theocratic mountain nation',
+  'The Kauvari — a fictional matrilineal trade-route culture',
+  'Ming dynasty imperial court households',
+  'West African Ashanti court society of the 18th century',
+  'The Orrish — a fictional cold-weather culture with strict ancestor veneration',
+  'Colonial New England Puritan settlements',
+  'Mughal court culture of the 17th century',
+  'The Valdessi — a fictional Mediterranean city-state',
+  'Meiji-era Japanese modernising provincial towns',
+  'The Greymarch Confederacy — a fictional northern territory with a mercantile senate',
+  'Cold War East Berlin — intelligence operatives and informants, 1970s',
+  '1960s London — music industry and working-class neighbourhoods in flux',
+  'Post-war Vienna — black market traders and reconstruction bureaucrats, late 1940s',
+  'Soviet-era collective farm communities of the 1950s',
+  'Contemporary Tokyo — white-collar corporate culture and office politics',
+  '1980s Miami — new money, ambition, and dangerous neighbours',
+  'Contemporary rural Iceland — tight-knit communities and long memories',
+  'A near-future orbital station — corporate contractors and confined quarters',
+  'A generation ship mid-voyage — rigid hierarchy and dwindling resources',
+  'A near-future arcology megacity — stratified floors, surveillance, and black markets',
+  'A post-collapse frontier settlement — scavenged technology and distrust of outsiders',
+  'A terraforming colony on a hostile world — isolation, quotas, and company oversight',
 ]
 
 function hashSeed(seed: string, offset: number): number {
@@ -358,12 +420,20 @@ function generateSeed(): string {
   return `${adj}-${n1}-${n2}-${num}`
 }
 
-function buildUserMessage(seed: string): string {
-  const causeOfDeath = CAUSES_OF_DEATH[hashSeed(seed, 0) % CAUSES_OF_DEATH.length]
-  const motive = MOTIVES[hashSeed(seed, 1) % MOTIVES.length]
-  const bodyMoved = BODY_MOVED[hashSeed(seed, 2) % BODY_MOVED.length]
-  const culture = CULTURES[hashSeed(seed, 3) % CULTURES.length]
-  const genre = GENRES[hashSeed(seed, 4) % GENRES.length]
+export interface PromptOverrides {
+  culture?: string
+  genre?: string
+  causeOfDeath?: string
+  motive?: string
+  bodyMoved?: boolean
+}
+
+function buildUserMessage(seed: string, overrides: PromptOverrides = {}): string {
+  const causeOfDeath = overrides.causeOfDeath ?? CAUSES_OF_DEATH[hashSeed(seed, 0) % CAUSES_OF_DEATH.length]
+  const motive = overrides.motive ?? MOTIVES[hashSeed(seed, 1) % MOTIVES.length]
+  const bodyMoved = overrides.bodyMoved ?? BODY_MOVED[hashSeed(seed, 2) % BODY_MOVED.length]
+  const culture = overrides.culture ?? CULTURES[hashSeed(seed, 3) % CULTURES.length]
+  const genre = overrides.genre ?? GENRES[hashSeed(seed, 4) % GENRES.length]
 
   return `Scenario seed: ${seed}
 Culture: ${culture}
@@ -381,9 +451,9 @@ Return a JSON object matching this schema exactly:
 ${SCHEMA}`
 }
 
-export function generatePromptForClipboard(): string {
+export function generatePromptForClipboard(overrides: PromptOverrides = {}): string {
   const seed = generateSeed()
-  return buildUserMessage(seed)
+  return buildUserMessage(seed, overrides)
 }
 
 export interface GeneratorOptions {
