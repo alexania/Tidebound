@@ -3,6 +3,7 @@
 // ─────────────────────────────────────────────
 
 import type { Scenario } from '../types/scenario'
+import { getCorrectAnswer } from './gameEngine'
 
 export interface ValidationError {
   rule: string
@@ -90,41 +91,23 @@ export function validateScenario(s: Scenario): ValidationError[] {
     errors.push({ rule: 'crime_location', message: `crime.body_found_location is invalid: ${s.crime.body_found_location}` })
   }
 
-  // ── Clues ──────────────────────────────────
-
-  // Per checkpoint: check red herrings don't share the same answer
-  const cluesByCheckpoint = new Map<string, typeof s.clues>()
-  for (const clue of s.clues) {
-    const group = cluesByCheckpoint.get(clue.checkpoint) ?? []
-    group.push(clue)
-    cluesByCheckpoint.set(clue.checkpoint, group)
-  }
-  for (const [cpId, clues] of cluesByCheckpoint) {
-    const redHerringAnswers = clues
-      .filter(c => c.weight === 'red_herring')
-      .map(c => c.answer)
-    const unique = new Set(redHerringAnswers)
-    if (unique.size < redHerringAnswers.length) {
-      errors.push({ rule: 'red_herring_distinct', message: `Checkpoint ${cpId} has red herrings pointing at the same answer` })
+  // ── Checkpoints ────────────────────────────
+  // Verify each checkpoint has the correct answer in its answer_options
+  for (const cp of s.checkpoints) {
+    const correct = getCorrectAnswer(cp.id as any, s)
+    if (correct && !cp.answer_options.includes(correct)) {
+      errors.push({ rule: 'checkpoint_correct_answer', message: `Checkpoint ${cp.id}: correct answer "${correct}" not found in answer_options` })
+    }
+    if (cp.answer_options.length < 3 || cp.answer_options.length > 6) {
+      errors.push({ rule: 'checkpoint_options_count', message: `Checkpoint ${cp.id}: expected 3–6 answer_options, found ${cp.answer_options.length}` })
     }
   }
 
+  // ── Clues ──────────────────────────────────
   const clueIds = new Set(s.clues.map(c => c.id))
 
   for (const clue of s.clues) {
-    if (!checkpointIds.has(clue.checkpoint)) {
-      errors.push({ rule: 'clue_checkpoint', message: `Clue ${clue.id} references unknown checkpoint: ${clue.checkpoint}` })
-    }
-
-    const cp = s.checkpoints.find(c => c.id === clue.checkpoint)
-    if (cp && !cp.answer_options.includes(clue.answer)) {
-      errors.push({ rule: 'clue_answer', message: `Clue ${clue.id} answer "${clue.answer}" not in checkpoint answer_options` })
-    }
-
-    if (clue.weight === 'red_herring' && !clue.red_herring_explanation) {
-      errors.push({ rule: 'red_herring_explanation', message: `Clue ${clue.id} is red_herring but has no red_herring_explanation` })
-    }
-
+    // Condition validity
     const validConditionTypes = new Set([
       'inspect_location',
       'talk_to_character',
@@ -137,7 +120,7 @@ export function validateScenario(s: Scenario): ValidationError[] {
     }
 
     for (const cid of (clue.condition.characters ?? [])) {
-      if (cid === 'investigator') continue  // always valid — added by engine, not in scenario characters
+      if (cid === 'investigator') continue
       if (!characterIds.has(cid)) {
         errors.push({ rule: 'unknown_char', message: `Clue ${clue.id} condition references unknown character: ${cid}` })
       }
@@ -150,6 +133,60 @@ export function validateScenario(s: Scenario): ValidationError[] {
     if (clue.condition.location && !locationIds.has(clue.condition.location)) {
       errors.push({ rule: 'unknown_location', message: `Clue ${clue.id} condition references unknown location: ${clue.condition.location}` })
     }
+
+    // contradicts array validation
+    if (!Array.isArray(clue.contradicts) || clue.contradicts.length === 0) {
+      errors.push({ rule: 'clue_contradicts_empty', message: `Clue ${clue.id} has no contradicts entries` })
+      continue
+    }
+
+    // Anti-clustering: max 3 contradicts entries per clue
+    if (clue.contradicts.length > 3) {
+      errors.push({ rule: 'anti_clustering', message: `Clue ${clue.id} has ${clue.contradicts.length} contradicts entries (max 3)` })
+    }
+
+    for (const entry of clue.contradicts) {
+      // Must reference a valid checkpoint
+      if (!checkpointIds.has(entry.checkpoint as any)) {
+        errors.push({ rule: 'contradicts_checkpoint', message: `Clue ${clue.id} contradicts references unknown checkpoint: ${entry.checkpoint}` })
+        continue
+      }
+
+      const cp = s.checkpoints.find(c => c.id === entry.checkpoint)!
+      // Must reference a valid answer_option
+      if (!cp.answer_options.includes(entry.answer)) {
+        errors.push({ rule: 'contradicts_answer', message: `Clue ${clue.id} contradicts answer "${entry.answer}" not in checkpoint ${entry.checkpoint} answer_options` })
+        continue
+      }
+
+      // Must NOT contradict the correct answer
+      const correct = getCorrectAnswer(entry.checkpoint as any, s)
+      if (entry.answer === correct) {
+        errors.push({ rule: 'contradicts_correct', message: `Clue ${clue.id} contradicts the correct answer "${entry.answer}" for checkpoint ${entry.checkpoint}` })
+      }
+    }
+  }
+
+  // ── Coverage ───────────────────────────────
+  // For every checkpoint, every wrong answer must have at least one clue contradicting it
+  for (const cp of s.checkpoints) {
+    const correct = getCorrectAnswer(cp.id as any, s)
+    const wrongAnswers = cp.answer_options.filter(o => o !== correct)
+
+    for (const wrong of wrongAnswers) {
+      const covered = s.clues.some(clue =>
+        Array.isArray(clue.contradicts) &&
+        clue.contradicts.some(c => c.checkpoint === cp.id && c.answer === wrong)
+      )
+      if (!covered) {
+        errors.push({ rule: 'coverage', message: `Checkpoint ${cp.id}: wrong answer "${wrong}" has no contradicting clue` })
+      }
+    }
+  }
+
+  // ── Clue count ─────────────────────────────
+  if (s.clues.length < 20 || s.clues.length > 28) {
+    errors.push({ rule: 'clue_count', message: `Expected 20–28 clues, found ${s.clues.length}` })
   }
 
   // ── Relations ──────────────────────────────

@@ -78,7 +78,7 @@
     {
       "id": "the_cord",
       "name": "Length of Braided Cord",
-      "description": "A short length of tightly braided horsehair cord, roughly an arm's span, frayed at both ends where it was separated from a longer piece.",
+      "description": "A short length of tightly braided horsehair cord, roughly an arm's span, frayed at both ends where it was separated from a longer piece. The braiding is the dense, flat pattern used for heavy lashing work, not fishing line — the kind a warehouse worker would recognise on sight.",
       "location_discovery_text": "A [item:Length of Braided Cord] lies coiled near the base of the salt cask closest to the body.",
       "starting_location": "salt_warehouse"
     },

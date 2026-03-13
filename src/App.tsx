@@ -2,9 +2,9 @@ import { useState } from 'react'
 import type { Scenario, Difficulty, CheckpointId, LocationId } from './types/scenario'
 import type { GameState } from './types/gameState'
 import {
-  initGameState, filterCluesToDifficulty,
+  initGameState, filterOptionsToDifficulty,
   moveToLocation, inspectLocation, inspectItem, talkToCharacter, askCharacterAboutItem,
-  submitCheckpoint,
+  assignProof,
   pinClue, updateCardImplied, assignCardToLane, unpinCard,
 } from './engine/gameEngine'
 import {
@@ -100,7 +100,7 @@ export default function App() {
 
   const handleStartGame = () => {
     if (!activeScenario) return
-    const scenario = filterCluesToDifficulty(activeScenario.scenario, difficulty)
+    const scenario = filterOptionsToDifficulty(activeScenario.scenario, difficulty)
     setActiveFilteredScenario(scenario)
     setGameState(initGameState(scenario, difficulty))
     setShowBoard(false)
@@ -137,9 +137,9 @@ export default function App() {
     setGameState(askCharacterAboutItem(gs, sc, charId, itemId))
   }
 
-  const handleSubmitCheckpoint = (cpId: CheckpointId, answer: string, citedClueIds: string[]) => {
+  const handleAssignProof = (cpId: CheckpointId, wrongAnswer: string, clueId: string) => {
     if (!gs || !sc) return
-    const next = submitCheckpoint(gs, sc, cpId, answer, citedClueIds)
+    const next = assignProof(gs, sc, cpId, wrongAnswer, clueId)
     setGameState(next)
     if (next.solved && activeScenario) {
       markPlayed(activeScenario.id)
@@ -249,7 +249,7 @@ export default function App() {
         onInspectItem={handleInspectItem}
         onTalk={handleTalk}
         onAsk={handleAsk}
-        onSubmitCheckpoint={handleSubmitCheckpoint}
+        onAssignProof={handleAssignProof}
         onPinCard={handlePinCard}
         onUpdateImplied={handleUpdateImplied}
         onAssignLane={handleAssignLane}

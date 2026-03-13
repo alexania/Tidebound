@@ -32,19 +32,28 @@ State persists between runs — each invocation picks up where the last left off
 | `locs` | All locations (`*` = you, `>` = reachable, `[inspected]`) with found characters |
 | `chars` | Found characters and their fixed locations |
 | `items` | Inventory (carried items with IDs) |
-| `clues` | All collected clues in action order |
-| `cp` | Checkpoints with status and numbered answer options |
-| `submit <cp_id> <n> <clue_id> [clue_id ...]` | Submit answer option N, citing the clue IDs that support it |
+| `clues` | All collected clues in action order, with their `contradicts` arrays |
+| `cp` | Checkpoints with status — shows which wrong answers are disproved and which remain |
+| `prove <cp_id> "<wrong_answer>" with <clue_id>` | Assign a clue to disprove a specific wrong answer for a checkpoint |
+| `auto <cp_id>` | Auto-assign collected clues to all wrong answers; submits if coverage is complete |
 | `reset` | Wipe saved state and restart |
+
+## Elimination model
+
+All clues are true observations. There are no red herrings. The correct answer for each checkpoint is the one not contradicted by any clue.
+
+To confirm a checkpoint, you must collect clues that contradict every wrong answer option. Once all wrong answers are disproved, the remaining answer is automatically confirmed.
+
+Use `cp` to see which wrong answers still need to be disproved. Use `clues` to see each clue's `contradicts` array — this shows which wrong answers each clue makes impossible.
 
 ## Agent strategy
 
 - On arrival, `inspect` the starting location before moving anywhere.
 - After each action, read all output carefully before deciding the next step — clues fire immediately.
-- Visit every location and `talk` to every character before attempting `ask` combinations.
-- Only `ask` a character about an item when there a logical reason to do so.
+- Visit every location and `talk` to every character.
 - Items must be picked up (`inspect <item_id>`) before they can be shown to characters.
-- Use `cp` before every `submit` to confirm option numbers. Use `clues` to get the clue IDs to cite.
-- After each action, reason aloud: what you now know, what's still uncertain, and why you're making your next move.
-- Perpetrator and motive clues will **not fire** until all three investigative checkpoints (`cause_of_death`, `true_location`, `time_of_death`) are confirmed. Solve the crime scene first — talking to suspects or asking about items before that point will yield no clues.
-- Do not trust a clue just because it sounds specific or authoritative. Red herring clues may be outright lies, genuine but misleading observations, or true facts that point nowhere. Only two clues converging on the same answer gives you confidence.
+- Use `clues` to review what you have collected and what each clue contradicts.
+- Use `cp` before every `prove` or `auto` to see the elimination state for each checkpoint.
+- After collecting clues, try `auto <cp_id>` for each available checkpoint. If it succeeds, all wrong answers were covered. If not, the output tells you which wrong answer has no contradicting clue yet.
+- Perpetrator and motive checkpoints are **locked until all three investigative checkpoints** (`cause_of_death`, `true_location`, `time_of_death`) are confirmed — but their clues fire freely. Collect them throughout the investigation.
+- After each action, reason aloud: what you now know, which wrong answers are eliminated, what's still uncertain, and why you're making your next move.

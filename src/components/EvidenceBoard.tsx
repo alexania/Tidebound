@@ -1,88 +1,94 @@
-import { useState } from 'react'
-import type { Scenario, CheckpointId } from '../types/scenario'
-import type { GameState, PinnedCard, CheckpointState } from '../types/gameState'
+import { useState, useRef } from 'react'
+import type { Scenario, CheckpointId, Clue } from '../types/scenario'
+import type { GameState, CheckpointState } from '../types/gameState'
 import { parseTaggedText, buildLocationNames } from '../utils/parseTags'
 import './EvidenceBoard.css'
 
 interface Props {
   scenario: Scenario
   gameState: GameState
-  onUpdateImplied: (cardId: string, answer: string) => void
-  onAssignLane: (cardId: string, checkpointId: CheckpointId | null) => void
-  onUnpinCard: (cardId: string) => void
-  onSubmitCheckpoint: (cpId: CheckpointId, answer: string, citedClueIds: string[]) => void
+  onAssignProof: (cpId: CheckpointId, wrongAnswer: string, clueId: string) => void
   onClose: () => void
-  collapsedCards: Set<string>
-  onToggleCardCollapsed: (cardId: string) => void
   hidden?: boolean
 }
 
-export function EvidenceBoard({
-  scenario, gameState,
-  onUpdateImplied, onAssignLane, onUnpinCard, onSubmitCheckpoint, onClose,
-  collapsedCards, onToggleCardCollapsed, hidden,
-}: Props) {
+export function EvidenceBoard({ scenario, gameState, onAssignProof, onClose, hidden }: Props) {
   const [showNarrative, setShowNarrative] = useState(false)
-  const [showCheckpointTags, setShowCheckpointTags] = useState(true)
-  const [dragOverLane, setDragOverLane] = useState<string | null>(null)
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({})
-  const [insufficientIds, setIncorrectIds] = useState<Set<string>>(new Set())
+  const [cluesPanelWidth, setCluesPanelWidth] = useState(300)
+  const workspaceRef = useRef<HTMLDivElement>(null)
+  const [dragOverSlot, setDragOverSlot] = useState<string | null>(null)
+  const [slotErrors, setSlotErrors] = useState<Record<string, string>>({})
   const locationNames = buildLocationNames(scenario.locations)
 
-  const clueCheckpointLabels: Record<string, string> = {}
-  const clueAnswerOptions: Record<string, string[]> = {}
-  for (const clue of scenario.clues) {
-    clueCheckpointLabels[clue.id] = clue.checkpoint
-    const cp = scenario.checkpoints.find(c => c.id === clue.checkpoint)
-    if (cp) clueAnswerOptions[clue.id] = cp.answer_options
-  }
-
-  const handleDragStart = (e: React.DragEvent, cardId: string) => {
-    e.dataTransfer.setData('cardId', cardId)
-    e.dataTransfer.effectAllowed = 'move'
-  }
-
-  const handleDragOver = (e: React.DragEvent, laneId: string) => {
-    e.preventDefault()
-    e.dataTransfer.dropEffect = 'move'
-    setDragOverLane(laneId)
-  }
-
-  const handleDrop = (e: React.DragEvent, checkpointId: CheckpointId | null) => {
-    e.preventDefault()
-    const cardId = e.dataTransfer.getData('cardId')
-    if (cardId) onAssignLane(cardId, checkpointId)
-    setDragOverLane(null)
-  }
-
-  const handleDragLeave = (e: React.DragEvent) => {
-    if (!(e.currentTarget as HTMLElement).contains(e.relatedTarget as Node)) {
-      setDragOverLane(null)
+  // Map clueId → [{cpId, wrongAnswer}] showing where each clue is used as a proof
+  const clueProofMap: Record<string, Array<{ cpId: string; wrongAnswer: string }>> = {}
+  for (const [cpId, cpState] of Object.entries(gameState.checkpoints)) {
+    for (const [wrongAnswer, clueId] of Object.entries((cpState as CheckpointState).proofs)) {
+      if (!clueProofMap[clueId]) clueProofMap[clueId] = []
+      clueProofMap[clueId].push({ cpId, wrongAnswer })
     }
   }
 
-  const handleSubmit = (cpId: CheckpointId, cards: PinnedCard[]) => {
-    const answer = selectedAnswers[cpId]
-    if (!answer) return
-    const citedClueIds = cards.map(c => c.clueId).filter((id): id is string => id !== null)
+  const startPanelResize = (e: React.MouseEvent) => {
+    e.preventDefault()
+    const startX = e.clientX
+    const startWidth = cluesPanelWidth
+    const onMove = (ev: MouseEvent) => {
+      const workspaceWidth = workspaceRef.current?.offsetWidth ?? 800
+      setCluesPanelWidth(Math.max(160, Math.min(workspaceWidth - 300, startWidth + ev.clientX - startX)))
+    }
+    const onUp = () => {
+      document.removeEventListener('mousemove', onMove)
+      document.removeEventListener('mouseup', onUp)
+    }
+    document.addEventListener('mousemove', onMove)
+    document.addEventListener('mouseup', onUp)
+  }
 
-    const correctCount = citedClueIds.filter(id => {
-      const clue = scenario.clues.find(c => c.id === id)
-      return clue?.weight === 'correct' && clue.checkpoint === cpId
-    }).length
+  const handleDragStart = (e: React.DragEvent, clueId: string) => {
+    e.dataTransfer.setData('clueId', clueId)
+    e.dataTransfer.effectAllowed = 'link'
+  }
 
-    if (correctCount < 2) {
-      setIncorrectIds(prev => new Set(prev).add(cpId))
+  const handleSlotDragOver = (e: React.DragEvent, slotKey: string) => {
+    e.preventDefault()
+    e.dataTransfer.dropEffect = 'link'
+    setDragOverSlot(slotKey)
+  }
+
+  const handleSlotDrop = (e: React.DragEvent, cpId: string, wrongAnswer: string) => {
+    e.preventDefault()
+    setDragOverSlot(null)
+    const clueId = e.dataTransfer.getData('clueId')
+    if (!clueId) return
+
+    const clue = scenario.clues.find(c => c.id === clueId)
+    const valid = clue?.contradicts.some(c => c.checkpoint === cpId && c.answer === wrongAnswer)
+
+    const slotKey = `${cpId}:${wrongAnswer}`
+    if (!valid) {
+      setSlotErrors(prev => ({ ...prev, [slotKey]: "This clue doesn't contradict that option" }))
+      setTimeout(() => setSlotErrors(prev => {
+        const next = { ...prev }
+        delete next[slotKey]
+        return next
+      }), 2000)
       return
     }
 
-    setIncorrectIds(prev => { const next = new Set(prev); next.delete(cpId); return next })
-    onSubmitCheckpoint(cpId, answer, citedClueIds)
+    setSlotErrors(prev => { const next = { ...prev }; delete next[slotKey]; return next })
+    onAssignProof(cpId as CheckpointId, wrongAnswer, clueId)
   }
 
-  const uncategorised = gameState.pinnedCards.filter(c => c.checkpointId === null)
+  const handleSlotDragLeave = (e: React.DragEvent) => {
+    if (!(e.currentTarget as HTMLElement).contains(e.relatedTarget as Node)) {
+      setDragOverSlot(null)
+    }
+  }
 
-  const activeLanes = scenario.checkpoints
+  const collectedClues: Clue[] = gameState.collectedClueIds
+    .map(id => scenario.clues.find(c => c.id === id))
+    .filter((c): c is Clue => !!c)
 
   return (
     <div className={`evidence-board${hidden ? ' evidence-board--hidden' : ''}`}>
@@ -90,9 +96,6 @@ export function EvidenceBoard({
         <span className="evidence-board__title">Evidence Board</span>
         <button onClick={() => setShowNarrative(v => !v)}>
           {showNarrative ? 'Hide opening' : 'Read opening'}
-        </button>
-        <button onClick={() => setShowCheckpointTags(v => !v)}>
-          {showCheckpointTags ? 'Hide tags' : 'Show tags'}
         </button>
         <div className="evidence-board__spacer" />
         <button onClick={onClose}>Close Board</button>
@@ -106,248 +109,148 @@ export function EvidenceBoard({
         </div>
       )}
 
-      <div className="evidence-board__lanes">
-        {/* Uncategorised lane */}
-        <Lane
-          laneId="uncategorised"
-          label="Uncategorised"
-          cards={uncategorised}
-          cpState={null}
-          answerOptions={[]}
-          selectedAnswer=""
-          insufficient={false}
-          dragOver={dragOverLane === 'uncategorised'}
-          collapsedCards={collapsedCards}
-          locationNames={locationNames}
-          clueCheckpointLabels={clueCheckpointLabels}
-          showCheckpointTags={showCheckpointTags}
-          onDragOver={e => handleDragOver(e, 'uncategorised')}
-          onDrop={e => handleDrop(e, null)}
-          onDragLeave={handleDragLeave}
-          onDragStart={handleDragStart}
-          clueAnswerOptions={clueAnswerOptions}
-          onUpdateImplied={onUpdateImplied}
-          onUnpinCard={onUnpinCard}
-          onToggleCard={onToggleCardCollapsed}
-          onSelectAnswer={() => {}}
-          onSubmit={() => {}}
-        />
+      <div className="evidence-board__workspace" ref={workspaceRef}>
+        <div className="eb-clues" style={{ width: cluesPanelWidth }}>
+          <div className="eb-clues__header">Evidence ({collectedClues.length})</div>
+          <div className="eb-clues__list">
+            {collectedClues.length === 0 && (
+              <div className="eb-clues__empty">No clues collected yet.</div>
+            )}
+            {collectedClues.map(clue => {
+              const assignedTo = clueProofMap[clue.id] ?? []
+              return (
+                <div
+                  key={clue.id}
+                  className={`eb-clue-card${assignedTo.length > 0 ? ' eb-clue-card--assigned' : ''}`}
+                  draggable
+                  onDragStart={e => handleDragStart(e, clue.id)}
+                >
+                  <div className="eb-clue-card__text">
+                    {parseTaggedText(clue.text, locationNames)}
+                  </div>
+                  {assignedTo.length > 0 && (
+                    <div className="eb-clue-card__assignments">
+                      {assignedTo.map(({ cpId, wrongAnswer }) => (
+                        <span key={`${cpId}:${wrongAnswer}`} className="eb-clue-card__tag">
+                          Disproves: {wrongAnswer}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
 
-        {activeLanes.map(scp => {
-          const cpState = gameState.checkpoints[scp.id]
-          const cards = gameState.pinnedCards.filter(c => c.checkpointId === scp.id)
-          return (
-            <Lane
-              key={scp.id}
-              laneId={scp.id}
-              label={scp.label}
-              cards={cards}
-              cpState={cpState}
-              answerOptions={scp.answer_options}
-              selectedAnswer={selectedAnswers[scp.id] ?? ''}
-              insufficient={insufficientIds.has(scp.id)}
-              dragOver={dragOverLane === scp.id}
-              collapsedCards={collapsedCards}
-              locationNames={locationNames}
-              clueCheckpointLabels={clueCheckpointLabels}
-              showCheckpointTags={showCheckpointTags}
-              onDragOver={e => handleDragOver(e, scp.id)}
-              onDrop={e => handleDrop(e, scp.id)}
-              onDragLeave={handleDragLeave}
-              onDragStart={handleDragStart}
-              clueAnswerOptions={clueAnswerOptions}
-          onUpdateImplied={onUpdateImplied}
-              onUnpinCard={onUnpinCard}
-              onToggleCard={onToggleCardCollapsed}
-              onSelectAnswer={answer => {
-                setSelectedAnswers(prev => ({ ...prev, [scp.id]: answer }))
-                setIncorrectIds(prev => { const next = new Set(prev); next.delete(scp.id); return next })
-              }}
-              onSubmit={() => handleSubmit(scp.id, cards)}
-            />
-          )
-        })}
+        <div className="gs-resizer gs-resizer--v" onMouseDown={startPanelResize} />
+        <div className="eb-checkpoints">
+          {scenario.checkpoints.map(scp => {
+            const cpState = gameState.checkpoints[scp.id]
+            return (
+              <CheckpointPanel
+                key={scp.id}
+                checkpointId={scp.id}
+                label={scp.label}
+                answerOptions={scp.answer_options}
+                cpState={cpState}
+                dragOverSlot={dragOverSlot}
+                slotErrors={slotErrors}
+                locationNames={locationNames}
+                onSlotDragOver={handleSlotDragOver}
+                onSlotDrop={handleSlotDrop}
+                onSlotDragLeave={handleSlotDragLeave}
+              />
+            )
+          })}
+        </div>
       </div>
     </div>
   )
 }
 
-interface LaneProps {
-  laneId: string
+interface PanelProps {
+  checkpointId: string
   label: string
-  cards: PinnedCard[]
-  cpState: CheckpointState | null
   answerOptions: string[]
-  selectedAnswer: string
-  insufficient: boolean
-  dragOver: boolean
-  collapsedCards: Set<string>
+  cpState: CheckpointState
+  dragOverSlot: string | null
+  slotErrors: Record<string, string>
   locationNames: Record<string, string>
-  clueCheckpointLabels: Record<string, string>
-  clueAnswerOptions: Record<string, string[]>
-  showCheckpointTags: boolean
-  onDragOver: (e: React.DragEvent) => void
-  onDrop: (e: React.DragEvent) => void
-  onDragLeave: (e: React.DragEvent) => void
-  onDragStart: (e: React.DragEvent, cardId: string) => void
-  onUpdateImplied: (cardId: string, answer: string) => void
-  onUnpinCard: (cardId: string) => void
-  onToggleCard: (cardId: string) => void
-  onSelectAnswer: (answer: string) => void
-  onSubmit: () => void
+  onSlotDragOver: (e: React.DragEvent, slotKey: string) => void
+  onSlotDrop: (e: React.DragEvent, cpId: string, wrongAnswer: string) => void
+  onSlotDragLeave: (e: React.DragEvent) => void
 }
 
-function Lane({
-  label, cards, cpState, answerOptions, selectedAnswer, insufficient,
-  dragOver, collapsedCards, locationNames, clueCheckpointLabels, clueAnswerOptions, showCheckpointTags,
-  onDragOver, onDrop, onDragLeave,
-  onDragStart, onUpdateImplied, onUnpinCard, onToggleCard,
-  onSelectAnswer, onSubmit,
-}: LaneProps) {
+function CheckpointPanel({
+  checkpointId, label, answerOptions,
+  cpState, dragOverSlot, slotErrors, locationNames,
+  onSlotDragOver, onSlotDrop, onSlotDragLeave,
+}: PanelProps) {
   const confirmed = cpState?.status === 'confirmed'
   const locked = cpState?.status === 'locked'
-  const available = cpState?.status === 'available'
 
   return (
-    <div
-      className={[
-        'eb-lane',
-        confirmed ? 'eb-lane--confirmed' : '',
-        locked ? 'eb-lane--locked' : '',
-        dragOver ? 'eb-lane--drag-over' : '',
-      ].join(' ').trim()}
-      onDragOver={onDragOver}
-      onDrop={onDrop}
-      onDragLeave={onDragLeave}
-    >
-      <div className="eb-lane__header">
-        <span className="eb-lane__label">{label}</span>
-        {confirmed && cpState?.confirmedAnswer && (
-          <span className="eb-lane__answer">{cpState.confirmedAnswer}</span>
+    <div className={[
+      'eb-cp-panel',
+      confirmed ? 'eb-cp-panel--confirmed' : '',
+      locked ? 'eb-cp-panel--locked' : '',
+    ].join(' ').trim()}>
+      <div className="eb-cp-panel__header">
+        <span className="eb-cp-panel__label">{label}</span>
+        {confirmed && (
+          <span className="eb-cp-panel__answer">{cpState.confirmedAnswer}</span>
+        )}
+        {!locked && !confirmed && (
+          <span className="eb-cp-panel__hint">drop a clue to eliminate</span>
         )}
       </div>
 
-      {available && answerOptions.length > 0 && (
-        <div className="eb-lane__submit">
-          <select
-            className="eb-lane__select"
-            value={selectedAnswer}
-            onChange={e => onSelectAnswer(e.target.value)}
-          >
-            <option value="">— your answer —</option>
-            {answerOptions.map(opt => (
-              <option key={opt} value={opt}>{opt}</option>
-            ))}
-          </select>
-          <button
-            className="eb-lane__submit-btn"
-            onClick={onSubmit}
-            disabled={!selectedAnswer}
-          >
-            Submit
-          </button>
-          {insufficient && <span className="eb-lane__insufficient">Insufficient Evidence</span>}
+      {locked && (
+        <div className="eb-cp-panel__locked">
+          Establish the facts of the crime first.
         </div>
       )}
 
-      <div className="eb-lane__cards">
-        {cards.length === 0 && (
-          <div className="eb-lane__empty">Drop evidence here</div>
-        )}
-        {cards.map(card => (
-          <EvidenceCard
-            key={card.id}
-            card={card}
-            collapsed={collapsedCards.has(card.id)}
-            locationNames={locationNames}
-            checkpointTag={showCheckpointTags && card.clueId ? clueCheckpointLabels[card.clueId] : undefined}
-            answerOptions={showCheckpointTags && card.clueId ? (clueAnswerOptions[card.clueId] ?? []) : []}
-            onDragStart={onDragStart}
-            onUpdateImplied={onUpdateImplied}
-            onUnpin={onUnpinCard}
-            onToggleCollapse={onToggleCard}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
-
-interface CardProps {
-  card: PinnedCard
-  collapsed: boolean
-  locationNames: Record<string, string>
-  checkpointTag?: string
-  answerOptions: string[]
-  onDragStart: (e: React.DragEvent, cardId: string) => void
-  onUpdateImplied: (cardId: string, answer: string) => void
-  onUnpin: (cardId: string) => void
-  onToggleCollapse: (cardId: string) => void
-}
-
-function stripTags(text: string): string {
-  return text.replace(/\[[^\]]+:([^\]]+)\]/g, '$1')
-}
-
-function formatLocation(locationId: string): string {
-  return locationId.replace(/_/g, ' ').replace(/(^|\s)\w/g, c => c.toUpperCase())
-}
-
-function EvidenceCard({ card, collapsed, locationNames, checkpointTag, answerOptions, onDragStart, onUpdateImplied, onUnpin, onToggleCollapse }: CardProps) {
-  const plain = stripTags(card.text)
-  const preview = plain.slice(0, 120).trimEnd()
-  const previewText = preview.length < plain.length ? preview + '…' : preview
-
-  return (
-    <div
-      className={`pinned-card ${collapsed ? 'pinned-card--collapsed' : ''}`}
-      draggable
-      onDragStart={e => onDragStart(e, card.id)}
-    >
-      <div className="pinned-card__header" onClick={() => onToggleCollapse(card.id)}>
-        <div className="pinned-card__header-left">
-          {checkpointTag && <span className="pinned-card__checkpoint-tag">{checkpointTag}</span>}
-          <span className="pinned-card__turn">
-            {collapsed
-              ? (card.locationId ? formatLocation(card.locationId) : 'Unknown')
-              : [
-                  card.turn !== null ? `Action ${card.turn}` : 'Auto',
-                  card.locationId ? formatLocation(card.locationId) : null,
-                ].filter(Boolean).join(' — ')
-            }
-          </span>
+      {confirmed && (
+        <div className="eb-cp-panel__confirmed-msg">
+          Confirmed: {cpState.confirmedAnswer}
         </div>
-        <div className="pinned-card__header-actions">
-          <span className="pinned-card__collapse">{collapsed ? '▼' : '▲'}</span>
-          <button
-            className="pinned-card__unpin"
-            onClick={e => { e.stopPropagation(); onUnpin(card.id) }}
-            title="Remove from board"
-          >×</button>
-        </div>
-      </div>
-      {collapsed && (
-        <div className="pinned-card__preview">{previewText}</div>
       )}
-      {!collapsed && (
-        <>
-          <div className="pinned-card__text">
-            {parseTaggedText(card.text, locationNames)}
-          </div>
-          {answerOptions.length > 0 && (
-            <select
-              className="pinned-card__implied"
-              value={card.impliedAnswer}
-              onChange={e => onUpdateImplied(card.id, e.target.value)}
-              onClick={e => e.stopPropagation()}
-            >
-              <option value="">— implies —</option>
-              {answerOptions.map(opt => (
-                <option key={opt} value={opt}>{opt}</option>
-              ))}
-            </select>
-          )}
-        </>
+
+      {!locked && !confirmed && (
+        <div className="eb-cp-panel__slots">
+          {answerOptions.map(option => {
+            const slotKey = `${checkpointId}:${option}`
+            const assignedClueId = cpState?.proofs[option]
+            const isDragOver = dragOverSlot === slotKey
+            const error = slotErrors[slotKey]
+
+            return (
+              <div
+                key={option}
+                title={option}
+                className={[
+                  'eb-slot',
+                  assignedClueId ? 'eb-slot--filled' : '',
+                  isDragOver ? 'eb-slot--drag-over' : '',
+                  error ? 'eb-slot--error' : '',
+                ].join(' ').trim()}
+                onDragOver={e => onSlotDragOver(e, slotKey)}
+                onDrop={e => onSlotDrop(e, checkpointId, option)}
+                onDragLeave={onSlotDragLeave}
+              >
+                <span className="eb-slot__label">{option}</span>
+                {assignedClueId && (
+                  <span className="eb-slot__clue-id">✓ eliminated</span>
+                )}
+                {error && (
+                  <span className="eb-slot__error">{error}</span>
+                )}
+              </div>
+            )
+          })}
+        </div>
       )}
     </div>
   )

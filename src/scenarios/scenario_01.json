@@ -1,665 +1,791 @@
 {
   "location": {
-    "name": "Vaur Tessek",
-    "season": "autumn",
-    "weather": "salt-fog thick on the water each morning",
-    "arrival_location": "quayside"
+    "name": "Vel-Drassik",
+    "season": "winter",
+    "weather": "freezing fog with blood-ochre frost on the stones",
+    "arrival_location": "harbour_dock"
   },
   "crime": {
-    "cause_of_death": "Stabbing",
-    "murder_location": "records_room",
-    "body_found_location": "salt_works",
+    "cause_of_death": "crossbow bolt wound",
+    "murder_location": "archive_chamber",
+    "body_found_location": "dye_works",
     "body_was_moved": true,
-    "time_of_death": "Between the second bell of night and first light",
+    "time_of_death": "between ten o'clock and midnight",
     "perpetrator_ids": [
-      "maret_doun"
+      "orrath_denn"
     ],
-    "motive": "Silencing a witness to an old crime"
+    "motive": "to prevent exposure of his theft of the Nightbloom formula"
   },
   "characters": [
     {
-      "id": "tessek_oravi",
-      "name": "Tessek Oravi",
+      "id": "sura_vel_mak",
+      "name": "Sura Vel-Mak",
       "isVictim": true,
-      "local": true,
-      "location": "salt_works",
-      "description": "A meticulous woman of about fifty, lineage bookkeeper for the Tessek family and a respected salt-merchant in her own right. She is found slumped against the railing of the salt-pan platform, her posture too composed for a fall — and her outer robe, despite the heavy pre-dawn fog, is dry."
+      "location": "dye_works",
+      "description": "A formula keeper of the Weavings, mid-fifties, with ink-stained fingers and a sharp, careful face that once commanded considerable authority in these halls. Her body lies face-down near the central dye vats, frost already forming in crystals across the back of her outer robe, her arms extended as though she reached forward when she fell."
     },
     {
-      "id": "maret_doun",
-      "name": "Maret Doun",
+      "id": "orrath_denn",
+      "name": "Orrath Denn",
       "isVictim": false,
-      "local": true,
-      "location": "salt_works",
-      "description": "The Tessek salt-works overseer, a sturdy woman of about forty who speaks in the measured tones of someone used to giving direction. She is the one who found the body and sent the overnight runner for help, and she answers questions about it with a steadiness that sits just at the edge of composure."
+      "location": "counting_house",
+      "description": "The trade factor for Vel-Drassik, late forties, heavyset, with a broad face built for smiling and small grey eyes that do not participate in it. He is seated at his counting board when the investigator finds him, quill in hand, making a show of ordinary industry."
     },
     {
-      "id": "nitha_tessek",
-      "name": "Nitha Tessek",
+      "id": "thessa_vel",
+      "name": "Thessa Vel",
       "isVictim": false,
-      "local": true,
-      "location": "matrons_house",
-      "description": "The Matron of the Tessek lineage, a sharp-faced woman of sixty who carries her authority the way others carry grief — always present, always shaping how she moves through a room. She makes no secret of the fact that she and Oravi had clashed repeatedly over lineage records, and she speaks of the death with genuine shock and unconcealed relief."
+      "location": "elder_hall",
+      "description": "The Elder-Matriarch of Vel-Drassik, well into her seventies, with white hair drawn back severely and a bearing that fills a room before she speaks. She stands at the centre of the Elder Hall when the investigator arrives, hands folded, grief and fury competing behind her eyes."
     },
     {
-      "id": "senne_arak",
-      "name": "Senne Arak",
+      "id": "pira_eddan",
+      "name": "Pira Eddan",
       "isVictim": false,
-      "local": true,
-      "location": "upper_walkway",
-      "description": "The Matron's night-watcher, a young woman of about twenty-five who stands at her post with the careful stillness of someone trying not to be noticed. She is quick to speak but her answers arrive in the slightly-too-complete way of someone who has rehearsed them."
+      "location": "assay_room",
+      "description": "The outpost's mineral assayer, thirties, precise in her movements and speech, with the slightly hunched posture of someone who has spent years bent over a lens. She is still in her working apron when the investigator enters, a notebook open on the bench beside her."
     },
     {
-      "id": "dauvek_pol",
-      "name": "Dauvek Pol",
+      "id": "brek_ossun",
+      "name": "Brek Ossun",
       "isVictim": false,
-      "local": true,
-      "location": "covered_market",
-      "description": "Tessek Oravi's nephew — her sister's son — a broad-shouldered man of about thirty-five who trades at the covered market in display salts and cured goods. He does not hide that he had been pressing his aunt to have a lineage document revised in his favor, and he speaks of her with the brittle warmth of a man who has been recently refused."
+      "location": "dye_works",
+      "description": "The night tender responsible for the dye vats, a young man in his early twenties, pale and hollow-eyed with shock. He stands as far from the body as the room permits, unable to look away from it and unable to look at it directly."
     },
     {
-      "id": "irret_sou",
-      "name": "Irret Sou",
+      "id": "linna_vor",
+      "name": "Linna Vor",
       "isVictim": false,
-      "local": false,
-      "location": "quayside",
-      "description": "A traveling salt-auditor from an inland trade council, a composed woman of thirty who has been berthed at the quayside for three days conducting a routine cargo review. She was on deck before dawn for the morning muster and was the first outsider to reach the body; she is forthcoming with what she observed and speaks with the precision of someone accustomed to recording exactly what she sees."
+      "location": "archive_chamber",
+      "description": "The Archive Warden, forties, quiet and methodical, with the particular stillness of someone who has spent her career preserving things from harm. She is standing beside the central reading table when the investigator enters, her key ring held in both hands."
+    },
+    {
+      "id": "davan_reach",
+      "name": "Davan Reach",
+      "isVictim": false,
+      "location": "harbour_dock",
+      "description": "The harbour master of Vel-Drassik, weathered and deliberate, with the calm manner of a man accustomed to managing other people's panic. He is the first to meet the investigator's boat, a lantern in one hand and a cold-log tucked under his arm."
     }
   ],
   "items": [
     {
-      "id": "salt_scraper",
-      "name": "Salt-Scraper",
-      "description": "A narrow iron-bladed tool, roughly palm-length, used to lift caked salt from the harvest pans; the blade is clean and the handle wood is pale and unweathered, showing none of the grey salt-staining common to tools in regular use.",
-      "starting_location": "salt_works"
+      "id": "crossbow_bolt",
+      "name": "Iron Bolt",
+      "description": "A short, unfletched iron bolt of the type used in small pest-control crossbows, roughly a hand-span in length. The tip is dark with dried matter and the shaft is lightly coated in pale dust.",
+      "location_discovery_text": "An [item:Iron Bolt] lies near the victim's outstretched right hand, half-hidden by the hem of her robe.",
+      "starting_location": "dye_works"
     },
     {
-      "id": "records_room_key",
-      "name": "Records Room Key",
-      "description": "A heavy iron key with a Tessek lineage mark filed into the bow; the shank shows no tarnish, and a faint damp smell clings to the metal.",
-      "starting_location": "salt_works"
+      "id": "formula_fragment",
+      "name": "Parchment Fragment",
+      "description": "A torn scrap of parchment bearing columns of figures in unfamiliar notation — small x-marks used in place of the Kauvari check-mark — with no name, seal, or heading visible.",
+      "location_discovery_text": "A [item:Parchment Fragment] protrudes from the spine-gap of a formula-case on the secondary shelf.",
+      "starting_location": "archive_chamber"
     },
     {
-      "id": "salt_ledger",
-      "name": "Salt Ledger",
-      "description": "A thick bound ledger lying open to a page dense with columns of figures; the ink in the rightmost column of the open page is smeared in a broad streak, as though the page was disturbed before the ink had dried.",
-      "starting_location": "records_room"
-    },
-    {
-      "id": "watch_log_tablet",
-      "name": "Watch-Log Tablet",
-      "description": "A wooden tablet carved with rows of notched marks recording check-in intervals; the notches on one side of a blank gap are pressed deeper into the wood than those on the other side.",
-      "starting_location": "upper_walkway"
+      "id": "kauvari_boots",
+      "name": "Heavy Work Boots",
+      "description": "A pair of dark leather work boots with thick soles packed with pale green-grey dust that shimmers faintly. A worn seam runs along the outer edge of the left ankle, and a dark smear marks the inner edge of the right heel.",
+      "location_discovery_text": "A pair of [item:Heavy Work Boots] sit beside the supply cabinet, toes pointing neatly toward the wall.",
+      "starting_location": "counting_house"
     }
   ],
   "locations": [
     {
-      "id": "quayside",
-      "name": "The Quayside",
-      "flavour": "Flat-bottomed trade boats rock against salt-bleached pilings as the morning fog lifts in slow ribbons off the estuary water.",
+      "id": "harbour_dock",
+      "name": "Harbour Dock",
+      "flavour": "The fog sits so thick over the water that the mooring posts vanish a yard from shore, and the cold-log's lantern seems to float in grey nothing.",
       "col": 0,
       "row": 2
     },
     {
-      "id": "covered_market",
-      "name": "The Covered Market",
-      "flavour": "Bolts of undyed canvas overhead filter the pale autumn light into something softer, and the air holds the mingled smell of brine, clay salt, and lamp oil.",
-      "col": 0,
-      "row": 1
-    },
-    {
-      "id": "records_room",
-      "name": "The Records Room",
-      "flavour": "Shelves of bound ledgers and rolled documents line every wall, and the single lamp bracket above the reading table has left a ghost of soot on the plaster ceiling.",
-      "col": 0,
-      "row": 0
-    },
-    {
-      "id": "matrons_house",
-      "name": "The Matron's House",
-      "flavour": "The main hall smells of cedar oil and old salt, and the Tessek lineage marks above the door lintel have been repainted so many times the original lines are lost beneath them.",
+      "id": "elder_hall",
+      "name": "Elder Hall",
+      "flavour": "The hall is warm with hearthlight, but the warmth does not reach the corners, and the ochre-painted walls seem to absorb it before it can spread.",
       "col": 1,
-      "row": 0
+      "row": 2
     },
     {
-      "id": "upper_walkway",
-      "name": "The Upper Walkway",
-      "flavour": "A covered passage of salt-weathered planks runs between the Matron's House and the works complex, its boards damp and filmed with the fine white residue that settles everywhere in Vaur Tessek.",
+      "id": "dye_works",
+      "name": "Dye-Works",
+      "flavour": "The great mineral vats stand cold and silent, their surfaces laced with frost, and the air carries the sharp metallic smell of viridian pigment and something darker underneath.",
+      "col": 2,
+      "row": 2
+    },
+    {
+      "id": "counting_house",
+      "name": "Counting House",
+      "flavour": "Shelves of manifests and trade ledgers line every wall, and the single window looks out onto the frozen headland, where the fog has turned the world to a smear of grey and rust.",
       "col": 2,
       "row": 1
     },
     {
-      "id": "salt_works",
-      "name": "The Salt-Works",
-      "flavour": "Wide shallow pans stretch toward the estuary's edge, their surfaces crusted and still; the harvest is over and the flat-boats are beached, hull-up, along the near bank.",
-      "col": 2,
-      "row": 2
+      "id": "archive_chamber",
+      "name": "Archive Chamber",
+      "flavour": "The floor is coated with a pale green-grey mineral compound that deadens footsteps, and the formula-cases on their shelves line the walls in total, careful silence.",
+      "col": 1,
+      "row": 1
+    },
+    {
+      "id": "assay_room",
+      "name": "Assay Room",
+      "flavour": "Every surface is covered in labelled mineral samples and the smell of reagents, and the frost on the single window has been scraped away in one spot to give a clear view up toward the Archive Chamber.",
+      "col": 0,
+      "row": 1
     }
   ],
   "location_adjacencies": [
     {
-      "from": "quayside",
-      "to": "covered_market"
+      "from": "harbour_dock",
+      "to": "elder_hall"
     },
     {
-      "from": "quayside",
-      "to": "salt_works"
+      "from": "harbour_dock",
+      "to": "assay_room"
     },
     {
-      "from": "covered_market",
-      "to": "records_room"
+      "from": "elder_hall",
+      "to": "archive_chamber"
     },
     {
-      "from": "covered_market",
-      "to": "matrons_house"
+      "from": "elder_hall",
+      "to": "dye_works"
     },
     {
-      "from": "records_room",
-      "to": "matrons_house"
+      "from": "archive_chamber",
+      "to": "counting_house"
     },
     {
-      "from": "matrons_house",
-      "to": "upper_walkway"
+      "from": "archive_chamber",
+      "to": "assay_room"
     },
     {
-      "from": "upper_walkway",
-      "to": "salt_works"
+      "from": "dye_works",
+      "to": "counting_house"
     }
   ],
   "checkpoints": [
     {
       "id": "cause_of_death",
-      "label": "How did Tessek Oravi die?",
+      "label": "Cause of Death",
       "answer_options": [
-        "Stabbing",
-        "Drowning",
-        "Blunt blow to the head",
-        "Poisoning",
-        "Exposure"
+        "crossbow bolt wound",
+        "blunt force trauma",
+        "poisoning",
+        "strangulation",
+        "drowning",
+        "blade wound"
       ]
     },
     {
       "id": "true_location",
-      "label": "Where was Tessek Oravi killed?",
+      "label": "Murder Location",
       "answer_options": [
-        "The Salt-Works",
-        "The Records Room",
-        "The Upper Walkway",
-        "The Covered Market",
-        "The Quayside"
+        "Archive Chamber",
+        "Dye-Works",
+        "Counting House",
+        "Elder Hall",
+        "Harbour Dock",
+        "Assay Room"
       ]
     },
     {
       "id": "time_of_death",
-      "label": "When did Tessek Oravi die?",
+      "label": "Time of Death",
       "answer_options": [
-        "Before the evening meal",
-        "Between the evening meal and the second bell",
-        "Between the second bell of night and first light",
-        "At first light",
-        "After first light"
+        "between ten o'clock and midnight",
+        "before nine o'clock",
+        "between nine and ten o'clock",
+        "between midnight and two in the morning",
+        "between two and four in the morning",
+        "after four in the morning"
       ]
     },
     {
       "id": "perpetrator",
-      "label": "Who killed Tessek Oravi?",
+      "label": "Perpetrator",
       "answer_options": [
-        "Maret Doun",
-        "Nitha Tessek",
-        "Dauvek Pol",
-        "Senne Arak",
-        "Irret Sou"
+        "Orrath Denn",
+        "Thessa Vel",
+        "Pira Eddan",
+        "Brek Ossun",
+        "Linna Vor",
+        "Davan Reach"
       ]
     },
     {
       "id": "motive",
-      "label": "Why was Tessek Oravi killed?",
+      "label": "Motive",
       "answer_options": [
-        "Silencing a witness to an old crime",
-        "Stealing the lineage inheritance records",
-        "Settling a long-standing personal feud",
-        "Preventing exposure of falsified trade accounts",
-        "Revenge for a family dishonoring"
+        "to prevent exposure of his theft of the Nightbloom formula",
+        "personal vendetta",
+        "inheritance dispute",
+        "concealing an affair",
+        "revenge for a past wrong",
+        "eliminating a trade rival"
       ]
     }
   ],
   "clues": [
     {
-      "id": "cod_a",
-      "checkpoint": "cause_of_death",
-      "answer": "Stabbing",
-      "weight": "correct",
+      "id": "clue_01",
       "condition": {
-        "type": "inspect_location",
+        "type": "inspect_item",
         "characters": [],
-        "location": "salt_works",
-        "item": null
+        "location": null,
+        "item": "crossbow_bolt"
       },
-      "text": "Examining the body at [loc:salt_works], the investigator shifts the outer robe aside and finds a narrow puncture wound on the left side of Tessek Oravi's torso; the robe itself has a corresponding slit in the fabric, its edges stiff with dried dark brown residue.",
-      "red_herring_explanation": null
+      "text": "The bolt is short and unfletched, consistent with the pest-control crossbows used in the outpost's stores. The iron tip carries dried matter, but the shaft has no edge, hook, or any modification that could function as a blade, and the bolt shows no sign of being used as a striking instrument.",
+      "contradicts": [
+        {
+          "checkpoint": "cause_of_death",
+          "answer": "blade wound"
+        },
+        {
+          "checkpoint": "cause_of_death",
+          "answer": "blunt force trauma"
+        }
+      ]
     },
     {
-      "id": "cod_b",
-      "checkpoint": "cause_of_death",
-      "answer": "Stabbing",
-      "weight": "correct",
+      "id": "clue_02",
       "condition": {
         "type": "talk_to_character",
         "characters": [
-          "irret_sou"
+          "pira_eddan"
         ],
         "location": null,
         "item": null
       },
-      "text": "[char:Irret Sou] tells the investigator that when she first knelt beside the body, she noticed a thin dark line running along the left side of Tessek Oravi's robe — too straight and too narrow to be a fold or a shadow — which she noted before anyone else disturbed the scene.",
-      "red_herring_explanation": null
+      "text": "[char:Pira Eddan] describes the chest wound as a single clean penetrating puncture, roughly the diameter of a bolt — no tearing consistent with a blade, no fracturing consistent with impact. She examined the throat and found no bruising, no burst vessels. She examined the skull — intact, no fracture.",
+      "contradicts": [
+        {
+          "checkpoint": "cause_of_death",
+          "answer": "strangulation"
+        },
+        {
+          "checkpoint": "cause_of_death",
+          "answer": "blunt force trauma"
+        },
+        {
+          "checkpoint": "cause_of_death",
+          "answer": "drowning"
+        }
+      ]
     },
     {
-      "id": "cod_rh1",
-      "checkpoint": "cause_of_death",
-      "answer": "Drowning",
-      "weight": "red_herring",
-      "condition": {
-        "type": "inspect_location",
-        "characters": [],
-        "location": "salt_works",
-        "item": null
-      },
-      "text": "At the edge of the salt-pan platform where the body was found, Tessek Oravi's hands carry a visible coating of wet salt residue, and the railing she is slumped against faces directly onto the nearest brine channel.",
-      "red_herring_explanation": "The wet salt on the victim's hands suggests she may have fallen or been pushed into the brine channel, pointing toward drowning — but the residue was transferred when the body was placed against the railing, not from any contact with the water."
-    },
-    {
-      "id": "cod_rh2",
-      "checkpoint": "cause_of_death",
-      "answer": "Blunt blow to the head",
-      "weight": "red_herring",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "senne_arak"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Senne Arak] tells the investigator that [time:during the deep part of the night], while she was on watch at [loc:upper_walkway], she heard a single heavy thud from the direction of the Matron's complex — loud enough to make her stop and listen, though she heard nothing after it.",
-      "red_herring_explanation": "The thud heard by the night-watcher suggests an impact event — consistent with someone being struck or a body falling — but the sound was in fact Oravi being moved and the body being set down against the railing."
-    },
-    {
-      "id": "cod_rh3",
-      "checkpoint": "cause_of_death",
-      "answer": "Poisoning",
-      "weight": "red_herring",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "dauvek_pol"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Dauvek Pol] tells the investigator that in the weeks before her death, [char:Tessek Oravi] had complained to him of persistent stomach pains and had twice visited the herbalist who keeps a stall at [loc:covered_market].",
-      "red_herring_explanation": "The recent herbalist visits and stomach complaints suggest Oravi may have been experiencing symptoms of slow poisoning, but her illness was unrelated — a seasonal complaint — and distract from the physical evidence of stabbing."
-    },
-    {
-      "id": "loc_a",
-      "checkpoint": "true_location",
-      "answer": "The Records Room",
-      "weight": "correct",
-      "condition": {
-        "type": "inspect_location",
-        "characters": [],
-        "location": "records_room",
-        "item": null
-      },
-      "text": "On the inner face of the [loc:records_room] doorframe, at roughly waist height, there is a rust-brown smear shaped like a partial hand-wipe — the heel of a palm pressed and then dragged downward across the wood.",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "loc_b",
-      "checkpoint": "true_location",
-      "answer": "The Records Room",
-      "weight": "correct",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "nitha_tessek"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Nitha Tessek] tells the investigator that she herself locked the [loc:records_room] door the previous evening before retiring, and when she checked the following morning, the door stood unlocked and the interior bolt had been forced out of its bracket.",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "loc_rh1",
-      "checkpoint": "true_location",
-      "answer": "The Upper Walkway",
-      "weight": "red_herring",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "senne_arak"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Senne Arak] tells the investigator that [time:in the middle of the night] she heard footsteps on the boards of [loc:upper_walkway] moving in the direction of the storage eaves, followed by a scraping sound she could not identify.",
-      "red_herring_explanation": "The footsteps and scraping on the covered walkway suggest a struggle or incident there, but the sounds were in fact Maret Doun moving the body along the walkway route — the Upper Walkway was traversed, not the site of the killing."
-    },
-    {
-      "id": "loc_rh2",
-      "checkpoint": "true_location",
-      "answer": "The Covered Market",
-      "weight": "red_herring",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "dauvek_pol"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Dauvek Pol] tells the investigator that [time:late in the evening], he saw [char:Tessek Oravi] walking in the direction of [loc:covered_market] with a ledger tucked under one arm, and she did not acknowledge him when he called out to her.",
-      "red_herring_explanation": "Dauvek's account places the victim heading toward the Covered Market late in the evening, suggesting that is where she went — but Oravi was in fact heading to the Records Room, which is accessible through the same route, and Dauvek misread her direction."
-    },
-    {
-      "id": "loc_rh3",
-      "checkpoint": "true_location",
-      "answer": "The Quayside",
-      "weight": "red_herring",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "irret_sou"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Irret Sou] tells the investigator that [time:earlier that same evening], [char:Tessek Oravi] had told her she intended to check a cargo manifest in the dockside ledger office before the night was out.",
-      "red_herring_explanation": "Oravi's stated intention to visit the dockside office suggests the Quayside as a possible location for the killing, but she never went — she changed her plans and went to the Records Room instead."
-    },
-    {
-      "id": "time_a",
-      "checkpoint": "time_of_death",
-      "answer": "Between the second bell of night and first light",
-      "weight": "correct",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "senne_arak"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Senne Arak] tells the investigator that she personally watched [char:Tessek Oravi] enter the Matron's complex [time:at the second bell of night], and that by [time:one bell before first light], when Senne's watch ended, Oravi had not come back out through the main entrance.",
-      "red_herring_explanation": null
-    },
-    {
-      "id": "time_b",
-      "checkpoint": "time_of_death",
-      "answer": "Between the second bell of night and first light",
-      "weight": "correct",
+      "id": "clue_03",
       "condition": {
         "type": "inspect_item_in_location",
         "characters": [],
-        "location": "records_room",
-        "item": "salt_ledger"
+        "location": "assay_room",
+        "item": "crossbow_bolt"
       },
-      "text": "The open page of the [loc:records_room] ledger carries a final entry dated [time:the night of the death], written in the same careful hand as the surrounding columns; the ink in the rightmost column is smeared in a broad streak across the figures, as if the page was sharply disturbed before the ink had finished drying.",
-      "red_herring_explanation": null
+      "text": "[char:Pira Eddan] examines the bolt's tip under her lens and says the residue is blood only — no chemical coating, no resin, no powder of any kind. She then turns the shaft and studies the dust on it: pale green-grey, faintly iridescent. She says, carefully, that this compound is viridian crystallite — used exclusively to treat the floor of the [loc:archive_chamber] against damp. No other floor in Vel-Drassik uses it.",
+      "contradicts": [
+        {
+          "checkpoint": "cause_of_death",
+          "answer": "poisoning"
+        },
+        {
+          "checkpoint": "true_location",
+          "answer": "Counting House"
+        },
+        {
+          "checkpoint": "true_location",
+          "answer": "Harbour Dock"
+        }
+      ]
     },
     {
-      "id": "time_rh1",
-      "checkpoint": "time_of_death",
-      "answer": "Before the evening meal",
-      "weight": "red_herring",
+      "id": "clue_04",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "dye_works",
+        "item": null
+      },
+      "text": "The frost on the back of [char:Sura Vel-Mak]'s outer robe is markedly heavier and more crystalline than the frost covering the dye-vat lids immediately beside her, despite identical exposure to the same air. The underside of her clothing shows no trace of moisture from the dye-works floor.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Dye-Works"
+        }
+      ]
+    },
+    {
+      "id": "clue_05",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "archive_chamber",
+        "item": null
+      },
+      "text": "The viridian clay dust on the floor near the central reading table has been violently disturbed across a roughly body-length area. Smear marks run from the centre of the disturbance toward the door, as though something heavy was dragged across the floor. A wide dark stain is visible at the centre of the disruption.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Assay Room"
+        },
+        {
+          "checkpoint": "true_location",
+          "answer": "Elder Hall"
+        }
+      ]
+    },
+    {
+      "id": "clue_06",
       "condition": {
         "type": "talk_to_character",
         "characters": [
-          "maret_doun"
+          "thessa_vel"
         ],
         "location": null,
         "item": null
       },
-      "text": "[char:Maret Doun] tells the investigator that she saw [char:Tessek Oravi] at [loc:salt_works] [time:in the late afternoon], and that Oravi had seemed agitated and distracted, speaking in clipped sentences and leaving before their conversation was finished.",
-      "red_herring_explanation": "Maret's account of Oravi's visible agitation in the late afternoon implies something may have happened to her then, but the distress was due to what Oravi had found in the old records — not the time of her death."
+      "text": "[char:Thessa Vel] says [char:Sura Vel-Mak] came to the [loc:elder_hall] at [time:the tenth bell of night], visibly distressed, and told her the trade manifests did not match the formula yield records. Sura left the hall heading toward the [loc:archive_chamber] shortly after [time:the tenth bell].",
+      "contradicts": [
+        {
+          "checkpoint": "time_of_death",
+          "answer": "before nine o'clock"
+        },
+        {
+          "checkpoint": "time_of_death",
+          "answer": "between nine and ten o'clock"
+        }
+      ]
     },
     {
-      "id": "time_rh2",
-      "checkpoint": "time_of_death",
-      "answer": "Between the evening meal and the second bell",
-      "weight": "red_herring",
+      "id": "clue_07",
       "condition": {
         "type": "talk_to_character",
         "characters": [
-          "dauvek_pol"
+          "linna_vor"
         ],
         "location": null,
         "item": null
       },
-      "text": "[char:Dauvek Pol] tells the investigator that he encountered [char:Tessek Oravi] [time:just after the evening meal] and that she was in good health — speaking clearly, moving quickly — which was the last time he saw her alive.",
-      "red_herring_explanation": "Dauvek frames his sighting as the last confirmed sighting of Oravi alive, which implies she may have died shortly afterward — between the meal and the second bell — but she survived well past that point."
+      "text": "[char:Linna Vor] says she passed the Archive door on her way to her quarters at [time:the midnight bell] — she tried the handle from habit — and found it locked. She is certain of the time because she heard the harbour bell finish sounding as she walked. She did not hear it open again that night.",
+      "contradicts": [
+        {
+          "checkpoint": "time_of_death",
+          "answer": "between midnight and two in the morning"
+        },
+        {
+          "checkpoint": "time_of_death",
+          "answer": "between two and four in the morning"
+        },
+        {
+          "checkpoint": "time_of_death",
+          "answer": "after four in the morning"
+        }
+      ]
     },
     {
-      "id": "time_rh3",
-      "checkpoint": "time_of_death",
-      "answer": "After first light",
-      "weight": "red_herring",
+      "id": "clue_08",
       "condition": {
         "type": "talk_to_character",
         "characters": [
-          "irret_sou"
+          "linna_vor"
         ],
         "location": null,
         "item": null
       },
-      "text": "[char:Irret Sou] tells the investigator that when she first saw the body at sunrise, the color of the exposed skin still appeared to her as relatively fresh — she had assumed at the time that the death must have occurred very recently, perhaps within the hour.",
-      "red_herring_explanation": "Irret's lay impression that the body appeared fresh at sunrise leads her to estimate death just before or after first light, but she is not trained in such assessments, and the cool foggy morning had slowed the visible signs of death."
+      "text": "[char:Linna Vor] says she locked the Archive at [time:the ninth bell of night] and did not return until dawn. Her key has not left her person — she shows it, still on the ring at her waist. She says [char:Orrath Denn] holds the only duplicate key; she witnessed the Elder-Matriarch grant it to him three seasons ago, and no other copy was ever made.",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Thessa Vel"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Pira Eddan"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Brek Ossun"
+        }
+      ]
     },
     {
-      "id": "perp_a",
-      "checkpoint": "perpetrator",
-      "answer": "Maret Doun",
-      "weight": "correct",
+      "id": "clue_09",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "counting_house",
+        "item": null
+      },
+      "text": "A small crossbow hangs unloaded on the wall beside a wooden supply cabinet. The cabinet door stands unlocked; inside, a rack of six bolt-slots has one slot empty. A notice on the interior of the cabinet door reads: 'Factor access only.' [char:Orrath Denn] is the Factor of [loc:counting_house].",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Linna Vor"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Davan Reach"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Brek Ossun"
+        }
+      ]
+    },
+    {
+      "id": "clue_10",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "archive_chamber",
+        "item": null
+      },
+      "text": "On the secondary shelf, one formula-case has been improperly replaced — it stands facing outward, its spine turned inward, unlike every other case on the shelf. A thin scrap of parchment protrudes from within its spine-gap.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "personal vendetta"
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "concealing an affair"
+        }
+      ]
+    },
+    {
+      "id": "clue_11",
+      "condition": {
+        "type": "inspect_item",
+        "characters": [],
+        "location": null,
+        "item": "formula_fragment"
+      },
+      "text": "The parchment fragment bears columns of figures in an unfamiliar hand — small x-marks used as check-marks in the southern merchant manner, not the Kauvari convention. There is no name, no seal, and no heading; only numerical notation that appears to reference quantities and reduction ratios.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "inheritance dispute"
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "revenge for a past wrong"
+        }
+      ]
+    },
+    {
+      "id": "clue_12",
       "condition": {
         "type": "ask_character_about_item",
         "characters": [
-          "maret_doun"
+          "pira_eddan"
         ],
         "location": null,
-        "item": "records_room_key"
+        "item": "formula_fragment"
       },
-      "text": "When shown the key, [char:Maret Doun] states that she found it lying on the floor inside the [loc:records_room] doorway the morning after the death and had kept it intending to return it to the Matron; when the investigator asks when she entered the Records Room to find it, Maret pauses and then says she found it from the doorway, without going in.",
-      "red_herring_explanation": null
+      "text": "[char:Pira Eddan] recognises the notation style at once — she says this is how merchants from the southern rival trading houses record formula quantities. She adds, quietly, that two days before the death she saw a man using exactly this notation at a table near the [loc:counting_house]; she did not know him, and he left before she could ask.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "personal vendetta"
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "eliminating a trade rival"
+        }
+      ]
     },
     {
-      "id": "perp_b",
-      "checkpoint": "perpetrator",
-      "answer": "Maret Doun",
-      "weight": "correct",
+      "id": "clue_13",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "orrath_denn"
+        ],
+        "location": null,
+        "item": "formula_fragment"
+      },
+      "text": "[char:Orrath Denn] looks at the fragment and says he has never seen it. Then, after a pause, he adds unprompted that the figures appear to concern 'the secondary-stage reduction ratios — the most sensitive part of the Nightbloom process.' He stops himself and says nothing further.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "concealing an affair"
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "inheritance dispute"
+        }
+      ]
+    },
+    {
+      "id": "clue_14",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "thessa_vel"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Thessa Vel] says that three days before the death, [char:Sura Vel-Mak] came to her with a specific concern: the manifest figures for the last three shipments did not match the formula yield records, and the archive registry showed no authorised copying sessions in the relevant period. Sura said: 'Someone has been inside the formula cases without entering the log.'",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "personal vendetta"
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "revenge for a past wrong"
+        }
+      ]
+    },
+    {
+      "id": "clue_15",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "davan_reach"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Davan Reach] says a small vessel left the harbour at [time:the eleventh bell of night], carrying a single passenger he did not recognise. The passenger paid the mooring fee in southern coin — a denomination Davan did not immediately identify. The vessel had not returned by dawn.",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "personal vendetta"
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "inheritance dispute"
+        }
+      ]
+    },
+    {
+      "id": "clue_16",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "thessa_vel"
+        ],
+        "location": null,
+        "item": "formula_fragment"
+      },
+      "text": "[char:Thessa Vel] examines the fragment and her expression hardens. She says these figures are drawn from the Nightbloom secondary reduction formula — a process known to no one outside the authorised keepers of the Weavings. She says: 'If this parchment left the Archive, whoever took it intended to give it to someone who could use it.'",
+      "contradicts": [
+        {
+          "checkpoint": "motive",
+          "answer": "concealing an affair"
+        },
+        {
+          "checkpoint": "motive",
+          "answer": "revenge for a past wrong"
+        }
+      ]
+    },
+    {
+      "id": "clue_17",
+      "condition": {
+        "type": "ask_character_about_item",
+        "characters": [
+          "orrath_denn"
+        ],
+        "location": null,
+        "item": "kauvari_boots"
+      },
+      "text": "[char:Orrath Denn] glances at the boots and says they are his — he recognises the worn seam on the left ankle, a repair done at the harbour cobbler last autumn. He then says, with studied calm, that he must have tracked some dust in when he visited the [loc:archive_chamber] earlier that evening.",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Linna Vor"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Davan Reach"
+        }
+      ]
+    },
+    {
+      "id": "clue_18",
       "condition": {
         "type": "inspect_item_in_location",
         "characters": [],
-        "location": "records_room",
-        "item": "records_room_key"
+        "location": "archive_chamber",
+        "item": "kauvari_boots"
       },
-      "text": "The key fits the [loc:records_room] lock exactly; on the exterior face of the lock plate, there are three fresh scratches radiating from the keyhole — bright metal, not yet tarnished — consistent with a key inserted in poor light or in haste.",
-      "red_herring_explanation": null
+      "text": "Held against the disturbed floor of the [loc:archive_chamber], the dust on the boot soles matches precisely — same pale green-grey compound, same faint iridescence. The boot is sized for a large adult male; the sole-length is well beyond what would fit a woman of small or moderate frame.",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Thessa Vel"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Pira Eddan"
+        }
+      ]
     },
     {
-      "id": "perp_rh1",
-      "checkpoint": "perpetrator",
-      "answer": "Nitha Tessek",
-      "weight": "red_herring",
+      "id": "clue_19",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "assay_room",
+        "item": null
+      },
+      "text": "On the central bench, a cloth-covered bundle — the victim's outer garments — lies beside an open notebook. A line in [char:Pira Eddan]'s hand reads: 'Dust sample from back of outer robe: viridian crystallite. Compound not present anywhere in Dye-Works floor or walls. Source unknown at time of writing.'",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Dye-Works"
+        }
+      ]
+    },
+    {
+      "id": "clue_20",
+      "condition": {
+        "type": "inspect_location",
+        "characters": [],
+        "location": "harbour_dock",
+        "item": null
+      },
+      "text": "The cold-log posted beside [char:Davan Reach]'s station shows gate-check entries at [time:the second, third, and fourth bells of night], each in the same steady hand. The harbour gate seals at [time:the second bell], after which all persons entering or leaving must pass the Harbour Master's station.",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Davan Reach"
+        },
+        {
+          "checkpoint": "true_location",
+          "answer": "Harbour Dock"
+        }
+      ]
+    },
+    {
+      "id": "clue_21",
       "condition": {
         "type": "talk_to_character",
         "characters": [
-          "nitha_tessek"
+          "pira_eddan"
         ],
         "location": null,
         "item": null
       },
-      "text": "[char:Nitha Tessek] tells the investigator that she was in the corridor outside the [loc:records_room] late that same evening, and shows a tear along the hem of her ceremonial sash — the kind of snag, she says, that happens on the iron bracket beside the Records Room door.",
-      "red_herring_explanation": "The torn sash places Nitha Tessek physically near the Records Room that evening and establishes she was in the corridor — but the tear occurred during a routine earlier pass through the corridor, not during any attack."
+      "text": "[char:Pira Eddan] says that when she examined the body on the [loc:dye_works] floor at dawn, she found viridian crystallite dust heavily deposited on the back of the outer robe — the same compound she identified in the [loc:archive_chamber] floor treatment. She says she found none of it anywhere on the dye-works floor or walls.",
+      "contradicts": [
+        {
+          "checkpoint": "true_location",
+          "answer": "Dye-Works"
+        },
+        {
+          "checkpoint": "true_location",
+          "answer": "Elder Hall"
+        }
+      ]
     },
     {
-      "id": "perp_rh2",
-      "checkpoint": "perpetrator",
-      "answer": "Dauvek Pol",
-      "weight": "red_herring",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "dauvek_pol"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Dauvek Pol] shows the investigator his own salt-scraper kept beneath his market counter — a short iron-bladed tool with a dark reddish-brown stain across the flat of the blade that he says is residue from a red-clay ceremonial salt he handles.",
-      "red_herring_explanation": "The dark stain on Dauvek's scraper resembles dried blood and puts a potentially bladed weapon in his possession, but the residue is in fact from red-clay salt — a common market commodity — and the scraper shows no signs of recent cleaning."
-    },
-    {
-      "id": "perp_rh3",
-      "checkpoint": "perpetrator",
-      "answer": "Senne Arak",
-      "weight": "red_herring",
-      "condition": {
-        "type": "ask_character_about_item",
-        "characters": [
-          "senne_arak"
-        ],
-        "location": null,
-        "item": "watch_log_tablet"
-      },
-      "text": "When the investigator examines the [loc:upper_walkway] watch-log tablet with [char:Senne Arak] present, she identifies a gap of roughly [time:forty minutes] around [time:the third bell of night] containing no notched entries; asked to explain it, Senne says she stepped inside briefly to warm her hands and lost track of the time.",
-      "red_herring_explanation": "The unlogged gap in Senne's watch record creates a window during which she cannot account for her movements, suggesting she may have left her post to commit or assist in the crime — but the gap is in fact due to Senne falling briefly asleep at her post, a dereliction she is concealing out of fear of punishment."
-    },
-    {
-      "id": "mot_a",
-      "checkpoint": "motive",
-      "answer": "Silencing a witness to an old crime",
-      "weight": "correct",
+      "id": "clue_22",
       "condition": {
         "type": "inspect_item_in_location",
         "characters": [],
-        "location": "records_room",
-        "item": "salt_ledger"
+        "location": "counting_house",
+        "item": "kauvari_boots"
       },
-      "text": "On the open page of the [loc:records_room] ledger, among the columns of trade figures, a line from twelve years prior records a large payment to 'M. Doun, salt-works' with the notation 'compensation — structural loss, east pan'; beside it, in a different ink that appears freshly applied, a notation in a careful hand reads 'cross-ref: fire incident, Arak lineage stores.'",
-      "red_herring_explanation": null
+      "text": "Examined in the [loc:counting_house], the boots sit directly beside the supply cabinet. The dust on the soles is viridian crystallite — the compound exclusive to the [loc:archive_chamber] floor — not the mineral grit of the counting house or the surrounding stones.",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Linna Vor"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Brek Ossun"
+        }
+      ]
     },
     {
-      "id": "mot_b",
-      "checkpoint": "motive",
-      "answer": "Silencing a witness to an old crime",
-      "weight": "correct",
+      "id": "clue_23",
+      "condition": {
+        "type": "talk_to_character",
+        "characters": [
+          "pira_eddan"
+        ],
+        "location": null,
+        "item": null
+      },
+      "text": "[char:Pira Eddan] says she could not sleep and was at her assay room window at approximately [time:the eleventh bell of night]. She saw a figure moving quickly from the direction of the [loc:archive_chamber] toward the [loc:dye_works]. The figure was carrying something large and awkward under both arms. She recognised the outline as [char:Orrath Denn] by his heavyset frame and particular gait.",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Brek Ossun"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Davan Reach"
+        }
+      ]
+    },
+    {
+      "id": "clue_24",
       "condition": {
         "type": "ask_character_about_item",
         "characters": [
-          "irret_sou"
+          "pira_eddan"
         ],
         "location": null,
-        "item": "salt_ledger"
+        "item": "kauvari_boots"
       },
-      "text": "When shown the ledger entry, [char:Irret Sou] tells the investigator that twelve years ago, a fire destroyed the Arak lineage's salt stores at the height of the harvest season; a young male laborer was found dead inside the storage building, and though the fire was recorded as accidental, there had been talk at the time — never formally pursued — that the blaze was set deliberately.",
-      "red_herring_explanation": null
+      "text": "[char:Pira Eddan] examines the boot soles under her lens and says the dust is viridian crystallite — 'identical to the sample from the victim's clothing, and to the compound from the Archive floor.' She adds: 'Whoever wore these boots carried them through the Archive and moved the body. These are not the boots of someone who merely passed through.'",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Linna Vor"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Davan Reach"
+        }
+      ]
     },
     {
-      "id": "mot_rh1",
-      "checkpoint": "motive",
-      "answer": "Settling a long-standing personal feud",
-      "weight": "red_herring",
+      "id": "clue_25",
       "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "nitha_tessek"
-        ],
+        "type": "inspect_item",
+        "characters": [],
         "location": null,
-        "item": null
+        "item": "kauvari_boots"
       },
-      "text": "[char:Nitha Tessek] tells the investigator that [char:Tessek Oravi] had blocked the re-registration of a Tessek lineage property on three separate occasions over the past decade, and that the dispute had grown into an open enmity between them that everyone in [loc:matrons_house] knew about.",
-      "red_herring_explanation": "Nitha's openly stated hatred for Oravi and the specific, repeated nature of the property dispute provide a clear personal motive — but the feud, however genuine, was not the reason for the killing."
-    },
-    {
-      "id": "mot_rh2",
-      "checkpoint": "motive",
-      "answer": "Preventing exposure of falsified trade accounts",
-      "weight": "red_herring",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "dauvek_pol"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Dauvek Pol] tells the investigator that his aunt had, in his view, been quietly adjusting the recorded salt-weights in the Tessek ledgers for years in her own favor, and says that if someone had finally found proof of it, that person would have had reason to act before she could destroy the evidence.",
-      "red_herring_explanation": "Dauvek implies that Oravi was herself guilty of fraud and that her killer acted to prevent her from destroying evidence — an inversion that redirects suspicion and obscures the actual motive."
-    },
-    {
-      "id": "mot_rh3",
-      "checkpoint": "motive",
-      "answer": "Stealing the lineage inheritance records",
-      "weight": "red_herring",
-      "condition": {
-        "type": "talk_to_character",
-        "characters": [
-          "senne_arak"
-        ],
-        "location": null,
-        "item": null
-      },
-      "text": "[char:Senne Arak] tells the investigator that [time:some weeks before the death], she overheard [char:Tessek Oravi] in a sharp exchange with someone she could not see, in which Oravi said clearly: 'those records are not yours to take, and they never will be.'",
-      "red_herring_explanation": "The overheard argument about records 'not being yours to take' suggests the motive was theft or appropriation of inheritance documents — consistent with Dauvek's known pressure on Oravi — but the exchange was in fact about Oravi refusing to let anyone tamper with the historical trade records she was reviewing."
-    }
-  ],
-  "relations": [
-    {
-      "from": "nitha_tessek",
-      "to": "maret_doun",
-      "label": "employs"
-    },
-    {
-      "from": "nitha_tessek",
-      "to": "senne_arak",
-      "label": "employs"
-    },
-    {
-      "from": "nitha_tessek",
-      "to": "tessek_oravi",
-      "label": "rivals with"
-    },
-    {
-      "from": "dauvek_pol",
-      "to": "tessek_oravi",
-      "label": "nephew of"
-    },
-    {
-      "from": "irret_sou",
-      "to": "tessek_oravi",
-      "label": "professional acquaintance of"
+      "text": "The boot soles are packed with a pale green-grey dust that shimmers faintly when angled toward the light — viridian crystallite, its crust fresh and sharp-edged, not worn. A dark smear marks the inner edge of the right heel. The boot is sized for a large adult male.",
+      "contradicts": [
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Thessa Vel"
+        },
+        {
+          "checkpoint": "perpetrator",
+          "answer": "Pira Eddan"
+        }
+      ]
     }
   ],
   "leads": [
     {
-      "id": "lead_1",
-      "text": "A traveling salt-auditor named [char:Irret Sou] was berthed at [loc:quayside] when the body was found — she reached it before anyone else did, and she mentioned to the runner who summoned help that something about how the body lay had struck her as wrong.",
-      "character_id": "irret_sou",
-      "location_id": "quayside"
+      "id": "lead_01",
+      "text": "[char:Brek Ossun], the night tender, found the body on the [loc:dye_works] floor at first light and has not left the building since. He was working the vats all night and may have seen or heard something.",
+      "character_id": "brek_ossun",
+      "location_id": "dye_works"
     },
     {
-      "id": "lead_2",
-      "text": "The victim [char:Tessek Oravi] had been sent by the Matron to review ledgers at [loc:records_room] that same evening — the room was found unlocked the following morning, in violation of standing orders that [char:Nitha Tessek] herself enforces.",
-      "character_id": "nitha_tessek",
-      "location_id": "records_room"
+      "id": "lead_02",
+      "text": "[char:Thessa Vel] summoned the investigator herself. She says she may have been the last person to speak with [char:Sura Vel-Mak] before she died, and that Sura left the [loc:elder_hall] heading toward the [loc:archive_chamber] shortly before the trouble began.",
+      "character_id": "thessa_vel",
+      "location_id": "elder_hall"
     },
     {
-      "id": "lead_3",
-      "text": "The night-watcher [char:Senne Arak] holds her post at [loc:upper_walkway], which overlooks the passage between the Matron's House and the salt-works — she would have been on watch during the hours in question.",
-      "character_id": "senne_arak",
-      "location_id": "upper_walkway"
+      "id": "lead_03",
+      "text": "[char:Pira Eddan], the mineral assayer, was called to examine the body before dawn and has been in the [loc:assay_room] ever since, recording her observations. She has already made notes that she has not yet shared with anyone.",
+      "character_id": "pira_eddan",
+      "location_id": "assay_room"
     }
   ],
-  "opening_narrative": "The boat from the outer estuary reaches [loc:quayside] in the grey hour before the salt-fog fully lifts. [loc:quayside] smells of brine and wet rope, and the flat-bottomed trade vessels knock quietly against the pilings as the investigator steps ashore. The runner who came to fetch him said only that a woman was dead at the salt-works, that the body had been found at dawn, and that the Tessek lineage had sent for someone from outside because no one in [loc:quayside] could be seen to take a side.\n\nThe dead woman is [char:Tessek Oravi], bookkeeper and salt-merchant of the Tessek lineage — a position of no small consequence in a town whose livelihood rises and falls with the tidal harvest. She was found [time:at sunrise] by the overseer, [char:Maret Doun], slumped against the railing of the main salt-pan platform at [loc:salt_works]. The Matron, [char:Nitha Tessek], has not yet come down from [loc:matrons_house]. The market is still shuttered. Word has spread anyway, as word always does in Vaur Tessek, carried on the same salt-wind that carries everything else.\n\nThe investigator has been told that [char:Tessek Oravi] was working alone the previous evening and that nothing seemed amiss. He has been told this by the same people who are now waiting to see what he will do with what he finds.",
-  "epilogue": "What [char:Tessek Oravi] had been assembling in the months before her death was not a formal accusation but a private record — a set of marginal notations in the old trade ledgers that, taken together, would have been difficult to ignore. She had never been a woman who made claims she could not support in ink, and she had not intended to bring anything before [char:Nitha Tessek] until every line was legible and every figure cross-referenced. She was not quite finished when [char:Maret Doun] learned what she was doing.\n\n[char:Maret Doun] had built twelve years of quiet on the assumption that the fire at the Arak lineage stores had been closed as an accident and forgotten. The young laborer who died in it — a boy of seventeen named Pek Arak, her sister's son — had been working alone in the storage building when Maret set the blaze from outside, believing it empty. The payment recorded in the ledger as 'structural compensation' had in fact been a quieting sum arranged between Maret and a Tessek lineage factor who had since died, keeping the transaction out of any formal record. It was only Oravi's methodical habit of cross-referencing every unusual payment against the event records that had surfaced it at all. [char:Maret Doun] heard of it from a junior clerk who had noticed Oravi's notations and mentioned them to the overseer out of ordinary professional deference. Maret used the salt-scraper — a new one, drawn from the back stores so it would leave no traceable history — and she used the walkway she had walked every morning for twelve years to move the body before [loc:quayside] came to life.\n\n[char:Senne Arak], whose family name matched the lineage of the boy who died, had no connection to the crime and no knowledge of it — her gap in the watch log was nothing more than exhaustion and the cold. [char:Dauvek Pol] lost his petition to revise the lineage document; [char:Nitha Tessek], to her visible displeasure, was required to honor [char:Tessek Oravi]'s last completed set of records as the authoritative version. [char:Irret Sou] completed her cargo audit and sailed south [time:before the next tide], leaving behind a single page of notes on the state of Vaur Tessek's trade records — thorough, precise, and filed where anyone diligent enough to look would eventually find it."
+  "opening_narrative": "The fast-boat from the mainland magistracy arrives at [loc:harbour_dock] in the grey hour before dawn, when the freezing fog has swallowed Vel-Drassik entirely and only the cold-log lantern marks the end of the pier. The investigator steps ashore to find [char:Davan Reach] waiting with the careful expression of a man who has already decided what he will and will not say.\n\nThe message that summoned the investigator was brief and absolute: a keeper of the Weavings has been found dead on the floor of the [loc:dye_works], and the Elder-Matriarch [char:Thessa Vel] has declared that she will not permit the body to leave the outpost until the matter is resolved. The Weavings are the lifeblood of Vel-Drassik — their trade formulas worth more than any single cargo — and the Elder-Matriarch's authority in these matters is not questioned.\n\nThe outpost clings to the frost-bitten headland above the harbour, its stone buildings dark against the paler dark of the sky. The ochre-stained frost on the steps glows faintly rust-red in the lantern light, and somewhere above, a door is standing open that should not be.",
+  "epilogue": "[char:Orrath Denn] had been in contact with a southern trading house for the better part of a year, supplying them with copied fragments of the Nightbloom reduction formula in exchange for a sum that would have made him a wealthy man far from Vel-Drassik. He used his Factor's key to access the [loc:archive_chamber] during off-hours, working slowly enough that no single session left obvious marks.\n\n[char:Sura Vel-Mak] noticed the discrepancy in the yield records three days before her death and brought her concern to [char:Thessa Vel], who did not act quickly enough. On the night of the killing, Sura went to the [loc:archive_chamber] after leaving the [loc:elder_hall] to verify what she suspected. [char:Orrath Denn] was already there. When she confronted him directly and turned to leave, he took the pest-control crossbow from the [loc:counting_house] cabinet, loaded it with a single bolt, and followed her. He shot her once through the chest inside the [loc:archive_chamber]. He then carried her body to the [loc:dye_works] floor, hoping the presence of [char:Brek Ossun] elsewhere in the building would make the location seem incidental rather than chosen.\n\nHis undoing was the viridian crystallite dust that coated the Archive floor — it transferred to the bolt, to [char:Sura Vel-Mak]'s clothing, and to his own boots, which he had not thought to remove. [char:Pira Eddan] saw him carrying the body from her window. His own knowledge of the formula's structure, revealed when he could not resist correcting what he claimed he had never read, sealed the rest."
 }

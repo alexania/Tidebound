@@ -6,12 +6,15 @@ import type { Scenario, Difficulty } from '../types/scenario'
 import { validateScenario } from './validator'
 
 const SYSTEM_PROMPT = `You are generating a complete murder mystery scenario for a single-player deduction game.
-The only hard setting constraint is that it is coastal.
 The culture is provided as a constraint — use it as the primary lens for setting, naming, social structure, and atmosphere. Era, tone, and geography follow from the culture.
 The genre is provided as a tonal lens — let it shape atmosphere, narrative voice, character motivations, and the emotional register of clue texts. The scenario is always a murder mystery; the genre determines how that mystery feels.
 
 THE INVESTIGATOR:
 Every scenario includes a special character with id "investigator" — an official brought in from outside, whose presence is why people are talking at all. Not named or described in the JSON; the engine adds him. He always starts at the arrival_location. All clue conditions involve the investigator — every condition type begins with "investigator_". Do not include him in the characters array.
+
+THE ELIMINATION MODEL:
+This game uses pure elimination. All clues are true observations. The correct answer for each checkpoint is the one not contradicted by any clue. Players must prove each wrong answer impossible before the correct answer is accepted.
+Each clue has a "contradicts" array listing which (checkpoint, answer) pairs it makes logically impossible. No weights, no red herrings — every clue is a genuine fact.
 
 ═══════════════════════════════════════════════════════
 PHASE 1 — STORY BIBLE
@@ -19,7 +22,7 @@ Write everything inside <story></story> tags. Complete all steps before writing 
 ═══════════════════════════════════════════════════════
 
 STEP 1 — SETTING
-Build the setting from the culture. Decide: coastal location, season, weather, location name. Use the seed for atmospheric texture.
+Build the setting from the culture. Decide: location, season, weather, location name. Use the seed for atmospheric texture.
 
 STEP 2 — CRIME
 Decide the full truth before writing characters or clues: who the victim is, who the perpetrator is and exactly why, method, murder location, body found location, whether moved, time window.
@@ -30,29 +33,33 @@ STEP 3 — CHARACTERS & RELATIONS
 No more than 2 characters should share any location. Concentrating characters in one place floods a single turn with clues and removes the need to plan routes. Spread characters so the player has genuine decisions about where to go.
 Include one character who functions as a medical authority — ranging from a trained physician to a midwife, barber-surgeon, or herbalist. They were present at or summoned to the body before the investigation began. Their testimony may be correct, misleading, or limited by their competence — that is a story choice.
 For each non-perpetrator character: note what they know, what they suspect, and what they are concealing — and why.
-Publicly known relationships: employment, family, open romantic interest, open enmity. No secrets, no debts, nothing crime-related. Label each directionally: "employs", "sister of", "rivals with".
 
 STEP 4 — CLUE PLAN
 Plan the full clue structure before writing any JSON. This is the most critical step.
 
-For each of the 5 checkpoints (cause_of_death, true_location, time_of_death, perpetrator, motive):
+First, list every wrong answer option for every checkpoint. The correct answers come from the crime block — every other option is a wrong answer that must be eliminated.
 
-CORRECT CLUES — plan 2, obtainable from different locations. For each:
+For each wrong answer, plan at least one clue that makes it logically impossible. A clue may contradict wrong answers across multiple checkpoints, but no single clue should appear in more than 3 contradicts entries — if a clue seems to eliminate everything, it is too vague; make it more specific.
+
+For each planned clue:
 - What is the condition? (investigator where, with whom, with what item)
 - What raw observation does the clue text contain? No interpretations — only what was seen, heard, touched, or said.
-- DISCOVERABILITY: What specific information already visible to the player — character descriptions, item descriptions at their starting locations, relations, leads, or text from an already-collectable clue — would cause them to attempt this exact condition? Name it explicitly. If you cannot, the condition is wrong: move a character, relocate an item, or add a lead until a clear path exists.
-  For conditions of type ask_character_about_item or inspect_item_in_location: if the item's starting_location differs from the condition's location (or the character's fixed location), a prior clue text, lead, or description visible at game start must explicitly name both the item and the relevant character or location together — giving the player a concrete reason to bring that item to that specific person or place. Logical inference ("an auditor would care about a ledger") is not sufficient; the pairing must be stated in the text. If the item already starts at the condition location, no additional signposting is required.
+- Which wrong answers does it contradict, and why is the contradiction logically valid from the clue text alone?
+- DISCOVERABILITY: What specific information already visible to the player — character descriptions, item descriptions, relations, leads, or text from an already-collectable clue — would cause them to attempt this exact condition? Name it explicitly.
+  For conditions of type ask_character_about_item or inspect_item_in_location: if the item's starting_location differs from the condition's location (or the character's fixed location) a prior clue text, lead, or description must explicitly name both the item and the relevant character or location together. Logical inference is not sufficient; the pairing must be stated in text.
 
-RED HERRING CLUES — plan 3, each pointing at a DIFFERENT wrong answer_option. For each: which wrong answer does it target, and what makes the evidence misleading?
+Aim for 20–28 clues total.
 
 STORY DETAIL → PLAYER VISIBILITY:
-Every key fact from the story bible that a player needs to solve a checkpoint must be visible somewhere in the JSON — in a clue text, character description, item description, or location flavour. If it exists only in the story bible, it does not exist for the player. Before finalising, check each checkpoint: could a player who has read every piece of visible JSON text reach the correct answer? Pay particular attention to motive — the specific reason the perpetrator killed must be reconstructable from clue texts alone, not just implied by the story.
+Every key fact that a player needs to eliminate a wrong answer must be visible in a clue text. If it exists only in the story bible, it does not exist for the player. Before finalising, check each wrong answer: is there a clue whose text, taken alone, makes this wrong answer logically impossible? Pay particular attention to motive — the specific reason the perpetrator killed must be reconstructable from clue texts alone.
 
-STEP 5 — CONSISTENCY & VISIBILITY CHECK
-- VISIBILITY: The player sees only clue texts, character descriptions, item descriptions, and relations. For each checkpoint, trace what a player would conclude from those fields alone. Is it sufficient to reach the correct answer? If no, rewrite the relevant clues.
-- AMBIGUITY: For each correct clue, could a player reasonably cite the same observation as evidence for a wrong answer? If yes, add specificity.
-- COVERAGE: Do all 3 red herrings per checkpoint point at different wrong options? Two pointing at the same wrong answer means the player cannot eliminate it.
-- TIMING ELIMINATION: For time_of_death specifically, each wrong answer_option must be made logically impossible by at least one correct clue — not merely less supported, but contradicted. For each wrong option, name the correct clue that rules it out and how. If any wrong option survives both correct clues intact, rewrite until it cannot.
+STEP 5 — COVERAGE TABLE & CONSISTENCY CHECK
+Build a coverage table: checkpoint × wrong answer → which clue(s) contradict it.
+Every cell must be filled. If any wrong answer has no contradicting clue, write one.
+Check that no clue has more than 3 contradicts entries — if so, split it or make it more specific.
+Check that no clue could be construed to contradict a correct answer.
+- TIMING ELIMINATION: For time_of_death specifically, each wrong answer_option must be made logically impossible by at least one clue — not merely less supported, but contradicted. For each wrong option, name which clue rules it out and how.
+- ROUTING: Clues that contradict perpetrator and motive wrong answers should require deliberate routing (item-chains, specific character visits) so they are naturally discovered after the investigative facts are established. Do not gate them — they fire freely — but design their conditions to require effort.
 - CONTRADICTIONS: Resolve everything before writing JSON.
 
 ═══════════════════════════════════════════════════════
@@ -64,22 +71,27 @@ LOCATIONS: Up to 9 — as many as the scenario genuinely needs. One must be the 
 
 ITEMS: As many as the scenario needs, up to 8. Each must be referenced in at least one clue condition — no orphan items. Item descriptions are plain physical observations only: colour, shape, condition, visible markings. Do not include interpretive detail that reveals what the item is evidence of; that is the clue's job. No ledgers unless the motive is finance related.
 
-CHECKPOINTS: Exactly these 5: cause_of_death, true_location, time_of_death, perpetrator, motive — each with 4–6 answer options, correct answer present but not marked.
+CHECKPOINTS: Exactly these 5: cause_of_death, true_location, time_of_death, perpetrator, motive — each with 5–6 answer options. The correct answer must exactly match the corresponding value in the crime block:
+- cause_of_death: exact string from crime.cause_of_death
+- true_location: the name field of the location whose id matches crime.murder_location
+- time_of_death: exact string from crime.time_of_death
+- perpetrator: exact name of the character whose id is in crime.perpetrator_ids[0]
+- motive: exact string from crime.motive
+Wrong answers must be plausible given the setting — not obviously wrong from the opening narrative alone.
 
-CLUES: Follow the plan from Phase 1. Per checkpoint: exactly 2 "correct" + 3 "red_herring". Investigative clues (cause_of_death, true_location, time_of_death) fire freely. Perpetrator and motive clues only fire after all three investigative checkpoints have been confirmed — design them assuming the player has already established the basic facts of the crime.
+CLUES: Follow the plan from Phase 1. 20–28 clues total. All clues are true observations. No weights, no red_herring_explanation. Each clue has a "contradicts" array. Clues for perpetrator and motive fire freely — design their conditions to require deliberate routing (item-chains, specific character visits) so they are naturally discovered after investigative facts are established.
 
 LEADS: Exactly 3. At least 2 pointing toward early-game clue conditions. Each lead must give the player a concrete reason to visit a location or seek out a character — not just name them.
 
 CLUE-WRITING RULES:
-- No clue text may state or imply the answer to any checkpoint. No deductions, no interpretations, no phrases like "consistent with", "suggesting", "indicating", "which means", "pointing to", or "ruling out." Present only raw observations: what was seen, heard, touched, or said. The player connects the dots.
-- A correct clue must be specific enough that it cannot be equally cited as evidence for a wrong answer option. Before finalising, ask: could a player reasonably use this same observation to argue for another option? If yes, add physical or testimonial specificity.
-- Perpetrator correct clues must not be individually conclusive. Each should be suspicious but deniable alone; only the combination of both should be conclusive.
+- All clue texts are true observations. No clue text may state or imply which answer is correct — only what was seen, heard, touched, or said. The player deduces which wrong answers the clue rules out.
+- A clue that contradicts a wrong answer must do so with logical necessity from the clue text alone. "No puncture wound found" validly contradicts "stabbing." "Witness seemed nervous" contradicts nothing specific. Flag weak contradictions and rewrite them.
+- A clue that contradicts a perpetrator wrong answer must be suspicious but deniable on its own — only in combination with other clues should the perpetrator be obvious.
 - Clue text must be self-contained. Do not reference what another character "said" unless that character is in this clue's own condition.
 - All clue conditions involve the investigator. Use only the 5 condition types defined in the schema.
 - If a clue condition does not include a character, do not name any character in the clue text — unless that character's fixed location matches the condition location.
 - When the condition includes a character, write direct testimony: "[char:Name] tells the investigator...", "Asked directly, [char:Name] admits...", "Overhearing [char:Name]..."
-- Each clue should address one checkpoint only — avoid observations that simultaneously imply answers to multiple checkpoints.
-- For time clues, use standard and precise time descriptions. "Before dawn" is useless as it's not even sure when dawn is. "After one bell..." is useless as no one knows what a "bell" is. Time clues that simply imply "a lot" of time has passed is similarly useless.
+- For time clues, use standard and precise time descriptions. "Before dawn" is useless. "After one bell" is useless. Use clock-style references ("between 10 and 11 at night", "two hours before the tide turned at midnight") that definitively rule out specific time windows.
 
 GENERAL RULES:
 - Do not use salt as a commodity, trade good, or setting element. No salt warehouses, salt merchants, salt flats, salt trades, or salt-related anything. It has been overused to the point of parody.
@@ -87,18 +99,21 @@ GENERAL RULES:
 - The opening_narrative describes only the events leading to the investigator being summoned. No body description, no evidence.
 - Wrap character names in [char:Name], location names in [loc:location_id], and time references in [time:phrase] tags throughout all prose.
 - Every character id in any condition must exist in characters (except "investigator"). Every item id must exist in items. Every location id must exist in locations.
-- Red herring clues must point at a wrong answer_option and must have a red_herring_explanation.
 - Exactly one character must have isVictim: true.
 - Do not include multiple character conditions unless those characters share the same location.
 
 ═══════════════════════════════════════════════════════
 PHASE 3 — JSON AUDIT
-After writing the JSON, trace the discovery path for every correct clue before finishing.
+After writing the JSON, complete these checks before finishing.
 ═══════════════════════════════════════════════════════
 
-For each correct clue, write the complete chain: what does the player see at the start of the game that leads them to eventually attempt that condition? Trace every step. If any step requires the player to guess or try conditions at random, the clue is unreachable — fix the condition, move an item, add a lead, or surface the missing information in a prior clue's text.
+DISCOVERY CHECK: For each clue, write the complete chain: what does the player see at the start of the game that leads them to eventually attempt that condition? Trace every step. If any step requires the player to guess or try conditions at random, the clue is unreachable — fix the condition, move an item, add a lead, or surface the missing information in a prior clue's text.
 
-For each checkpoint, confirm: could a player who collected both correct clues reach the correct answer from the clue texts alone, without author knowledge? If no, rewrite.`
+COVERAGE CHECK: For every checkpoint, for every wrong answer, confirm at least one clue's contradicts array covers it. Build the full table. Any uncovered wrong answer is a structural failure.
+
+CLARITY CHECK: For each clue, confirm the clue text does NOT appear to contradict the correct answer for any checkpoint. A clue that seems to rule out the correct answer will mislead the player.
+
+ANTI-CLUSTERING CHECK: Confirm no clue has more than 3 contradicts entries. If one does, split it into more specific clues.`
 
 
 const SCHEMA = `{
@@ -124,7 +139,6 @@ const SCHEMA = `{
       "id": string (unique, snake_case),
       "name": string,
       "isVictim": boolean,
-      "local": boolean,
       "location": location_id (fixed for the whole game — characters do not move),
       "description": string (2–3 sentences; victim: character sketch + investigator's first observation of the body, surface only, no cause of death; others: character sketch + investigator's first observation upon meeting)
     }
@@ -159,7 +173,7 @@ const SCHEMA = `{
     {
       "id": "cause_of_death" | "true_location" | "time_of_death" | "perpetrator" | "motive",
       "label": string,
-      "answer_options": [string] (4–6 options, correct one included but not marked)
+      "answer_options": [string] (5–6 options, correct answer included, must exactly match crime block values — see CHECKPOINTS section)
     }
     // Exactly these 5, no more: cause_of_death, true_location, time_of_death, perpetrator, motive.
   ],
@@ -167,25 +181,22 @@ const SCHEMA = `{
   "clues": [
     {
       "id": string (unique),
-      "checkpoint": checkpoint_id,
-      "answer": string (must exactly match an entry in that checkpoint's answer_options),
-      "weight": "correct" | "red_herring",
       "condition": {
         "type": one of the 5 investigator condition types,
         "characters": [char_id] (for talk_to_character types; empty array otherwise),
         "location": location_id | null (for inspect_location types; null otherwise),
         "item": item_id | null (for inspect_item types; null otherwise)
       },
-      "text": string (1–3 sentences, [char:Name], [loc:location_id] and [time:phrase] tags, answers something AND implies next step),
-      "red_herring_explanation": string | null
+      "text": string (1–3 sentences, [char:Name], [loc:location_id] and [time:phrase] tags, raw observation only — no interpretations),
+      "contradicts": [
+        { "checkpoint": checkpoint_id, "answer": string }
+        // answer must exactly match an entry in that checkpoint's answer_options
+        // answer must NOT be the correct answer for that checkpoint
+        // max 3 entries per clue
+      ]
     }
-    // Per checkpoint: exactly 2 "correct" + 3 "red_herring".
-    // All 3 red herrings must point at different wrong answer_options.
-  ],
-
-  "relations": [
-    { "from": char_id, "to": char_id, "label": string }
-    // Publicly known only: employment, family, open romantic interest, open enmity. No secrets.
+    // 20–28 clues total. All clues are true observations.
+    // Every wrong answer for every checkpoint must be covered by at least one clue's contradicts array.
   ],
 
   "leads": [
@@ -200,7 +211,7 @@ const SCHEMA = `{
 
   "opening_narrative": string (2–3 paragraphs, [char:Name], [loc:location_id] and [time:phrase] tags, events up to summoning only),
 
-  "epilogue": string (2–3 paragraphs revealed after the case is solved. Its primary purpose is to surface the story bible details the player never needed to solve the crime: the victim's full history and secrets, what the perpetrator was truly concealing beyond the immediate crime, relationships and events the investigator never directly uncovered, the texture of the world before it broke. Written in past tense. May briefly note what became of key characters, but only where it illuminates something about the story — not as an accounting of outcomes. Uses [char:Name], [loc:location_id] and [time:phrase] tags. No new plot twists — revelation only.)
+  "epilogue": string (2–3 paragraphs revealed after the case is solved. Summarise the story from beginning to end, don't be too flowery. Uses [char:Name], [loc:location_id] and [time:phrase] tags.)
 }
 
 INTERACTION MODEL:
@@ -225,22 +236,23 @@ const GENRES = [
   'horror',
   'comedy',
   'tragedy',
-  'adventure',
-  'satire',
-  'melodrama',
+  'science fiction',
+  'satirical parody',
+  'soap opera',
   'political drama',
   'family drama',
-  'coming-of-age',
+  'fantasy',
   'farce',
-  'epic',
+  'reincarnation second chance',
   'espionage',
   'revenge tragedy',
-  'folklore',
+  'fairytale',
   'ghost story',
   'heist',
-  'social realism',
+  'xianxia',
   'psychological thriller',
   'dark comedy',
+  'vampires'
 ]
 
 const CAUSES_OF_DEATH = [
@@ -264,6 +276,8 @@ const CAUSES_OF_DEATH = [
   'garrotting with a cord or wire',
   'head held underwater in a barrel or trough',
   'throat cut',
+  'shot',
+  'genre appropriate'
 ]
 
 const MOTIVES = [
@@ -287,6 +301,7 @@ const MOTIVES = [
   'resentment over years of public humiliation',
   'preventing a marriage the perpetrator opposed',
   'destroying evidence of wartime collaboration or desertion',
+  'genre appropriate'
 ]
 
 const BODY_MOVED = [true, false]

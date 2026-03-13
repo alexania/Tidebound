@@ -1,196 +1,751 @@
 STEP 1 — SETTING
-Location: Hreiðarvik — a small Norse fishing village clinging to a rocky fjord inlet on the western coast of Norway, late autumn. The sea is iron-grey, the hills stripped bare, and salted wind tears through the smoke-holes of longhouses. The village smells of fish guts, wet wool, and ambition. The seed "quiet-shard-anchor" suggests something precious and sharp, something that holds fast — a reputation, perhaps, or a betrothal contract nobody wanted to honour.
-Season: Autumn. The herring run is ending. Men are hauling nets for the last time before winter locks the fjord.
-Weather: A low iron sky pressing fog into the valley.
-Arrival location: The dock — the only sensible place a visiting official arrives by sea.
-Tone (Satire): Everyone in this village is absurdly invested in social hierarchy, matrimonial alliances, and the appearance of piety. The murder is the most consequential thing that has ever happened here, and half the village is furious about it mainly because it disrupted the wedding feast preparations. Characters talk around the point. Witnesses remember things only when it suits them. The powerful insist on their dignity even while obviously lying.
+The Kauvari are a matrilineal society built around the trade of rare pigments, dyes, and mineral compounds extracted from the coastline — not salt, but ochre, viridian clay, and crystalline frost-minerals that form only in winter. Their culture centers on trade guilds called "Weavings," each controlled by a Matriarch who holds proprietary formulas for pigment refinement passed down through female lineages.
+Setting: The Kauvari trading outpost of Vel-Drassik, perched on a frost-bitten headland above a grey sea. It is deep winter. The seed "heavy-blood-frost" evokes: black ice on stone steps, frost-crystals stained rust-red from ochre dust, breath hanging in cold air like smoke. The sea is iron-grey, barely visible through freezing fog. The outpost is a cluster of stone buildings around a central dye-works, accessible by a single switchback road from the lower harbour.
+Season: Winter. Weather: Freezing fog with blood-ochre frost on the stones.
+Arrival location: The Harbour Dock — the investigator arrives by boat from the mainland magistracy, summoned by the local Elder-Matriarch.
 
 STEP 2 — CRIME
-Victim: Ulfhéðinn "Ulfi" Brandsson — a young fisherman of good reputation, recently betrothed to Astríðr Hallsdóttir, daughter of the wealthiest man in the village, Hallr Sigurðsson. Ulfi was handsome, charming, and deeply unsuitable by any objective measure of property or bloodline. He had no land. He was beloved by Astríðr and nobody else of importance.
-Perpetrator: Hallr Sigurðsson — Astríðr's father, the wealthiest merchant in Hreiðarvik, owner of two longships and a salt warehouse. He had been pressured by his wife into accepting the betrothal — Astríðr threatened to "walk into the fjord" if denied — but Hallr never accepted it. He had secretly arranged a far more advantageous match: Astríðr to Þorvarðr Egilsson, son of a powerful chieftain two fjords over. The wedding with Ulfi was set for three days' time. Hallr panicked.
-Method: Garrotting with a length of braided horsehair cord — the kind used to lash cargo in Hallr's warehouse.
-Murder location: The salt warehouse (by the dock).
-Body found location: The salt warehouse — body was NOT moved.
-Time window: Between [time:late evening] and [time:before dawn] — the night two days before the planned wedding.
-The two things the perpetrator could not avoid:
+Victim: Sura Vel-Mak, a senior dye-formula keeper of the Weavings — she holds the only written record of the Kauvari's proprietary "Nightbloom" pigment process, which produces a pigment worth more than gold on the southern markets.
+Perpetrator: Orrath Denn, the outpost's male factor (trade agent) — technically employed by the Weavings but secretly negotiating to sell the Nightbloom formula to a rival southern trading house. Sura discovered he had copied portions of the formula from the archive and confronted him privately in the Archive Chamber.
+Why: Sura was about to expose him to the Elder-Matriarch Thessa Vel. Orrath had no exit — the formula sale was days away. He shot her with a small hand-crossbow (a "casting bolt" — used in the region for pest control in the dye-stores, common enough to be unremarkable).
+Method: Single crossbow bolt to the chest. Cause of death: crossbow bolt wound.
+Murder location: The Archive Chamber (where formula records are kept).
+Body found location: The Dye-Works floor — Orrath moved her there to suggest she was inspecting the works, died by accident, or was targeted by a worker with a grudge.
+Time window: Between ten o'clock and midnight (she was seen alive at ten, found at first light).
+Unavoidable traces:
 
-The cord. Braided horsehair lashing cord is specific to Hallr's warehouse — it's used to bundle salt sacks. It is not standard fishing cordage. The perpetrator's innocent explanation: "anyone in the village could have taken a length from the warehouse, the door is never locked." The investigator must demonstrate that a specific length was recently cut from a spool still in the warehouse.
-Hallr was seen by one character near the warehouse that night. His innocent explanation: "I heard a noise and went to check." The investigator must establish the noise story is impossible — because the only witness to Hallr's presence was returning from the opposite direction and would have seen Hallr leaving the warehouse, not arriving.
+The bolt was fired at close range — evidence of bolt angle and entry wound will show this (medical authority clue).
+Orrath has a plausible innocent explanation: he says he went to the Archive late to check trade manifests and found nothing unusual — he claims the door was open and a lamp was burning. This is true; he was there. The investigator must prove he was there with her.
+Ochre-clay residue from the Archive floor (distinctive — the Archive has a specific mineral floor coating) is found on Orrath's boots — he claims he walked through after discovering the body elsewhere, but the Archive's floor dust has a unique mineral signature identifiable by the outpost's mineral-assayer.
 
+Not personally identified: The crossbow bolt is unmarked. The residue is location-specific, not person-specific on its own.
 
 STEP 3 — CHARACTERS & RELATIONS
+1. Sura Vel-Mak (victim) — Formula Keeper. Body found on the Dye-Works floor. Mid-fifties, lean, ink-stained fingers. Body description: found face-down near the central vats, frost already forming on her outer robe.
+2. Orrath Denn (perpetrator) — Trade Factor. Location: The Counting House (where he works). Late forties, heavyset, affable manner that doesn't reach his eyes. He is cooperative, forthcoming about having been at the Archive late, but claims to have found nothing amiss.
 
-Ulfhéðinn "Ulfi" Brandsson — victim, young fisherman, isVictim: true. Location: salt_warehouse (body found here). Description: Compact, dark-haired, lying face-down near a salt cask with a deep furrow across his neck. His hands are curled as though reaching for something he did not find.
-Hallr Sigurðsson — perpetrator, merchant, wealthy, self-important. Location: mead_hall (his hall, centre of the village — he is holding court, visibly unconcerned, which is itself suspicious). Description: A broad man in a fur-trimmed cloak, accepting condolences with a funerary expression that never quite reaches his eyes. He speaks in the measured tones of a man explaining something obvious to a child.
-Astríðr Hallsdóttir — victim's betrothed, Hallr's daughter, devastated. Location: family_longhouse (the Hallr family home). Description: Red-eyed, wrapped in a grey wool shawl, sitting very still in a way that suggests she stopped moving some hours ago and hasn't decided whether to start again. She speaks in short, clipped sentences.
-Brynja Ulfkelsdóttir — midwife and village gossip, knows everything about everyone, slightly enjoys crises. Location: healer_hut (near the edge of the village). Description: A wiry woman of middle age with ink-stained fingers from her herb lists. She has the particular brightness of expression belonging to someone who has been waiting for someone to ask her something.
-Þormóðr the Younger — dockworker, Ulfi's closest friend, found the body. Location: docks. Description: A large young man sitting on a coil of rope, looking like he has been punched in the stomach by the universe itself. He keeps glancing at the warehouse door.
-Sigríðr Magnúsdóttir — Hallr's thrall, works in the warehouse, sees everything, says very little — until offered the right question. Location: salt_warehouse (she was the one who found the body alongside Þormóðr, and cannot bring herself to leave yet). Description: A thin woman in a worn blue dress, standing very close to the wall, watching the investigator with the careful attention of someone used to being overlooked.
-Þorvarðr Egilsson — the rival suitor from out of town, recently arrived, visibly awkward about the timing. Location: mead_hall (he came for the wedding negotiation; now he's trapped here until the investigation concludes). Description: A well-dressed young man who keeps straightening his belt buckle and not meeting anyone's eyes. He smells of horse and has the look of someone who travelled a very long way to be in a very uncomfortable situation.
+Knows: He killed her. He moved the body.
+Concealing: His contact with the southern trading house, the copied formula fragments, the bolt.
+Innocent explanation offered: He was at the Archive checking manifests, left before midnight, saw nothing.
 
-Relations:
+3. Thessa Vel — Elder-Matriarch. Location: The Elder Hall. Seventies, severe, commands all respect. She summoned the investigator herself because she suspects foul play but doesn't know who.
 
-Hallr → Astríðr: "father of"
-Astríðr → Ulfi: "betrothed to"
-Þormóðr → Ulfi: "closest friend of"
-Hallr → Sigríðr: "owns" (thrall)
-Hallr → Þorvarðr: "negotiating alliance with"
-Þorvarðr → Astríðr: "proposed match for"
+Knows: Sura had told her three days ago that "something was wrong with the manifests." She didn't act in time.
+Suspects: Someone from outside (a rival house sent an agent).
+Concealing: That she ignored Sura's warning for two days.
+
+4. Pira Eddan — Mineral Assayer (the medical/scientific authority). Location: The Assay Room. Thirties, precise, anxious. She examined the body on the dye-works floor at dawn.
+
+Knows: The wound angle, the bolt type, and the specific mineral composition of dust found on the body's clothing.
+Suspects: The body was moved (the dust on the clothing doesn't match the dye-works floor).
+Concealing: That she already suspects Orrath — she saw him near the Archive the previous night — but is afraid to say so directly.
+
+5. Brek Ossun — Night Tender (maintains the dye-vats overnight). Location: The Dye-Works. Young man, exhausted, fidgety. He was working the night shift and found the body at dawn.
+
+Knows: He was at the Dye-Works all night; the body was not there before the third bell of night (approximately midnight), then was there when he checked again near dawn. He heard a sound — like a door slamming — around the midnight bell.
+Suspects: Nothing specific, terrified.
+Concealing: That he left his post for about a half-hour around the midnight bell to visit a woman he's not supposed to be seeing (Linna, below). He doesn't want to admit this.
+
+6. Linna Vor — Archive Warden (keeper of the physical archive room). Location: The Archive Chamber. Forties, quiet, methodical. She has a key to the Archive; Orrath has a duplicate (legitimately, as factor).
+
+Knows: She locked the Archive at the ninth bell. She did not re-enter. Her key has not left her person. Yet the Archive was found unlocked at dawn.
+Suspects: Orrath used his key. She knows he has one.
+Concealing: That she found something disturbed in the Archive — a specific formula-case that was moved — but has not reported it yet, waiting to see what the investigator finds.
+
+7. Davan Reach — Harbour Master. Location: The Harbour Dock. Older man, weathered. He met the investigator's boat. He was at the dock all night.
+
+Knows: A small vessel left the harbour at around the eleventh bell of night (between ten and eleven). It carried one passenger he didn't recognise. It did not return by dawn.
+Suspects: The passenger was a courier or contact from a rival house.
+Concealing: Nothing significant — he simply didn't think the departure unusual until now.
+
+Locations:
+IDNameColRowharbour_dockHarbour Dock02elder_hallElder Hall12dye_worksDye-Works22counting_houseCounting House21archive_chamberArchive Chamber11assay_roomAssay Room01
+Six locations. Adjacencies:
+
+harbour_dock ↔ elder_hall
+harbour_dock ↔ assay_room
+elder_hall ↔ archive_chamber
+elder_hall ↔ dye_works
+archive_chamber ↔ counting_house
+archive_chamber ↔ assay_room
+dye_works ↔ counting_house
 
 
 STEP 4 — CLUE PLAN
-CAUSE OF DEATH: Garrotting with a cord or wire
-Answer options: Stabbing with a fishing knife | Blunt blow to the skull | Garrotting with a cord or wire | Drowning in the fjord | Poisoning by herb or tincture
-Correct Clue 1 — inspect_location (salt_warehouse)
-Condition: Investigator inspects the salt warehouse.
-Observation: The furrow across the victim's neck is deep and horizontal, with dark bruising in a continuous line — no puncture, no blood pooling. Near the body, a short length of braided cord lies coiled, frayed at both ends where it was separated from something longer.
-Discoverability: The body is in the warehouse. Players will inspect the crime scene.
-Correct Clue 2 — talk_to_character (Brynja)
-Condition: Investigator talks to Brynja at the healer_hut.
-Observation: Brynja examined the body briefly at dawn before it was sealed away. She says the bruising pattern across Ulfi's throat was a closed-band mark, not the open bruising of a blow or the petechiae of drowning — she has seen drowning before, she says, and it leaves different signs in the face.
-Discoverability: Lead #1 directs the player to Brynja as the person who examined the body.
-Red Herring 1 — stabbing
-Þormóðr, when talked to, says Ulfi had an argument with a fisherman over a knife the week before. Someone's been spreading this around. (Points at Stabbing.)
-Red Herring 2 — blunt blow
-Inspect the warehouse: a heavy salt cask has been knocked over near the body. (Points at Blunt blow.)
-Red Herring 3 — drowning
-Astríðr, when talked to, mentions that Ulfi was drunk the night before and stumbled near the dock. Someone could mistake a drowned man for a strangled one. (Points at Drowning.)
+Checkpoints and correct answers:
 
-TRUE LOCATION: Where the murder actually took place
-Answer options: The salt warehouse | The docks | The mead hall | The healer's hut | Behind the family longhouse
-Correct Clue 1 — inspect_location (salt_warehouse)
-Condition: Investigator inspects the salt warehouse.
-Observation: Drag marks in the salt dust on the floor would be present if someone had been moved — but the floor shows only a single scuffed area near the body, with no trail. The body's position is compact, facing the wall.
-Discoverability: Body is here; players will inspect.
-Correct Clue 2 — talk_to_character (Sigríðr)
-Condition: Investigator talks to Sigríðr at the salt warehouse.
-Observation: Sigríðr says she found the body when she came to open the warehouse at dawn. The bar was down on the inside — she had to go around and come through the side entrance. She had left the bar up the previous evening.
-Discoverability: Sigríðr is in the warehouse at game start. Players will talk to her.
-Red Herring 1 — docks
-Þormóðr mentions Ulfi told him he was going to the docks that evening to check the nets. (Points at Docks.)
-Red Herring 2 — behind the family longhouse
-Inspect the area behind the longhouse: footprints in the mud lead toward the warehouse, suggesting a meeting was planned there. (Points at Family longhouse.)
-Red Herring 3 — mead hall
-Þorvarðr says he saw Ulfi heading toward the mead hall shortly after dusk. (Points at Mead Hall.)
+cause_of_death: "crossbow bolt wound"
+true_location: "Archive Chamber"
+time_of_death: "between ten o'clock and midnight"
+perpetrator: "Orrath Denn"
+motive: "to prevent exposure of his theft of the Nightbloom formula"
 
-TIME OF DEATH: When Ulfi was killed
-Answer options: Before dusk | Shortly after dusk | In the middle of the night | Before dawn | After dawn
-Correct Clue 1 — inspect_item (the_cord)
-Condition: Investigator inspects the braided cord item.
-Observation: The cord is stiff and the braiding has begun to set in the cold — when bent, it resists at a particular angle, the way cordage does after several hours in a frost-cold room. The salt warehouse drops to near-freezing after [time:midnight].
-Discoverability: Cord is found at salt_warehouse on inspection.
-Correct Clue 2 — talk_to_character (Brynja)
-Observation: Brynja tells the investigator that when she examined the body at first light, the flesh around the wound had already begun to stiffen, and the body had lost warmth throughout — not merely at the extremities. She says this takes several hours in cold air.
-(Together: these establish death several hours before dawn — placing it in the middle of the night, ruling out before dawn and after dawn as too late, ruling out before/shortly after dusk because the cord rigidity requires hours at near-freezing temperature which only occurs after midnight.)
-Discoverability: Lead #1 sends players to Brynja.
-Wrong option eliminations:
+Wrong answers:
+cause_of_death wrong options: blunt force trauma, poisoning, strangulation, drowning, blade wound
+true_location wrong options: Dye-Works, Counting House, Elder Hall, Harbour Dock, Assay Room
+time_of_death wrong options: before ten o'clock, between midnight and two in the morning, after two in the morning, at dawn, between two and four in the morning
+perpetrator wrong options: Thessa Vel, Pira Eddan, Brek Ossun, Linna Vor, Davan Reach
+motive wrong options: personal vendetta, inheritance dispute, concealing an affair, revenge for a past wrong, eliminating a trade rival
 
-"Before dusk" — eliminated by Sigríðr's testimony: she was in the warehouse at dusk and the body was not there.
-"Shortly after dusk" — eliminated by cord stiffness: insufficient time in cold air.
-"Before dawn" — eliminated by Brynja: body warmth lost throughout, requiring several hours, not just one.
-"After dawn" — eliminated by Sigríðr: she found the body at dawn, so it cannot postdate her discovery.
+CLUE PLAN:
+C1 — inspect_location: dye_works
+Observation: The body lies near the central vats. The frost on her outer robe is heavier than the frost on the vat-covers beside her — she was not in this room when the frost formed.
+Contradicts: true_location → Dye-Works (body moved here, frost pattern proves she wasn't here while frost was forming)
+C2 — talk_to_character: brek_ossun
+Observation: Brek says the body was not on the floor when he last checked the vats before the midnight bell. He saw it at first light.
+Contradicts: time_of_death → between midnight and two in the morning (body placed here after midnight bell, but death window is before — she was already dead when moved); actually this supports the window. Let me use this to contradict: time_of_death → after two in the morning (Brek found her at dawn, which would allow "after two," but the midnight bell timing for body placement means death was before then — no, this is complicated).
+→ Revise: Brek says the body was not present when he checked at the midnight bell, and was present at dawn. This contradicts: time_of_death → before ten o'clock (she was seen alive at ten). Actually Brek's testimony about the body placement time is a red herring for when death occurred. Let me be more careful.
+Brek's key fact: He heard a single loud sound — like a heavy door — at the midnight bell, coming from the direction of the Archive. This contradicts: true_location → Harbour Dock, true_location → Elder Hall (the sound came from the Archive direction).
+C3 — talk_to_character: brek_ossun (second clue, different content)
+Brek confirms he was at the Dye-Works all night after the midnight bell and saw no one enter or leave with a body.
+Contradicts: true_location → Dye-Works
+C4 — talk_to_character: thessa_vel
+Thessa says Sura spoke to her at the tenth bell of night, alive and agitated, about something wrong with the trade manifests.
+Contradicts: time_of_death → before ten o'clock
+C5 — inspect_item: crossbow_bolt (recovered from body)
+The bolt is short, unfletched — the kind used in the small hand-crossbows kept in the dye-stores for pest control. The entry angle shows the bolt came from roughly the same height as the wound, not above or below.
+Contradicts: cause_of_death → blade wound; cause_of_death → blunt force trauma; cause_of_death → strangulation
+(3 entries — at limit, fine)
+C6 — talk_to_character: pira_eddan
+Pira says the wound is a single penetrating injury consistent with a bolt. No bruising to the neck, no water in the lungs, no blunt trauma to the skull.
+Contradicts: cause_of_death → strangulation; cause_of_death → drowning; cause_of_death → blunt force trauma
+(3 entries — at limit)
+C7 — inspect_item_in_location: crossbow_bolt in assay_room (investigator has bolt, goes to assay room)
+Pira examines the bolt and identifies mineral residue on the shaft — a specific viridian clay compound that coats the Archive Chamber floor exclusively.
+Contradicts: true_location → Counting House; true_location → Elder Hall; true_location → Harbour Dock
+(3 entries)
+C8 — inspect_location: archive_chamber
+The stone floor shows a disturbed layer of viridian clay-dust near the central reading table. A lamp was left burning — its oil is nearly exhausted, consistent with burning since approximately the tenth bell.
+Contradicts: true_location → Assay Room; true_location → Dye-Works (redundant support but valid)
+Only 2 entries — fine.
+C9 — talk_to_character: linna_vor
+Linna says she locked the Archive at the ninth bell. When she arrived at dawn, the door was unlocked. Her key never left her. She knows Orrath Denn holds a duplicate key as Factor.
+Contradicts: perpetrator → Thessa Vel; perpetrator → Pira Eddan; perpetrator → Brek Ossun
+(Orrath is the one with archive key access; these three don't have keys)
+(3 entries — at limit)
+C10 — inspect_location: archive_chamber
+A formula-case on the secondary shelf has been pulled forward and improperly replaced — it faces outward rather than spine-in, unlike all the others.
+Contradicts: motive → personal vendetta; motive → concealing an affair
+(The disturbance is to the formula records, indicating trade-related motive)
+C11 — talk_to_character: thessa_vel
+Thessa says Sura told her three days prior that "the manifests don't match the formula records — something has been copied." She did not yet know who.
+Contradicts: motive → inheritance dispute; motive → revenge for a past wrong
+(The manifests/formula concern is about trade secrets, not personal disputes)
+C12 — inspect_item: formula_fragment (a piece of parchment found in the Archive)
+The parchment fragment bears partial notation in a hand different from the official archive records — the numerals are written in the southern merchant style, not the Kauvari manner.
+Contradicts: motive → eliminating a trade rival; motive → concealing an affair
+(Southern-style notation implies outside contact — trade secret theft, not elimination of competition or affair)
+Actually "eliminating a trade rival" is close to the correct motive — I need to be more precise with the wrong option. Let me reframe: "eliminating a trade rival" means killing because Sura was a rival, not because she knew something. The formula fragment with southern notation shows the motive is secret theft for external sale, not rivalry elimination. Valid contradiction.
+C13 — ask_character_about_item: formula_fragment → pira_eddan
+Pira recognises the southern numeral style — she says traders from the Vel-Drassik's rival house use this notation. She saw a figure matching that house's known courier near the Counting House two days ago.
+Contradicts: motive → personal vendetta; motive → inheritance dispute
+(Establishes external southern trade contact — confirms the theft-for-sale motive direction)
+C14 — ask_character_about_item: formula_fragment → orrath_denn
+When shown the fragment, Orrath's hands tighten on his counting board. He says he has never seen the document, but then says it "looks like part of the secondary formula register" — information he should not have if he had never seen it.
+Contradicts: perpetrator → Linna Vor; perpetrator → Davan Reach
+(Only someone familiar with the archive contents could identify it without seeing it before)
+C15 — talk_to_character: orrath_denn
+Orrath states freely that he visited the Archive late that night to check trade manifests, and left before the midnight bell. He says the Archive was quiet and empty.
+Contradicts: perpetrator → Brek Ossun; perpetrator → Thessa Vel (neither of them would have been in the archive or offered this specific alibi)
+Wait — this clue shows Orrath was there, not contradicts others being perpetrators. Let me reconsider.
+This clue establishes Orrath's presence at the archive but is his alibi. It's a suspicious-but-deniable clue. It doesn't directly contradict other perpetrators per se. Instead:
+Contradicts: perpetrator → Linna Vor (Linna says she locked the archive at nine and didn't return; but Orrath's presence proves someone was there after nine with a key — and Orrath has the other key, so if Orrath was there, the perpetrator had key access, which Linna also has, but Linna's account of her own movements will be elsewhere. Actually this is getting complicated.
+Let me restructure C15: Orrath admits to being at the Archive between the tenth and eleventh bell. He describes the Archive as empty and quiet. But Sura was also there at the tenth bell (from Thessa's testimony). This creates a contradiction in his account — but as a clue, the clue text is his testimony, which is raw observation.
+Contradicts: perpetrator → Davan Reach (Davan was at the harbour all night)
+C16 — ask_character_about_item: crossbow_bolt → orrath_denn
+When shown the bolt, Orrath says the pest-control crossbows are kept in a cabinet in the Counting House and that anyone on the staff could access them. He is the one who manages access to the Counting House.
+Contradicts: perpetrator → Brek Ossun; perpetrator → Pira Eddan
+(Orrath controls access to the weapon source; others have no explained access)
+Actually this is soft. Let me make it harder:
+C16 — ask_character_about_item: crossbow_bolt → orrath_denn
+When shown the bolt, Orrath identifies it immediately as coming from the pest-control store in the Counting House. He says only he and the Elder-Matriarch hold keys to that cabinet.
+Contradicts: perpetrator → Brek Ossun; perpetrator → Pira Eddan; perpetrator → Linna Vor
+(Cabinet limited to Orrath and Thessa)
+(3 entries — at limit)
+C17 — inspect_location: counting_house
+A small crossbow hangs on the wall near the supply cabinet. The cabinet door is unlocked; one bolt-slot in the rack inside is empty.
+Contradicts: cause_of_death → poisoning (the weapon is present and has a missing bolt)
+C18 — inspect_item: orrath_boots (item: distinctive boots with viridian residue)
+The soles of the boots carry viridian clay residue — the same distinctive compound as the Archive floor. The deposit is heavy and fresh, not worn smooth.
+Contradicts: perpetrator → Davan Reach; perpetrator → Thessa Vel
+(Physical evidence places Orrath at the Archive with fresh deposit)
+But wait — Orrath admits being at the Archive. His innocent explanation is that he was there for legitimate reasons. This clue confirms Archive presence but his explanation covers it. So this alone doesn't contradict "Orrath didn't do it."
+Better: The boots are Orrath's, and the residue is fresh and heavy — and combined with C7 (the bolt has archive residue) and C14 (he knows archive contents), the pattern emerges. But individually, C18 contradicts perpetrators who were never at the Archive.
+Contradicts: perpetrator → Davan Reach; perpetrator → Brek Ossun
+(Davan was at the harbour, Brek was at the dye-works)
+C19 — inspect_item_in_location: orrath_boots in counting_house
+When examined in the Counting House, the residue on the boots is specifically matched by Pira (if asked — see separate clue) — but at inspection, the investigator notes the boots are placed directly beside the supply cabinet, not at the door where outdoor boots would normally be left.
+Actually this should be an inspect_item_in_location that fires when the investigator has the boots in the counting_house. The text observes the cabinet proximity.
+Contradicts: perpetrator → Thessa Vel (Elder-Matriarch would not be in the Counting House's supply area)
+Wait, I shouldn't have too many clues about perpetrator wrong answers from the same location chain. Let me refocus.
+Let me restructure the clue list more cleanly:
 
-Red Herring 1 — before dusk
-Inspect the dock: someone reports seeing Ulfi alive "in the afternoon." (Points at Before dusk.)
-Red Herring 2 — shortly after dusk
-Þormóðr says Ulfi came home from the dock and seemed fine at supper, "as the sun went down." (Points at Shortly after dusk.)
-Red Herring 3 — before dawn
-Astríðr says she heard footsteps outside her longhouse "in the deep dark before dawn." (Points at Before dawn.)
+REVISED FULL CLUE LIST:
+COD clues (need to eliminate: blunt force trauma, poisoning, strangulation, drowning, blade wound):
+C1 — inspect_location: dye_works → observes body, frost pattern anomaly. No COD info here.
+C2 — talk_to_character: pira_eddan → she describes the wound characteristics.
+Text: Pira says the wound is a single penetrating puncture to the chest, roughly the diameter of a crossbow bolt. She found no bruising around the throat, no water in the lungs, and the skull is intact.
+Contradicts: COD → strangulation, COD → drowning, COD → blunt force trauma (3)
+C3 — inspect_item: crossbow_bolt
+Text: The bolt is short, unfletched, of the type used in small hand-crossbows. The tip is dark with dried matter. The shaft shows no signs of secondary use as a club or blade.
+Contradicts: COD → blade wound, COD → blunt force trauma (2) — and by confirming bolt type, combined with C2, eliminates poisoning... actually I need a direct clue against poisoning.
+C4 — inspect_item_in_location: crossbow_bolt in assay_room
+Text: Pira examines the bolt and confirms the residue on the tip is blood, consistent with a direct wound. She says there is no coating or chemical treatment on the tip — it was not poisoned.
+Contradicts: COD → poisoning, true_location → Counting House, true_location → Harbour Dock (she also identifies the mineral dust on the shaft as archive-exclusive compound)
+(3 entries — but I'm mixing COD and true_location — that's valid and actually good)
+TRUE LOCATION clues (need to eliminate: Dye-Works, Counting House, Elder Hall, Harbour Dock, Assay Room):
+C5 — inspect_location: dye_works
+Text: The frost on the victim's outer robe is heavier and more crystalline than the frost on the dye-vat covers immediately beside her, despite identical exposure. The floor around her shows no disturbed dust or vat-splatter on her clothing.
+Contradicts: true_location → Dye-Works (1)
+C6 — inspect_location: archive_chamber
+Text: The viridian clay dust on the floor near the central reading table is heavily disturbed in a roughly body-sized area. A lamp on the table has burned nearly dry, its oil consistent with burning since the tenth bell.
+Contradicts: true_location → Assay Room, true_location → Elder Hall (2)
+C7 — inspect_item_in_location: crossbow_bolt in assay_room
+Text: Pira identifies mineral dust on the bolt's shaft as viridian crystallite, the compound used exclusively to treat the Archive Chamber floor against damp. No other floor in Vel-Drassik uses this compound.
+Contradicts: true_location → Counting House, true_location → Harbour Dock, true_location → Elder Hall (3 — Elder Hall also covered by C6, redundant but valid)
+Wait — Elder Hall is now covered by both C6 and C7. That's fine (redundancy is acceptable), but I should use C7's third slot for something else.
+C7 contradicts: true_location → Counting House, true_location → Harbour Dock (2 entries, both new)
+C8 — talk_to_character: brek_ossun (first talk)
+Text: Brek says he heard a single loud impact sound — like a heavy door slamming — coming from the direction of the Archive Chamber, at the midnight bell. He did not investigate.
+Contradicts: true_location → Harbour Dock, true_location → Dye-Works (the sound came from the Archive direction, not from these locations) (2)
+Hmm — this is a bit weak as a strict logical contradiction. The sound being from the Archive direction doesn't logically rule out the murder happening elsewhere. Let me adjust.
+Actually it weakly supports Archive but doesn't strictly contradict others. Let me use this clue differently.
+C8 — talk_to_character: brek_ossun
+Text: Brek says the Dye-Works floor where the body was found was clear of any obstruction when he checked the vats at the tenth bell. He is certain — he crossed that exact spot.
+Contradicts: true_location → Dye-Works (she wasn't there at ten, and she was alive at ten, so Dye-Works is impossible as murder location) — actually this is already handled by C5.
+Let me make Brek's clue about TIME instead:
+C8 — talk_to_character: brek_ossun (about timing)
+Text: Brek says the body was not on the Dye-Works floor when he crossed it at the tenth bell of night. He is certain — the light from the vats made the floor visible. He found the body only at first light.
+Contradicts: time_of_death → before ten o'clock (she was alive at ten per Thessa, and not yet at the dye-works at ten)
+Hmm, but this doesn't contradict COD being "before ten" — actually Thessa already covers that. Let me keep Brek's clue here as a redundant support and have him say something else too.
+TIME OF DEATH clues (need to eliminate: before ten o'clock, between midnight and two, after two in the morning, at dawn, between two and four in the morning):
+Note: I have "between two and four in the morning" and "after two in the morning" as overlapping options. Let me set the wrong options more distinctly:
+Wrong time options: "before nine o'clock", "between nine and ten o'clock", "between midnight and two in the morning", "between two and four in the morning", "after four in the morning"
+C9 — talk_to_character: thessa_vel
+Text: Thessa says Sura came to her in the Elder Hall at the tenth bell of night, alive and distressed, speaking of irregularities in the trade manifests. Sura left toward the Archive shortly after.
+Contradicts: time_of_death → before nine o'clock, time_of_death → between nine and ten o'clock (2)
+C10 — talk_to_character: brek_ossun
+Text: Brek says he crossed the Dye-Works floor at the midnight bell — he is certain because he heard the harbour bell clearly — and the floor was empty. The body was there at first light.
+Contradicts: time_of_death → between midnight and two in the morning (if she was placed there after midnight bell, she was already dead — her death was before midnight, consistent with the window).
+Wait: if the body was placed there after the midnight bell (Brek didn't see it at midnight, saw it at dawn), this doesn't necessarily mean she died after midnight — she could have died before midnight and been moved later. But Brek's testimony does contradict the time window being "between midnight and two" ONLY IF we know she was already dead when placed. This is an inference chain, not a direct contradiction from the clue text alone.
+Let me find a better clue for the midnight+ options.
+For "between midnight and two" and "between two and four":
+The lamp in the Archive (C6) burned since the tenth bell and was nearly dry. Lamp oil lasts approximately 2-3 hours in this context. If the lamp was lit at the tenth bell and nearly dry at dawn (say six bells), that doesn't directly constrain death time.
+Better approach: Use Linna Vor. She locked the Archive at the ninth bell. If the archive door was unlocked at dawn and the only two keys are hers and Orrath's, the murder happened when someone used a key.
+C11 — talk_to_character: linna_vor (first)
+Text: Linna says she locked the Archive door at the ninth bell and did not return. When she arrived at dawn, the door stood unlocked. Her key has not left her person. She confirms that [char:Orrath Denn] holds the only other key.
+Contradicts: perpetrator → Thessa Vel, perpetrator → Pira Eddan, perpetrator → Brek Ossun (none of them have archive key access) (3)
+For timing elimination of the midnight+ options, I need something more direct. Let me use Davan:
+C12 — talk_to_character: davan_reach
+Text: Davan says a vessel left the harbour at the eleventh bell carrying a single passenger he did not recognise. By midnight the fog had thickened so heavily that no vessel could safely navigate — he saw no departures after the eleventh bell.
+Contradicts: time_of_death → between midnight and two in the morning (... this is about the harbour, not the murder. Too indirect.)
+Let me try another approach. Use Orrath's own admission:
+C13 — talk_to_character: orrath_denn (early)
+Text: Orrath says he was in the Archive Chamber between the tenth and the eleventh bell, checking manifests. He left before the eleventh bell and went directly to the Counting House, where he remained for the rest of the night. He says the Archive was empty when he left.
+Contradicts: time_of_death → between midnight and two in the morning, time_of_death → between two and four in the morning (if the murder happened after midnight, Orrath's stated presence in the Archive at ten-to-eleven is moot; but combined with the archive evidence showing the murder was in the archive, and Orrath was the only keyholder there that night, this constrains the window. But strictly from the clue text... it doesn't directly say she died before midnight.)
+Hmm. I need direct clues that say "she was definitely alive at X time" and "she was definitely dead by Y time."
+Anchors for time window:
 
-PERPETRATOR: Who killed Ulfi
-Answer options: Hallr Sigurðsson | Astríðr Hallsdóttir | Þormóðr the Younger | Þorvarðr Egilsson | Sigríðr Magnúsdóttir | Brynja Ulfkelsdóttir
-Correct Clue 1 — ask_character_about_item (Sigríðr, the_cord)
-Condition: Investigator shows the cord to Sigríðr.
-Observation: Sigríðr examines the cord and says this length matches the lashing cord from the large spool by the door — and that the previous morning, the spool was intact. She watched Hallr take a length from it [time:the evening before the body was found], "to tie something down," he said.
-Discoverability: Brynja's clue (in true_location discovery) mentions that the cord type is warehouse cord. Sigríðr is in the warehouse. Natural action is to show her the cord.
-Actually — I need to restructure this. The cord starts in the warehouse. The player picks it up. Sigríðr is also in the warehouse. Lead #3 should hint that Sigríðr knows the warehouse inventory.
-Correct Clue 2 — inspect_item_in_location (the_cord, healer_hut → actually I need this at a different location)
-Let me re-plan:
-Correct Clue 2 — talk_to_character (Þorvarðr)
-Condition: Investigator talks to Þorvarðr at the mead hall.
-Observation: Þorvarðr, visibly uncomfortable, admits that Hallr summoned him [time:two days ago] to confirm their arrangement — that Astríðr would be his wife, and that Hallr had said "the obstacle will be removed." Þorvarðr assumed this was metaphor. He now appears to be revising this assumption in real time.
-Discoverability: Lead #2 points the player toward the mead hall and mentions Þorvarðr arrived recently for "negotiations." Players investigating the arranged marriage angle will talk to him.
-Red Herrings:
+Alive at tenth bell: Thessa's testimony (C9)
+Body found at dawn: Brek's testimony
 
-Points at Þormóðr: he found the body and had access; Þormóðr acts nervous (actually grief)
-Points at Þorvarðr: he had motive (wanting the match secured) and was seen near the dock area
-Points at Sigríðr: she had access to the warehouse and was first at the scene
+I need something that proves she was dead before midnight.
+What if Linna sees her enter the Archive? Or what if the lamp oil calculation works?
+Lamp oil clue: The lamp was nearly dry at dawn. Vel-Drassik lamps hold enough oil for approximately three hours. If the lamp burned continuously from when it was lit until dawn (say six bells of night), it would need to have been lit around the third or fourth bell — but that's too early. If it burned from the tenth bell to dawn, six hours, it would be completely dry, not nearly dry. If it's nearly dry, it burned for perhaps five hours, lit around midnight or just before. Hmm, that places lamp lighting around midnight, which doesn't help clearly.
+Alternative: The lamp was found nearly dry. Pira examined the body at dawn. If the lamp burned for 3 hours maximum and was nearly dry at dawn (~sixth bell), it was lit around the third bell of night. But Sura was last seen alive at the tenth bell (10pm). This would suggest the lamp was lit much later than when Sura arrived — which is strange.
+Let me abandon the lamp-oil angle and use the frost instead:
+Frost clue for time: The frost on the body formed while it was in the Dye-Works (it's the wrong frost, but it did form there). The frost pattern on the outer robe is consistent with a body lying still in the Dye-Works during the coldest part of the night — which Pira (as assayer) can say begins around the third bell (3am) and peaks near dawn. But if the frost had been forming since before midnight (11pm-midnight), the pattern would be different.
+C14 — inspect_item_in_location: crossbow_bolt in assay_room (fold the frost analysis in here or make a separate clue)
+Actually let me create a separate frost-based time clue:
+C15 — ask_character_about_item: crossbow_bolt → pira_eddan (but also about the frost on clothing)
+Let me use a location inspect instead.
+C15 — inspect_location: dye_works (second inspect clue — different observation)
+Text: The frost crystals on the victim's outer robe are shallow — no more than two hours of growth at these temperatures, according to the marks on the cold-gauge mounted on the vat-wall. The coldest air of the night arrives after the fourth bell.
+Contradicts: time_of_death → between two and four in the morning (if she'd been dead since 2-4am and the frost shows only 2hrs of formation at coldest temps, she was placed here around the fourth bell at earliest, which means she died no earlier than... hmm, this gets complex and the logic is not clean)
+Let me try a cleaner approach. I'll use Brek's testimony more precisely:
+C10 — talk_to_character: brek_ossun
+Text: Brek says he crossed the Dye-Works floor at the midnight bell and again at the second bell — both times the floor was clear. The body lay there when he returned from outside at the fourth bell.
+Contradicts: time_of_death → between two and four in the morning, time_of_death → between midnight and two in the morning (if she was placed at the fourth bell, she was already dead — she could have died between midnight and four, but the Archive lamp and Orrath's alibi put the murder before midnight. But strictly from THIS clue, it only means the body was moved at ~4am, not that she died before midnight.)
+Ugh — the timing elimination requires a chain of inferences. Let me think about what would DIRECTLY contradict "she died between midnight and two" or "between two and four."
+The cleanest approach: Have a witness who saw Sura entering the Archive and the Archive door was found closed/locked shortly after midnight, with someone seen leaving.
+Or: Linna Vor could have passed by the Archive around midnight and found it locked (meaning whatever happened was done by then).
+C11b — talk_to_character: linna_vor (additional testimony)
+Text: Linna says she passed the Archive door on her way to her quarters at the midnight bell — the door was locked at that point. She tried the handle from habit. She is certain of the time because the harbour bell had just sounded.
+Contradicts: time_of_death → between midnight and two in the morning, time_of_death → between two and four in the morning, time_of_death → after four in the morning (3)
+This works! If the archive door was locked at midnight, the murderer had already left by midnight, placing the murder before midnight. Combined with Sura being alive at ten, the window is ten-to-midnight.
+Great. Now let me compile the full clean list.
+
+CLEAN CLUE LIST (20-28):
+Cause of death (5 wrong answers: blunt force trauma, poisoning, strangulation, drowning, blade wound):
+CL1 — inspect_item: crossbow_bolt
+Text: The bolt is short and unfletched, of the type used in small pest-control crossbows. The iron tip is darkened with dried matter. The shaft shows no edge, hook, or any modification that would function as a blade.
+Contradicts: COD → blade wound, COD → blunt force trauma (2)
+CL2 — talk_to_character: pira_eddan
+Text: Pira says the chest wound is a single clean penetrating puncture, consistent with a bolt entry. She examined the throat — no bruising or petechial marks. She examined the skull — intact, no fractures.
+Contradicts: COD → strangulation, COD → blunt force trauma, COD → drowning (3)
+CL3 — inspect_item_in_location: crossbow_bolt in assay_room
+Text: Pira examines the bolt's tip under her lens. She says the residue is blood only — no chemical coating, no resin, no powder. The bolt was not treated with any substance.
+Contradicts: COD → poisoning (1)
+Also: Pira identifies viridian crystallite dust on the shaft — "This compound is used exclusively to treat the floor of the Archive Chamber."
+Contradicts: true_location → Counting House, true_location → Harbour Dock (2)
+Total contradicts for CL3: 3 entries (poisoning, Counting House, Harbour Dock) ✓
+True location (5 wrong answers: Dye-Works, Counting House, Elder Hall, Harbour Dock, Assay Room):
+CL4 — inspect_location: dye_works
+Text: The frost on the victim's outer robe is noticeably heavier and more crystalline than the frost covering the dye-vat lids immediately beside her. Her underside clothing shows no moisture from the dye-works floor.
+Contradicts: true_location → Dye-Works (1)
+CL5 — inspect_location: archive_chamber
+Text: The viridian clay dust on the Archive floor near the central reading table is heavily disturbed in a roughly body-length area, with smear marks at one edge consistent with something being dragged. A wide dark stain is visible at the centre of the disturbance.
+Contradicts: true_location → Assay Room, true_location → Elder Hall (2)
+CL6 — inspect_item_in_location: crossbow_bolt in assay_room (combined with CL3 above — wait, these fire the same condition. Merge them.)
+CL3 already handles Counting House and Harbour Dock for true_location, and CL5 handles Assay Room and Elder Hall. CL4 handles Dye-Works. All five true_location wrong answers covered. ✓
+Time of death (5 wrong answers: before nine o'clock, between nine and ten o'clock, between midnight and two in the morning, between two and four in the morning, after four in the morning):
+CL6 — talk_to_character: thessa_vel
+Text: Thessa says [char:Sura Vel-Mak] came to the Elder Hall at the tenth bell of night, visibly distressed, and spoke of irregularities in the formula manifests. Sura left toward [loc:archive_chamber] shortly after the tenth bell.
+Contradicts: time_of_death → before nine o'clock, time_of_death → between nine and ten o'clock (2)
+CL7 — talk_to_character: linna_vor (key testimony about midnight)
+Text: Linna says she passed the Archive door at the midnight bell on her way to her quarters. She tried the handle — a habit — and found it locked. She is certain of the time because the harbour bell had just finished sounding.
+Contradicts: time_of_death → between midnight and two in the morning, time_of_death → between two and four in the morning, time_of_death → after four in the morning (3) ✓
+Perpetrator (5 wrong answers: Thessa Vel, Pira Eddan, Brek Ossun, Linna Vor, Davan Reach):
+CL8 — talk_to_character: linna_vor (key testimony)
+Text: Linna says she locked the Archive at the ninth bell and never returned. She confirms [char:Orrath Denn] holds the only duplicate key — she witnessed the Elder-Matriarch grant it to him three seasons ago. No other person holds a copy.
+Contradicts: perpetrator → Thessa Vel, perpetrator → Pira Eddan, perpetrator → Brek Ossun (3)
+(These three have no key access; Linna herself has a key but her alibi covers midnight onward; Davan is at the harbour) ✓
+Wait — Linna has a key but I said the murder was before midnight and the archive was locked at midnight. Linna being the perpetrator is possible technically (she has a key), so I need a separate clue to eliminate Linna.
+CL9 — talk_to_character: davan_reach
+Text: Davan says [char:Linna Vor] crossed the Harbour Dock at the ninth bell, retrieved a package from an arriving boat, and returned up the hill. He saw her pass again going uphill — toward the elder quarters — around the eleventh bell. She did not pass back down.
+Contradicts: perpetrator → Linna Vor (she was accounted for away from the Archive at the time of death) (1)
+Hmm — this is not a clean logical contradiction. She could have gone to the Archive between eleventh bell and midnight. Let me try another approach.
+Actually CL7 already helps: Linna found the Archive locked at midnight. If she were the murderer, she would have locked it herself — but she'd have no reason to mention trying the handle and finding it locked. But that's an inference, not a direct contradiction from clue text.
+Better: Have someone else place Linna somewhere she can't be the murderer.
+CL9 — inspect_item: linna_key (Linna's key)
+Wait, I shouldn't have a character item that's just their key.
+Alternative: Use Brek. He was at the Dye-Works all night (after his half-hour absence). Did he see Linna? Could Linna have brought the body? Let me give Brek something about seeing Linna.
+CL9 — talk_to_character: brek_ossun (second clue)
+Text: Brek says [char:Linna Vor] came to the Dye-Works door at the second bell and asked if he had seen anyone. She said she'd heard a sound from outside her window and couldn't sleep. She stayed no more than a few minutes.
+This accounts for Linna's whereabouts but doesn't eliminate her as the murderer at the right time.
+Let me approach differently — what if the crossbow cabinet proves it?
+CL9 — inspect_location: counting_house
+Text: A small crossbow hangs unloaded on the wall beside the supply cabinet. The cabinet door stands unlocked. Inside, a rack of six bolts has one slot empty. The cabinet can only be opened with the factor's key — a notice on the inside of the door reads: "Factor's key only."
+Contradicts: perpetrator → Linna Vor, perpetrator → Davan Reach, perpetrator → Pira Eddan (3)
+(Factor = Orrath; Linna is Archive Warden, not Factor; Davan is Harbour Master; Pira is Assayer — none have the Factor's key)
+Actually this requires the player to know only Orrath has the Factor's key. Let me add a line: "[char:Orrath Denn], as Factor, holds the only key to this cabinet."
+But clue text should not include character names unless that character is in the condition... and Orrath is not in this condition (he's in the Counting House, same location). Actually — is Orrath at the Counting House? Yes! So I can mention him since his location is counting_house.
+Wait, the rule is: "If a clue condition does not include a character, do not name any character in the clue text — unless that character's fixed location matches the condition location."
+Orrath's fixed location IS counting_house. This condition is inspect_location: counting_house. So I CAN name Orrath.
+CL9 — inspect_location: counting_house
+Text: A small crossbow hangs unloaded beside the supply cabinet. The cabinet stands unlocked, a rack of six bolt-slots inside — one is empty. A notice on the interior of the cabinet door reads "Factor access only." [char:Orrath Denn] is the Factor of [loc:counting_house].
+Contradicts: perpetrator → Linna Vor, perpetrator → Davan Reach, perpetrator → Brek Ossun (3)
+(Linna is Archive Warden; Davan is Harbour Master; Brek is Night Tender — none are Factor)
+Now Thessa and Pira still need to be eliminated as perpetrators. CL8 (Linna's key testimony) covers Thessa, Pira, Brek. CL9 covers Linna, Davan, Brek.
+Coverage so far:
+
+Thessa → CL8 ✓ (no key)
+Pira → CL8 ✓ (no key)
+Brek → CL8 ✓ (no key) and CL9 ✓
+Linna → CL9 ✓ (not Factor)
+Davan → CL9 ✓ (not Factor)
+
+All five perpetrator wrong answers covered. ✓
+Motive (5 wrong answers: personal vendetta, inheritance dispute, concealing an affair, revenge for a past wrong, eliminating a trade rival):
+CL10 — inspect_location: archive_chamber (second clue, different observation)
+Text: On the secondary shelf, one formula-case has been improperly replaced — it stands facing outward, its spine inward, unlike the others. A thin scrap of parchment protrudes from within it.
+Contradicts: motive → personal vendetta, motive → concealing an affair (2)
+(The disturbance is specifically to formula records, pointing toward trade-related motive)
+CL11 — inspect_item: formula_fragment
+Text: The parchment fragment bears partial numerical notation in an unfamiliar style — columns of figures with small x-marks used instead of the Kauvari check-mark. The page carries no name or seal.
+Contradicts: motive → inheritance dispute, motive → revenge for a past wrong (2)
+(Anonymous numerical notes about formulas suggest covert trade activity, not personal or inheritance disputes)
+CL12 — ask_character_about_item: formula_fragment → pira_eddan
+Text: Pira recognises the notation style immediately — she says it is used by merchants from the Drassik Rival Houses of the southern coast. She mentions she saw a man using similar notation near the [loc:counting_house] two days before the death.
+Contradicts: motive → personal vendetta, motive → eliminating a trade rival (2)
+(External rival-house contact indicates formula sale to outsiders, not internal rivalry elimination or vendetta)
+CL13 — ask_character_about_item: formula_fragment → orrath_denn
+Text: When shown the fragment, [char:Orrath Denn] grips the counting board and says he has never seen it. Then he adds, unprompted, that it "appears to concern the secondary-stage reduction figures — the most sensitive part of the Nightbloom process." He stops speaking abruptly.
+Contradicts: motive → concealing an affair, motive → inheritance dispute (2)
+(Knowledge of formula specifics from an "unseen" document — he knows more than he should, implicating formula theft)
+CL14 — talk_to_character: thessa_vel (additional)
+Text: Thessa says three days before the death, [char:Sura Vel-Mak] came to her and said: "The manifest figures for the last three shipments don't match the formula yield records. Someone has been copying from the archive without entering the record-room registry."
+Contradicts: motive → personal vendetta, motive → revenge for a past wrong (2)
+(The concern is specifically about formula copying and manifest irregularities — clearly trade-secret related)
+Coverage for motive:
+
+personal vendetta → CL10 ✓, CL12 ✓, CL14 ✓
+inheritance dispute → CL11 ✓, CL13 ✓
+concealing an affair → CL10 ✓, CL13 ✓
+revenge for a past wrong → CL11 ✓, CL14 ✓
+eliminating a trade rival → CL12 ✓
+
+All five motive wrong answers covered. ✓
+Additional clues for depth and discoverability:
+CL15 — talk_to_character: davan_reach
+Text: Davan says a small vessel left the harbour at the eleventh bell, carrying a single passenger. The passenger paid in southern coin — Davan noticed because the denomination was unfamiliar. The vessel did not return before dawn.
+Contradicts: motive → personal vendetta, motive → inheritance dispute (2)
+(Southern coin payment suggests contact with a southern trading party — bolsters formula-sale interpretation)
+CL16 — ask_character_about_item: formula_fragment → thessa_vel
+Text: Thessa examines the fragment and her expression darkens. She says these figures are from the Nightbloom secondary reduction formula — a process known to no one outside the Weavings. She says if this left the Archive, "we are already ruined."
+Contradicts: motive → concealing an affair, motive → revenge for a past wrong (2)
+(Confirmation that the fragment is from a protected formula — the motive must involve the formula specifically)
+CL17 — inspect_item_in_location: orrath_boots in counting_house
+When the investigator brings the boots (found where?) into the Counting House — wait, the boots need to be an item with a starting location. Let me place them in the archive_chamber (Orrath left them there accidentally? No — he wouldn't.) Or in the counting_house.
+Actually: The boots are Orrath's work boots, left by the door in the counting_house. The investigator picks them up and examines them. The inspect_item fires first, then when still in counting_house, inspect_item_in_location fires.
+CL17 — inspect_item: orrath_boots
+Text: The boot soles carry a thick deposit of pale green-grey dust — viridian crystallite, distinctive by its slight iridescent sheen. The deposit is fresh, with sharp edges to the crust, not worn or smeared.
+Contradicts: perpetrator → Thessa Vel, perpetrator → Davan Reach (2)
+(Fresh viridian crystallite — archive floor compound — on Orrath's boots; these two perpetrator options have no connection to the archive)
+Wait — Orrath admits being in the archive. This doesn't contradict Thessa or Davan being perpetrators on its own. The boots being Orrath's is the key link. Hmm.
+Actually: The clue should say whose boots they are. The item name is "orrath_boots" but item descriptions are physical-only. The item is placed in the counting_house with a location_discovery_text that positions them near Orrath. Since Orrath is in the counting_house, the item description can note whose they are (since Orrath is in the same location):
+Actually no — the item description is physical only. But the location_discovery_text can describe where they are in the room. And since Orrath is in the counting_house, a clue from talk_to_character: orrath_denn could reference the boots.
+Let me restructure: The boots are just "a pair of boots" found in the counting_house. The player picks them up. Later, when showing them to Orrath, he identifies them as his.
+CL17 — inspect_item: kauvari_boots (rename to be neutral)
+Text: The boot soles are coated with a thick pale green-grey dust — viridian crystallite, identifiable by its slight iridescence. The crust is fresh and sharp-edged, not worn. One heel carries a dark smear that may be blood.
+Contradicts: motive → eliminating a trade rival (?) — hmm, this is about physical evidence, not motive.
+Let me make this contradict perpetrator wrong answers more cleanly.
+The boots being in the Counting House and covered in Archive dust shows someone who frequents the Counting House was recently in the Archive. Combined with Orrath's admission of being in the Archive, this reinforces suspicion of Orrath. But individually, it doesn't logically eliminate specific wrong perpetrators.
+Let me use the boots differently:
+CL17 — ask_character_about_item: kauvari_boots → orrath_denn
+Text: [char:Orrath Denn] glances at the boots and says they are his — he recognises the worn seam on the left ankle. He then says, carefully, that he must have tracked the dust in when he visited the Archive earlier.
+Contradicts: perpetrator → Davan Reach, perpetrator → Linna Vor (2)
+(Orrath acknowledges ownership; the boots place him in the Archive with fresh residue — the other named perpetrators have no such physical trace)
+Hmm, still soft. Let me think about what the combination of clues does. Maybe I don't need the boots clue to directly contradict perpetrators if the combination of key-access (CL8/CL9), formula knowledge (CL13), southern contact (CL15), and physical presence (CL17) all point to Orrath.
+But I need each wrong perpetrator eliminated by at least one clue with a valid contradicts entry. Let me check my coverage again:
+
+Thessa Vel → CL8 (no archive key access given to her — wait, CL8 says Orrath holds the ONLY duplicate key. But Thessa is Elder-Matriarch — she could have a key. CL8 says "the Elder-Matriarch grant[ed] it to him three seasons ago" — implying Thessa gave the key but doesn't hold one herself. But that's an inference. I need something cleaner to eliminate Thessa.
+
+CL9 (counting_house inspect) says "Factor access only" and notes Orrath is the Factor. Does this eliminate Thessa? The Factor's key to the cabinet is separate from an archive key.
+Let me add a specific Thessa-elimination clue:
+CL18 — inspect_item_in_location: kauvari_boots in archive_chamber (if player brings boots to archive)
+Text: The dust on the boot soles precisely matches the compound on the Archive floor — the same viridian crystallite, the same particle size. The size of the boot suggests a man of large frame.
+Contradicts: perpetrator → Thessa Vel, perpetrator → Pira Eddan (2)
+(Thessa is a woman in her seventies; Pira is a woman in her thirties — the boot size eliminates both as wearers)
+This works! The boot size is a physical observation (clue text says "large frame" which is gendered/sized in a way that can eliminate female characters of different build — though I should be careful about assumptions). Let me say "the boot is sized for a large adult man" — this is a direct physical observation.
+Actually I realize I need to be careful: the item description should be physical-only and not already deduce these things. Let me plan:
+
+Item description: "A pair of heavy work boots in dark leather, the soles packed with pale dust. The left ankle shows a worn seam on the outer edge."
+CL17 (ask orrath about boots): Orrath identifies them as his
+CL18 (inspect boots in archive): dust matches, size matches a man of large frame
+
+CL18 contradicts: perpetrator → Thessa Vel, perpetrator → Pira Eddan (2) ✓
+Now re-checking perpetrator coverage:
+
+Thessa Vel → CL8 ✓ (no key), CL18 ✓ (boot size)
+Pira Eddan → CL8 ✓ (no key), CL18 ✓ (boot size)
+Brek Ossun → CL8 ✓ (no key), CL9 ✓ (not Factor)
+Linna Vor → CL9 ✓ (not Factor)
+Davan Reach → CL9 ✓ (not Factor)
+
+All covered. ✓
+CL19 — talk_to_character: orrath_denn (first talk, before showing items)
+Text: [char:Orrath Denn] says he visited the Archive between the tenth and eleventh bell to review trade manifests. He says the room was empty and quiet when he arrived, and he left before the eleventh bell. He emphasises he saw nothing unusual.
+Contradicts: time_of_death → before nine o'clock (he was in the archive at ten and says it was empty — if she had died before nine, she would have been there when he arrived)
+Hmm — if she died before nine, her body would have been in the archive when Orrath arrived... unless she'd been moved already. But the murderer (Orrath) moved the body after killing her. This is circular.
+This clue just establishes his alibi/presence and is suspicious. Let me use it to contradict:
+Contradicts: perpetrator → Davan Reach (Davan was at the harbour; Orrath's Archive visit is the incriminating detail only Orrath provides — Davan has no such connection) — too soft.
+Let me make CL19 serve a different purpose. Actually, given I have good coverage already, let me make Orrath's talk_to_character clue purely a suspicious-but-deniable perpretrator clue:
+CL19 — talk_to_character: orrath_denn
+Text: [char:Orrath Denn] says he was in the Archive between the tenth and eleventh bell of night. He says [char:Sura Vel-Mak] was not present when he arrived — he is certain the room was empty. He pauses, then adds: "I locked the door when I left."
+This is suspicious: he says Sura wasn't there — but Thessa placed Sura at the Archive after the tenth bell. And he says he locked the door — but Linna says she locked it at nine. So who locked it at midnight? This is for the player to piece together.
+Contradicts: nothing specific directly — or: perpetrator → Davan Reach (Davan has no archive connection whatsoever). 1 entry.
+Actually let me have it contradict something useful:
+Contradicts: true_location → Harbour Dock (Orrath describes the Archive in specific detail, implying familiarity with it at the relevant time — if the murder were at the harbour, there'd be no reason for Orrath's Archive visit to be relevant) — too inferential.
+Let me just contradict: time_of_death → between nine and ten o'clock (Orrath says he arrived at ten and the archive was empty — if death was between nine and ten, the body would have been there; since Orrath says it was empty, the murder hadn't happened yet at ten) — wait, but if Orrath is the murderer, he's lying about the room being empty. So this isn't a genuine clue about time of death.
+I'll leave CL19 with:
+Contradicts: time_of_death → between nine and ten o'clock — but that's not a valid contradiction since Orrath could be lying (and is).
+Better approach: Let me use Brek's second clue here instead, which is independent.
+CL19 — talk_to_character: brek_ossun (second)
+Text: Brek says he stepped outside the Dye-Works at approximately the eleventh bell — he is ashamed to admit he went to visit a neighbour — and returned before the midnight bell. During his absence, he heard no unusual sounds from the upper buildings.
+Contradicts: true_location → Dye-Works (no sounds from dye-works during Brek's internal time there either — and Brek saw no one enter or leave the Dye-Works floor carrying anything)
+Hmm, I already have CL4 covering Dye-Works as true_location. CL19 can be:
+Contradicts: perpetrator → Brek Ossun (Brek's own testimony about his whereabouts, combined with the physical evidence of the archive, makes it impossible for him to be the Archive murderer — though this is inferential)
+Let me try: Brek says he was at the Dye-Works or immediately outside it the entire night except that one window. The murder required access to the Archive — a building Brek has no key to.
+But the clue text can't make that logical leap itself.
+I think I have enough coverage. Let me stop trying to add contradicts to every new clue and instead focus on discoverability and filling the remaining clue quota.
+Let me count what I have so far:
+CL1, CL2, CL3, CL4, CL5, CL6, CL7, CL8, CL9, CL10, CL11, CL12, CL13, CL14, CL15, CL16, CL17(ask orrath about boots), CL18(inspect boots in archive), CL19(brek second)
+That's 19 clues. I need 20-28. Let me add a few more:
+CL20 — inspect_location: harbour_dock
+Text: A cold-log posted beside the Harbour Master's station shows that the harbour gate was secured at the second bell of night, sealing access to the sea road. All persons entering or leaving after that time must pass the Harbour Master's station.
+Contradicts: perpetrator → Davan Reach (Davan was at his station all night and would have had to leave it to commit a murder in the Archive — but his own log shows his continuous presence) (1)
+Actually this is inferential unless his log shows specific entries. Let me add: "Entries in [char:Davan Reach]'s hand appear at the second, third, and fourth bells — the handwriting is consistent throughout."
+Contradicts: perpetrator → Davan Reach (2 — wait, that's only one checkpoint entry)
+Contradicts: true_location → Harbour Dock (if the murder were at the harbour, Davan — who was there all night — would have witnessed it) (2 total) ✓
+CL21 — talk_to_character: pira_eddan (second)
+Text: Pira says when she examined the body on the Dye-Works floor, she found viridian crystallite dust on the victim's clothing — particularly on the back of the outer robe. She says this compound is used only in the Archive Chamber.
+Contradicts: true_location → Dye-Works (redundant with CL4, but adds medical authority confirmation) (1)
+Also contradicts: true_location → Elder Hall (dust is Archive-exclusive) (2) ✓
+CL22 — inspect_item_in_location: kauvari_boots in counting_house (fires when player is in counting_house with boots)
+Text: When the investigator holds the boots in the [loc:counting_house], [char:Orrath Denn] observes them without being asked and says the worn seam on the left ankle was a repair made at the harbour cobbler. He then stops himself, visibly.
+Contradicts: perpetrator → Linna Vor, perpetrator → Brek Ossun (2)
+(Orrath spontaneously identifies the boots as his through a specific repair detail — others are not their owners)
+Wait — I planned CL17 as ask_character_about_item: boots → orrath. And CL22 as inspect_item_in_location: boots in counting_house. These are different condition types and will fire at different times. That works.
+Now I have 22 clues. Let me add a few more for richness:
+CL23 — inspect_location: elder_hall
+Text: A small reading lamp on [char:Thessa Vel]'s table holds a full reservoir of oil — recently refilled, the wick barely darkened. A cup of cooling tea sits beside it.
+Contradicts: perpetrator → Thessa Vel (she has been at her table recently — the fresh lamp and cooling tea suggest she has not left her hall for any significant time this night) (1)
+Actually this is very soft. Let me make it: Thessa's hall shows signs of her being awake and present — which makes it harder for her to have made a covert trip to the Archive.
+Better:
+CL23 — inspect_location: elder_hall
+Text: The hall floor near the entrance shows two sets of wet boot-prints — one entering, one leaving — both of which match the small tread pattern of a narrow boot. [char:Thessa Vel]'s slippers sit beside the hearth, dry.
+Contradicts: perpetrator → Thessa Vel (the boot-prints — from the investigator's arrival? No, those are from Sura's visit. Thessa's slippers are dry, placing her as stationary this night.) (1)
+Actually this doesn't cleanly eliminate Thessa. She could have worn different footwear. Let me abandon this and use something else.
+CL23 — talk_to_character: pira_eddan (about Orrath specifically)
+Text: Pira, when asked about that night, says she saw [char:Orrath Denn] leaving the direction of the Archive at what she estimates was the eleventh bell — she could not sleep and was at her assay room window. He was moving quickly and carrying something under his arm.
+Contradicts: perpetrator → Brek Ossun, perpetrator → Davan Reach (2)
+(Direct witness placing Orrath at the Archive at the time of the murder)
+This is strong — perhaps too strong alone. But it requires routing (going to Pira a second time or getting Pira talking).
+Let me check: is this clue condition talk_to_character: pira_eddan? I already have CL2 (talk to Pira) and CL21 (talk to Pira again). The game model seems to fire all clues for a given condition type — does the engine fire all clues for talk_to_character: pira_eddan in one conversation? If so, CL2, CL21, and CL23 all fire at once. That's fine — they're all different observations.
+Actually, looking at the schema, each clue has one condition. Multiple clues can share the same condition — they all fire when that condition is met. So yes, talking to Pira fires all three. That's okay.
+CL24 — ask_character_about_item: kauvari_boots → pira_eddan
+Text: Pira examines the boots and confirms the dust on the soles is viridian crystallite — "identical to the compound on the Archive floor, and on the victim's clothing." She pauses, then says: "These boots were worn by whoever moved the body."
+Contradicts: perpetrator → Thessa Vel, perpetrator → Pira Eddan (2) — wait, the boots being linked to the archive and the body-mover is the key deduction. But Pira identifying this is useful. Pira says she's certain the compound is a match. This confirms:
+Contradicts: true_location → Assay Room (redundant, already covered by CL5) ... let me use this for perpetrator instead.
+Contradicts: perpetrator → Linna Vor, perpetrator → Davan Reach (both have no connection to the boots or archive dust) (2)
+Let me recount. I have:
+CL1-CL24 = 24 clues. That's within range (20-28). ✓
+Let me finalize the list and check everything, then do the coverage table.
+
+STEP 5 — COVERAGE TABLE & CONSISTENCY CHECK
+CAUSE OF DEATH:
+Wrong AnswerClueblunt force traumaCL1 (shaft has no blunt features), CL2 (skull intact, no bruising)poisoningCL3 (no chemical coating on bolt)strangulationCL2 (no throat bruising)drowningCL2 (no water in lungs)blade woundCL1 (no edge or modification)All covered ✓
+TRUE LOCATION:
+Wrong AnswerClueDye-WorksCL4 (frost anomaly), CL21 (Pira's archive-dust observation)Counting HouseCL3 (bolt dust is archive-specific, not counting house)Elder HallCL5 (disturbed archive floor), CL3 (archive-specific dust on bolt)Harbour DockCL3 (archive-specific dust), CL20 (harbour log/location)Assay RoomCL5 (archive floor disturbed), CL21All covered ✓
+TIME OF DEATH:
+Wrong AnswerCluebefore nine o'clockCL6 (Thessa saw Sura alive at tenth bell)between nine and tenCL6 (Sura left toward Archive after tenth bell)between midnight and twoCL7 (Linna found archive locked at midnight)between two and fourCL7after four in the morningCL7All covered ✓
+PERPETRATOR:
+Wrong AnswerClueThessa VelCL8 (no key), CL18 (boot size)Pira EddanCL8 (no key), CL18 (boot size)Brek OssunCL8 (no key), CL9 (not Factor), CL22Linna VorCL9 (not Factor), CL24Davan ReachCL9 (not Factor), CL20, CL24All covered ✓
+MOTIVE:
+Wrong AnswerCluepersonal vendettaCL10, CL12, CL14inheritance disputeCL11, CL13concealing an affairCL10, CL13, CL16revenge for a past wrongCL11, CL14eliminating a trade rivalCL12, CL15All covered ✓
+ANTI-CLUSTERING CHECK (max 3 contradicts per clue):
+
+CL2: strangulation, blunt force trauma, drowning (3) ✓
+CL3: poisoning, Counting House, Harbour Dock (3) ✓
+CL7: midnight-to-two, two-to-four, after-four (3) ✓
+CL8: Thessa, Pira, Brek (3) ✓
+CL9: Linna, Davan, Brek (3) ✓
+All others ≤ 3 ✓
+
+CLARITY CHECK (no clue should seem to contradict the correct answer):
+
+CL19 (Brek's second talk): mentions him leaving post — doesn't implicate the actual murderer. ✓
+CL7 (Linna, archive locked at midnight): confirms murder before midnight, doesn't eliminate the correct time window. ✓
+CL8 (Linna, key testimony): implicates Orrath via key access — doesn't seem to exonerate him. ✓
+All other clues checked — none seem to logically contradict correct answers. ✓
 
 
-MOTIVE: Why Ulfi was killed
-Answer options: To claim Ulfi's fishing catch | To prevent a debt from being repaid | To prevent the marriage and secure a better match | To avenge a family insult | To silence a witness to a crime | To inherit property
-Correct Clue 1 — talk_to_character (Astríðr)
-Condition: Investigator talks to Astríðr at the family longhouse.
-Observation: Astríðr tells the investigator that her father never once smiled at her betrothal announcement, and that three days ago she overheard him telling someone that "a better offer has come from the east." She does not name who the offer came from.
-Discoverability: Astríðr is in the family longhouse. She is the victim's betrothed. Any player investigating the murder will want to speak to her.
-Correct Clue 2 — ask_character_about_item (Þorvarðr, betrothal_token)
-Condition: Investigator shows betrothal token to Þorvarðr.
-Observation: Þorvarðr identifies the silver ring as an Egilsson betrothal token — his family's design, given by his father to Hallr two weeks ago as a formal pledge of the match between Þorvarðr and Astríðr. He is surprised the investigator has it; he assumed Hallr kept it locked away.
-Discoverability: The betrothal token is found at Hallr's location (mead hall) on inspection. Þorvarðr is also in the mead hall. Natural sequence: inspect mead hall, find token, show to Þorvarðr.
-Red Herrings:
+Now let me finalize items and do a discoverability check.
+ITEMS:
 
-Points at "to silence a witness": Brynja mentions Ulfi saw something at the dock recently (misdirection)
-Points at "to avenge a family insult": rumour that Ulfi's father once cheated Hallr in a salt trade
-Points at "to claim property": Ulfi had recently acquired a small boat, which passes to Hallr as next-of-kin if Astríðr inherits nothing
+crossbow_bolt — starting_location: dye_works (found near/on the body)
+
+Used in: CL1 (inspect_item), CL3 (inspect_item_in_location: assay_room), CL17(ask orrath about bolt — wait, I changed CL17 to boots. Let me add an ask_orrath_about_bolt clue... actually I have CL16 which is ask_orrath_about_bolt. Let me check.)
 
 
-STEP 5 — CONSISTENCY & VISIBILITY CHECK
-VISIBILITY:
 
-Cause of death: visible via body inspection and Brynja. ✓
-True location: visible via body inspection and Sigríðr. ✓
-Time of death: cord stiffness + Brynja body examination. ✓
-Perpetrator: Sigríðr testimony on cord + Þorvarðr "obstacle will be removed." ✓
-Motive: Astríðr "better offer from the east" + betrothal token identified by Þorvarðr. ✓
+Actually I realize I renumbered clues and lost track of CL16. Let me re-examine. Looking back:
 
-AMBIGUITY CHECK:
+CL16: ask_character_about_item: formula_fragment → thessa_vel
 
-Cord clue: specifies braided horsehair, warehouse origin, cut from spool — not easily attributed to another character without the Sigríðr testimony.
-Þorvarðr "obstacle will be removed" clue: suspicious but not conclusive — Þorvarðr could have said it himself. Only combined with cord testimony does it close on Hallr.
+And the crossbow bolt in counting_house — I had that as CL9 (inspect_location: counting_house shows the cabinet with missing bolt). The bolt itself starts in dye_works.
+How does the player get the bolt? They inspect_location: dye_works — which reveals the body and the bolt via location_discovery_text. Player picks it up. Then:
 
-COVERAGE: Red herrings per checkpoint target different wrong options. ✓
-TIMING ELIMINATION:
+CL1 fires (inspect_item: crossbow_bolt)
+Taking it to assay_room fires CL3 (inspect_item_in_location: crossbow_bolt in assay_room)
 
-"Before dusk" — Sigríðr was in warehouse at dusk, no body. Sigríðr's true_location clue handles this.
-"Shortly after dusk" — cord not stiff enough in cold air. Cord inspection clue handles this.
-"Before dawn" — Brynja: body warmth lost throughout (several hours). Brynja's clue handles this.
-"After dawn" — Sigríðr found body at dawn. Sigríðr's clue handles this.
-✓ All wrong options eliminated.
+Discoverability: Lead 1 points to the Dye-Works (crime scene). Player arrives, finds bolt. ✓
 
-ITEM SIGNPOSTING:
+formula_fragment — starting_location: archive_chamber
 
-The cord starts in the salt warehouse. Sigríðr is in the salt warehouse. No additional lead needed for that pairing. ✓
-The betrothal token starts in the mead hall. Þorvarðr is in the mead hall. No additional lead needed. ✓
-
-LEADS:
-
-Points toward Brynja (healer_hut) — she examined the body before the warehouse was closed off.
-Points toward the mead hall — a visitor arrived recently for business with Hallr; locals are talking.
-Points toward Sigríðr — she was first at the scene and knows the warehouse contents better than anyone.
+Used in: CL11 (inspect_item), CL12 (ask pira about fragment), CL13 (ask orrath about fragment), CL16 (ask thessa about fragment)
+Discoverability: CL10 (inspect_location: archive_chamber) describes a formula-case with "a thin scrap of parchment protruding from within it." Player inspects location, sees the parchment, picks it up. ✓
 
 
-GRID LAYOUT
-col 0col 1col 2row 0healer_hutfamily_longhouse—row 1dockssalt_warehousemead_hallrow 2———
-Adjacencies:
+kauvari_boots — starting_location: counting_house
 
-docks ↔ salt_warehouse
-docks ↔ healer_hut (coastal path)
-salt_warehouse ↔ mead_hall
-salt_warehouse ↔ family_longhouse
-family_longhouse ↔ mead_hall
-healer_hut ↔ family_longhouse
+Used in: CL17 (ask orrath about boots → but wait, this is ask_character_about_item: boots → orrath_denn), CL18 (inspect_item_in_location: boots in archive_chamber), CL22 (inspect_item_in_location: boots in counting_house), CL24 (ask pira about boots)
+Discoverability: CL9 (inspect_location: counting_house) — when inspecting the counting house, the player sees Orrath's boots. Location discovery text places them. ✓
 
-Arrival location: docks
 
-PHASE 3 — AUDIT
-Cause of death correct clue 1 (inspect salt_warehouse): Player arrives at docks → moves to salt_warehouse (adjacent) → inspects salt_warehouse → fires. ✓
-Cause of death correct clue 2 (talk to Brynja): Lead #1 says Brynja examined the body → player moves docks → healer_hut (adjacent) → talks to Brynja → fires. ✓
-True location correct clue 1 (inspect salt_warehouse): Same as above. ✓
-True location correct clue 2 (talk to Sigríðr at salt_warehouse): Sigríðr is in warehouse at game start; player moves there → talks to her. Lead #3 mentions her. ✓
-Time of death correct clue 1 (inspect cord): Player inspects warehouse → location_discovery_text reveals cord → player picks it up → inspect_item fires. ✓
-Time of death correct clue 2 (talk to Brynja): Lead #1 → healer_hut → talk Brynja. ✓
-Perpetrator correct clue 1 (ask Sigríðr about cord): Player has cord from warehouse inspection. Sigríðr is in warehouse. Player asks her about it. ✓
-Perpetrator correct clue 2 (talk to Þorvarðr): Lead #2 → mead_hall → talk to Þorvarðr. ✓
-Motive correct clue 1 (talk to Astríðr): Player moves to family_longhouse (adjacent to salt_warehouse) → talks to Astríðr. ✓
-Motive correct clue 2 (ask Þorvarðr about betrothal token): Player inspects mead_hall → finds betrothal token → picks it up → Þorvarðr is in mead_hall → asks him about it. ✓
-All clues reachable. All checkpoints solvable from text alone.
+
+But CL18 requires the player to take the boots to the archive_chamber. Why would they do that?
+Lead/clue that suggests comparing the boots to the archive floor — perhaps CL21 (Pira mentions archive dust on the victim's clothing) prompts the player to investigate the archive floor and compare it to the boots found in the counting house.
+Discoverability of CL18: Player talks to Pira (CL21 fires, mentioning archive dust on victim). Player inspects archive (CL5 fires, shows disturbed dust floor). Player has boots from counting house. Player takes boots to archive to compare. CL18 fires. ✓
+Leads:
+
+→ Dye-Works (crime scene): "The body was found on the floor of the Dye-Works. [char:Brek Ossun], the night tender, discovered it at first light and has not left the building."
+→ Elder Hall: "The Elder-Matriarch [char:Thessa Vel] summoned the investigator and says she may have been the last to speak with [char:Sura Vel-Mak] while she was alive."
+→ Assay Room: "The mineral assayer [char:Pira Eddan] examined the body before it was moved indoors and has made notes on what she observed."
+
+
+Now let me write the full JSON. I'll finalize character locations and items, then write all clues cleanly.
+Final clue list for JSON:
+Let me number them cleanly:
+
+clue_01 — inspect_item: crossbow_bolt → COD: blade wound, blunt force trauma
+clue_02 — talk_to_character: pira_eddan → COD: strangulation, blunt force trauma, drowning
+clue_03 — inspect_item_in_location: crossbow_bolt in assay_room → COD: poisoning; true_loc: Counting House, Harbour Dock
+clue_04 — inspect_location: dye_works → true_loc: Dye-Works
+clue_05 — inspect_location: archive_chamber → true_loc: Assay Room, Elder Hall
+clue_06 — talk_to_character: thessa_vel → time: before nine, between nine and ten
+clue_07 — talk_to_character: linna_vor (first) → time: midnight-to-two, two-to-four, after-four
+clue_08 — talk_to_character: linna_vor (second — same condition fires both) → perp: Thessa, Pira, Brek
+clue_09 — inspect_location: counting_house → perp: Linna, Davan, Brek
+clue_10 — inspect_location: archive_chamber (second — same condition fires both) → motive: personal vendetta, concealing an affair
+clue_11 — inspect_item: formula_fragment → motive: inheritance dispute, revenge for past wrong
+clue_12 — ask_character_about_item: formula_fragment → pira_eddan → motive: personal vendetta, eliminating a trade rival
+clue_13 — ask_character_about_item: formula_fragment → orrath_denn → motive: concealing an affair, inheritance dispute
+clue_14 — talk_to_character: thessa_vel (second — same condition fires both) → motive: personal vendetta, revenge for past wrong
+clue_15 — talk_to_character: davan_reach → motive: personal vendetta, inheritance dispute
+clue_16 — ask_character_about_item: formula_fragment → thessa_vel → motive: concealing an affair, revenge for past wrong
+clue_17 — ask_character_about_item: kauvari_boots → orrath_denn → perp: (identifies boots as his own)... let me make this contradict: motive: personal vendetta (his reaction is about formula specifics, not personal history); actually let me use: time: before nine (his detailed description of the archive at the tenth bell contradicts death before nine) — wait I'm overcomplicating.
+
+Let me use clue_17 as: ask_character_about_item: kauvari_boots → orrath_denn → contradicts: perp: Davan Reach, perp: Linna Vor (Orrath identifies the boots as his own through specific repair detail, establishing his physical connection to the archive dust and the crime scene; Davan and Linna have no such link)
+
+clue_18 — inspect_item_in_location: kauvari_boots in archive_chamber → perp: Thessa Vel, Pira Eddan
+clue_19 — inspect_item: kauvari_boots → (physical description clue)... actually the PLAYER discovers this from picking up the boots. What does this contradict? Let me use it for: true_location: Counting House (the archive dust on the boots means the wearer was in the archive, not in the counting house where the murder supposedly occurred). But Counting House is already eliminated by CL3.
+
+Let me use clue_19 differently:
+clue_19 — inspect_item: kauvari_boots → motive: eliminating a trade rival (the fresh archive-specific dust on boots worn by someone with counting-house access shows the motive was tied to the archive's contents, not inter-trader competition) — too inferential.
+Hmm. Let me just have clue_19 contradict a time option:
+The boots show fresh viridian dust — if the wearer had been in the archive at any time in the last day. If Orrath says he was there at the tenth bell, and the dust is "fresh" (less than a day old), this is consistent. This doesn't contradict any time option directly.
+Let me use clue_19 for: inspect_location: assay_room → text about the assay room itself, what Pira has:
+clue_19 — inspect_location: assay_room → reveals the cold-gauge, Pira's notes, etc. Text: "A series of mineral samples line the shelves, each labelled in Pira's neat hand. On the central bench, a cloth-covered shape — the victim's clothing — lies beside an open notebook. A note in the notebook reads: 'Dust sample from victim's back clothing: viridian crystallite. Not found in Dye-Works.'"
+Contradicts: true_location: Dye-Works (redundant support), true_location: Assay Room (wait, we're IN the assay room, and this note says the dust is NOT from the dye-works — it doesn't name the archive specifically, but combined with CL5/CL3, the player connects it)
+Actually this note directly contradicts Dye-Works. And the player might be confused about why we're eliminating Assay Room (they can see they're in the assay room). Let me not eliminate Assay Room here since we're IN the assay room.
+Contradicts: true_location: Dye-Works (the note says the dust isn't from the Dye-Works) (1)
+
+clue_20 — inspect_location: harbour_dock → perp: Davan Reach; true_loc: Harbour Dock
+clue_21 — talk_to_character: pira_eddan (second observation, same condition) → true_loc: Dye-Works, Elder Hall
+clue_22 — inspect_item_in_location: kauvari_boots in counting_house → perp: Linna Vor, Brek Ossun
+clue_23 — talk_to_character: pira_eddan (third observation) → perp: Brek Ossun, Davan Reach (Pira saw Orrath leaving the Archive direction at eleventh bell)
+clue_24 — ask_character_about_item: kauvari_boots → pira_eddan → perp: Linna Vor, Davan Reach
+
+That's 24 clues. Within range. ✓
+Actually, looking at this, I'm having multiple clues share the same condition (e.g., clue_05 and clue_10 both use inspect_location: archive_chamber; clue_06 and clue_14 both use talk_to_character: thessa_vel; etc.) That's fine — the engine fires all matching clues.
+But clue_07 and clue_08 both use talk_to_character: linna_vor. That means talking to Linna fires BOTH clues at once. Fine.
+And clue_02, clue_21, clue_23 all use talk_to_character: pira_eddan. Fine.
+Let me now write the final clean version. I'll do one more pass on clue texts to make them sharp.
+Opening narrative:
+The investigator is a magistrate's agent sent from the mainland to Vel-Drassik after the Elder-Matriarch Thessa Vel sent a messenger by fast-boat overnight. The message said only: "A keeper of the Weavings has been found dead. Come at once." The investigator arrives in the grey pre-dawn to find the outpost shrouded in freezing fog, the ochre-stained frost on the stones already being disturbed by anxious feet.
+Epilogue:
+Orrath Denn, desperate to complete his sale of the Nightbloom formula to the southern trading house, confronted Sura Vel-Mak in the Archive Chamber after she left Thessa's hall that night. When she refused to stay silent and turned to leave, he took the pest-control crossbow from its place on the Counting House wall, loaded it, and followed her to the Archive. He shot her once through the chest. He then carried the body to the Dye-Works floor and arranged it to suggest a random violent incident. The bolt, the boots, and his own inability to stay silent about the formula's contents undid him.
+
+Now let me write the actual JSON, checking all IDs, locations, etc.
+WRONG ANSWER OPTIONS — FINAL:
+cause_of_death options: "crossbow bolt wound", "blunt force trauma", "poisoning", "strangulation", "drowning", "blade wound" (6)
+true_location options: "Archive Chamber", "Dye-Works", "Counting House", "Elder Hall", "Harbour Dock", "Assay Room" (6)
+time_of_death options: "between ten o'clock and midnight", "before nine o'clock", "between nine and ten o'clock", "between midnight and two in the morning", "between two and four in the morning", "after four in the morning" (6)
+perpetrator options: "Orrath Denn", "Thessa Vel", "Pira Eddan", "Brek Ossun", "Linna Vor", "Davan Reach" (6)
+motive options: "to prevent exposure of his theft of the Nightbloom formula", "personal vendetta", "inheritance dispute", "concealing an affair", "revenge for a past wrong", "eliminating a trade rival" (6)
+
+Final check on discoverability chains for every clue:
+clue_01 (inspect_item: crossbow_bolt): Lead 1 → Dye-Works → body found → location_discovery_text reveals bolt → player picks up bolt → clue fires. ✓
+clue_02 (talk_to_character: pira_eddan): Lead 3 → Assay Room → Pira is there → player talks to her → clue fires. ✓
+clue_03 (inspect_item_in_location: crossbow_bolt in assay_room): Player has bolt (from Dye-Works) + visits Assay Room (from Lead 3) → clue fires. ✓
+clue_04 (inspect_location: dye_works): Lead 1 → Dye-Works → player inspects → clue fires. ✓
+clue_05 (inspect_location: archive_chamber): Player moves from Elder Hall (adjacent) or Assay Room (adjacent) to Archive → inspects → clue fires. The existence of the Archive is clear from the opening narrative and Lead 2 (Thessa mentions Sura left toward the Archive). ✓
+clue_06 (talk_to_character: thessa_vel): Lead 2 → Elder Hall → Thessa → player talks → clue fires. ✓
+clue_07 (talk_to_character: linna_vor): Linna is in the Archive Chamber. Player goes to Archive → sees Linna → talks to her → clue fires. Linna's presence in the Archive is discoverable from: the opening narrative mentions the Archive, and Thessa's testimony (clue_06) says Sura "left toward the Archive." ✓
+clue_08 (talk_to_character: linna_vor — same condition): Same as clue_07. ✓
+clue_09 (inspect_location: counting_house): Counting House is adjacent to Archive (where player has been). Orrath is there. Player moves there and inspects. ✓
+clue_10 (inspect_location: archive_chamber — same condition as clue_05): Fires at same time as clue_05. ✓
+clue_11 (inspect_item: formula_fragment): clue_10 fires when inspecting Archive, describing a formula-case with a protruding parchment → player picks it up → clue fires. ✓
+clue_12 (ask_character_about_item: formula_fragment → pira_eddan): Player has formula_fragment (from Archive). Player goes to Assay Room (where Pira is). Player shows fragment to Pira. The motivation to ask Pira: she's the technical expert (Lead 3), and the fragment has unfamiliar notation (clue_11 text). ✓
+clue_13 (ask_character_about_item: formula_fragment → orrath_denn): Player has formula_fragment. Player goes to Counting House (where Orrath is). Player shows him the fragment. Motivation: Orrath is the Factor, responsible for trade matters — showing him an unfamiliar notation makes sense. ✓
+clue_14 (talk_to_character: thessa_vel — same condition as clue_06): Fires at same time. ✓
+clue_15 (talk_to_character: davan_reach): Davan is at Harbour Dock. Player arrives there (it's the arrival location). Player talks to Davan. ✓
+clue_16 (ask_character_about_item: formula_fragment → thessa_vel): Player has formula_fragment. Player goes to Elder Hall (where Thessa is). Player shows her the fragment. Motivation: Thessa is the Elder-Matriarch and would know the formula records (clue_14 mentions formula copying). ✓
+clue_17 (ask_character_about_item: kauvari_boots → orrath_denn): Player has boots (from Counting House, picked up during clue_09 inspection). Player shows them to Orrath (who is in the same room). Motivation: the boots have archive dust (clue_19/clue from inspecting them), and Orrath is the Factor whose room they're in. ✓
+clue_18 (inspect_item_in_location: kauvari_boots in archive_chamber): Player has boots + visits Archive → clue fires. Motivation: after Pira mentions archive dust on victim (clue_21), player may want to compare dust on boots to archive floor. ✓
+clue_19 (inspect_location: assay_room): Player goes to Assay Room (Lead 3 points there) and inspects. ✓
+clue_20 (inspect_location: harbour_dock): Player is at Harbour Dock on arrival → inspects location → clue fires. ✓
+clue_21 (talk_to_character: pira_eddan — same condition as clue_02): Same as clue_02. ✓
+clue_22 (inspect_item_in_location: kauvari_boots in counting_house): Player has boots + is in Counting House (where they started) → fires when player inspects that location while holding boots. Wait — does this fire when the player inspects the location while holding the boots, or when they pick up the boots?
+Looking at the interaction model: "Inspect location: fires inspect_location clues; also fires inspect_item_in_location for items in inventory." So when the player inspects the counting_house while holding the boots, inspect_item_in_location: boots in counting_house fires. The player picks up the boots first, then inspects the location (or re-inspects). ✓
+clue_23 (talk_to_character: pira_eddan — same condition): Same as clue_02. ✓
+clue_24 (ask_character_about_item: kauvari_boots → pira_eddan): Player has boots + talks to Pira in Assay Room and shows her the boots. Motivation: after clue_19 (assay room note about viridian dust), player brings the boots to Pira for analysis. ✓
+All clues discoverable. ✓
+One thing I want to double-check: the item kauvari_boots. Its starting_location is counting_house. The location_discovery_text should describe where in the counting house they are visible. When the player inspects the counting_house, they see the boots via location_discovery_text. They pick them up, getting clue_... wait, there's no inspect_item: kauvari_boots clue currently.
+I should add one, or make the boots' physical observation come from the location_discovery_text and a clue when they're inspected.
+Let me add: clue_19b (actually renumber) — inspect_item: kauvari_boots → text: the boot soles carry heavy viridian crystallite, contradicts: something.
+Or fold this into an existing clue. Let me revise clue_19 (inspect_location: assay_room) and add a new clue for inspect_item: kauvari_boots.
+Actually, I realize I'm at 24 clues and can add up to 4 more. Let me add:
+clue_25 — inspect_item: kauvari_boots
+Text: The boot soles are packed with pale green-grey dust — viridian crystallite — that shimmers faintly in the light. The crust is fresh and sharp-edged. A dark smear is visible on the right boot's inner heel.
+Contradicts: true_location → Dye-Works (the dust on the boots is archive-specific, not dye-works-specific; further confirms the murder location) — wait, this is the mover's boots, not the victim. The boots being archive-dusted shows the mover was in the archive. But true_location is about where the murder happened, and this boots evidence doesn't directly say "the murder happened in the archive" unless combined with other clues.
+Actually — this dust IS the archive compound (established by CL3 and CL5). The boots carry it. So whoever wore these boots was in the Archive. This supports true_location → Archive but doesn't directly contradict other locations from the clue text alone.
+Hmm — let me have this clue stand on its own physical observation and not contradict anything specific. Instead it serves as a linking clue that becomes meaningful once the player has established the archive dust identification.
+Actually I need it to contradict something. Let me use:
+Contradicts: motive → eliminating a trade rival (if the murder were about eliminating a trade rival, there would be no need to access the Archive specifically; the archive-dust evidence on the boots implies a goal related to the Archive's contents) — too inferential.
+Let me try: this is an inspect_item clue, and it just describes the boots. It doesn't need to contradict if I can fold its observations into other clues. But the schema requires a contradicts array for every clue... actually, the schema doesn't say contradicts must be non-empty. Let me check: "contradicts: array listing which (checkpoint, answer) pairs it makes logically impossible." It could be an empty array if the clue is purely observational.
+But the game uses pure elimination — every clue should contribute. Let me either give it a valid contradicts or remove it.
+Option: Give clue_25 a meaningful contradicts:
+The dark smear on the boot heel — if it's blood — combined with the archive-specific dust:
+Contradicts: perpetrator → Thessa Vel (the boot size is for a large adult man — the smear suggests the boots were worn during or immediately after the murder)
+But I need the clue text to mention boot size, which I'm also using in clue_18. Let me make clue_25 say:
+"The soles carry a thick crust of pale green-grey dust with a faint iridescence — the distinctive quality of viridian crystallite. A dark smear marks the inner edge of the right heel. The boot is sized for a large adult male."
+Contradicts: perpetrator → Thessa Vel, perpetrator → Pira Eddan (2 — same as clue_18 but from a different condition)
+Wait — clue_18 is inspect_item_in_location: boots in archive. clue_25 is inspect_item: boots. These fire at different times. clue_25 fires first (when player picks up boots). clue_18 fires later (when player takes boots to archive). So clue_25 can independently give the size information.
+But now both CL18 and CL25 contradict Thessa and Pira via boot size. That's redundant but valid.
+Let me make clue_25 contradict something different: the dark smear.
+Contradicts: cause_of_death → blunt force trauma (a bolt wound produces a characteristic smear when a body is moved; a blunt trauma death would produce different markings — actually this is too inferential).
+Let me just leave clue_25 as:
+Contradicts: perpetrator → Thessa Vel, perpetrator → Pira Eddan (boot size) — and accept the redundancy. It fires early and gives the player an early perpretrator clue.
+Actually wait: I need to make sure clue_25 is discoverable through its own chain. The player inspects counting_house (clue_09 fires, sees cabinet), then picks up the boots from the location_discovery_text, then immediately clue_25 fires (inspect_item: kauvari_boots). That's clean. ✓
+25 clues total. Good.
+Let me do the final accounting and then write the JSON.
+FINAL CLUE LIST:
+#ConditionContradictsclue_01inspect_item: crossbow_boltCOD: blade wound, COD: blunt force traumaclue_02talk_to_character: pira_eddanCOD: strangulation, COD: blunt force trauma, COD: drowningclue_03inspect_item_in_location: crossbow_bolt in assay_roomCOD: poisoning, true_loc: Counting House, true_loc: Harbour Dockclue_04inspect_location: dye_workstrue_loc: Dye-Worksclue_05inspect_location: archive_chambertrue_loc: Assay Room, true_loc: Elder Hallclue_06talk_to_character: thessa_veltime: before nine, time: between nine and tenclue_07talk_to_character: linna_vortime: midnight-to-two, time: two-to-four, time: after-fourclue_08talk_to_character: linna_vorperp: Thessa Vel, perp: Pira Eddan, perp: Brek Ossunclue_09inspect_location: counting_houseperp: Linna Vor, perp: Davan Reach, perp: Brek Ossunclue_10inspect_location: archive_chambermotive: personal vendetta, motive: concealing an affairclue_11inspect_item: formula_fragmentmotive: inheritance dispute, motive: revenge for past wrongclue_12ask_character_about_item: formula_fragment → pira_eddanmotive: personal vendetta, motive: eliminating a trade rivalclue_13ask_character_about_item: formula_fragment → orrath_dennmotive: concealing an affair, motive: inheritance disputeclue_14talk_to_character: thessa_velmotive: personal vendetta, motive: revenge for past wrongclue_15talk_to_character: davan_reachmotive: personal vendetta, motive: inheritance disputeclue_16ask_character_about_item: formula_fragment → thessa_velmotive: concealing an affair, motive: revenge for past wrongclue_17ask_character_about_item: kauvari_boots → orrath_dennperp: Linna Vor, perp: Davan Reachclue_18inspect_item_in_location: kauvari_boots in archive_chamberperp: Thessa Vel, perp: Pira Eddanclue_19inspect_location: assay_roomtrue_loc: Dye-Worksclue_20inspect_location: harbour_dockperp: Davan Reach, true_loc: Harbour Dockclue_21talk_to_character: pira_eddantrue_loc: Dye-Works, true_loc: Elder Hallclue_22inspect_item_in_location: kauvari_boots in counting_houseperp: Linna Vor, perp: Brek Ossunclue_23talk_to_character: pira_eddanperp: Brek Ossun, perp: Davan Reachclue_24ask_character_about_item: kauvari_boots → pira_eddanperp: Linna Vor, perp: Davan Reachclue_25inspect_item: kauvari_bootsperp: Thessa Vel, perp: Pira Eddan
+25 clues ✓ (within 20-28 range)
+ANTI-CLUSTERING FINAL CHECK:
+All clues have ≤ 3 contradicts entries. ✓
+COVERAGE FINAL CHECK:
+COD:
+
+blade wound: clue_01 ✓
+blunt force trauma: clue_01, clue_02 ✓
+poisoning: clue_03 ✓
+strangulation: clue_02 ✓
+drowning: clue_02 ✓
+
+TRUE_LOCATION:
+
+Dye-Works: clue_04, clue_19, clue_21 ✓
+Counting House: clue_03 ✓
+Elder Hall: clue_05, clue_21 ✓
+Harbour Dock: clue_03, clue_20 ✓
+Assay Room: clue_05 ✓
+
+TIME:
+
+before nine: clue_06 ✓
+between nine and ten: clue_06 ✓
+between midnight and two: clue_07 ✓
+between two and four: clue_07 ✓
+after four in the morning: clue_07 ✓
+
+PERPETRATOR:
+
+Thessa Vel: clue_08, clue_18, clue_25 ✓
+Pira Eddan: clue_08, clue_18, clue_25 ✓
+Brek Ossun: clue_08, clue_09, clue_22, clue_23 ✓
+Linna Vor: clue_09, clue_17, clue_22, clue_24 ✓
+Davan Reach: clue_09, clue_17, clue_20, clue_23, clue_24 ✓
+
+MOTIVE:
+
+personal vendetta: clue_10, clue_12, clue_14, clue_15 ✓ (wait — clue_10 contradicts personal vendetta? Let me check: clue_10 shows formula disturbance in Archive — implies the motive relates to the formula, not a personal vendetta. Yes, this logically contradicts "personal vendetta" because evidence points to formula-related crime, not personal history.)
+inheritance dispute: clue_11, clue_13, clue_15 ✓
+concealing an affair: clue_10, clue_13, clue_16 ✓
+revenge for past wrong: clue_11, clue_14, clue_16 ✓
+eliminating a trade rival: clue_12 ✓
+
+All cells filled. ✓
+Now — do any clues seem to contradict the CORRECT answers?
+
+COD correct: "crossbow bolt wound" — no clue should seem to rule this out. ✓
+true_location correct: "Archive Chamber" — clue_05 (archive floor disturbed) confirms it rather than contradicts. ✓
+time correct: "between ten o'clock and midnight" — clue_06 says alive at ten (supports lower bound); clue_07 says archive locked at midnight (supports upper bound). Neither contradicts the correct window. ✓
+perpetrator correct: "Orrath Denn" — all clues about Orrath are suspicious-but-deniable; none rule him out. ✓
+motive correct: "to prevent exposure of his theft of the Nightbloom formula" — clue texts establish formula theft context without naming the motive string directly. ✓
+
+All clear. ✓
+Now I'll write the JSON.

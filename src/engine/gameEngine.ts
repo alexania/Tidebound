@@ -10,29 +10,64 @@ import { initCheckpointStates, recomputeCheckpointStatuses } from './checkpoints
 import { FEEDBACK, formatFeedback } from './feedback'
 
 // ─────────────────────────────────────────────
-// Difficulty filtering
+// Difficulty filtering (answer options)
 // ─────────────────────────────────────────────
 
-const RED_HERRINGS_PER_DIFFICULTY: Record<Difficulty, number> = {
-  easy:   1,
-  medium: 2,
-  hard:   3,
+const OPTIONS_PER_DIFFICULTY: Record<Difficulty, number> = {
+  easy:   3,
+  medium: 4,
+  hard:   99,
 }
 
-// Scenarios are always generated at "hard" (2 correct + 3 red herrings per checkpoint).
-// This trims red herrings down to the count appropriate for the chosen difficulty.
-export function filterCluesToDifficulty(scenario: Scenario, difficulty: Difficulty): Scenario {
-  const keep = RED_HERRINGS_PER_DIFFICULTY[difficulty]
-  const redHerringCount: Record<string, number> = {}
+// Scenarios are generated with 5–6 answer options per checkpoint.
+// This trims to the count appropriate for the chosen difficulty,
+// keeping the correct answer and a subset of wrong answers.
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
 
-  const filtered = scenario.clues.filter(clue => {
-    if (clue.weight !== 'red_herring') return true
-    const cp = clue.checkpoint
-    redHerringCount[cp] = (redHerringCount[cp] ?? 0) + 1
-    return redHerringCount[cp] <= keep
-  })
+export function filterOptionsToDifficulty(scenario: Scenario, difficulty: Difficulty): Scenario {
+  const keep = OPTIONS_PER_DIFFICULTY[difficulty]
 
-  return { ...scenario, clues: filtered }
+  return {
+    ...scenario,
+    checkpoints: scenario.checkpoints.map(cp => {
+      let options = cp.answer_options
+      if (options.length > keep) {
+        const correct = getCorrectAnswer(cp.id as CheckpointId, scenario)
+        const wrong = options.filter(o => o !== correct)
+        options = [correct, ...wrong.slice(0, keep - 1)]
+      }
+      return { ...cp, answer_options: shuffle(options) }
+    }),
+  }
+}
+
+// ─────────────────────────────────────────────
+// Correct answer lookup
+// ─────────────────────────────────────────────
+
+export function getCorrectAnswer(checkpointId: CheckpointId, scenario: Scenario): string {
+  const crime = scenario.crime
+  switch (checkpointId) {
+    case 'cause_of_death': return crime.cause_of_death
+    case 'true_location': {
+      const loc = scenario.locations.find(l => l.id === crime.murder_location)
+      return loc?.name ?? crime.murder_location
+    }
+    case 'time_of_death':  return crime.time_of_death
+    case 'perpetrator': {
+      const perpId = crime.perpetrator_ids[0]
+      return scenario.characters.find(c => c.id === perpId)?.name ?? perpId
+    }
+    case 'motive': return crime.motive
+    default: return ''
+  }
 }
 
 // ─────────────────────────────────────────────
@@ -135,14 +170,12 @@ function fireClues(
   predicate: (clue: Clue) => boolean
 ): FireResult {
   const collected = new Set(state.collectedClueIds)
-  const investigativeDone = investigativeAllConfirmed(state)
   const ids: string[] = []
   const entries: LogEntry[] = []
-  const ac = state.actionCount + 1  // entries use the post-increment count
+  const ac = state.actionCount + 1
 
   for (const clue of scenario.clues) {
     if (collected.has(clue.id)) continue
-    if (ACCUSATION_CHECKPOINTS.has(clue.checkpoint) && !investigativeDone) continue
     if (!predicate(clue)) continue
     if (!evaluateCondition(clue.condition, ctx)) continue
 
@@ -154,82 +187,34 @@ function fireClues(
       text: clue.text,
       clueId: clue.id,
       isNew: true,
-      weight: clue.weight,
     })
   }
 
   return { ids, entries }
 }
 
-type FeedbackCategory = 'empty' | 'locked' | 'missing'
+type FeedbackCategory = 'empty' | 'missing'
 
-// Determines why no clue fired for an action.
-// relevantPredicate: does this clue relate to the action (condition type + params match)?
 function getFeedbackCategory(
   state: GameState,
   scenario: Scenario,
   relevantPredicate: (clue: Clue) => boolean,
 ): FeedbackCategory {
   const collected = new Set(state.collectedClueIds)
-  const investigativeDone = investigativeAllConfirmed(state)
-  let hasLocked = false
-  let hasMissing = false
 
   for (const clue of scenario.clues) {
     if (collected.has(clue.id)) continue
     if (!relevantPredicate(clue)) continue
 
-    if (ACCUSATION_CHECKPOINTS.has(clue.checkpoint) && !investigativeDone) {
-      hasLocked = true
-      continue
-    }
-
-    // Easy mode: clue exists but requires an item not in inventory
     if (state.difficulty === 'easy' &&
         (clue.condition.type === 'inspect_item_in_location' ||
          clue.condition.type === 'ask_character_about_item') &&
         clue.condition.item && !state.inventory.includes(clue.condition.item)) {
-      hasMissing = true
-      continue
+      return 'missing'
     }
   }
 
-  if (hasLocked) return 'locked'
-  if (hasMissing) return 'missing'
   return 'empty'
-}
-
-const INVESTIGATIVE_COMPLETE_LOG_ID = 'investigative_complete'
-
-// Returns a log entry the first time all investigative clues are collected,
-// null if already fired or not yet complete.
-function maybeInvestigativeCompleteEntry(
-  state: GameState,
-  scenario: Scenario,
-  newClueIds: string[],
-  ac: number
-): LogEntry | null {
-  if (state.log.some(e => e.id === INVESTIGATIVE_COMPLETE_LOG_ID)) return null
-
-  const investigativeClues = scenario.clues.filter(c => !ACCUSATION_CHECKPOINTS.has(c.checkpoint))
-  const allCollected = new Set([...state.collectedClueIds, ...newClueIds])
-  if (!investigativeClues.every(c => allCollected.has(c.id))) return null
-
-  return {
-    id: INVESTIGATIVE_COMPLETE_LOG_ID,
-    turn: ac,
-    locationId: state.investigatorLocation,
-    text: "Something clicks into place — the investigator has gathered enough evidence to explain the crime scene. Open the Evidence Board and make your deductions.",
-    clueId: null,
-    isNew: true,
-    isMilestone: true,
-  }
-}
-
-function updateLockedKeys(existing: string[], key: string, isLocked: boolean, _cluesFired: boolean): string[] {
-  if (isLocked && !existing.includes(key)) return [...existing, key]
-  if (!isLocked && existing.includes(key)) return existing.filter(k => k !== key)
-  return existing
 }
 
 function buildAutoPinnedCards(
@@ -279,7 +264,6 @@ export function moveToLocation(
   const ac = state.actionCount + 1
   const newEntries: LogEntry[] = []
 
-  // Reveal new NPCs at destination
   const newlyFoundCharIds = scenario.characters
     .filter(c => !state.foundCharacterIds.includes(c.id) && c.location === locationId)
     .map(c => c.id)
@@ -318,7 +302,6 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
   const ctx = makeContext(state, scenario)
   const newEntries: LogEntry[] = []
 
-  // Location flavour on first inspect
   if (!state.inspectedLocationIds.includes(locId)) {
     const loc = scenario.locations.find(l => l.id === locId)
     if (loc) {
@@ -333,7 +316,6 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
     }
   }
 
-  // Visible items: at this location, not in inventory
   const visibleItems = scenario.items.filter(
     i => i.starting_location === locId && !state.inventory.includes(i.id)
   )
@@ -349,12 +331,10 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
     })
   }
 
-  // Fire inspect_location clues
   const atLoc = fireClues(state, scenario, ctx,
     clue => clue.condition.type === 'inspect_location' && clue.condition.location === locId
   )
 
-  // Fire inspect_item_in_location clues (items already in inventory)
   const atLocWithItem = fireClues(state, scenario, ctx,
     clue => clue.condition.type === 'inspect_item_in_location' && clue.condition.location === locId
   )
@@ -365,32 +345,18 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
   const actionKey = `inspect:${locId}`
   const alreadyAttempted = state.attemptedActions.includes(actionKey)
 
-  // Missing hint: easy mode, uncollected at_location_with_item clue exists for this location
-  // but required item not in inventory — show even if other clues fired
   const missingHint = state.difficulty === 'easy' && scenario.clues.some(clue => {
     if (state.collectedClueIds.includes(clue.id) || newClueIds.includes(clue.id)) return false
     if (clue.condition.type !== 'inspect_item_in_location') return false
     if (clue.condition.location !== locId) return false
-    if (ACCUSATION_CHECKPOINTS.has(clue.checkpoint) && !investigativeAllConfirmed(state)) return false
     return !!clue.condition.item && !state.inventory.includes(clue.condition.item)
   })
 
-  const locCategory = getFeedbackCategory(state, scenario,
-    clue => (clue.condition.type === 'inspect_location' && clue.condition.location === locId) ||
-            (clue.condition.type === 'inspect_item_in_location' && clue.condition.location === locId)
-  )
-  const lockedFeedback = locCategory === 'locked'
   if (missingHint) {
     newEntries.push(feedbackEntry(`log_${ac}_fb_${locId}`, ac, locId, FEEDBACK.inspect_location_missing))
   } else if (newClueIds.length === 0) {
-    const key = lockedFeedback ? 'inspect_location_locked' : 'inspect_location_empty'
-    newEntries.push(feedbackEntry(`log_${ac}_fb_${locId}`, ac, locId, FEEDBACK[key]))
-  } else if (lockedFeedback) {
-    newEntries.push(feedbackEntry(`log_${ac}_fb_${locId}_locked`, ac, locId, FEEDBACK.inspect_location_locked))
+    newEntries.push(feedbackEntry(`log_${ac}_fb_${locId}`, ac, locId, FEEDBACK.inspect_location_empty))
   }
-
-  const completeEntry = maybeInvestigativeCompleteEntry(state, scenario, newClueIds, ac)
-  if (completeEntry) newEntries.push(completeEntry)
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
   const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac)
@@ -405,7 +371,7 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
     pinnedCards: [...state.pinnedCards, ...autoPinned],
     log: [...updatedLog, ...newEntries],
     attemptedActions: alreadyAttempted ? state.attemptedActions : [...state.attemptedActions, actionKey],
-    lockedActionKeys: updateLockedKeys(state.lockedActionKeys, actionKey, lockedFeedback, newClueIds.length > 0),
+    lockedActionKeys: state.lockedActionKeys,
   }
 }
 
@@ -424,7 +390,6 @@ export function inspectItem(state: GameState, scenario: Scenario, itemId: string
   let newInventory = state.inventory
   let newFoundItemIds = state.foundItemIds
 
-  // Pick up if not already held
   if (!isInInventory) {
     newInventory = [...state.inventory, itemId]
     newFoundItemIds = [...state.foundItemIds, itemId]
@@ -438,20 +403,17 @@ export function inspectItem(state: GameState, scenario: Scenario, itemId: string
     })
   }
 
-  // Build context with updated inventory
   const ctx: EvalContext = {
     ...makeContext(state, scenario),
     inventory: newInventory,
   }
 
-  // Fire inspect_item clues
   const withItem = fireClues(
     { ...state, inventory: newInventory },
     scenario, ctx,
     clue => clue.condition.type === 'inspect_item' && clue.condition.item === itemId
   )
 
-  // Fire inspect_item_in_location clues (current location + this item)
   const atLocWithItem = fireClues(
     { ...state, inventory: newInventory },
     scenario, ctx,
@@ -465,23 +427,15 @@ export function inspectItem(state: GameState, scenario: Scenario, itemId: string
   const actionKey = `inspect_item:${itemId}:${locId}`
   const alreadyAttempted = state.attemptedActions.includes(actionKey)
 
-  let itemLockedFeedback = false
   if (newClueIds.length === 0 && isInInventory) {
-    // Item was already in inventory, no new clues — show feedback
     const stateForFeedback = { ...state, inventory: newInventory }
     const category = getFeedbackCategory(stateForFeedback, scenario,
       clue => (clue.condition.type === 'inspect_item' && clue.condition.item === itemId) ||
               (clue.condition.type === 'inspect_item_in_location' && clue.condition.item === itemId)
     )
-    itemLockedFeedback = category === 'locked'
-    const key = itemLockedFeedback ? 'inspect_item_locked'
-      : category === 'missing' ? 'inspect_item_missing'
-      : 'inspect_item_empty'
+    const key = category === 'missing' ? 'inspect_item_missing' : 'inspect_item_empty'
     newEntries.push(feedbackEntry(`log_${ac}_fb_${itemId}`, ac, locId, FEEDBACK[key]))
   }
-
-  const completeEntry2 = maybeInvestigativeCompleteEntry(state, scenario, newClueIds, ac)
-  if (completeEntry2) newEntries.push(completeEntry2)
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
   const allCollected = [...state.collectedClueIds, ...newClueIds]
@@ -496,7 +450,7 @@ export function inspectItem(state: GameState, scenario: Scenario, itemId: string
     pinnedCards: [...state.pinnedCards, ...autoPinned],
     log: [...updatedLog, ...newEntries],
     attemptedActions: alreadyAttempted ? state.attemptedActions : [...state.attemptedActions, actionKey],
-    lockedActionKeys: updateLockedKeys(state.lockedActionKeys, actionKey, itemLockedFeedback, newClueIds.length > 0),
+    lockedActionKeys: state.lockedActionKeys,
   }
 }
 
@@ -516,26 +470,12 @@ export function talkToCharacter(state: GameState, scenario: Scenario, charId: st
   const alreadyAttempted = state.attemptedActions.includes(actionKey)
   const newEntries = [...entries]
 
-  const talkCategory = getFeedbackCategory(state, scenario,
-    clue => clue.condition.type === 'talk_to_character' &&
-             (clue.condition.characters ?? []).includes(charId)
-  )
-  const talkLockedFeedback = talkCategory === 'locked'
   if (ids.length === 0) {
-    const key = talkLockedFeedback ? 'talk_locked' : 'talk_empty'
     newEntries.push(feedbackEntry(
       `log_${ac}_fb_${charId}`, ac, state.investigatorLocation,
-      formatFeedback(FEEDBACK[key], { name: char.name })
-    ))
-  } else if (talkLockedFeedback) {
-    newEntries.push(feedbackEntry(
-      `log_${ac}_fb_${charId}_locked`, ac, state.investigatorLocation,
-      formatFeedback(FEEDBACK.talk_locked, { name: char.name })
+      formatFeedback(FEEDBACK.talk_empty, { name: char.name })
     ))
   }
-
-  const completeEntry3 = maybeInvestigativeCompleteEntry(state, scenario, ids, ac)
-  if (completeEntry3) newEntries.push(completeEntry3)
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
   const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac)
@@ -547,7 +487,7 @@ export function talkToCharacter(state: GameState, scenario: Scenario, charId: st
     pinnedCards: [...state.pinnedCards, ...autoPinned],
     log: [...updatedLog, ...newEntries],
     attemptedActions: alreadyAttempted ? state.attemptedActions : [...state.attemptedActions, actionKey],
-    lockedActionKeys: updateLockedKeys(state.lockedActionKeys, actionKey, talkLockedFeedback, ids.length > 0),
+    lockedActionKeys: state.lockedActionKeys,
   }
 }
 
@@ -573,26 +513,12 @@ export function askCharacterAboutItem(
   const alreadyAttempted = state.attemptedActions.includes(actionKey)
   const newEntries = [...entries]
 
-  const askCategory = getFeedbackCategory(state, scenario,
-    clue => clue.condition.type === 'ask_character_about_item' &&
-             (clue.condition.characters ?? []).includes(charId) && clue.condition.item === itemId
-  )
-  const askLockedFeedback = askCategory === 'locked'
   if (ids.length === 0) {
-    const key = askLockedFeedback ? 'ask_locked' : 'ask_empty'
     newEntries.push(feedbackEntry(
       `log_${ac}_fb_${charId}_${itemId}`, ac, state.investigatorLocation,
-      formatFeedback(FEEDBACK[key], { name: char.name })
-    ))
-  } else if (askLockedFeedback) {
-    newEntries.push(feedbackEntry(
-      `log_${ac}_fb_${charId}_${itemId}_locked`, ac, state.investigatorLocation,
-      formatFeedback(FEEDBACK.ask_locked, { name: char.name })
+      formatFeedback(FEEDBACK.ask_empty, { name: char.name })
     ))
   }
-
-  const completeEntry4 = maybeInvestigativeCompleteEntry(state, scenario, ids, ac)
-  if (completeEntry4) newEntries.push(completeEntry4)
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
   const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac)
@@ -604,37 +530,85 @@ export function askCharacterAboutItem(
     pinnedCards: [...state.pinnedCards, ...autoPinned],
     log: [...updatedLog, ...newEntries],
     attemptedActions: alreadyAttempted ? state.attemptedActions : [...state.attemptedActions, actionKey],
-    lockedActionKeys: updateLockedKeys(state.lockedActionKeys, actionKey, askLockedFeedback, ids.length > 0),
+    lockedActionKeys: state.lockedActionKeys,
   }
 }
 
 // ─────────────────────────────────────────────
-// Checkpoint submission
+// Proof assignment + checkpoint submission
 // ─────────────────────────────────────────────
+
+export function assignProof(
+  state: GameState,
+  scenario: Scenario,
+  checkpointId: CheckpointId,
+  wrongAnswer: string,
+  clueId: string,
+): GameState {
+  const cp = state.checkpoints[checkpointId]
+  if (!cp || cp.status !== 'available') return state
+  if (!state.collectedClueIds.includes(clueId)) return state
+
+  const clue = scenario.clues.find(c => c.id === clueId)
+  if (!clue?.contradicts.some(c => c.checkpoint === checkpointId && c.answer === wrongAnswer)) return state
+
+  const updatedProofs = { ...cp.proofs, [wrongAnswer]: clueId }
+  const nextState: GameState = {
+    ...state,
+    checkpoints: {
+      ...state.checkpoints,
+      [checkpointId]: { ...cp, proofs: updatedProofs },
+    },
+  }
+
+  // Auto-submit if all wrong answers are now covered
+  const scenarioCp = scenario.checkpoints.find(c => c.id === checkpointId)!
+  const correctAnswer = getCorrectAnswer(checkpointId, scenario)
+  const wrongAnswers = scenarioCp.answer_options.filter(o => o !== correctAnswer)
+  const allCovered = wrongAnswers.every(w => updatedProofs[w])
+
+  if (allCovered) {
+    return submitCheckpoint(nextState, scenario, checkpointId)
+  }
+
+  return nextState
+}
 
 export function submitCheckpoint(
   state: GameState,
   scenario: Scenario,
   checkpointId: CheckpointId,
-  answer: string,
-  citedClueIds: string[]
 ): GameState {
   const checkpoint = state.checkpoints[checkpointId]
   if (!checkpoint || checkpoint.status !== 'available') return state
 
+  // Accusation gate
+  if (ACCUSATION_CHECKPOINTS.has(checkpointId) && !investigativeAllConfirmed(state)) return state
+
+  const scenarioCp = scenario.checkpoints.find(c => c.id === checkpointId)!
   const correctAnswer = getCorrectAnswer(checkpointId, scenario)
-  const isCorrect = answer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()
+  const wrongAnswers = scenarioCp.answer_options.filter(o => o !== correctAnswer)
+
+  // Validate all wrong answers have valid proofs
+  for (const wrong of wrongAnswers) {
+    const clueId = checkpoint.proofs[wrong]
+    if (!clueId || !state.collectedClueIds.includes(clueId)) return state
+    const clue = scenario.clues.find(c => c.id === clueId)
+    if (!clue?.contradicts.some(c => c.checkpoint === checkpointId && c.answer === wrong)) return state
+  }
+
+  const citedClueIds = Object.values(checkpoint.proofs)
 
   const updatedCheckpoint = {
     ...checkpoint,
-    status: isCorrect ? ('confirmed' as const) : checkpoint.status,
-    confirmedAnswer: isCorrect ? answer : checkpoint.confirmedAnswer,
+    status: 'confirmed' as const,
+    confirmedAnswer: correctAnswer,
     submissions: [
       ...checkpoint.submissions,
       {
         checkpointId,
-        submittedAnswer: answer,
-        result: isCorrect ? 'correct' as const : 'incorrect' as const,
+        submittedAnswer: correctAnswer,
+        result: 'correct' as const,
         turn: state.actionCount,
         citedClueIds,
       },
@@ -657,31 +631,13 @@ export function submitCheckpoint(
   }
 }
 
-function getCorrectAnswer(checkpointId: CheckpointId, scenario: Scenario): string {
-  const correctClue = scenario.clues.find(c => c.checkpoint === checkpointId && c.weight === 'correct')
-  if (correctClue) return correctClue.answer
-
-  const crime = scenario.crime
-  switch (checkpointId) {
-    case 'cause_of_death': return crime.cause_of_death
-    case 'true_location':  return crime.murder_location
-    case 'time_of_death':  return crime.time_of_death
-    case 'perpetrator': {
-      const perpId = crime.perpetrator_ids[0]
-      return scenario.characters.find(c => c.id === perpId)?.name ?? perpId
-    }
-    case 'motive':       return crime.motive
-    default: return ''
-  }
-}
-
 function calculateScore(actionCount: number, difficulty: Difficulty): number {
   const base = { easy: 1000, medium: 2000, hard: 3000 }[difficulty]
   return Math.max(base - actionCount * 15, 100)
 }
 
 // ─────────────────────────────────────────────
-// Evidence board actions
+// Evidence board actions (kept for ActionLog compat)
 // ─────────────────────────────────────────────
 
 export function pinClue(state: GameState, clueId: string, text: string): GameState {

@@ -16,7 +16,7 @@ interface Props {
   onInspectItem: (itemId: string) => void
   onTalk: (charId: string) => void
   onAsk: (charId: string, itemId: string) => void
-  onSubmitCheckpoint: (cpId: CheckpointId, answer: string, citedClueIds: string[]) => void
+  onAssignProof: (cpId: CheckpointId, wrongAnswer: string, clueId: string) => void
   onPinCard: (clueId: string) => void
   onUpdateImplied: (cardId: string, answer: string) => void
   onAssignLane: (cardId: string, checkpointId: CheckpointId | null) => void
@@ -30,7 +30,7 @@ interface Props {
 export function GameScreen({
   scenario, gameState,
   onMove, onInspectLocation, onInspectItem, onTalk, onAsk,
-  onSubmitCheckpoint,
+  onAssignProof,
   onPinCard, onUpdateImplied, onAssignLane, onUnpinCard,
   showBoard, onToggleBoard,
   collapsedCards, onToggleCardCollapsed,
@@ -118,13 +118,8 @@ export function GameScreen({
         <EvidenceBoard
           scenario={scenario}
           gameState={gameState}
-          onUpdateImplied={onUpdateImplied}
-          onAssignLane={onAssignLane}
-          onUnpinCard={onUnpinCard}
-          onSubmitCheckpoint={onSubmitCheckpoint}
+          onAssignProof={onAssignProof}
           onClose={onToggleBoard}
-          collapsedCards={collapsedCards}
-          onToggleCardCollapsed={onToggleCardCollapsed}
           hidden={!showBoard}
         />
       </div>

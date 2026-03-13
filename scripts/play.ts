@@ -11,13 +11,14 @@ import type { Scenario, LocationId, LocationAdjacency } from '../src/types/scena
 import type { GameState } from '../src/types/gameState'
 import {
   initGameState,
-  filterCluesToDifficulty,
+  filterOptionsToDifficulty,
   moveToLocation,
   inspectLocation,
   inspectItem,
   talkToCharacter,
   askCharacterAboutItem,
-  submitCheckpoint,
+  assignProof,
+  getCorrectAnswer,
 } from '../src/engine/gameEngine'
 
 // ── Minimal ANSI ──────────────────────────────────────────────────────────────
@@ -110,7 +111,11 @@ function renderState(scenario: Scenario, state: GameState): string {
     if (!cp) return null
     if (cp.status === 'confirmed') return `${id}[${gr('✓')}]`
     if (cp.status === 'locked')    return `${id}[locked]`
-    return `${id}[?]`
+    const scenCp = scenario.checkpoints.find(c => c.id === id)!
+    const correct = getCorrectAnswer(id as any, scenario)
+    const wrong = scenCp.answer_options.filter(o => o !== correct)
+    const proved = wrong.filter(w => cp.proofs[w]).length
+    return `${id}[${proved}/${wrong.length}]`
   }
   const invPart = investigative.map(fmt).filter(Boolean).join(' ')
   const accPart = accusatory.map(fmt).filter(Boolean).join(' ')
@@ -137,20 +142,21 @@ function findScenarios(root: string): string[] {
 // ── Help ──────────────────────────────────────────────────────────────────────
 const HELP = `
 Commands:
-  move <loc_id>              Move to an adjacent location.
-  inspect                    Inspect current location — reveals items, fires clues.
-  inspect <item_id>          Pick up item and inspect it — fires clues.
-  talk <char_id>             Talk to a character at current location — fires clues.
-  ask <char_id> <item_id>    Ask character about an inventory item — fires clues.
-  submit <cp_id> <n> <clue_id> [clue_id ...]  Submit answer n citing supporting clues.
-  status                     Current state: location, reachable, inventory, checkpoints.
-  locs                       All locations (* = you, > = reachable) with found characters.
-  chars                      Found characters and their fixed locations.
-  items                      Inventory items with IDs.
-  clues                      All collected clues in action order.
-  cp                         Checkpoints with status and numbered answer options.
-  reset                      Restart this scenario from scratch.
-  quit                       Exit.
+  move <loc_id>                      Move to an adjacent location.
+  inspect                            Inspect current location — reveals items, fires clues.
+  inspect <item_id>                  Pick up item and inspect it — fires clues.
+  talk <char_id>                     Talk to a character at current location — fires clues.
+  ask <char_id> <item_id>            Ask character about an inventory item — fires clues.
+  prove <cp_id> "<wrong_answer>" with <clue_id>  Assign a clue to disprove a wrong answer.
+  auto <cp_id>                       Auto-assign collected clues to all wrong answers and submit.
+  status                             Current state: location, reachable, inventory, checkpoints.
+  locs                               All locations (* = you, > = reachable) with found characters.
+  chars                              Found characters and their fixed locations.
+  items                              Inventory items with IDs.
+  clues                              All collected clues with their contradicts arrays.
+  cp                                 Checkpoints with status and elimination progress.
+  reset                              Restart this scenario from scratch.
+  quit                               Exit.
 `.trim()
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -214,7 +220,7 @@ async function main() {
   }
   const difficulty = (['easy', 'medium', 'hard'].includes(diffArg) ? diffArg : 'easy') as 'easy' | 'medium' | 'hard'
 
-  scenario = filterCluesToDifficulty(scenario, difficulty)
+  scenario = filterOptionsToDifficulty(scenario, difficulty)
 
   // ── Load or init state ─────────────────────────────────────────────────────
   const savedState = loadState(rawPath, difficulty)
@@ -256,7 +262,7 @@ async function main() {
 
       case 'reset': {
         clearState(rawPath, difficulty)
-        scenario = filterCluesToDifficulty(JSON.parse(readFileSync(rawPath, 'utf8')) as Scenario, difficulty)
+        scenario = filterOptionsToDifficulty(JSON.parse(readFileSync(rawPath, 'utf8')) as Scenario, difficulty)
         state    = initGameState(scenario, difficulty)
         saveState(rawPath, difficulty, state)
         console.log('Game reset.')
@@ -396,7 +402,10 @@ async function main() {
         if (!entries.length) { console.log('No clues collected yet.'); break }
         console.log(`Clues (${entries.length}):`)
         for (const e of entries) {
-          console.log(`  [A${e.turn}] ${stripTags(e.text)}`)
+          const clue = scenario.clues.find(c => c.id === e.clueId)
+          const contradicts = clue?.contradicts.map(c => `${c.checkpoint}:"${c.answer}"`).join(', ') ?? ''
+          console.log(`  [A${e.turn}] (${e.clueId}) ${stripTags(e.text)}`)
+          if (contradicts) console.log(`         contradicts: ${contradicts}`)
         }
         break
       }
@@ -410,55 +419,63 @@ async function main() {
           } else if (cp.status === 'locked') {
             console.log(`${id} [locked]  ${scenCp.label}`)
           } else {
+            const correct = getCorrectAnswer(id as any, scenario)
+            const wrong = scenCp.answer_options.filter(o => o !== correct)
             console.log(`${id} [available]  ${scenCp.label}`)
-            scenCp.answer_options.forEach((opt, i) => console.log(`  ${i + 1}. ${opt}`))
-            if (cp.submissions.length) {
-              console.log(`  tried: ${cp.submissions.map(s => s.submittedAnswer).join(', ')}`)
+            console.log(`  ? ${correct}  (correct — will auto-confirm when all wrong answers are disproved)`)
+            for (const w of wrong) {
+              const clueId = cp.proofs[w]
+              const status = clueId ? gr(`✓ disproved by ${clueId}`) : rd('✗ not yet disproved')
+              console.log(`  - ${w}  ${status}`)
             }
           }
         }
         break
       }
 
-      case 'submit': {
-        const cpId    = args[0]
-        const nArg    = args[1]
-        const clueIds = args.slice(2)
+      case 'prove': {
+        // prove <cp_id> "<wrong_answer>" with <clue_id>
+        // Parse: args[0] = cpId, args[1..n] = quoted wrong answer + "with" + clue_id
+        const cpId = args[0]
+        if (!cpId) { console.log(rd('Usage: prove <cp_id> "<wrong_answer>" with <clue_id>')); break }
 
-        if (!cpId || !nArg || clueIds.length === 0) {
-          console.log(rd('Usage: submit <checkpoint_id> <option_number> <clue_id> [clue_id ...]  — use "cp" for options, "clues" for IDs'))
-          break
-        }
+        const rest = args.slice(1).join(' ')
+        const withIdx = rest.lastIndexOf(' with ')
+        if (withIdx === -1) { console.log(rd('Usage: prove <cp_id> "<wrong_answer>" with <clue_id>')); break }
+
+        const wrongAnswer = rest.slice(0, withIdx).replace(/^"|"$/g, '')
+        const clueId = rest.slice(withIdx + 6).trim()
 
         const cp = state.checkpoints[cpId as any]
-        if (!cp) {
-          console.log(rd(`Unknown checkpoint: ${cpId}`))
-          console.log(`Valid IDs: ${Object.keys(state.checkpoints).join(', ')}`)
-          break
-        }
-        if (cp.status === 'locked')    { console.log(rd('Locked — confirm all investigative checkpoints first.')); break }
+        if (!cp) { console.log(rd(`Unknown checkpoint: ${cpId}`)); break }
+        if (cp.status === 'locked') { console.log(rd('Locked — confirm all investigative checkpoints first.')); break }
         if (cp.status === 'confirmed') { console.log(`Already confirmed: ${cp.confirmedAnswer}`); break }
 
         const scenCp = scenario.checkpoints.find(c => c.id === cpId)!
-        const idx    = parseInt(nArg) - 1
-        if (isNaN(idx) || idx < 0 || idx >= scenCp.answer_options.length) {
-          console.log(rd(`Invalid option. Use 1–${scenCp.answer_options.length}. Use "cp" to see options.`))
+        const correct = getCorrectAnswer(cpId as any, scenario)
+        if (wrongAnswer === correct) { console.log(rd(`"${wrongAnswer}" is the correct answer — you cannot disprove it.`)); break }
+        if (!scenCp.answer_options.includes(wrongAnswer)) {
+          console.log(rd(`"${wrongAnswer}" is not an answer option for ${cpId}.`))
+          console.log(`Options: ${scenCp.answer_options.join(', ')}`)
+          break
+        }
+        if (!state.collectedClueIds.includes(clueId)) {
+          console.log(rd(`Clue ${clueId} not collected. Use 'clues' to see collected clue IDs.`)); break
+        }
+
+        const clue = scenario.clues.find(c => c.id === clueId)
+        if (!clue?.contradicts.some(c => c.checkpoint === cpId && c.answer === wrongAnswer)) {
+          console.log(rd(`Clue ${clueId} does not contradict "${wrongAnswer}" for checkpoint ${cpId}.`))
+          console.log(`Its contradicts: ${clue?.contradicts.map(c => `${c.checkpoint}:"${c.answer}"`).join(', ') ?? 'none'}`)
           break
         }
 
-        const invalidClues = clueIds.filter(id => !state.collectedClueIds.includes(id))
-        if (invalidClues.length) {
-          console.log(rd(`Clue(s) not collected: ${invalidClues.join(', ')}. Use "clues" to see collected clue IDs.`))
-          break
-        }
-
-        const answer = scenCp.answer_options[idx]
-        state = submitCheckpoint(state, scenario, cpId as any, answer, clueIds)
+        const prev = state
+        state = assignProof(state, scenario, cpId as any, wrongAnswer, clueId)
         saveState(rawPath, difficulty, state)
-        const result = state.checkpoints[cpId as any]
 
-        if (result.status === 'confirmed') {
-          console.log(gr(`CORRECT: ${answer}`))
+        if (state.checkpoints[cpId as any].status === 'confirmed') {
+          console.log(gr(`CONFIRMED: ${state.checkpoints[cpId as any].confirmedAnswer}`))
           if (state.solved) {
             clearState(rawPath, difficulty)
             console.log(gr(`\nCASE SOLVED. Final score: ${state.finalScore}`))
@@ -469,7 +486,63 @@ async function main() {
             .map(([id]) => id)
           if (unlocked.length) console.log(`Unlocked: ${unlocked.join(', ')}`)
         } else {
-          console.log(rd(`WRONG: ${answer}`))
+          console.log(gr(`Disproved "${wrongAnswer}" with ${clueId}.`))
+          const newCp = state.checkpoints[cpId as any]
+          const remaining = scenCp.answer_options.filter(o => o !== correct && !newCp.proofs[o])
+          console.log(`Still to disprove: ${remaining.join(', ')}`)
+        }
+        break
+      }
+
+      case 'auto': {
+        // auto <cp_id> — auto-assign collected clues to all wrong answers and submit
+        const cpId = args[0]
+        if (!cpId) { console.log(rd('Usage: auto <cp_id>')); break }
+
+        const cp = state.checkpoints[cpId as any]
+        if (!cp) { console.log(rd(`Unknown checkpoint: ${cpId}`)); break }
+        if (cp.status === 'locked') { console.log(rd('Locked — confirm all investigative checkpoints first.')); break }
+        if (cp.status === 'confirmed') { console.log(`Already confirmed: ${cp.confirmedAnswer}`); break }
+
+        const scenCp = scenario.checkpoints.find(c => c.id === cpId)!
+        const correct = getCorrectAnswer(cpId as any, scenario)
+        const wrong = scenCp.answer_options.filter(o => o !== correct)
+
+        let assigned = 0
+        for (const w of wrong) {
+          if (cp.proofs[w]) continue  // already proved
+          // Find a collected clue that contradicts this
+          const clue = scenario.clues.find(c =>
+            state.collectedClueIds.includes(c.id) &&
+            c.contradicts.some(x => x.checkpoint === cpId && x.answer === w)
+          )
+          if (!clue) {
+            console.log(rd(`No collected clue contradicts "${w}" — cannot auto-assign.`))
+            console.log(`Collect more clues before running auto.`)
+            break
+          }
+          state = assignProof(state, scenario, cpId as any, w, clue.id)
+          assigned++
+        }
+
+        saveState(rawPath, difficulty, state)
+
+        if (state.checkpoints[cpId as any].status === 'confirmed') {
+          console.log(gr(`CONFIRMED: ${state.checkpoints[cpId as any].confirmedAnswer}`))
+          if (state.solved) {
+            clearState(rawPath, difficulty)
+            console.log(gr(`\nCASE SOLVED. Final score: ${state.finalScore}`))
+            rl.close(); return
+          }
+          const unlocked = Object.entries(state.checkpoints)
+            .filter(([, v]) => v.status === 'available' && !v.confirmedAnswer)
+            .map(([id]) => id)
+          if (unlocked.length) console.log(`Unlocked: ${unlocked.join(', ')}`)
+        } else {
+          console.log(`Assigned ${assigned} proof(s).`)
+          const newCp = state.checkpoints[cpId as any]
+          const remaining = wrong.filter(o => !newCp.proofs[o])
+          if (remaining.length) console.log(`Still to disprove: ${remaining.join(', ')}`)
         }
         break
       }

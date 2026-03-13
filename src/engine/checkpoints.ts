@@ -34,7 +34,7 @@ export function recomputeCheckpointStatuses(
     } else if (id === 'perpetrator') {
       status = investigativeDone ? 'available' : 'locked'
     } else if (id === 'motive') {
-      status = updated['perpetrator']?.status === 'confirmed' ? 'available' : 'locked'
+      status = investigativeDone ? 'available' : 'locked'
     } else {
       status = 'locked'
     }
@@ -56,6 +56,7 @@ export function initCheckpointStates(
       status: ACCUSATION_CHECKPOINTS.has(id) ? 'locked' : 'available',
       confirmedAnswer: null,
       submissions: [],
+      proofs: {},
     }
   }
 

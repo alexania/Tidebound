@@ -2,7 +2,7 @@
 // TIDEBOUND — Game State Types
 // ─────────────────────────────────────────────
 
-import type { CheckpointId, LocationId, Difficulty, ClueWeight } from './scenario'
+import type { CheckpointId, LocationId, Difficulty } from './scenario'
 
 export interface CollectedClue {
   clueId: string
@@ -39,6 +39,7 @@ export interface CheckpointState {
   status: CheckpointStatus
   confirmedAnswer: string | null
   submissions: CheckpointSubmission[]
+  proofs: Record<string, string>  // wrong_answer → clue_id
 }
 
 export interface LogEntry {
@@ -50,7 +51,6 @@ export interface LogEntry {
   isNew: boolean
   isLead?: boolean
   isMilestone?: boolean
-  weight?: ClueWeight
 }
 
 export interface GameState {

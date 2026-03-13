@@ -11,7 +11,6 @@ export type CheckpointId =
   | 'perpetrator'
   | 'motive'
 
-export type ClueWeight = 'correct' | 'red_herring'
 export type Difficulty = 'easy' | 'medium' | 'hard'
 
 export type ConditionType =
@@ -83,12 +82,9 @@ export interface ClueCondition {
 
 export interface Clue {
   id: string
-  checkpoint: CheckpointId
-  answer: string
-  weight: ClueWeight
   condition: ClueCondition
   text: string
-  red_herring_explanation: string | null
+  contradicts: Array<{ checkpoint: string; answer: string }>
 }
 
 // 2-3 starting leads shown to the player on turn 1 before any clues have fired.
