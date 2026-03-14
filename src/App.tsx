@@ -3,7 +3,7 @@ import type { Scenario, Difficulty, CheckpointId, LocationId } from './types/sce
 import type { GameState } from './types/gameState'
 import {
   initGameState, filterOptionsToDifficulty,
-  moveToLocation, inspectLocation, inspectItem, talkToCharacter, askCharacterAboutItem,
+  moveToLocation, inspectLocation, inspectItem, talkToCharacter, askCharacterAboutItem, askCharacterAboutClue,
   assignProof,
   pinClue, updateCardImplied, assignCardToLane, unpinCard,
 } from './engine/gameEngine'
@@ -138,6 +138,11 @@ export default function App() {
   const handleAsk = (charId: string, itemId: string) => {
     if (!gs || !sc) return
     setGameState(askCharacterAboutItem(gs, sc, charId, itemId))
+  }
+
+  const handleAskAboutClue = (charId: string, clueId: string) => {
+    if (!gs || !sc) return
+    setGameState(askCharacterAboutClue(gs, sc, charId, clueId))
   }
 
   const handleAssignProof = (cpId: CheckpointId, wrongAnswer: string, clueId: string) => {
@@ -294,6 +299,7 @@ export default function App() {
         onInspectItem={handleInspectItem}
         onTalk={handleTalk}
         onAsk={handleAsk}
+        onAskAboutClue={handleAskAboutClue}
         onAssignProof={handleAssignProof}
         onPinCard={handlePinCard}
         onUpdateImplied={handleUpdateImplied}

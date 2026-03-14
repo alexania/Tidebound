@@ -10,6 +10,7 @@ export interface EvalContext {
   investigatorLocation: LocationId
   inventory: string[]                       // item IDs in player's possession
   characterLocations: Record<string, LocationId>
+  collectedClueIds: string[]
 }
 
 // ─────────────────────────────────────────────
@@ -17,7 +18,7 @@ export interface EvalContext {
 // ─────────────────────────────────────────────
 
 export function evaluateCondition(condition: ClueCondition, ctx: EvalContext): boolean {
-  const { investigatorLocation, inventory, characterLocations } = ctx
+  const { investigatorLocation, inventory, characterLocations, collectedClueIds } = ctx
   const chars = condition.characters ?? []
 
   switch (condition.type) {
@@ -48,6 +49,13 @@ export function evaluateCondition(condition: ClueCondition, ctx: EvalContext): b
       if (chars.length === 0 || !condition.item) return false
       const charLoc = characterLocations[chars[0]]
       return !!charLoc && investigatorLocation === charLoc && inventory.includes(condition.item)
+    }
+
+    // Investigator at a character's location AND a specific clue has already been collected
+    case 'ask_character_about_clue': {
+      if (chars.length === 0 || !condition.clue) return false
+      const charLoc = characterLocations[chars[0]]
+      return !!charLoc && investigatorLocation === charLoc && collectedClueIds.includes(condition.clue)
     }
 
     default:

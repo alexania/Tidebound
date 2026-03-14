@@ -71,11 +71,12 @@ interface Props {
   onInspectItem: (itemId: string) => void
   onTalk: (charId: string) => void
   onAsk: (charId: string, itemId: string) => void
+  onAskAboutClue: (charId: string, clueId: string) => void
 }
 
 export function VillageMap({
   scenario, gameState,
-  onMove, onInspectLocation, onInspectItem, onTalk, onAsk,
+  onMove, onInspectLocation, onInspectItem, onTalk, onAsk, onAskAboutClue,
 }: Props) {
   const [openMenu, setOpenMenu] = useState<OpenMenu>({ type: 'location' })
 
@@ -264,6 +265,15 @@ export function VillageMap({
             {isCurrent && openMenu?.type === 'npc' && (() => {
               const char = scenario.characters.find(c => c.id === openMenu.charId)
               if (!char) return null
+
+              // Clues the player has collected that unlock an ask_character_about_clue action for this char
+              const askableClues = scenario.clues.filter(clue =>
+                clue.condition.type === 'ask_character_about_clue' &&
+                (clue.condition.characters ?? []).includes(char.id) &&
+                clue.condition.clue != null &&
+                gameState.collectedClueIds.includes(clue.condition.clue)
+              )
+
               return (
                 <div className="map-context-menu" onClick={e => e.stopPropagation()}>
                   <button
@@ -287,6 +297,21 @@ export function VillageMap({
                       )}
                     </button>
                   ))}
+                  {askableClues.map(clue => {
+                    const prereqClue = scenario.clues.find(c => c.id === clue.condition.clue)
+                    const label = prereqClue
+                      ? prereqClue.text.replace(/\[[^\]]+:([^\]]+)\]/g, '$1').slice(0, 45) + (prereqClue.text.length > 45 ? '…' : '')
+                      : clue.condition.clue!
+                    return (
+                      <button
+                        key={clue.id}
+                        className={gameState.attemptedActions.includes(`ask_clue:${char.id}:${clue.condition.clue}`) ? 'map-menu-btn--done' : ''}
+                        onClick={() => { onAskAboutClue(char.id, clue.condition.clue!); setOpenMenu({ type: 'location' }) }}
+                      >
+                        Follow up: {label}
+                      </button>
+                    )
+                  })}
                 </div>
               )
             })()}

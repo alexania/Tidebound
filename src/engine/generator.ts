@@ -77,14 +77,15 @@ If you cannot find a valid mechanism for a wrong answer, redesign now — move a
 
 ─── STEP 4b — CLUE DESIGN ───────────────────────────────────────────────────
 Now design clues that surface the mechanisms from 4a. For each mechanism, identify:
-- What condition makes the player encounter it? (inspect_location, talk_to_character, inspect_item, inspect_item_in_location, ask_character_about_item)
+- What condition makes the player encounter it? (inspect_location, talk_to_character, inspect_item, inspect_item_in_location, ask_character_about_item, ask_character_about_clue)
 - What raw observation does the clue text contain? No interpretations — only what was seen, heard, touched, or said.
 - DISCOVERABILITY: What specific information already visible to the player — character descriptions, item descriptions, leads, or prior clue text — causes them to attempt this condition? Name it explicitly.
   For ask_character_about_item or inspect_item_in_location: a prior clue text, lead, or description must explicitly name both the item and the relevant character or location together. Logical inference is not sufficient; the pairing must be stated in text.
+  For ask_character_about_clue: the prerequisite clue must explicitly name or directly implicate the target character, giving the player a visible reason to confront them about it.
 
-After designing elimination clues for every mechanism in 4a, add narrative clues to fill routing gaps and tell the story. These may have empty contradicts arrays.
+After designing elimination clues for every mechanism in 4a, add narrative clues to fill routing gaps and tell the story. These may have empty contradicts arrays. Consider adding ask_character_about_clue clues for natural dramatic follow-ups — a character named in a damning clue being confronted, an alibi witness being pressed. Mark these with dialog: true if they are reactions rather than new evidence.
 
-Aim for 12–16 clues total. Every non-victim character must have at least one talk_to_character clue. Every wrong answer must be covered by at least one clue — that is the structural requirement. Clues may have empty contradicts arrays; not every clue needs to eliminate anything.
+Aim for at least 12 clues total. Every non-victim character must have at least one talk_to_character clue. Every wrong answer must be covered by at least one non-dialog clue — that is the structural requirement. Clues may have empty contradicts arrays; not every clue needs to eliminate anything.
 
 STORY DETAIL → PLAYER VISIBILITY:
 Every key fact that a player needs to eliminate a wrong answer must be visible in a clue text. If it exists only in the story bible, it does not exist for the player. Before finalising, check each wrong answer: is there a clue whose text, taken alone, makes this wrong answer logically impossible? Pay particular attention to motive — the specific reason the perpetrator killed must be reconstructable from clue texts alone.
@@ -114,7 +115,7 @@ CHECKPOINTS: Exactly these 3: true_location, perpetrator, motive — each with 5
 Wrong answers must be plausible given the setting — not obviously wrong from the opening narrative alone.
 For motive: every wrong answer must be a specific falsifiable theory, not a generic label.
 
-CLUES: Follow the plan from Phase 1. 12–16 clues total. All clues are true observations. Each clue has a "contradicts" array. Clues for perpetrator and motive fire freely — design their conditions to require deliberate routing (item-chains, specific character visits) so they are naturally discovered after investigative facts are established.
+CLUES: Follow the plan from Phase 1. At least 12 clues. All clues are true observations. Each clue has a "contradicts" array. Clues for perpetrator and motive fire freely — design their conditions to require deliberate routing (item-chains, specific character visits) so they are naturally discovered after investigative facts are established. Dialog clues (dialog: true) appear in the log but are not pinned as evidence; they must have empty contradicts arrays.
 
 LEADS: Exactly 3. At least 2 pointing toward early-game clue conditions. Each lead must give the player a concrete reason to visit a location or seek out a character — not just name them.
 
@@ -127,7 +128,8 @@ CLUE-WRITING RULES:
 - A character's talk clue in which they account for their own whereabouts must have an empty contradicts array. Self-reported alibis are not evidence. Only a separate clue in which a third party places that character elsewhere can contradict them as a suspect.
 - A clue that contradicts a perpetrator wrong answer must be suspicious but deniable on its own — only in combination with other clues should the perpetrator be obvious.
 - Clue text must be self-contained. Do not reference what another character "said" unless that character is in this clue's own condition.
-- All clue conditions involve the investigator. Use only the 5 condition types defined in the schema.
+- All clue conditions involve the investigator. Use only the 6 condition types defined in the schema.
+- dialog: true marks a clue as flavour/reaction — it fires and appears in the log but is not pinned as evidence. Dialog clues must always have an empty contradicts array.
 - If a clue condition does not include a character, do not name any character in the clue text — unless that character's fixed location matches the condition location.
 - When the condition includes a character, write direct testimony: "[char:Name] tells the investigator...", "Asked directly, [char:Name] admits...", "Overhearing [char:Name]..."
 - Time references in clue texts must be clock-style only: "eleven o'clock at night", "between midnight and two in the morning". No "bell of night" or "before dawn" constructions.
@@ -226,12 +228,14 @@ const SCHEMA = `{
     {
       "id": string (unique),
       "condition": {
-        "type": one of the 5 investigator condition types,
-        "characters": [char_id] (for talk_to_character types; empty array otherwise),
+        "type": one of the 6 investigator condition types,
+        "characters": [char_id] (for talk_to_character and ask_ types; empty array otherwise),
         "location": location_id | null (for inspect_location types; null otherwise),
-        "item": item_id | null (for inspect_item types; null otherwise)
+        "item": item_id | null (for inspect_item types; null otherwise),
+        "clue": clue_id | null (for ask_character_about_clue only — the prerequisite clue that must already be collected; null otherwise)
       },
       "text": string (1–3 sentences, [char:Name], [loc:location_id] and [time:phrase] tags, raw observation only — no interpretations),
+      "dialog": boolean (optional — if true, this clue fires and appears in the action log but is NOT pinned to the evidence board. Use for character reactions, casual exchanges, and atmospheric colour that don't constitute investigative evidence. Default: false / omit for evidence clues),
       "contradicts": [
         {
           "checkpoint": checkpoint_id,
@@ -242,10 +246,11 @@ const SCHEMA = `{
         // answer must NOT be the correct answer for that checkpoint
         // max 3 entries per clue
         // empty array is valid — not every clue needs to eliminate a wrong answer
+        // dialog clues must have an empty contradicts array
       ]
     }
-    // 12–16 clues total. All clues are true observations.
-    // Every wrong answer for every checkpoint must be covered by at least one clue's contradicts array.
+    // 12+ clues total. All clues are true observations.
+    // Every wrong answer for every checkpoint must be covered by at least one non-dialog clue's contradicts array.
     // Every non-victim character must have at least one talk_to_character clue (contradicts may be empty).
   ],
 
@@ -271,15 +276,18 @@ The player takes discrete actions. Each action fires relevant clues immediately:
 - Inspect item (picks it up): fires inspect_item clues; also fires inspect_item_in_location for current location
 - Talk to character: fires talk_to_character clues
 - Ask character about item (must be holding it): fires ask_character_about_item clues
+- Ask character about clue (must have collected the prerequisite clue): fires ask_character_about_clue clues — the UI shows "Follow up: [clue text]" buttons when the prerequisite clue is in the player's log
 
-This means ask_character_about_item clues represent the investigator showing the item to the character. The clue text should read as the character's reaction to being shown that specific item — testimony, recognition, or denial.
+ask_character_about_item clues represent the investigator showing the item to the character. The clue text should read as the character's reaction to being shown that specific item.
+ask_character_about_clue clues represent the investigator confronting a character named in a previously collected clue. The prerequisite clue must explicitly name or directly implicate the character — the player needs a visible reason to attempt the follow-up. Use for confrontations, clarifications, or reactions that only make sense once a specific fact is known. These are natural candidates for dialog: true if they are character reactions rather than new investigative facts.
 
-CONDITION OBJECT — use exactly these 5 type strings:
-  { "type": "inspect_location", "characters": [], "location": location_id, "item": null }
-  { "type": "talk_to_character", "characters": [char_id], "location": null, "item": null }
-  { "type": "inspect_item", "characters": [], "location": null, "item": item_id }
-  { "type": "inspect_item_in_location", "characters": [], "location": location_id, "item": item_id }
-  { "type": "ask_character_about_item", "characters": [char_id], "location": null, "item": item_id }`
+CONDITION OBJECT — use exactly these 6 type strings:
+  { "type": "inspect_location", "characters": [], "location": location_id, "item": null, "clue": null }
+  { "type": "talk_to_character", "characters": [char_id], "location": null, "item": null, "clue": null }
+  { "type": "inspect_item", "characters": [], "location": null, "item": item_id, "clue": null }
+  { "type": "inspect_item_in_location", "characters": [], "location": location_id, "item": item_id, "clue": null }
+  { "type": "ask_character_about_item", "characters": [char_id], "location": null, "item": item_id, "clue": null }
+  { "type": "ask_character_about_clue", "characters": [char_id], "location": null, "item": null, "clue": prerequisite_clue_id }`
 
 export const GENRES = [
   'romance',

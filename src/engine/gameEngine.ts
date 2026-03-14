@@ -134,6 +134,7 @@ function makeContext(state: GameState, scenario: Scenario): EvalContext {
     investigatorLocation: state.investigatorLocation,
     inventory: state.inventory,
     characterLocations,
+    collectedClueIds: state.collectedClueIds,
   }
 }
 
@@ -199,11 +200,13 @@ function getFeedbackCategory(
 function buildAutoPinnedCards(
   existingCards: PinnedCard[],
   newEntries: LogEntry[],
-  actionCount: number
+  actionCount: number,
+  clues: Clue[]
 ): PinnedCard[] {
   const existingIds = new Set(existingCards.map(c => c.clueId))
+  const dialogIds = new Set(clues.filter(c => c.dialog).map(c => c.id))
   return newEntries
-    .filter(e => e.clueId && !existingIds.has(e.clueId))
+    .filter(e => e.clueId && !existingIds.has(e.clueId) && !dialogIds.has(e.clueId))
     .map(e => ({
       id: `card_${e.clueId}`,
       clueId: e.clueId!,
@@ -340,7 +343,7 @@ export function inspectLocation(state: GameState, scenario: Scenario): GameState
   }
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
-  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac)
+  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac, scenario.clues)
 
   const newlyDescribedIds = undescribedChars.map(c => c.id)
 
@@ -423,7 +426,7 @@ export function inspectItem(state: GameState, scenario: Scenario, itemId: string
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
   const allCollected = [...state.collectedClueIds, ...newClueIds]
-  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac)
+  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac, scenario.clues)
 
   return {
     ...state,
@@ -462,7 +465,7 @@ export function talkToCharacter(state: GameState, scenario: Scenario, charId: st
   }
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
-  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac)
+  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac, scenario.clues)
 
   return {
     ...state,
@@ -505,7 +508,50 @@ export function askCharacterAboutItem(
   }
 
   const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
-  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac)
+  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac, scenario.clues)
+
+  return {
+    ...state,
+    actionCount: ac,
+    collectedClueIds: [...state.collectedClueIds, ...ids],
+    pinnedCards: [...state.pinnedCards, ...autoPinned],
+    log: [...updatedLog, ...newEntries],
+    attemptedActions: alreadyAttempted ? state.attemptedActions : [...state.attemptedActions, actionKey],
+    lockedActionKeys: state.lockedActionKeys,
+  }
+}
+
+export function askCharacterAboutClue(
+  state: GameState,
+  scenario: Scenario,
+  charId: string,
+  clueId: string
+): GameState {
+  const char = scenario.characters.find(c => c.id === charId)
+  if (!char || char.location !== state.investigatorLocation) return state
+  if (!state.collectedClueIds.includes(clueId)) return state
+
+  const ac = state.actionCount + 1
+  const ctx = makeContext(state, scenario)
+
+  const { ids, entries } = fireClues(state, scenario, ctx,
+    clue => clue.condition.type === 'ask_character_about_clue' &&
+             (clue.condition.characters ?? []).includes(charId) && clue.condition.clue === clueId
+  )
+
+  const actionKey = `ask_clue:${charId}:${clueId}`
+  const alreadyAttempted = state.attemptedActions.includes(actionKey)
+  const newEntries = [...entries]
+
+  if (ids.length === 0) {
+    newEntries.push(feedbackEntry(
+      `log_${ac}_fb_${charId}_${clueId}`, ac, state.investigatorLocation,
+      formatFeedback(FEEDBACK.ask_empty, { name: char.name })
+    ))
+  }
+
+  const updatedLog = state.log.map(e => ({ ...e, isNew: false }))
+  const autoPinned = buildAutoPinnedCards(state.pinnedCards, newEntries, ac, scenario.clues)
 
   return {
     ...state,

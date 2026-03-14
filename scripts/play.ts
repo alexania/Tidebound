@@ -197,7 +197,11 @@ async function main() {
     if (!rawPath.endsWith('.json')) rawPath += '.json'
     if (!rawPath.includes('/') && !rawPath.includes('\\')) {
       const list = findScenarios(scenarioRoot)
-      const match = list.find(s => s.endsWith(rawPath!) || s.replace(/\\/g, '/').endsWith(rawPath!))
+      const normalised = (s: string) => s.replace(/\\/g, '/')
+      const candidates = list.filter(s => normalised(s).endsWith(rawPath!.replace(/\\/g, '/')))
+      // Prefer the shortest match (root-level over archived sub-paths)
+      candidates.sort((a, b) => a.length - b.length)
+      const match = candidates[0]
       rawPath = match ? join(scenarioRoot, match) : join(scenarioRoot, rawPath)
     }
   }

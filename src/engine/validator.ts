@@ -121,6 +121,7 @@ export function validateScenario(s: Scenario): ValidationError[] {
       'inspect_item',
       'inspect_item_in_location',
       'ask_character_about_item',
+      'ask_character_about_clue',
     ])
     if (!validConditionTypes.has(clue.condition.type)) {
       errors.push({ rule: 'condition_type', message: `Clue ${clue.id} has unknown condition type: ${clue.condition.type}` })
@@ -135,6 +136,10 @@ export function validateScenario(s: Scenario): ValidationError[] {
 
     if (clue.condition.item && !itemIds.has(clue.condition.item)) {
       errors.push({ rule: 'unknown_item', message: `Clue ${clue.id} condition references unknown item: ${clue.condition.item}` })
+    }
+
+    if (clue.condition.clue && !clueIds.has(clue.condition.clue)) {
+      errors.push({ rule: 'unknown_prereq_clue', message: `Clue ${clue.id} condition references unknown prerequisite clue: ${clue.condition.clue}` })
     }
 
     if (clue.condition.location && !locationIds.has(clue.condition.location)) {
@@ -192,8 +197,8 @@ export function validateScenario(s: Scenario): ValidationError[] {
   }
 
   // ── Clue count ─────────────────────────────
-  if (s.clues.length < 12 || s.clues.length > 16) {
-    errors.push({ rule: 'clue_count', message: `Expected 12–16 clues, found ${s.clues.length}` })
+  if (s.clues.length < 12) {
+    errors.push({ rule: 'clue_count', message: `Expected at least 12 clues, found ${s.clues.length}` })
   }
 
   // ── Relations ──────────────────────────────

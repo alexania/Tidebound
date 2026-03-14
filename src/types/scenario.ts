@@ -17,6 +17,7 @@ export type ConditionType =
   | 'inspect_item'
   | 'inspect_item_in_location'
   | 'ask_character_about_item'
+  | 'ask_character_about_clue'
 
 export interface Village {
   name: string
@@ -76,6 +77,7 @@ export interface ClueCondition {
   characters?: string[]
   location?: LocationId | null
   item?: string | null
+  clue?: string | null  // ask_character_about_clue: the prerequisite clue ID that must be collected
 }
 
 export interface Clue {
@@ -83,6 +85,7 @@ export interface Clue {
   condition: ClueCondition
   text: string
   contradicts: Array<{ checkpoint: string; answer: string; reason?: string }>
+  dialog?: boolean  // if true, fires and displays in log but is not pinned to the evidence board
 }
 
 // 2-3 starting leads shown to the player on turn 1 before any clues have fired.

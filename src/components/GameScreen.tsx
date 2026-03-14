@@ -16,6 +16,7 @@ interface Props {
   onInspectItem: (itemId: string) => void
   onTalk: (charId: string) => void
   onAsk: (charId: string, itemId: string) => void
+  onAskAboutClue: (charId: string, clueId: string) => void
   onAssignProof: (cpId: CheckpointId, wrongAnswer: string, clueId: string) => void
   onPinCard: (clueId: string) => void
   onUpdateImplied: (cardId: string, answer: string) => void
@@ -29,7 +30,7 @@ interface Props {
 
 export function GameScreen({
   scenario, gameState,
-  onMove, onInspectLocation, onInspectItem, onTalk, onAsk,
+  onMove, onInspectLocation, onInspectItem, onTalk, onAsk, onAskAboutClue,
   onAssignProof,
   onPinCard, onUpdateImplied, onAssignLane, onUnpinCard,
   showBoard, onToggleBoard,
@@ -93,6 +94,7 @@ export function GameScreen({
               onInspectItem={onInspectItem}
               onTalk={onTalk}
               onAsk={onAsk}
+              onAskAboutClue={onAskAboutClue}
             />
           </div>
           <div className="gs-resizer gs-resizer--h" onMouseDown={startHorizontalResize} />
